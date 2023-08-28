@@ -5,6 +5,7 @@
     - Ajoute dans un tab tout les chiffres
     - Faire la somme du tableau
 */
+// Séparer l'affichage des calculs
 
 $value = readline('Entrer un chiffre entier : ');
 

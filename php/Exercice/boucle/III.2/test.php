@@ -2,9 +2,14 @@
 // La bonne boucle
 
 // Ajout des articles
-$article = readline('Ajouter le  prix de l\'article : ');
+do {
+    $article = readline('Ajouter le  prix de l\'article : ');
+} while ($article <= 0);
+
 $arrayArticle = [];
 array_push($arrayArticle, $article);
+
+
 
 while ($article != 0) {
     $article = readline('Ajouter le  prix de l\'article : ');
@@ -19,23 +24,28 @@ $countArticle = count($arrayArticle);
 echo 'Vous avez ' . $countArticle . ' articles' . "\n";
 echo 'Pour un total de ' . $sumArticle . '€' . "\n";
 
-// Payement des artciles
-$currency = readline('Payer vos articles : ');
-$arrayCurrency = [];
-$sumCurrency = 0;
-array_push($arrayCurrency, $currency);
 
-while ($sumArticle != $sumCurrency) {
-    $currency = readline('Payer vos articles : ');
-    array_push($arrayCurrency, $currency);
-    $sumCurrency = array_sum($arrayCurrency);
+// Rendre la monnaie 
+do {
+    $makeCurrency = readline('Payer avec : ');
+} while ($makeCurrency <= $sumArticle);
 
-    if ($sumArticle < $sumCurrency) {
-        array_pop($arrayCurrency);
-        echo 'Vous avez donner trop' . "\n";
+$diff = $makeCurrency - $sumArticle;
+$totalBillet = [];
+
+// si 30 € a rendre => 10€, 10€, 10€ ...
+while ($diff != 0) {
+    if ($diff >= 10) {
+        $diff -= 10;
+        array_push($totalBillet, 10);
+    } else {
+        $diff -= 1;
+        array_push($totalBillet, 1);
     }
+}
 
-    if ($sumArticle == $sumCurrency) {
-        echo 'Vos achats sont payer !';
-    }
+rsort($totalBillet);
+
+foreach ($totalBillet as $billet) {
+    echo $billet . ' € ';
 }
