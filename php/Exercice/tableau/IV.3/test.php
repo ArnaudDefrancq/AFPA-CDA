@@ -46,9 +46,9 @@ function saisirTab2D(string $invite1, string $invite2)
 
     unset($array[count($array) - 1]);
 
-    print_r($array);
+    return $array;
 }
 
-saisirTab2D('x : ', 'y : ');
 
 // Afficher tableau 2D sous forme de plateau de jeu
+$array = saisirTab2D('x : ', 'y : ');
