@@ -73,27 +73,31 @@ function creationTab(array $tab)
 
 
 
-// creationTab($array2D);
+creationTab($array2D);
 
 
-// Chercher une valeur dans un tableau 2D
+// Chercher une valeur dans un tableau 2D 
 
 /**
- * Permet de cherche une valeur dans un tableau 2D
+ * Permet de cherche une valeur dans un tableau 2D par rapport à une valeur
  *
  * @param array $tab tableau a utiliser
  * @param val $val  valeur a trouver
  * @return array
  */
-function trouverValeurTab(array $tab, $val)
+function trouverKeyTab(array $tab, $val)
 {
     foreach ($tab as $key => $ligne) {
-        foreach ($ligne as $colonne) {
-            if ($val == $colonne) return $key;
-        }
+        if ($ligne == $val) echo $key;
     }
 }
+trouverKeyTab($array2D, 0);
 
-$test = trouverValeurTab($array2D, 8);
 
-echo $test;
+// foreach ($ligne as $colonne) {
+//     if ($val == $colonne) {
+//         echo $key;
+//     } else {
+//         echo 'Aucune key associer';
+//     };
+// }
