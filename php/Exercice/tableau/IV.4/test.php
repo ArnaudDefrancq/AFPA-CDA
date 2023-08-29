@@ -27,11 +27,9 @@ function creationTab(array $tab)
 
 
     foreach ($tab as $key => $ligne) {
-        // echo $key;
         $nbLigne++;
         foreach ($ligne as $colonne) {
             $nbColonne++;
-            // echo $colonne;
         }
         echo "\n";
     }
@@ -39,6 +37,7 @@ function creationTab(array $tab)
     for ($i = 0; $i < ($nbColonne / $nbLigne); $i++) {
         $premierLigne[] = $aTo[$i];
     }
+
     for ($i = 0; $i < ($nbColonne / $nbLigne) + 1; $i++) {
         $separation[] = '----';
     }
@@ -59,6 +58,7 @@ function creationTab(array $tab)
     echo "\n";
 
     foreach ($tab as $key => $ligne) {
+
         echo "$key | ";
         foreach ($ligne as $colonne) {
             echo  "$colonne | ";
@@ -70,3 +70,10 @@ function creationTab(array $tab)
 
 
 creationTab($array2D);
+
+
+// Chercher une valeur dans un tableau 2D
+
+function trouverValeur()
+{
+}
