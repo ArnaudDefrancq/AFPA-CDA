@@ -1,0 +1,2 @@
+<?php
+// Les tableaux associatifs
