@@ -25,7 +25,7 @@ function creationTab(array $tab)
 
     $separation = [];
 
-
+    // def le nb de colonne et  de ligne
     foreach ($tab as $key => $ligne) {
         $nbLigne++;
         foreach ($ligne as $colonne) {
@@ -34,29 +34,34 @@ function creationTab(array $tab)
         echo "\n";
     }
 
+    // Ajouter le nombre de lettre en fonction du nombre de colonne
     for ($i = 0; $i < ($nbColonne / $nbLigne); $i++) {
         $premierLigne[] = $aTo[$i];
     }
 
+    // Ajouter la séparation en fonction du nombre de colonne
     for ($i = 0; $i < ($nbColonne / $nbLigne) + 1; $i++) {
         $separation[] = '----';
     }
 
-
     echo "\ |";
 
+
+    //  Définition de la ligne qui def les colonnes
     foreach ($premierLigne as $lettre) {
         echo   " $lettre |";
     }
 
     echo "\n";
 
+    // Seéparation ligne 1 - 2
     foreach ($separation as $sep) {
         echo $sep;
     }
 
     echo "\n";
 
+    // Ajout des valeurs dans le tableau
     foreach ($tab as $key => $ligne) {
 
         echo "$key | ";
