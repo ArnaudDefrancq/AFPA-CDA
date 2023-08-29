@@ -55,19 +55,18 @@ function creationTab(array $tab)
     echo "\n";
 
     // Seéparation ligne 1 - 2
-    foreach ($separation as $sep) {
-        echo $sep;
-    }
+    echo implode('', $separation);
 
     echo "\n";
 
     // Ajout des valeurs dans le tableau
     foreach ($tab as $key => $ligne) {
-
         echo "$key | ";
         foreach ($ligne as $colonne) {
             echo  "$colonne | ";
         }
+        echo "\n";
+        echo implode('', $separation);
         echo "\n";
     }
 }
