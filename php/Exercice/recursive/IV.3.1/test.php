@@ -14,7 +14,7 @@
  */
 function calculFactorielle(int $nbDepart)
 {
-    if ($nbDepart == 1) {
+    if ($nbDepart == 0) {
         return 1;
     } else {
         $nouveauNb = $nbDepart - 1;
@@ -35,23 +35,16 @@ function calculFactorielle(int $nbDepart)
 /**
  * Donne 1 à 1 les lettres d'un mot
  *
- * @param string $mot
+ * @param mixed $mot
  * @return string
  */
-function epelerMot(string $mot)
+function epelerMot($mot)
 {
-    // split le mot et le mettre dans array
-    $array = str_split($mot);
-
-    // def le nombre de lettre
-    $nbLettre = count($array);
-
-    if ($nbLettre == 0) {
-        echo $array[0];
+    if (strlen($mot) == 1) {
+        return $mot;
     } else {
+        return substr($mot, 0, 1) . " " . epelerMot(substr($mot, 1));
     }
-
-    echo $nbLettre;
 }
 
-epelerMot('france');
+echo epelerMot('france');
