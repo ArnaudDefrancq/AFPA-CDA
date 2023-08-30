@@ -1,10 +1,48 @@
 <?php
 // Afficher tableau 2D sous forme de plateau de jeu
-$array2D = [
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
+/**
+ * On vérifie que le nombre soit un entier positif ou negatif
+ *
+ * @param integer $nb
+ * @param bool $positif Permet d'accepter ou non les négatifs
+ * @return boolean
+ */
+function checkEntier(int $nb, bool $positif = false)
+{
+    if ($positif) {
+        if (preg_match("/^[\d]+$/", $nb)) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        if (preg_match("/^(-)?[\d]+$/", $nb)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
 
-];
+function saisirTab2D(string $invite1, string $invite2)
+{
+    $array = [];
+    do {
+        $valueX = readline($invite1);
+        $valueY = readline($invite2);
+
+        if (checkEntier($valueX, true) && checkEntier($valueY, true)) array_push($array, ['x' => $valueX, 'y' => $valueY]); // Vérification de l'entrer et on push
+
+    } while ($valueX != 0 && $valueY != 0); // Si 0 termine la boucle
+
+    unset($array[count($array) - 1]);
+
+    return $array;
+}
+
+
+// Afficher tableau 2D sous forme de plateau de jeu
+// $array = saisirTab2D('x : ', 'y : ');
 
 /**
  * Permet la visualisation du tableau dans la console
@@ -16,88 +54,56 @@ function creationTab(array $tab)
 {
     // Générer 'lettre |' en foncion nombre colonne
 
-    $aTo = range('a', 'z'); // tableau de  a -> z
+    $nbColonne = count($tab[0]);
 
-    $nbColonne = 0;
-    $nbLigne = 0;
+    $separation = '----';
 
-    $premierLigne = [];
-
-    $separation = [];
-
-    // def le nb de colonne et  de ligne
-    foreach ($tab as $key => $ligne) {
-        $nbLigne++;
-        foreach ($ligne as $colonne) {
-            $nbColonne++;
-        }
-        echo "\n";
+    // Seéparation ligne 1 - 2
+    for ($i = 0; $i < $nbColonne; $i++) {
+        $separation = $separation . '----';
     }
 
-    // Ajouter le nombre de lettre en fonction du nombre de colonne
-    for ($i = 0; $i < ($nbColonne / $nbLigne); $i++) {
-        $premierLigne[] = $aTo[$i];
-    }
 
-    // Ajouter la séparation en fonction du nombre de colonne
-    for ($i = 0; $i < ($nbColonne / $nbLigne) + 1; $i++) {
-        $separation[] = '----';
-    }
-
-    echo "\ |";
+    echo " \ |";
 
 
     //  Définition de la ligne qui def les colonnes
-    foreach ($premierLigne as $lettre) {
-        echo   " $lettre |";
+    for ($i = 0; $i < $nbColonne; $i++) {
+        $lettre = chr($i + 65);
+        echo " $lettre |";
     }
 
     echo "\n";
 
-    // Seéparation ligne 1 - 2
-    echo implode('', $separation);
+    echo $separation;
+
 
     echo "\n";
 
     // Ajout des valeurs dans le tableau
     foreach ($tab as $key => $ligne) {
-        echo "$key | ";
+        echo " $key |";
         foreach ($ligne as $colonne) {
-            echo  "$colonne | ";
+            echo  " $colonne |";
         }
         echo "\n";
-        echo implode('', $separation);
+        echo $separation;
         echo "\n";
     }
 }
 
-
-
-creationTab($array2D);
+// creationTab($array);
 
 
 // Chercher une valeur dans un tableau 2D 
 
-/**
- * Permet de cherche une valeur dans un tableau 2D par rapport à une valeur
- *
- * @param array $tab tableau a utiliser
- * @param val $val  valeur a trouver
- * @return array
- */
-function trouverKeyTab(array $tab, $val)
-{
-    foreach ($tab as $key => $ligne) {
-        if ($ligne == $val) echo $key;
-    }
-}
-trouverKeyTab($array2D, 0);
+$arrayTest = [
+    [1, 2],
+    [3, 4],
+    [4, 6],
+];
 
-
-// foreach ($ligne as $colonne) {
-//     if ($val == $colonne) {
-//         echo $key;
-//     } else {
-//         echo 'Aucune key associer';
-//     };
-// }
+/* Fonction possible : 
+    array_search;
+    in_array
+*/
