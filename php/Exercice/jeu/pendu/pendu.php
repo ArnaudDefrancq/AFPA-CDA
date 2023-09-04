@@ -1,7 +1,5 @@
 <?php
 
-$arrayJeu = [];
-
 /**
  * Demande le niveau de difficulté à l'utilisateur
  *
@@ -41,6 +39,8 @@ function saisirNbVie()
     return $nbVie;
 }
 
+$nbVie = saisirNbVie();
+
 /**
  * Choisi au hasard un mot dans une liste
  *
@@ -67,24 +67,36 @@ function init()
     $arrayJeu = [
         'difficulte' => saisirDifficulte(),
         'nbJoueur' => saisirNbJoueur(),
-        'nbVie' => saisirNbVie(),
         'motAChercher' => determinerMotAChercher()
     ];
 
-    return $arrayJeu = $arrayJeu;
+    // return $arrayJeu;
+
+    jeu($arrayJeu['motAChercher'], $arrayJeu['difficulte'], $arrayJeu['nbJoueur'], $arrayJeu['nbVie']);
 }
-
-// $array = init();
-
-// $difficulte = $array['difficulte'];
-// $nbJoueur = $array['nbJoueur'];
-// $nbVie = $array['nbVie'];
-// $motAChercher = $array['motAChercher'];
 
 function jeu($motAChercher, $difficulte, $nbJoueur, $nbVie)
 {
+    $motCoder = coderMot($motAChercher, $difficulte);
+    afficherMotCode($motCoder);
+
+    $joueurEnCour = quiJoue($nbJoueur);
+    joueurSuivant($nbJoueur, $joueurEnCour);
+
+    $lettre = saisirLettre();
 }
 
+/**
+ * Affiche le mot codé
+ *
+ * @param array $motCode Tableau du mot codé
+ * @return void
+ */
+function afficherMotCode(array $motCode)
+{
+    echo implode(' ', $motCode);
+    echo "\n";
+}
 /**
  * Construit un tableau du mot en fonction de la difficulté
  *
@@ -121,16 +133,6 @@ function coderMot(string $mot, int $difficulte)
     }
 }
 
-/**
- * Affiche le mot codé
- *
- * @param array $motCode Tableau du mot codé
- * @return void
- */
-function afficherMotCode(array $motCode)
-{
-    echo implode(' ', $motCode);
-}
 
 /**
  * Définit qui commence la partie
@@ -143,6 +145,9 @@ function quiJoue(int $nbJoueur)
     $arrayJoueur = range(1, $nbJoueur);
     $randomKeyJoueur = array_rand($arrayJoueur, 1);
     $randomJoueur = $arrayJoueur[$randomKeyJoueur];
+
+    echo "C'est au tour du joueur " . $randomJoueur  . " de jouer !";
+    echo "\n";
 
     return $randomJoueur;
 }
@@ -170,11 +175,15 @@ function joueurSuivant(int $nbJoueur, int $joueurEnCours)
 /**
  * Permet au joueur en cours de proposer une lettre
  *
- * @param integer $joueurEnCours Celui qui doit jouer
  * @return string La lettre ayant été proposée
  */
-function saisirLettre(int $joueurEnCours)
+function saisirLettre()
 {
+    do {
+        $lettre = readline("Sélectionner une lettre : ");
+    } while (!preg_match("/^[a-z]$/", $lettre));
+
+    return $lettre;
 }
 
 /**
@@ -189,6 +198,10 @@ function saisirLettre(int $joueurEnCours)
  */
 function verifierLettre(string $lettre, array $motCode, string $mot, int $difficulte, string $propositions)
 {
+    // On compare la lettre avec le tableau du mot
+    // Si lvl 0 => on remplace toutes les  - par la lettre
+    // Si lvl 1 => on remplace toutes les - par la lettre
+    // Si lvl 2 => si plusieurs même lettres, on remplace que 1 - (aléatoire) par une lettre
 }
 
 /**
@@ -261,3 +274,5 @@ function estGagne(array $motCode)
 function conclusion($resultat)
 {
 }
+
+init();
