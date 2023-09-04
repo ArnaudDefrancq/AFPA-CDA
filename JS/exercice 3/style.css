@@ -1,0 +1,14 @@
+.color1 {
+    color: red;
+    cursor: pointer;
+}
+
+.color2 {
+    color: green;
+    cursor: pointer;
+}
+
+.titre, .para {
+    cursor: pointer;
+}
+

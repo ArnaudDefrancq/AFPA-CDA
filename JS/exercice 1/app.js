@@ -1,25 +1,36 @@
 // Variante 1 (2 img dans le html)
 
 // ------------------------------------------------------ //
-// const ampoules1 = document.getElementById("eteinte");
-// const ampoules2 = document.getElementById("allumer");
+const ampoules1 = document.getElementById("eteinte");
+const ampoules2 = document.getElementById("allumer");
 
-// ampoules1.addEventListener("click", (e) => {
-//   if (e.target.classList != "noDisplay") {
-//     ampoules1.classList.add("noDisplay");
-//     ampoules2.classList.remove("noDisplay");
-//   }
-// });
-// ampoules2.addEventListener("click", (e) => {
-//   if (e.target.classList != "noDisplay") {
-//     ampoules2.classList.add("noDisplay");
-//     ampoules1.classList.remove("noDisplay");
-//   }
-// });
+ampoules1.addEventListener("click", (e) => {
+  if (e.target.classList != "noDisplay") {
+    ampoules1.classList.add("noDisplay");
+    ampoules2.classList.remove("noDisplay");
+  }
+});
+ampoules2.addEventListener("click", (e) => {
+  if (e.target.classList != "noDisplay") {
+    ampoules2.classList.add("noDisplay");
+    ampoules1.classList.remove("noDisplay");
+  }
+});
 
 // ------------------------------------------------------ //
 
-const ampoules = document.querySelectorAll(".ampoule");
+// const div = document.getElementById("div");
+// const ampoules = document.querySelectorAll(".ampoule");
+
+// div.addEventListener("click", (e) => {
+//   ampoules.forEach((elt) => {
+//     if (elt.classList.length != 1) {
+//       elt.classList.remove("noDisplay");
+//     } else {
+//       elt.classList.add("noDisplay");
+//     }
+//   });
+// });
 
 // ------------------------------------------------------ //
 

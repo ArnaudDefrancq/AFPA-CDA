@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tableau {
+    display: flex;
+    justify-content: space-around;
+    background-color: orangered;
+    margin: 3%;
+    padding: 2% 0;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.divLabelInput {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 1%;
+}
