@@ -1,0 +1,4 @@
+.tourner-image {
+    transform: rotate(90deg);
+    transition: 3s;
+}

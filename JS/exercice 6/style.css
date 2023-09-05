@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+#jeu {
+    border: 1px solid black;
+    height: 800px;
+    width: 1000px;
+    margin: 2% auto;
+    position: relative;
+}
+
+#carre {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    position: absolute;
+    top: var(--X);
+    left: var(--Y);
+
+}
+
+#direction {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.direction-fleche {
+    font-size: 5em;
+    cursor: pointer;
+}
