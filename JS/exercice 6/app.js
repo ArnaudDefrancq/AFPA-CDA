@@ -79,8 +79,13 @@ jeu.addEventListener("mousemove", (e) => {
       y: e.clientY - jeu.getBoundingClientRect().top - mouvCarre / 2,
     };
 
-    cube.style.setProperty("--X", mousePosition.y + "px");
-    cube.style.setProperty("--Y", mousePosition.x + "px");
+    if (mousePosition.x < jeu.offsetWidth - mouvCarre && mousePosition.x > 0) {
+      cube.style.setProperty("--Y", mousePosition.x + "px");
+    }
+
+    if (mousePosition.y < jeu.offsetHeight - mouvCarre && mousePosition.y > 0) {
+      cube.style.setProperty("--X", mousePosition.y + "px");
+    }
   }
 });
 cube.addEventListener("mouseup", () => {
