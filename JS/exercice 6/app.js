@@ -1,14 +1,14 @@
 const flecheDirection = document.querySelectorAll(".direction-fleche");
 const cube = document.getElementById("carre");
 const jeu = document.getElementById("jeu");
+const barriere = document.querySelectorAll("[data-barriere]");
 let isDown = false;
 let mousePosition;
-
-var positionDepart = [];
-
+var positionDepart = [0, 0];
 const mouvCarre = 100;
-
 let positionDepartX, positionDepartY;
+const stopX = [];
+const stopY = [];
 
 cube.style.setProperty("--X", positionDepart[0] + "px");
 cube.style.setProperty("--Y", positionDepart[1] + "px");
@@ -39,7 +39,7 @@ flecheDirection.forEach((fleche) => {
   });
 });
 
-window.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", (e) => {
   switch (e.keyCode) {
     case 40:
       if (positionDepart[0] < jeu.offsetHeight - mouvCarre) {
@@ -64,6 +64,16 @@ window.addEventListener("keydown", (e) => {
     default:
       break;
   }
+
+  console.log(positionDepart);
+
+  barriere.forEach((elt) => {
+    const positionBarriere = [
+      elt.attributes[0].ownerElement.offsetHeight,
+      elt.attributes[0].ownerElement.offsetWidth,
+    ];
+    console.log(positionBarriere);
+  });
 });
 
 cube.addEventListener("mousedown", (e) => {
