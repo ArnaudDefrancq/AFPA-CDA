@@ -5,7 +5,7 @@ const barriere = document.querySelectorAll("[data-barriere]");
 let isDown = false;
 let mousePosition;
 var positionDepart = [0, 0];
-const mouvCarre = 100;
+const mouvCarre = 50;
 let positionDepartX, positionDepartY;
 
 cube.style.setProperty("--X", positionDepart[0] + "px");
@@ -19,7 +19,7 @@ const deplacerCube = (X, Y) => {
   let widthCube = parseInt(styleCube.width);
   let heightCube = parseInt(styleCube.height);
 
-  // console.log("cube : ", topCube, leftCube, widthCube, heightCube);
+  console.log("cube : ", topCube, leftCube, widthCube, heightCube);
 
   barriere.forEach((elt) => {
     let styleBarriere = window.getComputedStyle(elt);
@@ -41,13 +41,13 @@ const deplacerCube = (X, Y) => {
         heightCube
       );
 
-    // console.log(
-    //   "Barriere : ",
-    //   topBarriere,
-    //   leftBarriere,
-    //   widthBarriere,
-    //   heightBarriere
-    // );
+    console.log(
+      "Barriere : ",
+      topBarriere,
+      leftBarriere,
+      widthBarriere,
+      heightBarriere
+    );
   });
   if (deplacerCarreBon) {
     cube.style.setProperty("--X", (positionDepart[0] += X) + "px");

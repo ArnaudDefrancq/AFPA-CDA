@@ -5,22 +5,22 @@
 }
 
 body {
-    overflow: hidden;
+    overflow-y: hidden;
     background: #edecec5c;
 }
 
 #jeu {
     border: 1px solid black;
     height: 800px;
-    width: 1000px;
-    margin: 2% auto;
+    width: 3000px;
+    margin: 1% auto;
     position: relative;
     background: white;
 }
 
 #carre {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     background-color: green;
     position: absolute;
     top: var(--X);
@@ -36,22 +36,159 @@ body {
 }
 
 .direction-fleche {
-    font-size: 5em;
+    font-size: 4em;
     cursor: pointer;
 }
 
-.autre-cube-1 {
-    width: 800px;
-    height: 100px;
+.autre-cube {
     background: red;
     position: absolute;
-    top: 200px;
+
 }
-.autre-cube-2 {
+
+.n1 {
+    width: 400px;
+    height: 50px;
+    top: 50px;
+    left: 0;
+}
+
+.n2 {
+    width: 300px;
+    height: 50px;
+    top: 50px;
+    left: 450px;
+}
+.n3 {
     width: 800px;
+    height: 50px;
+    top: 150px;
+    left: 50px;
+}
+.n4 {
+    width: 50px;
+    height: 200px;
+    top: 200px;
+    left: 150px;
+}
+.n5 {
+    width: 100px;
+    height: 50px;
+    top: 250px;
+    left: 0px;
+}
+.n6 {
+    width: 50px;
+    height: 50px;
+    top: 100px;
+    left: 600px;
+}
+.n7 {
+    width: 50px;
+    height: 50px;
+    top: 350px;
+    left: 100px;
+}
+.n8 {
+    width: 50px;
+    height: 300px;
+    top: 350px;
+    left: 0px;
+}
+.n9 {
+    width: 50px;
+    height: 200px;
+    top: 450px;
+    left: 100px;
+}
+.n10 {
+    width: 300px;
+    height: 50px;
+    top: 700px;
+    left: 50px;  
+}
+.n11 {
+    width: 50px;
+    height: 300px;
+    top: 400px;
+    left: 200px;  
+}
+.n12 {
+    width: 50px;
+    height: 50px;
+    top: 600px;
+    left: 50px;  
+}
+.n12 {
+    width: 50px;
+    height: 350px;
+    top: 450px;
+    left: 400px;  
+}
+.n13 {
+    width: 50px;
+    height: 50px;
+    top: 600px;
+    left: 350px;  
+}
+.n14 {
+    width: 50px;
+    height: 50px;
+    top: 600px;
+    left: 250px;  
+}
+.n15 {
+    width: 50px;
+    height: 300px;
+    top: 250px;
+    left: 300px;  
+}
+.n16 {
+    width: 50px;
+    height: 50px;
+    top: 450px;
+    left: 350px;
+   
+}
+.n17 {
+    width: 50px;
     height: 100px;
-    background: red;
-    position: absolute;
-    top: 500px;
-    left: 200px;
+    top: 250px;
+    left: 250px;
+}
+.n18 {
+    width: 200px;
+    height: 50px;
+    top: 250px;
+    left: 400px;
+}
+.n19 {
+    width: 50px;
+    height: 150px;
+    top: 250px;
+    left: 400px;
+}
+.n20 {
+    width: 50px;
+    height: 200px;
+    top: 350px;
+    left: 500px;
+}
+.n21 {
+    width: 300px;
+    height: 50px;
+    top: 550px;
+    left: 500px;
+}
+.n22 {
+    width: 500px;
+    height: 50px;
+    top: 650px;
+    left: 500px;
+}
+.n23 {
+    width: 500px;
+    height: 50px;
+    top: 750px;
+    left: 500px;
 }
