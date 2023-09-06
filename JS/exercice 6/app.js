@@ -4,9 +4,11 @@ const jeu = document.getElementById("jeu");
 let isDown = false;
 let mousePosition;
 
-var positionDepart = [0, 0];
+var positionDepart = [];
 
 const mouvCarre = 100;
+
+let positionDepartX, positionDepartY;
 
 cube.style.setProperty("--X", positionDepart[0] + "px");
 cube.style.setProperty("--Y", positionDepart[1] + "px");
@@ -66,22 +68,21 @@ window.addEventListener("keydown", (e) => {
 
 cube.addEventListener("mousedown", (e) => {
   isDown = true;
-  let startX = e.clientX;
-  let startY = e.clientY;
 
-  jeu.addEventListener("mousemove", (e) => {
-    if (isDown) {
-      mousePosition = {
-        x: e.clientX - startX,
-        y: e.clientY - startY,
-      };
+  positionDepartX = e.clientX;
+  positionDepartY = e.clientX;
+});
+jeu.addEventListener("mousemove", (e) => {
+  if (isDown) {
+    mousePosition = {
+      x: e.clientX - jeu.getBoundingClientRect().left - mouvCarre / 2,
+      y: e.clientY - jeu.getBoundingClientRect().top - mouvCarre / 2,
+    };
 
-      cube.style.setProperty("--X", mousePosition.y + "px");
-      cube.style.setProperty("--Y", mousePosition.x + "px");
-    }
-  });
-
-  cube.addEventListener("mouseup", (e) => {
-    isDown = false;
-  });
+    cube.style.setProperty("--X", mousePosition.y + "px");
+    cube.style.setProperty("--Y", mousePosition.x + "px");
+  }
+});
+cube.addEventListener("mouseup", () => {
+  isDown = false;
 });
