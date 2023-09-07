@@ -141,6 +141,13 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+let i = 0;
+
+setInterval(() => {
+  i++;
+  console.log(i);
+}, 1000);
+
 // cube.addEventListener("mousedown", (e) => {
 //   isDown = true;
 
