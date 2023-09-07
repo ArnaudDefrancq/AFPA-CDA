@@ -2,24 +2,27 @@ const flecheDirection = document.querySelectorAll(".direction-fleche");
 const cube = document.getElementById("carre");
 const jeu = document.getElementById("jeu");
 const barriere = document.querySelectorAll("[data-barriere]");
+const items = document.querySelectorAll("[data-item]");
 let isDown = false;
 let mousePosition;
 var positionDepart = [0, 0];
 const mouvCarre = 50;
 let positionDepartX, positionDepartY;
+let nbItems = items.length;
 
 cube.style.setProperty("--X", positionDepart[0] + "px");
 cube.style.setProperty("--Y", positionDepart[1] + "px");
 
 const deplacerCube = (X, Y) => {
   let deplacerCarreBon = true;
+  let recupererItem = true;
   let styleCube = window.getComputedStyle(cube, null);
   let topCube = parseInt(styleCube.top);
   let leftCube = parseInt(styleCube.left);
   let widthCube = parseInt(styleCube.width);
   let heightCube = parseInt(styleCube.height);
 
-  console.log("cube : ", topCube, leftCube, widthCube, heightCube);
+  // console.log("cube : ", topCube, leftCube, widthCube, heightCube);
 
   barriere.forEach((elt) => {
     let styleBarriere = window.getComputedStyle(elt);
@@ -41,17 +44,51 @@ const deplacerCube = (X, Y) => {
         heightCube
       );
 
-    console.log(
-      "Barriere : ",
-      topBarriere,
-      leftBarriere,
-      widthBarriere,
-      heightBarriere
-    );
+    // console.log(
+    //   "Barriere : ",
+    //   topBarriere,
+    //   leftBarriere,
+    //   widthBarriere,
+    //   heightBarriere
+    // );
   });
+
+  items.forEach((item) => {
+    let styleItem = window.getComputedStyle(item);
+    let topItem = parseInt(styleItem.top);
+    let leftItem = parseInt(styleItem.left);
+    let widthItem = parseInt(styleItem.width);
+    let heightItem = parseInt(styleItem.height);
+
+    recupererItem =
+      recupererItem &&
+      recupItems(
+        topItem,
+        leftItem,
+        widthItem,
+        heightItem,
+        topCube + X,
+        leftCube + Y,
+        widthCube,
+        heightCube
+      );
+
+    if (!recupererItem) {
+      supprItems(topItem, leftItem, topCube + X, leftCube + Y, item);
+    }
+
+    if (nbItems == 0) {
+      alert("gagné");
+    }
+  });
+
   if (deplacerCarreBon) {
     cube.style.setProperty("--X", (positionDepart[0] += X) + "px");
     cube.style.setProperty("--Y", (positionDepart[1] += Y) + "px");
+  }
+
+  if (items.length == 0) {
+    console.log("gagner");
   }
 };
 
@@ -60,6 +97,21 @@ const checkCollision = (tb, lb, wb, hb, tc, lc, wc, hc) => {
     return false;
   }
   return true;
+};
+
+const recupItems = (tb, lb, wb, hb, tc, lc, wc, hc) => {
+  if (lc < lb + wb && lc + wc > lb && tc < tb + hb && tc + hc > tb) {
+    return false;
+  }
+  return true;
+};
+
+const supprItems = (tb, lb, tc, lc, itm) => {
+  if (lc == lb && tc == tb) {
+    nbItems--;
+    itm.remove();
+  }
+  return false;
 };
 
 document.addEventListener("keydown", (e) => {
@@ -139,3 +191,5 @@ document.addEventListener("keydown", (e) => {
 //     }
 //   });
 // });
+
+// lc == lb + wb && lc + wc == lb && tc == tb + hb && tc + hc == tb
