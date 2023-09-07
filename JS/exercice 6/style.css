@@ -33,11 +33,22 @@ body {
     width: 100%;
     justify-content: center;
     align-items: baseline;
+    position: relative;
+    padding: 2%;
+}
+
+#timer {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    font-size: 2em;
 }
 
 .direction-fleche {
     font-size: 4em;
     cursor: pointer;
+ 
+
 }
 
 .autre-cube {

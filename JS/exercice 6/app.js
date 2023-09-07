@@ -9,6 +9,7 @@ var positionDepart = [0, 0];
 const mouvCarre = 50;
 let positionDepartX, positionDepartY;
 let nbItems = items.length;
+const timerSpan = document.getElementById("timer");
 
 cube.style.setProperty("--X", positionDepart[0] + "px");
 cube.style.setProperty("--Y", positionDepart[1] + "px");
@@ -145,6 +146,7 @@ let i = 0;
 
 setInterval(() => {
   i++;
+  timerSpan.innerHTML = i++;
   console.log(i);
 }, 1000);
 
