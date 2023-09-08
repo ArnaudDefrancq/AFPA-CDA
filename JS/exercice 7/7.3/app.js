@@ -72,42 +72,45 @@ const controleSaisiInput = () => {
   inputs.forEach((input) => {
     if (input.name == "name") {
       inputName = input.value.toLowerCase();
-      if (!checkSaisiName(inputName)) console.log("class++name");
+      console.log(input);
       return inputName;
     }
     if (input.name == "phone") {
       inputPhone = input.value;
-      if (!checkSaisiName(inputPhone)) console.log("class++phone");
+      console.log(input);
       return inputPhone;
     }
     if (input.name == "postal") {
       inputPostal = input.value;
-      if (!checkSaisiName(inputPostal)) console.log("class++postal");
+      console.log(input);
       return inputPostal;
     }
     if (input.name == "email") {
       inputMail = input.value.toLowerCase();
-      if (!checkSaisiName(inputMail)) console.log("class++email");
+      console.log(input);
       return inputMail;
     }
     if (input.name == "password") {
       inputPassword = input.value;
-      if (!checkSaisiName(inputPassword)) console.log("class++mdp");
+      console.log(input);
       return inputPassword;
     }
   });
-  if (
-    checkSaisiName(inputName) &&
-    checkSaisiPhone(inputPhone) &&
-    checkSaisiPostal(inputPostal) &&
-    checkSaisiMail(inputMail) &&
-    checkSaisiPasword(inputPassword)
-  ) {
-    error.innerHTML = "";
-    console.log("bon");
-  } else {
-    error.innerHTML = "Vous avez mal remplit le formulaire";
-  }
+
+  console.log(inputMail, inputPassword, inputPhone, inputPostal, inputName);
+
+  //   if (
+  //     checkSaisiName(inputName) &&
+  //     checkSaisiPhone(inputPhone) &&
+  //     checkSaisiPostal(inputPostal) &&
+  //     checkSaisiMail(inputMail) &&
+  //     checkSaisiPasword(inputPassword)
+  //   ) {
+  //     error.innerHTML = "";
+  //     console.log("bon");
+  //   } else {
+  //     error.innerHTML = "Vous avez mal remplit le formulaire";
+  //   }
 };
 
 document.addEventListener("submit", (e) => {
