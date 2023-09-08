@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <form class="form">
+      <div class="labelInput">
+        <label for="name" class="label">Nom</label>
+        <input type="text" name="name" id="name" class="input" />
+      </div>
+
+      <div class="labelInput">
+        <label for="phone" class="label">Téléphone</label>
+        <input type="tel" name="phone" id="phone" class="input" />
+      </div>
+
+      <div class="labelInput">
+        <label for="postal" class="label">Code postal</label>
+        <input type="text" name="postal" id="postal" class="input" />
+      </div>
+
+      <div class="labelInput">
+        <label for="email" class="label">Adresse mail</label>
+        <input type="email" name="email" id="email" class="input" />
+      </div>
+
+      <div class="labelInput">
+        <label for="password" class="label">Mot de passe</label>
+        <input type="password" name="password" id="password" class="input" />
+      </div>
+
+      <button type="submit" class="btn btn-event" id="btn">Envoyer</button>
+
+      <span id="error" class="error-message"></span>
+    </form>
+  </body>
+</html>
