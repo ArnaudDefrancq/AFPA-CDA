@@ -14,56 +14,49 @@ let REGEX_EMAIL = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
 let REGEX_PASSWORD =
   /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$/;
 
-const checkSaisiName = (name) => {
+const checkSaisiName = (name, input) => {
   if (name.match(REGEX_NAME)) {
-    console.log("bon");
+    input.classList.add("good-input");
     return true;
   } else {
-    console.log("faux");
+    input.classList.add("bad-input");
     return false;
   }
 };
 
-const checkSaisiPhone = (phone) => {
+const checkSaisiPhone = (phone, input) => {
   if (phone.match(REGEX_PHONE)) {
-    console.log("bon");
-
+    input.classList.add("good-input");
     return true;
   } else {
-    console.log("faux");
-
+    input.classList.add("bad-input");
     return false;
   }
 };
-const checkSaisiPostal = (postal) => {
+const checkSaisiPostal = (postal, input) => {
   if (postal.match(REGEX_POSTAL)) {
-    console.log("bon");
-
+    input.classList.add("good-input");
     return true;
   } else {
-    console.log("faux");
-
+    input.classList.add("bad-input");
     return false;
   }
 };
-const checkSaisiMail = (mail) => {
+const checkSaisiMail = (mail, input) => {
   if (mail.match(REGEX_EMAIL)) {
-    console.log("bon");
-
+    input.classList.add("good-input");
     return true;
   } else {
-    console.log("faux");
-
+    input.classList.add("bad-input");
     return false;
   }
 };
-const checkSaisiPasword = (password) => {
+const checkSaisiPasword = (password, input) => {
   if (password.match(REGEX_PASSWORD)) {
-    console.log("bon");
+    input.classList.add("good-input");
     return true;
   } else {
-    console.log("faux");
-
+    input.classList.add("bad-input");
     return false;
   }
 };
@@ -72,27 +65,27 @@ const controleSaisiInput = () => {
   inputs.forEach((input) => {
     if (input.name == "name") {
       inputName = input.value.toLowerCase();
-      console.log(input);
+      checkSaisiName(inputName, input);
       return inputName;
     }
     if (input.name == "phone") {
       inputPhone = input.value;
-      console.log(input);
+      checkSaisiPhone(inputPhone, input);
       return inputPhone;
     }
     if (input.name == "postal") {
       inputPostal = input.value;
-      console.log(input);
+      checkSaisiPostal(inputPostal, input);
       return inputPostal;
     }
     if (input.name == "email") {
       inputMail = input.value.toLowerCase();
-      console.log(input);
+      checkSaisiMail(inputMail, input);
       return inputMail;
     }
     if (input.name == "password") {
       inputPassword = input.value;
-      console.log(input);
+      checkSaisiPasword(inputPassword, input);
       return inputPassword;
     }
   });

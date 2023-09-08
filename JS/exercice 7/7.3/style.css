@@ -84,5 +84,7 @@ body {
 .bad-input{
     box-shadow: 0 0 6px 0 red;
 }
-
+.good-input{
+    box-shadow: 0 0 6px 0 black;
+}
 
