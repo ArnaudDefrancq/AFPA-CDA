@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <form class="form">
+      <div class="labelInput">
+        <label for="name" class="label">Nom</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="input"
+          pattern="^[a-z]{3,40}$"
+          title="Minimum 3 caractères"
+        />
+      </div>
+
+      <div class="labelInput">
+        <label for="phone" class="label">Téléphone</label>
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          class="input"
+          pattern="(0|\+33)[1-9]( *[0-9]{2}){4}"
+          title="Numéro de téléphone français"
+        />
+      </div>
+
+      <div class="labelInput">
+        <label for="postal" class="label">Code postal</label>
+        <input
+          type="text"
+          name="postal"
+          id="postal"
+          class="input"
+          pattern="^[\d]{5}$"
+          title="Code postal français"
+        />
+      </div>
+
+      <div class="labelInput">
+        <label for="email" class="label">Adresse mail</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="input"
+          pattern="^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$"
+          title="Entrer une adresse mail valide"
+        />
+      </div>
+
+      <div class="labelInput">
+        <label for="password" class="label">Mot de passe</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="input"
+          pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$"
+          title="Min 8 caractères, 1 minuscule, 1 majuscule, 1 chiffre et 1 caractère spécial"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-event" id="btn">Envoyer</button>
+
+      <span id="error" class="error-message"></span>
+    </form>
+  </body>
+</html>

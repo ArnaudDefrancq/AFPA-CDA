@@ -2,17 +2,23 @@ const inputs = document.querySelectorAll(".input");
 const btn = document.getElementById("btn");
 const messageError = document.getElementById("error");
 
+let inputName;
 let inputPhone;
 let inputPostal;
 let inputMail;
 let inputPassword;
 
-let REGEX_NAME = /^[a-z]{3,40}$/;
-let REGEX_PHONE = /(0|\+33)[1-9]( *[0-9]{2}){4}/;
-let REGEX_POSTAL = /^[\d]{5}$/;
-let REGEX_MAIL = /^[a-z0-9.]+@[a-z]+.[a-z]+/;
-let REGEX_PASSWORD =
-  /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$/;
+let patternName;
+let patternPhone;
+let patternPostal;
+let patternMail;
+let patternPassword;
+
+// let REGEX_NAME = //;
+// let REGEX_PHONE = //;
+// let REGEX_POSTAL = //;
+// let REGEX_EMAIL = //;
+// let REGEX_PASSWORD =//;
 
 const checkSaisiName = (name, regex) => {
   if (name.match(regex)) {
@@ -55,50 +61,65 @@ const controleSaisiInput = () => {
   inputs.forEach((input) => {
     if (input.name == "name") {
       inputName = input.value.toLowerCase();
-      REGEX_NAME = input.pattern;
-      if (!checkSaisiName(inputName, REGEX_NAME))
+      patternName = input.pattern;
+      console.log(patternName);
+      if (!checkSaisiName(inputName, patternName)) {
         input.classList.add("bad-input");
-      return inputName, REGEX_NAME;
+      } else {
+        input.classList.remove("bad-input");
+      }
+      return inputName;
     }
     if (input.name == "phone") {
       inputPhone = input.value;
-      REGEX_PHONE = input.pattern;
-      if (!checkSaisiName(inputPhone, REGEX_PHONE))
+      patternPhone = input.pattern;
+      if (!checkSaisiPhone(inputPhone, patternPhone)) {
         input.classList.add("bad-input");
-      return inputPhone, REGEX_PHONE;
+      } else {
+        input.classList.remove("bad-input");
+      }
+      return inputPhone;
     }
     if (input.name == "postal") {
       inputPostal = input.value;
-      REGEX_POSTAL = input.pattern;
-      if (!checkSaisiName(inputPostal, REGEX_POSTAL))
+      patternPostal = input.pattern;
+      if (!checkSaisiPostal(inputPostal, patternPostal)) {
         input.classList.add("bad-input");
-      return inputPostal, REGEX_POSTAL;
+      } else {
+        input.classList.remove("bad-input");
+      }
+      return inputPostal;
     }
     if (input.name == "email") {
       inputMail = input.value.toLowerCase();
-      REGEX_MAIL = input.pattern;
-      if (!checkSaisiName(inputMail, REGEX_MAIL))
+      patternMail = input.pattern;
+      if (!checkSaisiMail(inputMail, patternMail)) {
         input.classList.add("bad-input");
-      return inputMail, REGEX_MAIL;
+      } else {
+        input.classList.remove("bad-input");
+      }
+      return inputMail;
     }
     if (input.name == "password") {
       inputPassword = input.value;
-      REGEX_PASSWORD = input.pattern;
-      if (!checkSaisiName(inputPassword, REGEX_PASSWORD))
+      patternPassword = input.pattern;
+      if (!checkSaisiPasword(inputPassword, patternPassword)) {
         input.classList.add("bad-input");
-      return inputPassword, REGEX_PASSWORD;
+      } else {
+        input.classList.remove("bad-input");
+      }
+      return inputPassword;
     }
   });
 
   if (
-    checkSaisiName(inputName, REGEX_NAME) &&
-    checkSaisiPhone(inputPhone, REGEX_PHONE) &&
-    checkSaisiPostal(inputPostal, REGEX_POSTAL) &&
-    checkSaisiMail(inputMail, REGEX_MAIL) &&
-    checkSaisiPasword(inputPassword, REGEX_PASSWORD)
+    checkSaisiName(inputName) &&
+    checkSaisiPhone(inputPhone) &&
+    checkSaisiPostal(inputPostal) &&
+    checkSaisiMail(inputMail) &&
+    checkSaisiPasword(inputPassword)
   ) {
     error.innerHTML = "";
-    console.log("bon");
   } else {
     error.innerHTML = "Vous avez mal rempli le formulaire";
   }
