@@ -58,31 +58,62 @@ group by
     "month";
 
 -- 6
+select
+    c.id,
+    sum(total_price) as sum_total_price
+from
+    order_line ol
+    join customer_order co on ol.order_id = co.id
+    join client c on co.client_id = c.id
+group by
+    c.id
+order by
+    sum_total_price desc
+limit
+    10;
+
 -- 7
+select
+    extract(
+        doy
+        from
+            purchase_date
+    ) as "day",
+    sum(total_price) as sum_day
+from
+    order_line ol
+    join customer_order co on ol.order_id = co.id
+group by
+    "day";
+
 -- 8
+alter table
+    customer_order
+add
+    column category int;
+
 -- 9
--- finir exo 6
--- select 
--- *
--- from order_line ol 
--- join customer_order co 
--- on ol.order_id = co.id 
--- join client c 
--- on co.client_id = c.id;
--- select 
--- co.client_id
--- from order_line ol 
--- join customer_order co 
--- on ol.order_id = co.id
--- join client c 
--- on co.client_id =c.id
--- ;
--- select
--- client_id
--- from customer_order co ;
--- select c.last_name ,count(co.client_id), sum(ol.total_price) from order_line ol 
--- join customer_order co 
--- on ol.order_id = co.id
--- join client c 
--- on co.client_id =c.id
--- group by c.last_name;
+UPDATE
+    customer_order AS co
+SET
+    category = CASE
+        WHEN total_price < 200 THEN 1
+        WHEN total_price >= 200
+        AND total_price < 500 THEN 2
+        WHEN total_price >= 500
+        AND total_price < 1000 THEN 3
+        WHEN total_price >= 1000 THEN 4
+    END
+FROM
+    (
+        SELECT
+            co.id AS order_id,
+            SUM(ol.total_price) AS total_price
+        FROM
+            order_line AS ol
+            JOIN customer_order AS co ON ol.order_id = co.id
+        GROUP BY
+            co.id
+    ) AS order_totals
+WHERE
+    co.id = order_totals.order_id;
