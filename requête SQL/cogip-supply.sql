@@ -176,24 +176,17 @@ select
     s.postal_code,
     s.city,
     s.contact_name,
-    s.satisfaction_index
+    s.satisfaction_index,
+    so.item_id
 from
     supplier s
+    join sale_offer so on so.supplier_id = s.id
 where
-    s.id in (
+    so.price = (
         select
-            so.supplier_id
+            min(so2.price)
         from
-            sale_offer so
+            sale_offer so2
         where
-            so.item_id in (
-                select
-                    so2.item_id
-                from
-                    sale_offer so2
-                group by
-                    so2.item_id
-                having
-                    so2.item_id <= min(so2.price)
-            )
+            so.item_id = so2.item_id
     );
