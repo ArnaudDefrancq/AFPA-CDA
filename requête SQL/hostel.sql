@@ -162,3 +162,71 @@ from
     join client c on c.id = b.client_id
 where
     c.last_name like 'Squire';
+
+-- create view
+create
+or replace view hotel_station as
+select
+    h.id as hotel_id,
+    h.station_id,
+    h."name" as hotel_name,
+    h.category,
+    h.address,
+    h.city,
+    s."name" as station_name,
+    s.altitude
+from
+    hotel h
+    join station s on h.station_id = s.id;
+
+select
+    *
+from
+    hotel_station hs;
+
+-- view reservation + client
+create
+or replace view reservation_client as
+select
+    b.id as reservation_id,
+    c.last_name
+from
+    booking b
+    join client c on b.client_id = c.id;
+
+-- liste chambre + nom hotel + nom station
+create
+or replace view list_room as
+select
+    r.id as room_id,
+    h."name" as name_hotel,
+    s."name" as name_station
+from
+    room r
+    join hotel h on h.id = r.hotel_id
+    join station s on h.station_id = s.id;
+
+-- liste reservation +nom client + nom hotel
+create
+or replace view list_reservation_hotel as
+select
+    b.id as reservation_id,
+    c.last_name as nom_client,
+    h."name" as nom_hotel
+from
+    booking b
+    join client c ON c.id = b.client_id
+    join room r on b.room_id = r.id
+    join hotel h on r.hotel_id = h.id;
+
+select
+    rolname
+from
+    pg_roles;
+
+create role application_client login password 'arnaud';
+
+grant all on booking,
+client,
+hotel,
+room to application_admin;
