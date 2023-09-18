@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulaire</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script src="app.js" defer></script>
   </head>
   <body>
@@ -33,7 +40,7 @@
         <span class="input-message-error" data-span="mail"></span>
       </div>
 
-      <div class="labelInput">
+      <div class="labelInput position">
         <label for="password" class="label">Mot de passe</label>
         <input
           type="password"
@@ -42,6 +49,9 @@
           class="input"
           value=""
         />
+        <button class="show-password" id="show">
+          <i class="fas fa-eye"></i>
+        </button>
         <span class="input-message-error" data-span="password"></span>
       </div>
 

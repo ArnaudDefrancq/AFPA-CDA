@@ -2,6 +2,8 @@ const inputs = document.querySelectorAll(".input");
 const btn = document.getElementById("btn");
 const messageError = document.getElementById("error");
 const spanError = document.querySelectorAll("[data-span]");
+const showPasswordBtn = document.getElementById("show");
+const password = document.getElementById("password");
 
 let inputName = "";
 let inputPhone = "";
@@ -228,4 +230,8 @@ allInput();
 document.addEventListener("submit", (e) => {
   e.preventDefault();
   controleSaisiInput();
+});
+showPasswordBtn.addEventListener("click", () => {
+  let show = password.value;
+  password.innerHTML = show;
 });
