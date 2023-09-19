@@ -44,14 +44,6 @@ const deplacerCube = (X, Y) => {
         widthCube,
         heightCube
       );
-
-    // console.log(
-    //   "Barriere : ",
-    //   topBarriere,
-    //   leftBarriere,
-    //   widthBarriere,
-    //   heightBarriere
-    // );
   });
 
   items.forEach((item) => {
@@ -142,13 +134,13 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-let i = 0;
+// let i = 0;
 
-setInterval(() => {
-  i++;
-  timerSpan.innerHTML = i++;
-  console.log(i);
-}, 1000);
+// setInterval(() => {
+//   i++;
+//   timerSpan.innerHTML = i++;
+//   console.log(i);
+// }, 1000);
 
 // cube.addEventListener("mousedown", (e) => {
 //   isDown = true;

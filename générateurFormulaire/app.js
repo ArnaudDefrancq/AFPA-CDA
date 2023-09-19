@@ -2,8 +2,7 @@ const inputs = document.querySelectorAll(".input");
 const btn = document.getElementById("btn");
 const messageError = document.getElementById("error");
 const spanError = document.querySelectorAll("[data-span]");
-const showPasswordBtn = document.getElementById("show");
-const password = document.getElementById("password");
+const eye = document.querySelector(".show");
 
 let inputName = "";
 let inputPhone = "";
@@ -18,6 +17,7 @@ let REGEX_EMAIL = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/;
 let REGEX_PASSWORD =
   /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$/;
 
+// Check les inputs avec les REGEX
 const checkSaisiName = (name) => {
   if (name.match(REGEX_NAME)) {
     return true;
@@ -54,6 +54,7 @@ const checkSaisiPasword = (password) => {
   }
 };
 
+// Check si tous les inputs sont vides
 const checkAllInput = (name, phone, postal, mail, password) => {
   if (
     name != "" &&
@@ -68,6 +69,7 @@ const checkAllInput = (name, phone, postal, mail, password) => {
   }
 };
 
+// check 1 par 1 si les inputs sont vides
 const allInput = () => {
   inputs.forEach((input) => {
     if (input.name == "name") {
@@ -80,6 +82,11 @@ const allInput = () => {
           inputMail,
           inputPassword
         );
+        if (checkSaisiName(inputName)) {
+          input.classList.remove("bad-input");
+        } else {
+          input.classList.add("bad-input");
+        }
       });
     }
     if (input.name == "phone") {
@@ -92,6 +99,11 @@ const allInput = () => {
           inputMail,
           inputPassword
         );
+        if (checkSaisiPhone(inputPhone)) {
+          input.classList.remove("bad-input");
+        } else {
+          input.classList.add("bad-input");
+        }
       });
     }
     if (input.name == "postal") {
@@ -104,6 +116,11 @@ const allInput = () => {
           inputMail,
           inputPassword
         );
+        if (checkSaisiPostal(inputPostal)) {
+          input.classList.remove("bad-input");
+        } else {
+          input.classList.add("bad-input");
+        }
       });
     }
     if (input.name == "email") {
@@ -116,6 +133,11 @@ const allInput = () => {
           inputMail,
           inputPassword
         );
+        if (checkSaisiMail(inputMail)) {
+          input.classList.remove("bad-input");
+        } else {
+          input.classList.add("bad-input");
+        }
       });
     }
     if (input.name == "password") {
@@ -128,86 +150,91 @@ const allInput = () => {
           inputMail,
           inputPassword
         );
+        if (checkSaisiPasword(inputPassword)) {
+          input.classList.remove("bad-input");
+        } else {
+          input.classList.add("bad-input");
+        }
       });
     }
   });
 };
 
+// controle tous les inputs avec les REGEX
 const controleSaisiInput = () => {
   inputs.forEach((input) => {
     if (input.name == "name") {
       inputName = input.value.toLowerCase();
-      spanError.forEach((span) => {
-        if (span.attributes[1].value == "name" && !checkSaisiName(inputName)) {
-          input.classList.add("bad-input");
-          span.innerHTML = "min 3 caractères et aucun chiffre";
-        } else {
-          input.classList.remove("bad-input");
-          span.innerHTML = "";
-        }
-      });
+
+      if (!checkSaisiName(inputName)) {
+        console.log("ici name");
+        input.classList.add("bad-input");
+      } else {
+        input.classList.remove("bad-input");
+        console.log("la name");
+      }
+
       return inputName;
     }
     if (input.name == "phone") {
       inputPhone = input.value;
-      spanError.forEach((span) => {
-        if (
-          span.attributes[1].value == "phone" &&
-          !checkSaisiPhone(inputPhone)
-        ) {
-          input.classList.add("bad-input");
-          span.innerHTML = "Numéro de téléphone français";
-        } else {
-          input.classList.remove("bad-input");
-          span.innerHTML = "";
-        }
-      });
+
+      if (!checkSaisiPhone(inputPhone)) {
+        console.log("ici phone");
+        input.classList.add("bad-input");
+        // span.innerHTML = "Numéro de téléphone français";
+      } else {
+        input.classList.remove("bad-input");
+        // span.innerHTML = "";
+        console.log("la phone");
+      }
       return inputPhone;
     }
     if (input.name == "postal") {
       inputPostal = input.value;
-      spanError.forEach((span) => {
-        if (
-          span.attributes[1].value == "postal" &&
-          !checkSaisiPostal(inputPostal)
-        ) {
-          input.classList.add("bad-input");
-          span.innerHTML = "Code postal français";
-        } else {
-          input.classList.remove("bad-input");
-          span.innerHTML = "";
-        }
-      });
+
+      if (!checkSaisiPostal(inputPostal)) {
+        console.log("ici postal");
+        input.classList.add("bad-input");
+        // span.innerHTML = "Code postal français";
+      } else {
+        input.classList.remove("bad-input");
+        // span.innerHTML = "";
+        console.log("la postal");
+      }
+
       return inputPostal;
     }
     if (input.name == "email") {
       inputMail = input.value.toLowerCase();
-      spanError.forEach((span) => {
-        if (span.attributes[1].value == "mail" && !checkSaisiMail(inputMail)) {
-          input.classList.add("bad-input");
-          span.innerHTML = "Adresse mail non valide";
-        } else {
-          input.classList.remove("bad-input");
-          span.innerHTML = "";
-        }
-      });
+
+      if (!checkSaisiMail(inputMail)) {
+        input.classList.add("bad-input");
+        // span.innerHTML = "Adresse mail non valide";
+        console.log("ici mail");
+      } else {
+        input.classList.remove("bad-input");
+        // span.innerHTML = "";
+        console.log("la mail");
+      }
+
       return inputMail;
     }
     if (input.name == "password") {
       inputPassword = input.value;
-      spanError.forEach((span) => {
-        if (
-          span.attributes[1].value == "password" &&
-          !checkSaisiPasword(inputPassword)
-        ) {
-          input.classList.add("bad-input");
-          span.innerHTML =
-            "Min 8 caracètes, 1 caractère spécial, 1 minuscule, 1 majuscule et 1 chiffre";
-        } else {
-          input.classList.remove("bad-input");
-          span.innerHTML = "";
-        }
-      });
+
+      if (!checkSaisiPasword(inputPassword)) {
+        console.log("ici password");
+
+        input.classList.add("bad-input");
+        // span.innerHTML =
+        //   "Min 8 caracètes, 1 caractère spécial, 1 minuscule, 1 majuscule et 1 chiffre";
+      } else {
+        input.classList.remove("bad-input");
+        // span.innerHTML = "";
+        console.log("la password");
+      }
+
       return inputPassword;
     }
   });
@@ -231,7 +258,18 @@ document.addEventListener("submit", (e) => {
   e.preventDefault();
   controleSaisiInput();
 });
-showPasswordBtn.addEventListener("click", () => {
-  let show = password.value;
-  password.innerHTML = show;
+
+eye.addEventListener("mousedown", () => {
+  inputs.forEach((input) => {
+    if (input.name == "password") {
+      input.type = "text";
+    }
+  });
+});
+eye.addEventListener("mouseup", () => {
+  inputs.forEach((input) => {
+    if (input.name == "password") {
+      input.type = "password";
+    }
+  });
 });

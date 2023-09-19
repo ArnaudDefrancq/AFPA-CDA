@@ -84,6 +84,9 @@ body {
 .bad-input{
     box-shadow: 0 0 6px 0 red;
 }
+.bad-input:focus{
+    box-shadow: 0 0 6px 0 red;
+}
 
 .input:invalid{
     box-shadow: 0 0 6px 0 red;
@@ -98,16 +101,12 @@ body {
     color: red;
     text-align: center;
 }
-.position {
-    position: relative;
+.input-show {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.show-password {
-    border: none;
-    background: none;
+.show {
     cursor: pointer;
-    font-size: 1.1em;
-    position: absolute;
-    top: 54%;
-    left: 77%;
 }

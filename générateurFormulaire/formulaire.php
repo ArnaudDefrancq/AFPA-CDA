@@ -1,38 +1,7 @@
 <?php
-
 class Formulaire
 {
-    public function createLabel(string $for, string $texte)
-    {
-        return '<label for="' . $for . '" class="label">' . $texte . '</label>';
-    }
-
-    public function createInput(string $type, string $name)
-    {
-        return '<input type="' . $type . '" name="' . $name . '" id="' . $name . '" class="input"/>';
-    }
-
-    public function createStartDiv()
-    {
-        return '<div class="labelInput">';
-    }
-
-    public function createEndDiv()
-    {
-        return '</div>';
-    }
-
-    public function submit()
-    {
-        return '<button type="submit" class="btn btn-event" id="btn">Envoyer</button>';
-    }
-}
-
-class Formulaire_2
-{
     private $values = [];
-
-    private $idForm;
 
     public function addValues(string $for, string $name, string $type)
     {
@@ -53,7 +22,11 @@ class Formulaire_2
         foreach ($this->values as $value) {
             echo '<div class="labelInput">';
             echo '<label for="' . $value[2] . '" class="label">' . $value[1] . '</label>';
+            if ($value[0] == 'password') echo '<div class="input-show">';
             echo '<input type="' . $value[0] . '" name="' . $value[2] . '" id="' . $value[2] . '" class="input"/> ';
+            if ($value[0] == 'password') echo '<i class="fas fa-eye show"></i>';
+            if ($value[0] == 'password') echo '</div>';
+            echo '<span class="input-message-error" data-span="' . $value[2] . '"></span>';
             echo '</div>';
         }
 
@@ -63,7 +36,7 @@ class Formulaire_2
     }
 }
 
-$form = new Formulaire_2();
+$form = new Formulaire();
 
 $form->addValues('name', 'Nom', 'text');
 $form->addValues('phone', 'Téléphone', 'tel');

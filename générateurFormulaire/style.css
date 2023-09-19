@@ -84,3 +84,29 @@ body {
 .bad-input{
     box-shadow: 0 0 6px 0 red;
 }
+.bad-input:focus{
+    box-shadow: 0 0 6px 0 red;
+}
+
+.input:invalid{
+    box-shadow: 0 0 6px 0 red;
+}
+
+.btn-event {
+    pointer-events: none;
+}
+
+.input-message-error {
+    margin-top: 3%;
+    color: red;
+    text-align: center;
+}
+.input-show {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.show {
+    cursor: pointer;
+}
