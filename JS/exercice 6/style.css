@@ -29,26 +29,58 @@ body {
 }
 
 #direction {
+    width: 30%;
+    margin: 2% auto;
     display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: baseline;
-    position: relative;
-    padding: 2%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #timer {
-    position: absolute;
-    top: 40%;
-    left: 35%;
     font-size: 2em;
 }
 
-.direction-fleche {
+/* .direction-fleche {
     font-size: 4em;
     cursor: pointer;
- 
+} */
 
+.btn {
+    padding: 3% 8%;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-family: 'Times New Roman', Times, serif;
+    background: white;
+    border: none;
+    box-shadow: 0 0 3px 0 black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: red;
+    color: white;
+    transition: 0.3s;
+}
+
+.display {
+    display: none;
+}
+
+.consigne {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: gainsboro;
+    padding: 5% 2%;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.text-consigne {
+    font-size: 1.3em;
+    margin-bottom: 10%;
 }
 
 .autre-cube {

@@ -96,11 +96,20 @@
       <div class="autre-cube i10" data-item="item"></div>
     </div>
     <div id="direction">
-      <p class="direction-fleche" data-left="left">◄</p>
+      <!-- <p class="direction-fleche" data-left="left">◄</p>
       <p class="direction-fleche" data-up="up">▲</p>
       <p class="direction-fleche" data-down="down">▼</p>
-      <p class="direction-fleche" data-right="right">►</p>
-      <span id="timer"></span>
+      <p class="direction-fleche" data-right="right">►</p> -->
+      <span id="timer">0</span>
+      <button class="btn" data-btn="jouer">Commencer !</button>
+      <button class="btn" data-btn="comment">Comment jouer</button>
+    </div>
+    <div class="consigne display" id="consigne-game">
+      <p class="text-consigne">
+        Utiliser les flêches pour déplacer votre personnage (le carré vert). Le
+        but du jeu est de ramasser l'enssemble des carrés bleu.
+      </p>
+      <button class="btn" id="close">Fermer</button>
     </div>
   </body>
 </html>

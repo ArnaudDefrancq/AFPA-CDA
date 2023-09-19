@@ -10,6 +10,9 @@ const mouvCarre = 50;
 let positionDepartX, positionDepartY;
 let nbItems = items.length;
 const timerSpan = document.getElementById("timer");
+const btnGame = document.querySelectorAll("[data-btn]");
+const consigne = document.getElementById("consigne-game");
+const close = document.getElementById("close");
 
 cube.style.setProperty("--X", positionDepart[0] + "px");
 cube.style.setProperty("--Y", positionDepart[1] + "px");
@@ -107,42 +110,53 @@ const supprItems = (tb, lb, tc, lc, itm) => {
   return false;
 };
 
-document.addEventListener("keydown", (e) => {
-  switch (e.keyCode) {
-    case 40:
-      if (positionDepart[0] < jeu.offsetHeight - mouvCarre) {
-        deplacerCube(mouvCarre, 0);
-      }
-      break;
-    case 38:
-      if (positionDepart[0] > 0) {
-        deplacerCube(-mouvCarre, 0);
-      }
-      break;
-    case 37:
-      if (positionDepart[1] > 0) {
-        deplacerCube(0, -mouvCarre);
-      }
-      break;
-    case 39:
-      if (positionDepart[1] < jeu.offsetWidth - mouvCarre) {
-        deplacerCube(0, mouvCarre);
-      }
-      break;
-    default:
-      break;
-  }
+btnGame.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    if (e.target.attributes[1].value == "jouer") {
+      let i = 0;
+
+      setInterval(() => {
+        i++;
+        timerSpan.innerHTML = i++;
+        if (nbItems == 0) {
+        }
+      }, 1000);
+
+      document.addEventListener("keydown", (e) => {
+        switch (e.keyCode) {
+          case 40:
+            if (positionDepart[0] < jeu.offsetHeight - mouvCarre) {
+              deplacerCube(mouvCarre, 0);
+            }
+            break;
+          case 38:
+            if (positionDepart[0] > 0) {
+              deplacerCube(-mouvCarre, 0);
+            }
+            break;
+          case 37:
+            if (positionDepart[1] > 0) {
+              deplacerCube(0, -mouvCarre);
+            }
+            break;
+          case 39:
+            if (positionDepart[1] < jeu.offsetWidth - mouvCarre) {
+              deplacerCube(0, mouvCarre);
+            }
+            break;
+          default:
+            break;
+        }
+      });
+    } else {
+      consigne.classList.remove("display");
+    }
+  });
 });
 
-// let i = 0;
-
-// setInterval(() => {
-//   i++;
-//   timerSpan.innerHTML = i++;
-//   if (nbItems == 0) {
-//     console.log("stop");
-//   }
-// }, 1000);
+close.addEventListener("click", () => {
+  consigne.classList.add("display");
+});
 
 // cube.addEventListener("mousedown", (e) => {
 //   isDown = true;
