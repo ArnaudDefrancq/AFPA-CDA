@@ -84,8 +84,15 @@ const allInput = () => {
         );
         if (checkSaisiName(inputName)) {
           input.classList.remove("bad-input");
+          spanError.forEach((span) => {
+            if (span.attributes[1].value == "name") span.innerHTML = "";
+          });
         } else {
           input.classList.add("bad-input");
+          spanError.forEach((span) => {
+            if (span.attributes[1].value == "name")
+              span.innerHTML = "Min 3 caractères ";
+          });
         }
       });
     }
@@ -101,8 +108,15 @@ const allInput = () => {
         );
         if (checkSaisiPhone(inputPhone)) {
           input.classList.remove("bad-input");
+          spanError.forEach((span) => {
+            if (span.attributes[1].value == "phone") span.innerHTML = "";
+          });
         } else {
           input.classList.add("bad-input");
+          spanError.forEach((span) => {
+            if (span.attributes[1].value == "phone")
+              span.innerHTML = "Numéro français";
+          });
         }
       });
     }
@@ -118,8 +132,15 @@ const allInput = () => {
         );
         if (checkSaisiPostal(inputPostal)) {
           input.classList.remove("bad-input");
+          spanError.forEach((span) => {
+            if (span.attributes[1].value == "postal") span.innerHTML = "";
+          });
         } else {
           input.classList.add("bad-input");
+          spanError.forEach((span) => {
+            if (span.attributes[1].value == "postal")
+              span.innerHTML = "Code postal français ";
+          });
         }
       });
     }
@@ -135,8 +156,15 @@ const allInput = () => {
         );
         if (checkSaisiMail(inputMail)) {
           input.classList.remove("bad-input");
+          spanError.forEach((span) => {
+            if (span.attributes[1].value == "email") span.innerHTML = "";
+          });
         } else {
           input.classList.add("bad-input");
+          spanError.forEach((span) => {
+            if (span.attributes[1].value == "email")
+              span.innerHTML = "Adresse mail valide";
+          });
         }
       });
     }
@@ -152,8 +180,16 @@ const allInput = () => {
         );
         if (checkSaisiPasword(inputPassword)) {
           input.classList.remove("bad-input");
+          spanError.forEach((span) => {
+            if (span.attributes[1].value == "password") span.innerHTML = "";
+          });
         } else {
           input.classList.add("bad-input");
+          spanError.forEach((span) => {
+            if (span.attributes[1].value == "password")
+              span.innerHTML =
+                "1 minuscule, 1 majuscule, 1 chiffre, 1 caractère spécial, min 8 caractères";
+          });
         }
       });
     }

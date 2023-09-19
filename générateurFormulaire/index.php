@@ -1,5 +1,5 @@
 <?php
-require 'Formulaire.php';
+require './class/Formulaire.php';
 
 ?>
 <!DOCTYPE html>

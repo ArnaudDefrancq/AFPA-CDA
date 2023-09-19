@@ -139,7 +139,9 @@ document.addEventListener("keydown", (e) => {
 // setInterval(() => {
 //   i++;
 //   timerSpan.innerHTML = i++;
-//   console.log(i);
+//   if (nbItems == 0) {
+//     console.log("stop");
+//   }
 // }, 1000);
 
 // cube.addEventListener("mousedown", (e) => {
