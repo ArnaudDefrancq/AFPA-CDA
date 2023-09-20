@@ -61,3 +61,10 @@
 }
 
 /* partie jeu */
+#jeu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2%;
+    width: 90vh;
+    margin: 2% auto;
+}

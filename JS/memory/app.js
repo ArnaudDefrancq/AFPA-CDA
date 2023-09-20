@@ -10,8 +10,6 @@
 // Le jeu se termine quand toute les paires sont trouvées
 // Le gagnant est celui avec le plus de paire
 
-// Finir => si carte fausse retourne les 2 cartes
-
 const inputSelects = document.querySelectorAll(".select-config");
 const submitConfig = document.getElementById("submit");
 const gameSection = document.getElementById("jeu");
@@ -38,110 +36,88 @@ submitConfig.addEventListener("click", () => {
 
   const images = document.querySelectorAll("[data-image]");
 
-  choisirUneCarte(images);
+  game(images);
 });
 
-/**
- * init le nb de carte, de jouer, mélange le tableau de carte et affiche les cartes
- */
-const init = (array) => {
-  melangerTableauDePaire(array);
-};
+// --------------------------------INITIATION DU JEU---------------------------------------------
 
-/**
- * Mélange aléatoirement un tableau
- *
- * @param array  tableau a mélanger
- * @return array le tableau mélangee
- */
-const melangerTableauDePaire = (tableauDePaire) => {
+function init(arrayInitial) {
+  melangerTableauDePaire(arrayInitial);
+}
+
+function melangerTableauDePaire(tableauDePaire) {
   const tableauMelanger = tableauDePaire.sort(() => 0.5 - Math.random());
 
   placerCarte(tableauMelanger);
-};
+}
 
-/**
- * Affiche en HTML les paires retourné
- *
- * @param array tableau melanger
- */
-const placerCarte = (tableauMelanger) => {
+function placerCarte(tableauMelanger) {
   for (let index = 0; index < tableauMelanger.length; index++) {
     let elemnt = templateCarte.content.cloneNode(true);
     gameSection.appendChild(elemnt);
+    gameSection.innerHTML = gameSection.innerHTML.replace(
+      "AUTRE",
+      tableauMelanger[index]
+    );
     gameSection.innerHTML = gameSection.innerHTML.replace(
       "INDEX",
       tableauMelanger[index]
     );
   }
-};
+}
+// ----------------------------------------------------------------------------------------------
 
-/**
- * Permet de retouner un carte quand le joueur clique sur une carte
- *
- * @param array tableau mélanger
- * @param int le joueur qui joue
- *
- * @return array tableau avec les cartes choisies par le joueur
- */
-const choisirUneCarte = (images) => {
+// --------------------------------JEU-----------------------------------------------------------
+
+const game = (images) => {
   let cartes = [];
+  let cartesCliquees = 0;
 
-  images.forEach((img) => {
-    img.addEventListener("click", (e) => {
-      filpCard(e, img);
-      cartes.push(img.dataset.image);
-      if (cartes.length == 2 && checkPaire(cartes)) {
+  // Fonction pour retourner une carte
+  function retournerCarte(img) {
+    const image = img.dataset.image;
+    if (img.getAttribute("src") === "./Images/plage.jpg") {
+      img.setAttribute("src", "./Images/" + image + ".jpg");
+    } else {
+      img.setAttribute("src", "./Images/plage.jpg");
+    }
+  }
+
+  // Fonction pour vérifier la paire
+  function verifierPaire() {
+    if (cartes.length == 2) {
+      const carte1 = cartes[0];
+      const carte2 = cartes[1];
+
+      if (carte1.dataset.image == carte2.dataset.image) {
         score++;
         cartes = [];
-      } else if (cartes.length == 2 && !checkPaire(cartes)) {
+        cartesCliquees = 0;
+        checkWin(nbPaire);
+      } else {
+        setTimeout(() => {
+          retournerCarte(carte1);
+          retournerCarte(carte2);
+          cartes = [];
+          cartesCliquees = 0;
+        }, 1000);
+      }
+    }
+  }
+
+  images.forEach((img) => {
+    img.addEventListener("click", () => {
+      if (cartesCliquees < 2 && !cartes.includes(img)) {
+        console.log(cartesCliquees, cartes);
+        retournerCarte(img);
+        cartes.push(img);
+        cartesCliquees++;
+        verifierPaire();
       }
     });
   });
 };
 
-function filpCard(test, carte) {
-  carte.setAttribute("src", "./Images/" + test.target.dataset.image + ".jpg");
-}
-
-/**
- * Permet de vérifier si les cartes choisies sont de paires
- * Si bon -> on laisse les cartes affichées et le joueur gagne 1 point
- * Si faux -> on retourne les cartes choisies
- *
- * @param array tableau de carte choisi par le joueur
- * @param int le joueur qui joue
- *
- * @return array tableau de paire trouvée
- */
-const checkPaire = (choixCarte) => {
-  if (choixCarte[0] == choixCarte[1]) {
-    return true;
-  } else {
-    return false;
-  }
+const checkWin = (paire) => {
+  if (score == paire) alert("gagner");
 };
-
-/**
- * Check si toute les paires on était trouvée et affiche le joueur qui a gagné
- *
- * @param array tableau avec toute les paires
- * @param array tableau de paire trouvée
- */
-const checkWin = (tableauDePaire, paireTrouver) => {};
-
-/**
- * Détermine qui est le premier joueur et l'affiche
- *
- * @param int nombre de joueur
- * @return int numéro du joueur qui commence
- */
-// const quiJoue = (nbJoueur) => {};
-
-/**
- * Permet de déterminer qui sera le joueur suivant
- *
- * @param int nombre de joueur
- * @param int le joueur qui joue
- */
-// const joueurSuivant = (nbJoueur, quiJoue) => {};
