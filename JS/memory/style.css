@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+ --color1: #e5e7e6b3;
+ --color2: #c9e3cc;
+ /*--color3: ; */
+}
+/* partie configuration partie */
+#config {
+    height: 10vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.config-input {
+    background-color: white;
+    padding: 10vh 10vw;
+    border-radius: 15px;
+    box-shadow: 0 0 3px 0 black;
+    text-align: center;
+}
+
+.label-config {
+    font-size: 1.5em;
+}
+
+.select-config {
+    font-size: 1.1em;
+    width: 5vh;
+}
+
+.btn-config {
+    padding: 1vh 2vw;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 3px 0 black;
+    transition: 0.3s;
+}
+
+.btn-config:hover {
+    transition: 0.3s;
+    background: var(--color2);
+}
+
+.event-stop {
+    pointer-events: none;
+}
+
+/* partie info score, joueur */
+.display-none {
+    display: none;
+}
+
+/* partie jeu */

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+
+  <body>
+    <!-- configuration du jeu -->
+    <section id="config">
+      <div class="label-select">
+        <label for="nb-carte" class="label-config"
+          >Choisir nombre de paire :
+        </label>
+        <select id="nb-carte" class="select-config">
+          <option value="2">2</option>
+          <option value="4">4</option>
+          <option value="6">6</option>
+          <option value="8">8</option>
+        </select>
+      </div>
+      <div class="label-select">
+        <label for="nb-joueur" class="label-config"
+          >Choisir le nombre de joueur :</label
+        >
+        <select id="nb-joueur" class="select-config">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </div>
+      <button class="btn-config" id="submit">Valider</button>
+    </section>
+
+    <!-- resultat -->
+    <section id="result" class="display-none">
+      <p class="joueur">
+        Joueur <span class="num-joueur"></span> :
+        <span class="score-joueur"></span>
+      </p>
+      <template>
+        <p class="joueur">
+          Joueur <span class="num-joueur"></span> :
+          <span class="score-joueur"> </span>
+        </p>
+      </template>
+    </section>
+
+    <!-- zone de jeu -->
+    <section id="jeu"></section>
+    <template>
+      <img
+        src="./Images/plage.jpg"
+        alt="image d'une plage"
+        data-image="INDEX"
+      />
+    </template>
+  </body>
+</html>
