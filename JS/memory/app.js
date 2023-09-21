@@ -10,6 +10,8 @@
 // Le jeu se termine quand toute les paires sont trouvées
 // Le gagnant est celui avec le plus de paire
 
+// Amélioration du jeu => ajout de plusieurs joueur, timer
+
 const inputSelects = document.querySelectorAll(".select-config");
 const submitConfig = document.getElementById("submit");
 const gameSection = document.getElementById("jeu");
