@@ -75,8 +75,10 @@ function init()
     jeu($arrayJeu['motAChercher'], $arrayJeu['difficulte'], $arrayJeu['nbJoueur'], $arrayJeu['nbVie']);
 }
 
-function jeu($motAChercher, $difficulte, $nbJoueur, $nbVie)
+function jeu($motAChercher, $difficulte, $nbJoueur)
 {
+    $propositions = [];
+
     $motCoder = coderMot($motAChercher, $difficulte);
     afficherMotCode($motCoder);
 
@@ -84,6 +86,8 @@ function jeu($motAChercher, $difficulte, $nbJoueur, $nbVie)
     joueurSuivant($nbJoueur, $joueurEnCour);
 
     $lettre = saisirLettre();
+
+    verifierLettre($lettre, $motCoder, $motAChercher, $difficulte, $propositions);
 }
 
 /**
@@ -163,10 +167,10 @@ function joueurSuivant(int $nbJoueur, int $joueurEnCours)
 {
     if ($joueurEnCours == $nbJoueur) {
         $joueurEnCours = 1;
-        echo $joueurEnCours;
+        return $joueurEnCours;
     } else {
         $joueurEnCours++;
-        echo $joueurEnCours;
+        return $joueurEnCours;
     }
 
     // afficher
@@ -191,13 +195,15 @@ function saisirLettre()
  *
  * @param string $lettre La lettre entrée par le joueur
  * @param array $motCode La partie du mot que le joueur connait
- * @param string $mot Le mot que le joueur doit trouvé
+ * @param array $mot Le mot que le joueur doit trouvé
  * @param int $difficulte La difficulte de la partie
- * @param string $propositions Les lettre déjà proposées
+ * @param array $propositions Les lettre déjà proposées
  * @return void
  */
-function verifierLettre(string $lettre, array $motCode, string $mot, int $difficulte, string $propositions)
+function verifierLettre(string $lettre, array $motCode, string $mot, int $difficulte, array $propositions)
 {
+    if (in_array($lettre, $propositions))
+
     // On compare la lettre avec le tableau du mot
     // Si lvl 0 => on remplace toutes les  - par la lettre
     // Si lvl 1 => on remplace toutes les - par la lettre
