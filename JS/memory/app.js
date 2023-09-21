@@ -40,17 +40,19 @@ submitConfig.addEventListener("click", () => {
 });
 
 // --------------------------------INITIATION DU JEU---------------------------------------------
-
+// init le jeu
 function init(arrayInitial) {
   melangerTableauDePaire(arrayInitial);
 }
 
+// Mélange les cartes
 function melangerTableauDePaire(tableauDePaire) {
   const tableauMelanger = tableauDePaire.sort(() => 0.5 - Math.random());
 
   placerCarte(tableauMelanger);
 }
 
+// Affiche les cartes
 function placerCarte(tableauMelanger) {
   for (let index = 0; index < tableauMelanger.length; index++) {
     let elemnt = templateCarte.content.cloneNode(true);
@@ -118,6 +120,7 @@ const game = (images) => {
   });
 };
 
+// check la win
 const checkWin = (paire) => {
   if (score == paire) alert("gagner");
 };
