@@ -202,7 +202,7 @@ function saisirLettre()
  */
 function verifierLettre(string $lettre, array $motCode, string $mot, int $difficulte, array $propositions)
 {
-    if (in_array($lettre, $propositions))
+    // if (in_array($lettre, $propositions));
 
     // On compare la lettre avec le tableau du mot
     // Si lvl 0 => on remplace toutes les  - par la lettre
