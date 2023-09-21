@@ -8,7 +8,14 @@
 :root {
  --color1: #e5e7e6b3;
  --color2: #c9e3cc;
- /*--color3: ; */
+ --color3: #eee6d8; 
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color3);
+    overflow: hidden;
 }
 /* partie configuration partie */
 #config {
@@ -16,6 +23,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    background-color: whitesmoke;
 }
 
 .config-input {
@@ -33,6 +41,7 @@
 .select-config {
     font-size: 1.1em;
     width: 5vh;
+    cursor: pointer;
 }
 
 .btn-config {
@@ -57,14 +66,31 @@
 
 /* partie info score, joueur */
 .display-none {
-    display: none;
+    display: none !important;
 }
 
 /* partie jeu */
 #jeu {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    text-align: center;
     gap: 2%;
-    width: 90vh;
-    margin: 2% auto;
+    width: 80vw;
+    height: 50vh;
+    margin: 10% auto;
+}
+
+.img {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 3px 0 black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 6px 0 black;
+    transition: 0.3s;
 }

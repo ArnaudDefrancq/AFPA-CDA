@@ -14,6 +14,7 @@ const inputSelects = document.querySelectorAll(".select-config");
 const submitConfig = document.getElementById("submit");
 const gameSection = document.getElementById("jeu");
 const templateCarte = document.getElementsByTagName("template")[1];
+const configSection = document.getElementById("config");
 const arrayCarte = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 var joueur;
 var nbPaire;
@@ -28,7 +29,7 @@ submitConfig.addEventListener("click", () => {
     }
   });
 
-  submitConfig.classList.add("event-stop");
+  configSection.classList.add("display-none");
 
   let newArrayCard = arrayCarte.splice(0, nbPaire * 2);
 
