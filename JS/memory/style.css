@@ -12,10 +12,10 @@
 }
 
 body {
-    height: 100vh;
     width: 100vw;
     background-color: var(--color3);
     overflow: hidden;
+    position: relative;
 }
 /* partie configuration partie */
 #config {
@@ -73,11 +73,13 @@ body {
 #jeu {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2,1fr);
     text-align: center;
     gap: 2%;
     width: 80vw;
     height: 50vh;
-    margin: 10% auto;
+    margin: 5% auto;
+    
 }
 
 .img {
@@ -93,4 +95,33 @@ body {
     transform: scale(1.02);
     box-shadow: 0 0 6px 0 black;
     transition: 0.3s;
+}
+
+.stop-click {
+    pointer-events: none;
+}
+
+#win-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: whitesmoke;
+    padding: 5% 8%;
+    border-radius: 15px;
+    box-shadow: 0 0 3px 0 black;
+    text-align: center;
+}
+
+
+.win {
+    font-size: 1.6em;
+}
+
+#reset {
+    margin-top: 20%;
+}
+
+.visibility {
+    visibility: hidden;
 }

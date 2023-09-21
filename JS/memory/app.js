@@ -17,6 +17,8 @@ const submitConfig = document.getElementById("submit");
 const gameSection = document.getElementById("jeu");
 const templateCarte = document.getElementsByTagName("template")[1];
 const configSection = document.getElementById("config");
+const resetGame = document.getElementById("win-container");
+const btnREset = document.getElementById("reset");
 const arrayCarte = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 var joueur;
 var nbPaire;
@@ -98,7 +100,13 @@ const game = (images) => {
         score++;
         cartes = [];
         cartesCliquees = 0;
-        checkWin(nbPaire);
+        if (checkWin(nbPaire)) {
+          resetGame.classList.remove("visibility");
+          gameSection.classList.add("event-stop");
+          resetGame.addEventListener("click", () => {
+            location.reload();
+          });
+        }
       } else {
         setTimeout(() => {
           retournerCarte(carte1);
@@ -113,7 +121,6 @@ const game = (images) => {
   images.forEach((img) => {
     img.addEventListener("click", () => {
       if (cartesCliquees < 2 && !cartes.includes(img)) {
-        console.log(cartesCliquees, cartes);
         retournerCarte(img);
         cartes.push(img);
         cartesCliquees++;
@@ -125,5 +132,7 @@ const game = (images) => {
 
 // check la win
 const checkWin = (paire) => {
-  if (score == paire) alert("gagner");
+  if (score == paire) {
+    return true;
+  }
 };
