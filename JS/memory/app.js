@@ -77,9 +77,9 @@ const game = (images) => {
 
   // Fonction pour retourner une carte
   function retournerCarte(img) {
-    const image = img.dataset.image;
+    const imageData = img.dataset.image;
     if (img.getAttribute("src") === "./Images/plage.jpg") {
-      img.setAttribute("src", "./Images/" + image + ".jpg");
+      img.setAttribute("src", "./Images/" + imageData + ".jpg");
     } else {
       img.setAttribute("src", "./Images/plage.jpg");
     }
