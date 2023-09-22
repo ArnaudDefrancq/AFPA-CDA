@@ -11,43 +11,43 @@
 // Le gagnant est celui avec le plus de paire
 
 // Amélioration du jeu => ajout de plusieurs joueur, timer
+// Retravailler le code en diminuant les variables globales
 
-const inputSelects = document.querySelectorAll(".select-config");
 const submitConfig = document.getElementById("submit");
-const gameSection = document.getElementById("jeu");
-const templateCarte = document.getElementsByTagName("template")[1];
-const configSection = document.getElementById("config");
-const resetGame = document.getElementById("win-container");
-const btnREset = document.getElementById("reset");
-const arrayCarte = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
-var joueur;
-var nbPaire;
-var score = 0;
+// const gameSection = document.getElementById("jeu");
+// const templateCarte = document.getElementsByTagName("template")[1];
+// const configSection = document.getElementById("config");
+// const resetGame = document.getElementById("win-container");
+// const btnREset = document.getElementById("reset");
 
 submitConfig.addEventListener("click", () => {
-  inputSelects.forEach((elemnt) => {
-    if (elemnt.id == "nb-joueur") {
-      return (joueur = elemnt.value);
-    } else {
-      return (nbPaire = elemnt.value);
-    }
-  });
+  var inputSelects = document.querySelectorAll(".select-config");
 
-  configSection.classList.add("display-none");
+  // Création du tableau de paire
+  let tab = creerTab(inputSelects[0].value);
 
-  let newArrayCard = arrayCarte.splice(0, nbPaire * 2);
-
-  init(newArrayCard);
-
-  const images = document.querySelectorAll("[data-image]");
-
-  game(images);
+  // Mélanger le tableau
 });
 
+// configSection.classList.add("display-none");
+
+// let newArrayCard = arrayCarte.splice(0, nbPaire * 2);
+
+// init(newArrayCard);
+
+// const images = document.querySelectorAll("[data-image]");
+
+// game(images);
+// });
+
 // --------------------------------INITIATION DU JEU---------------------------------------------
-// init le jeu
-function init(arrayInitial) {
-  melangerTableauDePaire(arrayInitial);
+function creerTab(nbPair) {
+  let tab = [];
+  for (let index = 0; index < nbPair; index++) {
+    tab.push(index + 1);
+    tab.push(index + 1);
+  }
+  console.log(tab);
 }
 
 // Mélange les cartes
