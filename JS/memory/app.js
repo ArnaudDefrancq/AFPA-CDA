@@ -12,127 +12,125 @@
 
 // Amélioration du jeu => ajout de plusieurs joueur, timer
 // Retravailler le code en diminuant les variables globales
-
+// ----------------------------------------------------------------------------------------------
+var carteSelectionnee = [];
+// ----------------------------------------------------------------------------------------------
 const submitConfig = document.getElementById("submit");
-// const gameSection = document.getElementById("jeu");
-// const templateCarte = document.getElementsByTagName("template")[1];
-// const configSection = document.getElementById("config");
-// const resetGame = document.getElementById("win-container");
-// const btnREset = document.getElementById("reset");
+submitConfig.addEventListener("click", game);
 
-submitConfig.addEventListener("click", () => {
+// ----------------------------------------------------------------------------------------------
+function game() {
+  submitConfig.classList.add("event-stop");
+
   var inputSelects = document.querySelectorAll(".select-config");
 
   // Création du tableau de paire
   let tab = creerTab(inputSelects[0].value);
 
-  // Mélanger le tableau
-});
+  // Placer les cartes
+  placerCarte(tab);
 
-// configSection.classList.add("display-none");
+  // Logique du jeu
+  let cartes = document.querySelectorAll(".img");
+  cartes.forEach((carte) => {
+    carte.addEventListener("click", logiqueDeJeu);
+  });
+}
 
-// let newArrayCard = arrayCarte.splice(0, nbPaire * 2);
-
-// init(newArrayCard);
-
-// const images = document.querySelectorAll("[data-image]");
-
-// game(images);
-// });
-
-// --------------------------------INITIATION DU JEU---------------------------------------------
+/**
+ * Créer et mélange un tableau de paire
+ * @param {*} nbPair nombre de paire choisie par l'utilisateur
+ * @returns
+ */
 function creerTab(nbPair) {
   let tab = [];
   for (let index = 0; index < nbPair; index++) {
     tab.push(index + 1);
     tab.push(index + 1);
   }
-  console.log(tab);
+  tab.sort(() => 0.5 - Math.random());
+
+  return tab;
 }
 
-// Mélange les cartes
-function melangerTableauDePaire(tableauDePaire) {
-  const tableauMelanger = tableauDePaire.sort(() => 0.5 - Math.random());
-
-  placerCarte(tableauMelanger);
-}
-
-// Affiche les cartes
+/**
+ * Place les cartes
+ * @param {*} tableauMelanger
+ */
 function placerCarte(tableauMelanger) {
+  let zoneJeu = document.getElementById("jeu");
+  let templateCarte = document.getElementById("template-carte");
+
   for (let index = 0; index < tableauMelanger.length; index++) {
     let elemnt = templateCarte.content.cloneNode(true);
-    gameSection.appendChild(elemnt);
-    gameSection.innerHTML = gameSection.innerHTML.replace(
-      "AUTRE",
-      tableauMelanger[index]
-    );
-    gameSection.innerHTML = gameSection.innerHTML.replace(
+    zoneJeu.appendChild(elemnt);
+    zoneJeu.innerHTML = zoneJeu.innerHTML.replace(
       "INDEX",
       tableauMelanger[index]
     );
   }
 }
-// ----------------------------------------------------------------------------------------------
 
-// --------------------------------JEU-----------------------------------------------------------
+/**
+ * Logique de jeu
+ * @param {*} event
+ */
+const logiqueDeJeu = (event) => {
+  let uneCarte = event.target;
+  if (carteSelectionnee.length < 2) {
+    flipCarte(event.target);
 
-const game = (images) => {
-  let cartes = [];
-  let cartesCliquees = 0;
-
-  // Fonction pour retourner une carte
-  function retournerCarte(img) {
-    const imageData = img.dataset.image;
-    if (img.getAttribute("src") === "./Images/plage.jpg") {
-      img.setAttribute("src", "./Images/" + imageData + ".jpg");
-    } else {
-      img.setAttribute("src", "./Images/plage.jpg");
+    if (!carteSelectionnee.includes(uneCarte)) {
+      carteSelectionnee.push(uneCarte);
     }
-  }
 
-  // Fonction pour vérifier la paire
-  function verifierPaire() {
-    if (cartes.length == 2) {
-      const carte1 = cartes[0];
-      const carte2 = cartes[1];
-
-      if (carte1.dataset.image == carte2.dataset.image) {
-        score++;
-        cartes = [];
-        cartesCliquees = 0;
-        if (checkWin(nbPaire)) {
-          resetGame.classList.remove("visibility");
-          gameSection.classList.add("event-stop");
-          resetGame.addEventListener("click", () => {
-            location.reload();
-          });
-        }
+    if (carteSelectionnee.length == 2) {
+      if (verifierPaire(carteSelectionnee)) {
+        carteSelectionnee.forEach((elemt) => {
+          elemt.removeEventListener("click", logiqueDeJeu);
+        });
+        carteSelectionnee = [];
       } else {
         setTimeout(() => {
-          retournerCarte(carte1);
-          retournerCarte(carte2);
-          cartes = [];
-          cartesCliquees = 0;
+          carteSelectionnee.forEach((element) => {
+            console.log(element);
+            flipCarte(element);
+          });
+
+          //on vide le tableau des cartes cliquées
+          carteSelectionnee = [];
         }, 1000);
       }
     }
   }
-
-  images.forEach((img) => {
-    img.addEventListener("click", () => {
-      if (cartesCliquees < 2 && !cartes.includes(img)) {
-        retournerCarte(img);
-        cartes.push(img);
-        cartesCliquees++;
-        verifierPaire();
-      }
-    });
-  });
 };
 
-// check la win
-const checkWin = (paire) => {
-  if (score == paire) {
-    return true;
+/**
+ * Permet de retourner une carte si quand on click dessu
+ * @param {*} img
+ */
+function flipCarte(img) {
+  let imageData = img.dataset.image;
+  if (img.getAttribute("src") == "./Images/plage.jpg") {
+    img.setAttribute("src", "./Images/" + imageData + ".jpg");
+  } else {
+    img.setAttribute("src", "./Images/plage.jpg");
   }
-};
+}
+
+/**
+ * Vérifie si les cartes choisies sont des paires
+ * @param {*} tab
+ */
+function verifierPaire(tab) {
+  let carte_1 = tab[0].getAttribute("data-image");
+  let index = 1;
+  while (
+    index < tab.length &&
+    tab[index].getAttribute("data-image") == carte_1
+  ) {
+    index++;
+  }
+  if (index == tab.length) return true;
+  return false;
+}
