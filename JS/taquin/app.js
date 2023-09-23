@@ -40,7 +40,10 @@ function localisationCubeBlanc() {
   });
   return btnBlanc;
 }
-
+/**
+ * Fonction avec la logique de jeu
+ * @param {*} event
+ */
 function game(event) {
   let btnClickLigne = event.target.dataset.ligne;
   let btnClickColonne = event.target.dataset.colonne;
@@ -48,11 +51,6 @@ function game(event) {
   let btnClick = event.target;
 
   let positionCubeBlanc = localisationCubeBlanc();
-
-  console.log(
-    btnClickColonne - positionCubeBlanc.dataset.colonne,
-    positionCubeBlanc.dataset.ligne - btnClickLigne
-  );
 
   if (
     (btnClickColonne - positionCubeBlanc.dataset.colonne == 0 &&
