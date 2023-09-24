@@ -5,10 +5,12 @@
 // changer class, value ...
 // bouger les 2 btn
 // identifier le cube blanc avec un data spé
+//---------------------------------------Variables---------------------------------------------------
 const allBtn = document.querySelectorAll(".btn");
 const sectionGame = document.getElementById("jeu");
 var nbCoup = 0;
 
+//---------------------------------------Listener----------------------------------------------------
 placementAleatoire();
 
 sectionGame.addEventListener("click", game);
@@ -60,6 +62,7 @@ function game(event) {
     swapCube(btnClick, positionCubeBlanc);
     nbCoup++;
     document.querySelector(".nb-coup").innerHTML = nbCoup;
+    if (checkWin()) alert("Gagné");
   }
 }
 
@@ -74,4 +77,29 @@ function placementAleatoire() {
   let index = 0;
 
   allBtn.forEach((btn) => (btn.innerHTML = arrayMelanger[index++]));
+}
+
+/**
+ * Check quand la partie est gagnée
+ * return true quand gangé
+ */
+function checkWin() {
+  let btn = document.querySelectorAll("[data-result]");
+  let tabBtnHtml = [];
+  let tabBtnResult = [];
+
+  btn.forEach((elt) => {
+    tabBtnHtml.push(elt.innerHTML);
+    tabBtnResult.push(elt.dataset.result);
+  });
+
+  // compare si les data-result et les innerHTML des btn sont égaux
+  if (tabBtnHtml.toString() == tabBtnResult.toString()) {
+    return true;
+  }
+
+  //réinisialise les tableaux
+  tabBtnHtml = [];
+  tabBtnResult = [];
+  return false;
 }
