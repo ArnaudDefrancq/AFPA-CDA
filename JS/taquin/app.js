@@ -6,12 +6,12 @@
 // bouger les 2 btn
 // identifier le cube blanc avec un data spé
 const allBtn = document.querySelectorAll(".btn");
+const sectionGame = document.getElementById("jeu");
+var nbCoup = 0;
 
 placementAleatoire();
 
-allBtn.forEach((btn) => {
-  btn.addEventListener("click", game);
-});
+sectionGame.addEventListener("click", game);
 
 //---------------------------------------Function----------------------------------------------------
 /**
@@ -45,7 +45,6 @@ function game(event) {
   let btnClick = event.target;
   let btnClickLigne = event.target.dataset.ligne;
   let btnClickColonne = event.target.dataset.colonne;
-
   let positionCubeBlanc = document.querySelector(".btn-blanc");
 
   if (
@@ -59,6 +58,8 @@ function game(event) {
       positionCubeBlanc.dataset.colonne - btnClickColonne == -1)
   ) {
     swapCube(btnClick, positionCubeBlanc);
+    nbCoup++;
+    document.querySelector(".nb-coup").innerHTML = nbCoup;
   }
 }
 
