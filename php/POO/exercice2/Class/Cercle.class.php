@@ -37,12 +37,12 @@ class Cercle
     /***Methodes***/
     private function perimetre()
     {
-        return 2 * pi() * ($this->getDiametre() / 2);
+        return number_format(2 * pi() * ($this->getDiametre() / 2), 2);
     }
 
     private function aire()
     {
-        return pi() * pow(($this->getDiametre() / 2), 2);
+        return number_format(pi() * pow(($this->getDiametre() / 2), 2), 2);
     }
 
     public function __toString()
