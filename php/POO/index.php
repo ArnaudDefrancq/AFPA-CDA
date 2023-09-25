@@ -1,0 +1,4 @@
+<?php
+$array = [
+    'couleur' => 'couleur',
+];
