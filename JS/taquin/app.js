@@ -103,3 +103,6 @@ function checkWin() {
   tabBtnResult = [];
   return false;
 }
+
+// Récup le tableau et voir si c'est croissant
+// allBtn.forEach((btn) => console.log(btn.innerHTML));
