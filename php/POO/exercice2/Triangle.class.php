@@ -1,5 +1,5 @@
 <?php
-class Rectangle
+class Triangle
 {
     /***Attributs***/
     private $_longueur;
@@ -26,7 +26,6 @@ class Rectangle
         $this->_largeur = $largeur;
     }
 
-
     /***Construct***/
     public function __construct(array $options = [])
     {
@@ -47,28 +46,18 @@ class Rectangle
     }
 
     /***Methodes***/
-
-    public function perimetre()
+    private function perimetre()
     {
-        return 2 * ($this->getLongueur() + $this->getLargeur());
+        return $this->getLongueur() + $this->getLargeur() + sqrt(pow($this->getLargeur(), 2) + pow($this->getLongueur(), 2));
     }
 
-    public function aire()
+    private function aire()
     {
-        return $this->getLargeur() * $this->getLongueur();
-    }
-
-    public function estCarre()
-    {
-        if ($this->getLargeur() == $this->getLongueur()) {
-            return "il s'agit d'un carré";
-        } else {
-            return "il ne s'agit pas d'un carré";
-        };
+        return ($this->getLargeur() * $this->getLongueur()) / 2;
     }
 
     public function __toString()
     {
-        return "Longueur : " . $this->getLongueur() . "- Largeur : " . $this->getLargeur() . "- Périmètre : " . $this->perimetre() . " - Aire : " . $this->aire() . " - " . $this->estCarre();
+        return "Longueur : " . $this->getLongueur() . " - Largeur : " . $this->getLargeur() . " - Périmètre : " . $this->perimetre() . " - Aire : " . $this->aire();
     }
 }
