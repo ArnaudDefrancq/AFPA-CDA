@@ -1,19 +1,11 @@
 <?php
-class Cercle
+require_once "Cercle.class.php";
+
+class Sphere extends Cercle
 {
     /***Attributs***/
-    private $_diametre;
 
     /***Accesseur***/
-    public function getDiametre()
-    {
-        return $this->_diametre;
-    }
-
-    public function setDiametre($diametre)
-    {
-        $this->_diametre = $diametre;
-    }
 
     /***Construct***/
     public function __construct(array $options = [])
@@ -35,18 +27,18 @@ class Cercle
     }
 
     /***Methodes***/
-    private function perimetre()
+    private function aireSphere()
     {
-        return 2 * pi() * ($this->getDiametre() / 2);
+        return 4 * pi() * (pow((Parent::getDiametre() / 2), 2));
     }
 
-    private function aire()
+    private function volumeSphere()
     {
-        return pi() * pow(($this->getDiametre() / 2), 2);
+        return (4 / 3) * pi() * pow((Parent::getDiametre() / 2), 3);
     }
 
     public function __toString()
     {
-        return "Diamètre : " . $this->getDiametre() . " - Périmètre : " . $this->perimetre() . " - Aire : " . $this->aire();
+        return "Aire : " . $this->aireSphere() . " - Volume : " . $this->volumeSphere();
     }
 }

@@ -1,29 +1,18 @@
 <?php
-class Triangle
+class Cercle
 {
     /***Attributs***/
-    private $_longueur;
-    private $_largeur;
+    protected $_diametre;
 
     /***Accesseur***/
-    public function getLongueur()
+    protected function getDiametre()
     {
-        return $this->_longueur;
+        return $this->_diametre;
     }
 
-    public function setLongueur($longueur)
+    protected function setDiametre($diametre)
     {
-        $this->_longueur = $longueur;
-    }
-
-    public function getLargeur()
-    {
-        return $this->_largeur;
-    }
-
-    public function setLargeur($largeur)
-    {
-        $this->_largeur = $largeur;
+        $this->_diametre = $diametre;
     }
 
     /***Construct***/
@@ -48,16 +37,16 @@ class Triangle
     /***Methodes***/
     private function perimetre()
     {
-        return $this->getLongueur() + $this->getLargeur() + sqrt(pow($this->getLargeur(), 2) + pow($this->getLongueur(), 2));
+        return 2 * pi() * ($this->getDiametre() / 2);
     }
 
     private function aire()
     {
-        return ($this->getLargeur() * $this->getLongueur()) / 2;
+        return pi() * pow(($this->getDiametre() / 2), 2);
     }
 
     public function __toString()
     {
-        return "Longueur : " . $this->getLongueur() . " - Largeur : " . $this->getLargeur() . " - Périmètre : " . $this->perimetre() . " - Aire : " . $this->aire();
+        return "Diamètre : " . $this->getDiametre() . " - Périmètre : " . $this->perimetre() . " - Aire : " . $this->aire();
     }
 }
