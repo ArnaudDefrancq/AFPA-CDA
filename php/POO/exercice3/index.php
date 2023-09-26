@@ -38,7 +38,7 @@ echo "Il y a " . count($arrayEmployer) . " employer";
 echo "\n";
 
 // affiche les info par ordre alphabétique sur le nom et le prenom
-function comparaisonNom($a, $b)
+function comparaisonNomPrenom($a, $b)
 {
     if ($a->getNom() == $b->getNom()) {
         return strcmp($a->getPrenom(), $b->getPrenom());
@@ -46,9 +46,32 @@ function comparaisonNom($a, $b)
     return strcmp($a->getNom(), $b->getNom());
 }
 
-usort($arrayEmployer, "comparaisonNom");
+usort($arrayEmployer, "comparaisonNomPrenom");
 
 foreach ($arrayEmployer as $personne) {
     echo $personne;
     echo "\n";
 }
+echo "\n";
+echo "\n";
+
+// affiche les info par ordre alphabétique sur le service, le nom et le prenom
+function comparaisonServiceNomPrenom($a, $b)
+{
+    if ($a->getService() == $b->getService()) {
+        if ($a->getNom() == $b->getNom()) {
+            return strcmp($a->getPrenom(), $b->getPrenom());
+        }
+        return strcmp($a->getNom(), $b->getNom());
+    }
+    return strcmp($a->getService(), $b->getService());
+}
+
+usort($arrayEmployer, "comparaisonServiceNomPrenom");
+
+foreach ($arrayEmployer as $personne) {
+    echo $personne;
+    echo "\n";
+}
+echo "\n";
+echo "\n";
