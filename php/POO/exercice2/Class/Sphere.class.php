@@ -29,12 +29,12 @@ class Sphere extends Cercle
     /***Methodes***/
     private function aireSphere()
     {
-        return 4 * pi() * (pow((Parent::getDiametre() / 2), 2));
+        return number_format(4 * pi() * (pow((Parent::getDiametre() / 2), 2)), 2);
     }
 
     private function volumeSphere()
     {
-        return (4 / 3) * pi() * pow((Parent::getDiametre() / 2), 3);
+        return number_format((4 / 3) * pi() * pow((Parent::getDiametre() / 2), 3), 2);
     }
 
     public function __toString()

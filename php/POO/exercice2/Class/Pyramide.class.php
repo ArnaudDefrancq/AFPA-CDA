@@ -38,12 +38,12 @@ class Pyramide extends Triangle
     /***Methodes***/
     private function perimetrePyramide()
     {
-        return (2 * Parent::perimetre()) + (3 * $this->getHauteur());
+        return number_format((2 * Parent::perimetre()) + (3 * $this->getHauteur()), 2);
     }
 
     private function airePyramide()
     {
-        return (2 * Parent::aire()) + (Parent::perimetre() * $this->getHauteur());
+        return number_format((2 * Parent::aire()) + (Parent::perimetre() * $this->getHauteur()), 2);
     }
 
     private function volume()
