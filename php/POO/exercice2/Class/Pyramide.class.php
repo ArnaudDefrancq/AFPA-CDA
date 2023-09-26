@@ -3,30 +3,9 @@
 class Pyramide extends Triangle
 {
     /***Attributs***/
-    private $_longueur;
-    private $_largeur;
     private $_hauteur;
 
     /***Accesseur***/
-    public function getLongueur()
-    {
-        return $this->_longueur;
-    }
-
-    public function setLongueur($longueur)
-    {
-        $this->_longueur = $longueur;
-    }
-
-    public function getLargeur()
-    {
-        return $this->_largeur;
-    }
-
-    public function setLargeur($largeur)
-    {
-        $this->_largeur = $largeur;
-    }
     public function getHauteur()
     {
         return $this->_hauteur;
