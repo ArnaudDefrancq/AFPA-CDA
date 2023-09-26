@@ -79,14 +79,14 @@ class Voiture
     }
 
     /***Methodes***/
+    public function description()
+    {
+        return $this->__toString();
+    }
+
     public function __toString()
     {
-        echo "Cette voiture est une ";
-        echo $this->getModel() ? $this->getModel() . " de la marque " : " voiture de la marque ";
-        echo $this->getMarque();
-        echo $this->getCouleur() ? " de couleur " . $this->getCouleur() : " ";
-        echo $this->getMotorisation() ? " de motorisation " . $this->getMotorisation() : " ";
-        echo $this->getNbKilometre() ?  " avec " . $this->getNbKilometre() . " kilometres" : "";
+        return "Cette voiture est un " . $this->getModele() . " de la marque " . $this->getMarque() . ", de couleur " . $this->getCouleur() . " de motorisation " . $this->getMotorisation() . " avec " . $this->getNbDeKilometres() . " kilometres";
     }
 
     public function rouler($kilometreFait)

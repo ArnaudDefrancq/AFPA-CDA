@@ -36,8 +36,9 @@ $voiture_3 = new Voiture($arrayVoiture3);
 // $voiture_3->__toString();
 
 // exercice 1 - 9 + 10
-$voiture_1->__toString();
+echo $voitureUn->description();
 echo "\n";
-$voiture_1->rouler(100000);
+echo $voitureDeux->description();
+$voitureUn->rouler(2350);
 echo "\n";
-$voiture_1->__toString();
+echo $voitureUn->description();
