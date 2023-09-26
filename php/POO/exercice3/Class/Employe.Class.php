@@ -132,6 +132,6 @@ class Employe
 
     public function __toString()
     {
-        return  $this->primeAnnuel() . " " . $this->anneeDansEntreprise() . " " . $this->estVerser();
+        return  "Nom : " . $this->getNom() . " - Prénom : " . $this->getPrenom() . " - Embauche : " . $this->getEmbauche() . " - Fonction : " . $this->getPoste() . " - Salaire : " . $this->getSalaire() . " - Service : " . $this->getService();
     }
 }
