@@ -75,3 +75,24 @@ foreach ($arrayEmployer as $personne) {
 }
 echo "\n";
 echo "\n";
+
+// montant total masse salariale
+echo 'Coût masse salariale :';
+echo "\n";
+function coutMasseSalarial($arrayEmployer)
+{
+    $coutPrime = 0;
+    $coutSalaire = 0;
+
+    foreach ($arrayEmployer as $employe) {
+        $coutPrime = $coutPrime + $employe->primeAnnuel();
+    }
+
+    foreach ($arrayEmployer as $employe) {
+        $coutSalaire = $coutSalaire + $employe->getSalaire();
+    }
+
+    echo "montant total coût (salaire + prime) : " . ($coutPrime + $coutSalaire) . " €";
+}
+
+coutMasseSalarial($arrayEmployer);
