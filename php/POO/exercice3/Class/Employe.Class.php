@@ -90,18 +90,48 @@ class Employe
     }
 
     /***Methodes***/
+    /**
+     * Calcul depuis combien de temps l'employer a ete employer
+     *
+     * @return string return la différence
+     */
     public function anneeDansEntreprise()
     {
-        $date_1 = new DateTimeImmutable();
+        $dateDujour = new DateTimeImmutable();
         $dateEmbauche = new DateTimeImmutable($this->getEmbauche());
 
-        $interval = $dateEmbauche->diff($date_1);
+        $interval = $dateEmbauche->diff($dateDujour);
 
-        return $interval->format('%d jours, %m mois, %y années');
+        return $interval->format('%y');
+    }
+
+    /**
+     * Indique si le salaire est verser
+     * 
+     * @return boolean true si la prime peut être versée
+     */
+    public function estVerser()
+    {
+        $dateDujour = new DateTime();
+        $dateVersement = "30-11";
+
+        $dateDujour->format("d-m");
+
+        ($dateDujour == $dateVersement) ? true : false;
+    }
+
+    /**
+     * Calcul la prime annuel(5% du brut par an et 2% du brut par année) et le verse le 30/11 de chaque année
+     *
+     * @return void
+     */
+    public function primeAnnuel()
+    {
+        return ($this->getSalaire() * 0.05) + (($this->getSalaire() * 0.02) * $this->anneeDansEntreprise());
     }
 
     public function __toString()
     {
-        return "L'employer" . $this->getNom() . " est dans l'entreprise depuis " . $this->anneeDansEntreprise();
+        return  $this->primeAnnuel() . " " . $this->anneeDansEntreprise() . " " . $this->estVerser();
     }
 }
