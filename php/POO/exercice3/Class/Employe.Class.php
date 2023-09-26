@@ -90,4 +90,21 @@ class Employe
     }
 
     /***Methodes***/
+    public function anneeDansEntreprise()
+    {
+
+        $date_1 = new DateTimeImmutable();
+        $date_1->format("%");
+
+        $dateEmbauche = new DateTimeImmutable($this->getEmbauche());
+
+        $interval = $dateEmbauche->diff($date_1);
+
+        return $interval->format('Y');
+    }
+
+    public function __toString()
+    {
+        return $this->anneeDansEntreprise() . " " . $this->getEmbauche();
+    }
 }
