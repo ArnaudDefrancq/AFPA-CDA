@@ -1,5 +1,4 @@
 <?php
-require_once "Rectangle.class.php";
 
 class Parallelepipede extends Rectangle
 {

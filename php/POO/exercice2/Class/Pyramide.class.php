@@ -1,5 +1,4 @@
 <?php
-require_once "Triangle.class.php";
 
 class Pyramide extends Triangle
 {

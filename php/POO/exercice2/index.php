@@ -1,11 +1,9 @@
 <?php
-// appel des class
-require_once "./Class/Rectangle.class.php";
-require_once "./Class/Triangle.class.php";
-require_once "./Class/Cercle.class.php";
-require_once "./Class/Parallelepipede.class.php";
-require_once "./Class/Pyramide.class.php";
-require_once "./Class/Sphere.class.php";
+function chargerClasse($classe)
+{
+    require './Class/' . $classe . '.Class.php';
+}
+spl_autoload_register('chargerClasse');
 
 // tab avec les valeurs
 $array = [
