@@ -6,9 +6,13 @@ function chargerClasse($classe)
 spl_autoload_register('chargerClasse');
 
 // tab avec les valeurs
-$array = [
+$arrayRectangle = [
     "longueur" => 8,
     "largeur" => 10
+];
+$arrayTriangle = [
+    "longueur" => 7,
+    "largeur" => 4
 ];
 
 $arrayCercle = [
@@ -16,8 +20,8 @@ $arrayCercle = [
 ];
 
 // création des objets
-$rectangle_1 = new Rectangle($array);
-$triangle_1 = new Triangle($array);
+$rectangle_1 = new Rectangle($arrayRectangle);
+$triangle_1 = new Triangle($arrayTriangle);
 $cercle_1 = new Cercle($arrayCercle);
 $parallelepipede_1 = new Parallelepipede(['longueur' => 8, 'largeur' => 10, 'hauteur' => 6]);
 $pyramide_1 = new Pyramide(['longueur' => 8, 'largeur' => 10, 'hauteur' => 6]);

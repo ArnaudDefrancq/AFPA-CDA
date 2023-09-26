@@ -48,7 +48,7 @@ class Triangle
     /***Methodes***/
     protected function perimetre()
     {
-        return $this->getLongueur() + $this->getLargeur() + sqrt(pow($this->getLargeur(), 2) + pow($this->getLongueur(), 2));
+        return number_format($this->getLongueur() + $this->getLargeur() + sqrt(pow($this->getLargeur(), 2) + pow($this->getLongueur(), 2)), 2);
     }
 
     protected function aire()
