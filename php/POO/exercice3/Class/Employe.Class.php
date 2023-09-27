@@ -10,6 +10,8 @@ class Employe
     private $_service;
     private $_agence;
     public static $_nbEmployer;
+    public static $_totalSalaire;
+    public static $_totalPrime;
 
     /***Accesseur***/
     public function getNom()
@@ -92,6 +94,26 @@ class Employe
         $this->_nbEmployer = $nbEmployer;
     }
 
+    public function getTotalSalaire()
+    {
+        return $this->_totalSalaire;
+    }
+
+    public function setTotalSalaire($totalSalaire)
+    {
+        $this->_totalSalaire = $totalSalaire;
+    }
+
+    public function getTotalPrime()
+    {
+        return $this->_totalPrime;
+    }
+
+    public function setTotalPrime($totalPrime)
+    {
+        $this->_totalPrime = $totalPrime;
+    }
+
     /***Construct***/
     public function __construct(array $options = [])
     {
@@ -99,6 +121,8 @@ class Employe
         {
             $this->hydrate($options);
             self::$_nbEmployer++;
+            self::$_totalSalaire = self::$_totalSalaire + $this->getSalaire();
+            self::$_totalPrime = self::$_totalPrime + $this->primeAnnuel();
         }
     }
     public function hydrate($data)
@@ -146,11 +170,13 @@ class Employe
     /**
      * Calcul la prime annuel(5% du brut par an et 2% du brut par année) et le verse le 30/11 de chaque année
      *
-     * @return void
+     * @return int
      */
     public function primeAnnuel()
     {
-        return ($this->getSalaire() * 0.05) + (($this->getSalaire() * 0.02) * $this->anneeDansEntreprise());
+        $total = ($this->getSalaire() * 0.05) + (($this->getSalaire() * 0.02) * $this->anneeDansEntreprise());
+
+        return $total;
     }
 
     /**
@@ -184,6 +210,11 @@ class Employe
             return $employe1->getNom() > $employe2->getNom();
         }
         return $employe1->getService() > $employe2->getService();
+    }
+
+    public static function masseSalariale()
+    {
+        return self::$_totalPrime + self::$_totalSalaire;
     }
 
     public function __toString()

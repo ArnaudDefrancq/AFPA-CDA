@@ -63,18 +63,18 @@ foreach ($arrayEmployer as $personne) {
 echo "\n";
 
 // affiche les info par ordre alphabétique sur le service, le nom et le prenom
-function comparaisonServiceNomPrenom($a, $b)
-{
-    if ($a->getService() == $b->getService()) {
-        if ($a->getNom() == $b->getNom()) {
-            return strcmp($a->getPrenom(), $b->getPrenom());
-        }
-        return strcmp($a->getNom(), $b->getNom());
-    }
-    return strcmp($a->getService(), $b->getService());
-}
+// function comparaisonServiceNomPrenom($a, $b)
+// {
+//     if ($a->getService() == $b->getService()) {
+//         if ($a->getNom() == $b->getNom()) {
+//             return strcmp($a->getPrenom(), $b->getPrenom());
+//         }
+//         return strcmp($a->getNom(), $b->getNom());
+//     }
+//     return strcmp($a->getService(), $b->getService());
+// }
 
-usort($arrayEmployer, "comparaisonServiceNomPrenom");
+usort($arrayEmployer, ["Employe", "compareToServiceNomPrenom"]);
 
 foreach ($arrayEmployer as $personne) {
     echo $personne;
@@ -83,25 +83,25 @@ foreach ($arrayEmployer as $personne) {
 echo "\n";
 
 // montant total masse salariale
-echo 'Coût masse salariale :';
-echo "\n";
-function coutMasseSalarial($arrayEmployer)
-{
-    $coutPrime = 0;
-    $coutSalaire = 0;
+echo 'Coût masse salariale : ';
+// function coutMasseSalarial($arrayEmployer)
+// {
+//     $coutPrime = 0;
+//     $coutSalaire = 0;
 
-    foreach ($arrayEmployer as $employe) {
-        $coutPrime = $coutPrime + $employe->primeAnnuel();
-    }
+//     foreach ($arrayEmployer as $employe) {
+//         $coutPrime = $coutPrime + $employe->primeAnnuel();
+//     }
 
-    foreach ($arrayEmployer as $employe) {
-        $coutSalaire = $coutSalaire + $employe->getSalaire();
-    }
+//     foreach ($arrayEmployer as $employe) {
+//         $coutSalaire = $coutSalaire + $employe->getSalaire();
+//     }
 
-    echo "montant total coût (salaire + prime) : " . ($coutPrime + $coutSalaire) . " €";
-}
+//     echo "montant total coût (salaire + prime) : " . ($coutPrime + $coutSalaire) . " €";
+// }
+// coutMasseSalarial($arrayEmployer);
 
-coutMasseSalarial($arrayEmployer);
+echo Employe::masseSalariale() . " €";
 
 echo "\n";
 echo "\n";
