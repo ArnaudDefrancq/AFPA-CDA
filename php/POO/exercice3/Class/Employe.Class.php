@@ -10,6 +10,7 @@ class Employe
     private $_service;
     private Agence $_agence;
     public static $_nbEmployer;
+    private $_enfant;
 
     /***Accesseur***/
     #region 
@@ -91,6 +92,16 @@ class Employe
     public function setNbEmployer($nbEmployer)
     {
         $this->_nbEmployer = $nbEmployer;
+    }
+
+    public function getEnfant()
+    {
+        return $this->_enfant;
+    }
+
+    public function setEnfant($enfant)
+    {
+        $this->_enfant = $enfant;
     }
 
     #endregion
@@ -209,8 +220,37 @@ class Employe
      */
     public function estChequeVacance()
     {
-        if ($this->anneeDansEntreprise() > 1) return true;
-        return false;
+        if ($this->anneeDansEntreprise() > 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Permet de dire si le l'employer a des enfants 
+     *
+     * @return boolean true si enfant
+     */
+    public function aDesEnfants()
+    {
+        if (count($this->getEnfant()) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * indique le nombre de cheque noel par enfant et d'emplayer
+     *
+     * @return void
+     */
+    public function chequeNoel()
+    {
+        foreach ($this->getEnfant() as $enfant) {
+            return $enfant;
+        }
     }
 
     public function __toString()
