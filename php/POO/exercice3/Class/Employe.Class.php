@@ -8,6 +8,7 @@ class Employe
     private $_poste;
     private $_salaire;
     private $_service;
+    private $_agence;
 
     /***Accesseur***/
     public function getNom()
@@ -68,6 +69,16 @@ class Employe
     public function setService($service)
     {
         $this->_service = $service;
+    }
+
+    public function getAgence()
+    {
+        return $this->_agence;
+    }
+
+    public function setAgence($agence)
+    {
+        $this->_agence = $agence;
     }
 
     /***Construct***/
