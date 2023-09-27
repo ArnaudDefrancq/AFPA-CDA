@@ -8,10 +8,8 @@ class Employe
     private $_poste;
     private $_salaire;
     private $_service;
-    private $_agence;
+    private Agence $_agence;
     public static $_nbEmployer;
-    public static $_totalSalaire;
-    public static $_totalPrime;
 
     /***Accesseur***/
     #region 
@@ -80,7 +78,7 @@ class Employe
         return $this->_agence;
     }
 
-    public function setAgence($agence)
+    public function setAgence(Agence $agence)
     {
         $this->_agence = $agence;
     }
@@ -95,26 +93,6 @@ class Employe
         $this->_nbEmployer = $nbEmployer;
     }
 
-    public function getTotalSalaire()
-    {
-        return $this->_totalSalaire;
-    }
-
-    public function setTotalSalaire($totalSalaire)
-    {
-        $this->_totalSalaire = $totalSalaire;
-    }
-
-    public function getTotalPrime()
-    {
-        return $this->_totalPrime;
-    }
-
-    public function setTotalPrime($totalPrime)
-    {
-        $this->_totalPrime = $totalPrime;
-    }
-
     #endregion
     /***Construct***/
     public function __construct(array $options = [])
@@ -123,8 +101,6 @@ class Employe
         {
             $this->hydrate($options);
             self::$_nbEmployer++;
-            self::$_totalSalaire = self::$_totalSalaire + $this->getSalaire();
-            self::$_totalPrime = self::$_totalPrime + $this->primeAnnuel();
         }
     }
     public function hydrate($data)
@@ -146,27 +122,31 @@ class Employe
      */
     public function anneeDansEntreprise()
     {
-        $dateDujour = new DateTimeImmutable();
+        $dateDujour = new DateTime();
         $dateEmbauche = new DateTimeImmutable($this->getEmbauche());
 
         $interval = $dateEmbauche->diff($dateDujour);
 
-        return $interval->format('%y');
+        return $interval->format('%y') * 1;
+    }
+    /**
+     * prime de 5% sur le salaire
+     *
+     * @return int
+     */
+    public function primeSalaireAnnuel()
+    {
+        return $this->getSalaire() * 0.05;
     }
 
     /**
-     * Indique si le salaire est verser
-     * 
-     * @return boolean true si la prime peut être versée
+     * prime de 2% par année d'ancienneté
+     *
+     * @return int
      */
-    public function estVerser()
+    public function primeAnciennete()
     {
-        $dateDujour = new DateTime();
-        $dateVersement = "30-11";
-
-        $dateDujour->format("d-m");
-
-        ($dateDujour == $dateVersement) ? true : false;
+        return $this->getSalaire() * 0.02 * $this->anneeDansEntreprise();
     }
 
     /**
@@ -176,9 +156,7 @@ class Employe
      */
     public function primeAnnuel()
     {
-        $total = ($this->getSalaire() * 0.05) + (($this->getSalaire() * 0.02) * $this->anneeDansEntreprise());
-
-        return $total;
+        return $this->primeAnciennete() + $this->primeSalaireAnnuel();
     }
 
     /**
@@ -190,10 +168,10 @@ class Employe
      */
     public static function compareToNomPrenom($employe1, $employe2)
     {
-        if ($employe1->getNom() == $employe2->getNom()) {
-            return $employe1->getPrenom() > $employe2->getPrenom();
+        if (strcmp($employe1->getNom(), $employe2->getNom()) ==  0) {
+            return strcmp($employe1->getPrenom(), $employe2->getPrenom());
         }
-        return $employe1->getNom() > $employe2->getNom();
+        return strcmp($employe1->getNom(), $employe2->getNom());
     }
 
     /**
@@ -205,23 +183,23 @@ class Employe
      */
     public static function compareToServiceNomPrenom($employe1, $employe2)
     {
-        if ($employe1->getService() == $employe2->getService()) {
-            if ($employe1->getNom() == $employe2->getNom()) {
-                return $employe1->getPrenom() > $employe2->getPrenom();
-            }
-            return $employe1->getNom() > $employe2->getNom();
+        if ($employe1->getService() < $employe2->getService()) {
+            return -1;
+        } elseif ($employe1->getService() > $employe2->getService()) {
+            return 1;
+        } else {
+            return self::compareToNomPrenom($employe1, $employe2);
         }
-        return $employe1->getService() > $employe2->getService();
     }
 
     /**
-     * Calcule la masse salariale de l'entreprise
+     * Calcule la masse salariale
      *
      * @return int
      */
-    public static function masseSalariale()
+    public function masseSalarial()
     {
-        return self::$_totalPrime + self::$_totalSalaire;
+        return $this->getSalaire() + $this->primeAnnuel();
     }
 
     /**

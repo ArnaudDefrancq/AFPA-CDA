@@ -33,31 +33,29 @@ foreach ($arrayEmployer as $employe) {
     echo $employe->primeAnnuel() . " €";
     echo "\n";
 }
+echo "\n";
 
 // Permet de savoir si le salaire est versé
-if ($employe1->estVerser()) {
-    echo "ordre de transfert a été envoyé à la banque";
-    echo "\n";
-} else {
-    echo "l'ordre de transfert sera effectué le 30/11";
-    echo "\n";
-}
+$dateDuJour = new DateTime();
 
+$jourPrime = ("31-11");
+
+if ($jourPrime < $dateDuJour) {
+    foreach ($arrayEmployer as $employe) {
+        echo "L'ordre de transfert a été envoyé à la banque pour " . $employe->getNom() . " " . $employe->getPrenom() . " d'un montant de " . $employe->primeAnnuel() . "\n";
+    }
+} else {
+    echo "L'ordre de transfert n'a pas été envoyé à la banque\n";
+}
+echo "\n";
 
 // nombre d'employe
 echo "Il y a " . Employe::$_nbEmployer . " employer";
 echo "\n";
 
 // affiche les info par ordre alphabétique sur le nom et le prenom
-// function comparaisonNomPrenom($a, $b)
-// {
-//     if ($a->getNom() == $b->getNom()) {
-//         return strcmp($a->getPrenom(), $b->getPrenom());
-//     }
-//     return strcmp($a->getNom(), $b->getNom());
-// }
-
 usort($arrayEmployer, ["Employe", "compareToNomPrenom"]);
+echo "\n";
 
 foreach ($arrayEmployer as $personne) {
     echo $personne;
@@ -66,17 +64,6 @@ foreach ($arrayEmployer as $personne) {
 echo "\n";
 
 // affiche les info par ordre alphabétique sur le service, le nom et le prenom
-// function comparaisonServiceNomPrenom($a, $b)
-// {
-//     if ($a->getService() == $b->getService()) {
-//         if ($a->getNom() == $b->getNom()) {
-//             return strcmp($a->getPrenom(), $b->getPrenom());
-//         }
-//         return strcmp($a->getNom(), $b->getNom());
-//     }
-//     return strcmp($a->getService(), $b->getService());
-// }
-
 usort($arrayEmployer, ["Employe", "compareToServiceNomPrenom"]);
 
 foreach ($arrayEmployer as $personne) {
@@ -87,24 +74,18 @@ echo "\n";
 
 // montant total masse salariale
 echo 'Coût masse salariale : ';
-// function coutMasseSalarial($arrayEmployer)
-// {
-//     $coutPrime = 0;
-//     $coutSalaire = 0;
+function coutMasseSalarial($arrayEmployer)
+{
+    $coutMasseSalarial = 0;
 
-//     foreach ($arrayEmployer as $employe) {
-//         $coutPrime = $coutPrime + $employe->primeAnnuel();
-//     }
+    foreach ($arrayEmployer as $employe) {
+        $coutMasseSalarial += $employe->masseSalarial();
+    }
 
-//     foreach ($arrayEmployer as $employe) {
-//         $coutSalaire = $coutSalaire + $employe->getSalaire();
-//     }
+    echo $coutMasseSalarial . " €";
+}
+coutMasseSalarial($arrayEmployer);
 
-//     echo "montant total coût (salaire + prime) : " . ($coutPrime + $coutSalaire) . " €";
-// }
-// coutMasseSalarial($arrayEmployer);
-
-echo Employe::masseSalariale() . " €";
 
 echo "\n";
 echo "\n";
@@ -128,7 +109,7 @@ foreach ($arrayEmployer as $employe) {
         echo $employe->getNom() . " CHEQUE !";
         echo "\n";
     } else {
-        echo $employe->getNom() . " NON";
+        echo $employe->getNom() . " PAS CHEQUE";
         echo "\n";
     }
 }
