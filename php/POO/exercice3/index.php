@@ -128,7 +128,12 @@ foreach ($arrayEmployer as $employe) {
         echo $employe->getNom() . " CHEQUE !";
         echo "\n";
     } else {
-        echo $employe->getNom() . "NON";
+        echo $employe->getNom() . " NON";
         echo "\n";
     }
 }
+
+echo "\n";
+
+
+// Cheque pour la NOEL  !!
