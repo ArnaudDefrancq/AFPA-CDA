@@ -42,19 +42,19 @@ if ($employe1->estVerser()) {
 
 
 // nombre d'employe
-echo "Il y a " . count($arrayEmployer) . " employer";
+echo "Il y a " . Employe::$_nbEmployer . " employer";
 echo "\n";
 
 // affiche les info par ordre alphabétique sur le nom et le prenom
-function comparaisonNomPrenom($a, $b)
-{
-    if ($a->getNom() == $b->getNom()) {
-        return strcmp($a->getPrenom(), $b->getPrenom());
-    }
-    return strcmp($a->getNom(), $b->getNom());
-}
+// function comparaisonNomPrenom($a, $b)
+// {
+//     if ($a->getNom() == $b->getNom()) {
+//         return strcmp($a->getPrenom(), $b->getPrenom());
+//     }
+//     return strcmp($a->getNom(), $b->getNom());
+// }
 
-usort($arrayEmployer, "comparaisonNomPrenom");
+usort($arrayEmployer, ["Employe", "compareToNomPrenom"]);
 
 foreach ($arrayEmployer as $personne) {
     echo $personne;
@@ -116,3 +116,4 @@ function modeRestauration($arrayEmployer)
 }
 
 modeRestauration($arrayEmployer);
+echo "\n";

@@ -9,6 +9,7 @@ class Employe
     private $_salaire;
     private $_service;
     private $_agence;
+    public static $_nbEmployer;
 
     /***Accesseur***/
     public function getNom()
@@ -81,12 +82,23 @@ class Employe
         $this->_agence = $agence;
     }
 
+    public function getNbEmployer()
+    {
+        return $this->_nbEmployer;
+    }
+
+    public function setNbEmployer($nbEmployer)
+    {
+        $this->_nbEmployer = $nbEmployer;
+    }
+
     /***Construct***/
     public function __construct(array $options = [])
     {
         if (!empty($options)) // empty : renvoi vrai si le tableau est vide
         {
             $this->hydrate($options);
+            self::$_nbEmployer++;
         }
     }
     public function hydrate($data)
@@ -139,6 +151,39 @@ class Employe
     public function primeAnnuel()
     {
         return ($this->getSalaire() * 0.05) + (($this->getSalaire() * 0.02) * $this->anneeDansEntreprise());
+    }
+
+    /**
+     * compare les nom -> prenom
+     *
+     * @param object $employe1
+     * @param object $employe2
+     * @return void
+     */
+    public static function compareToNomPrenom($employe1, $employe2)
+    {
+        if ($employe1->getNom() == $employe2->getNom()) {
+            return $employe1->getPrenom() > $employe2->getPrenom();
+        }
+        return $employe1->getNom() > $employe2->getNom();
+    }
+
+    /**
+     * compare les service -> nom -> prenom
+     *
+     * @param object $employe1
+     * @param object $employe2
+     * @return void
+     */
+    public static function compareToServiceNomPrenom($employe1, $employe2)
+    {
+        if ($employe1->getService() == $employe2->getService()) {
+            if ($employe1->getNom() == $employe2->getNom()) {
+                return $employe1->getPrenom() > $employe2->getPrenom();
+            }
+            return $employe1->getNom() > $employe2->getNom();
+        }
+        return $employe1->getService() > $employe2->getService();
     }
 
     public function __toString()
