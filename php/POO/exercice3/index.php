@@ -6,6 +6,7 @@ function chargerClasse($classe)
 spl_autoload_register('chargerClasse');
 
 // instanciation des employées
+#region
 $agence1 = new Agence(["nomAgence" => "agence_1", "adresse" => "rue de Lille", "codePostal" => "59000", "ville" => "Lille", "restauration" => true]);
 $employe1 = new Employe(["nom" => "jean", "prenom" => "pierre", "embauche" => "20-04-1999", "poste" => "chef", "salaire" => 180000, "service" => "chef", "agence" => $agence1]);
 
@@ -13,12 +14,14 @@ $agence2 = new Agence(["nomAgence" => "agence_2", "adresse" => "rue de Paris", "
 $employe2 = new Employe(["nom" => "marc", "prenom" => "jean", "embauche" => "03-01-2001", "poste" => "sous-chef", "salaire" => 100000, "service" => "sous-chef", "agence" => $agence2]);
 
 $agence3 = new Agence(["nomAgence" => "agence_3", "adresse" => "rue de Popering", "codePostal" => "8970", "ville" => "Popering", "restauration" => false]);
-$employe3 = new Employe(["nom" => "henri", "prenom" => "paul", "embauche" => "06-06-2020", "poste" => "artiste", "salaire" => 20000, "service" => "test", "agence" => $agence3]);
+$employe3 = new Employe(["nom" => "henri", "prenom" => "paul", "embauche" => "06-06-2023", "poste" => "artiste", "salaire" => 20000, "service" => "test", "agence" => $agence3]);
 
 $agence4 = new Agence(["nomAgence" => "agence_4", "adresse" => "rue de Watou", "codePostal" => "8978", "ville" => "Watou", "restauration" => true]);
 $employe4 = new Employe(["nom" => "francis", "prenom" => "bis", "embauche" => "05-09-2002", "poste" => "penseur", "salaire" => 60000, "service" => "là", "agence" => $agence4]);
 
 $employe5 = new Employe(["nom" => "beton", "prenom" => "cis", "embauche" => "26-08-2005", "poste" => "derrière", "salaire" => 2000, "service" => "stage", "agence" => $agence1]);
+
+#endregion
 
 // tab des employees
 $arrayEmployer = [$employe1, $employe2, $employe3, $employe4, $employe5];
@@ -107,6 +110,7 @@ echo "\n";
 echo "\n";
 // echo $employe1->getAgence()->getNomAgence();
 
+// restauration d'entreprise
 function modeRestauration($arrayEmployer)
 {
     foreach ($arrayEmployer as $employe) {
@@ -117,3 +121,14 @@ function modeRestauration($arrayEmployer)
 
 modeRestauration($arrayEmployer);
 echo "\n";
+
+// Permet de donner des cheques
+foreach ($arrayEmployer as $employe) {
+    if ($employe->estChequeVacance()) {
+        echo $employe->getNom() . " CHEQUE !";
+        echo "\n";
+    } else {
+        echo $employe->getNom() . "NON";
+        echo "\n";
+    }
+}

@@ -14,6 +14,7 @@ class Employe
     public static $_totalPrime;
 
     /***Accesseur***/
+    #region 
     public function getNom()
     {
         return $this->_nom;
@@ -114,6 +115,7 @@ class Employe
         $this->_totalPrime = $totalPrime;
     }
 
+    #endregion
     /***Construct***/
     public function __construct(array $options = [])
     {
@@ -184,7 +186,7 @@ class Employe
      *
      * @param object $employe1
      * @param object $employe2
-     * @return void
+     * @return bool
      */
     public static function compareToNomPrenom($employe1, $employe2)
     {
@@ -199,7 +201,7 @@ class Employe
      *
      * @param object $employe1
      * @param object $employe2
-     * @return void
+     * @return bool
      */
     public static function compareToServiceNomPrenom($employe1, $employe2)
     {
@@ -212,9 +214,25 @@ class Employe
         return $employe1->getService() > $employe2->getService();
     }
 
+    /**
+     * Calcule la masse salariale de l'entreprise
+     *
+     * @return int
+     */
     public static function masseSalariale()
     {
         return self::$_totalPrime + self::$_totalSalaire;
+    }
+
+    /**
+     * permet de définir si l'employer peut avoir des chèques vacances
+     *
+     * @return bool false si l'employer ne peut pas avoir de chèque
+     */
+    public function estChequeVacance()
+    {
+        if ($this->anneeDansEntreprise() > 1) return true;
+        return false;
     }
 
     public function __toString()
