@@ -65,8 +65,9 @@ class MonstreF
         $deMonstre = $this->lancerDe();
         $deJoueur = $joueur->lancerDe();
 
-        if ($deMonstre >= $deJoueur) {
+        if ($deMonstre <= $deJoueur) {
             if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le joueur gagne !";
+            self::setNbMonstreTue(self::getNbMonstreTue() + 1);
         } else {
             if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le monstre gagne !";
         }

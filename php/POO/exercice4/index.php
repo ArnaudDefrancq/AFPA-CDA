@@ -18,4 +18,4 @@ $monstre = new MonstreF();
 // }
 
 
-echo $joueur->attaque($monstre, $debug);
+echo $monstre->attaque($joueur, $debug);
