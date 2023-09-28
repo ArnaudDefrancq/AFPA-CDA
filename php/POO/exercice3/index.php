@@ -127,10 +127,11 @@ $arrayEmployer = [$employe1, $employe2, $employe3, $employe4, $employe5];
 #endregion
 // Cheque pour la NOEL  !!
 
-// foreach ($arrayEmployer as $employe) {
-//     echo $employe->aDesEnfants() ? $employe->getNom() . " a des enfants et peut avoir des cheques noel" : $employe->getNom() . " n'a pas d'enfant et ne peut pas avoir de cheque";
-//     echo "\n";
-// }
+foreach ($arrayEmployer as $employe) {
+    echo $employe->aDesEnfants() ? $employe->getNom() . " a des enfants et peut avoir des cheques noel" : $employe->getNom() . " n'a pas d'enfant et ne peut pas avoir de cheque";
+    echo "\n";
+}
+echo "\n";
 
 function chequeNoel($arrayEmployer)
 {
