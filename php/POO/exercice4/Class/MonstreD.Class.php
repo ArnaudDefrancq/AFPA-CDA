@@ -1,8 +1,7 @@
 <?php
-class MonstreD
+class MonstreD extends MonstreF
 {
     /***Attributs***/
-    private $_2;
 
     /***Accesseur***/
     #region
@@ -30,4 +29,12 @@ class MonstreD
     }
 
     /***Methodes***/
+
+    /**
+     * Permet d'attaquer le joueur (herite de la methode attaque de MonstreF)
+     *
+     */
+    public function attaque()
+    {
+    }
 }

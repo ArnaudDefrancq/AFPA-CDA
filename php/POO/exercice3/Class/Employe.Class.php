@@ -91,7 +91,7 @@ class Employe
 
     public function setNbEmployer($nbEmployer)
     {
-        $this->nbEmployer = $nbEmployer;
+        self::$nbEmployer = $nbEmployer;
     }
 
     public function getEnfant()
@@ -111,8 +111,8 @@ class Employe
         if (!empty($options)) // empty : renvoi vrai si le tableau est vide
         {
             $this->hydrate($options);
-            self::$nbEmployer++;
         }
+        self::setNbEmployer(self::getNbEmployer() + 1);
     }
     public function hydrate($data)
     {

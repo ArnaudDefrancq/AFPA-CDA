@@ -2,7 +2,6 @@
 class De
 {
     /***Attributs***/
-    private $_2;
 
     /***Accesseur***/
     #region
@@ -30,4 +29,13 @@ class De
     }
 
     /***Methodes***/
+
+    /**
+     * Lance le dé
+     *
+     * @return int
+     */
+    public function lanceLDe()
+    {
+    }
 }

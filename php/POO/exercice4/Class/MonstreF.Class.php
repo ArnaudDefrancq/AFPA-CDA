@@ -2,10 +2,19 @@
 class MonstreF
 {
     /***Attributs***/
-    private $_2;
+    private $_vivant;
 
     /***Accesseur***/
     #region
+    public function getVivant()
+    {
+        return $this->_vivant;
+    }
+
+    public function setVivant($vivant)
+    {
+        $this->_vivant = $vivant;
+    }
 
     #endregion
 
@@ -30,4 +39,12 @@ class MonstreF
     }
 
     /***Methodes***/
+
+    /**
+     * Permet au monstre d'attaquer
+     *
+     */
+    public function attaque()
+    {
+    }
 }
