@@ -86,7 +86,7 @@ class Employe
 
     public function getNbEmployer()
     {
-        return $this->nbEmployer;
+        return self::$nbEmployer;
     }
 
     public function setNbEmployer($nbEmployer)

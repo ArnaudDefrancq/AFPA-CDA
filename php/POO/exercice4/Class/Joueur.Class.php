@@ -8,7 +8,7 @@ class Joueur
     #region
     public function getPv()
     {
-        return $this->pv;
+        return self::$pv;
     }
 
     public function setPv($pv)
@@ -48,6 +48,11 @@ class Joueur
      */
     public static function estVivant()
     {
+        if (self::$pv == 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -64,7 +69,19 @@ class Joueur
      *
      * @return int
      */
-    public function subitDegats($degatSubit)
+    public static function subitDegats($degatSubit)
     {
+    }
+
+    /**
+     * Lance le dé pour le joueur
+     *
+     * @return int
+     */
+    public function lancerDe()
+    {
+        $de = new De();
+
+        return $de->lanceLeDe();
     }
 }

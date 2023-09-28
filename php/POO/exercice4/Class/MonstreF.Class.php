@@ -47,4 +47,16 @@ class MonstreF
     public function attaque()
     {
     }
+
+    /**
+     * Lance le dé pour du montre
+     *
+     * @return int
+     */
+    public function lancerDe()
+    {
+        $de = new De();
+
+        return $de->lanceLeDe();
+    }
 }
