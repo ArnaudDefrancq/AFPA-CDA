@@ -12,10 +12,10 @@ $joueur = new Joueur();
 
 // Créatiion soit montreF soit montreD
 // if (rand(0, 1) == 0) {
-$monstre = new MonstreF();
+$monstre = new MonstreD();
 // } else {
 //     $montre = new MonstreD();
 // }
 
 
-echo $monstre->attaque($joueur, $debug);
+echo $monstre->attaqueDifficile($joueur, $debug);

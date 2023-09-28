@@ -2,11 +2,20 @@
 class MonstreD extends MonstreF
 {
     /***Attributs***/
-    // nb monstre tuer static 
-    //degat sort constante xx__x
+    public static $nbMonstreTue;
+    const DEGAT_SORT = 5;
 
     /***Accesseur***/
     #region
+    public function getNbMontreTue()
+    {
+        return self::$nbMonstreTue;
+    }
+
+    public function setNbMontreTue($nbMonstreTue)
+    {
+        self::$nbMonstreTue = $nbMonstreTue;
+    }
 
     #endregion
 
@@ -36,10 +45,19 @@ class MonstreD extends MonstreF
      * Permet d'attaquer le joueur (herite de la methode attaque de MonstreF)
      *
      */
-    public function attaque()
+    public function attaqueDifficile($joueur, $debug)
     {
+        Parent::attaque($joueur, $debug);
     }
 
-    // subit degat
-    // sort magic
+    public function degatSort()
+    {
+        $deSort = Parent::lancerDe();
+
+        if ($deSort != 6) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

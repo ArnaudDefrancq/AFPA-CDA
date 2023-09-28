@@ -70,13 +70,12 @@ class Joueur
         $deMonstre = $monstre->lancerDe();
 
         $degat = MonstreF::DEGAT;
+        $degatSort = MonstreD::DEGAT_SORT;
 
         if ($deJoueur >= $deMonstre) {
             if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le joueur gagne !";
         } else {
-            if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le monstre gagne !";
-
-            $this->subitDegats($degat, $debug);
+            if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le monstre gagne  c'est au tour du monstre d'attaquer!";
         }
     }
 
@@ -89,6 +88,7 @@ class Joueur
         if ($this->bouclier($debug)) {
             self::setPv(self::getPv() - $degatSubit);
             if ($debug) echo "\n" . "le joueur perd " . $degatSubit . " pv";
+            var_dump(self::getPv());
         } else {
             if ($debug) echo "\n" . "le joueur se protege";
         }
