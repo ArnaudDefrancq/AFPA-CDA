@@ -76,11 +76,15 @@ class Joueur
     /**
      * Retire des points de vie si le joueur est touché
      *
-     * @return int
      */
-    public static function subitDegats($degatSubit)
+    public static function subitDegats($degatSubit, $debug)
     {
-        if ()
+        if ($degatSubit->attaque($degatSubit, $debug)) {
+            self::setPv(self::getPv() - $degatSubit->DEGAT);
+            if ($debug) echo "\n" . "le joueur perd 10 pv";
+        } else {
+            if ($debug) echo "\n" . "le joueur ne perd rien";
+        }
     }
 
     /**

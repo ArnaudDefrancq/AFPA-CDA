@@ -16,3 +16,6 @@ $monstre = new MonstreF();
 // } else {
 //     $montre = new MonstreD();
 // }
+
+
+$joueur->subitDegats($monstre, $debug);
