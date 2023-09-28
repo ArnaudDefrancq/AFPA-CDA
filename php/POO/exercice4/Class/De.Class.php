@@ -35,7 +35,7 @@ class De
      *
      * @return int
      */
-    public function lanceLeDe()
+    public static function lanceLeDe()
     {
         return rand(1, 6);
     }

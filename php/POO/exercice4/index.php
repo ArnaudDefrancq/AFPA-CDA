@@ -10,10 +10,7 @@ $joueur = new Joueur();
 
 // Créatiion soit montreF soit montreD
 // if (rand(0, 1) == 0) {
-$montre = new MonstreF();
+$monstre = new MonstreF();
 // } else {
 //     $montre = new MonstreD();
 // }
-
-// Lancer le dé
-$deMonstre = new De();

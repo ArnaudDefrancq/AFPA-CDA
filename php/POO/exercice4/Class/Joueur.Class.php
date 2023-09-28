@@ -40,6 +40,10 @@ class Joueur
 
     /***Methodes***/
 
+    public function __toString()
+    {
+    }
+
     /**
      * Permet de dire si le joueur est toujour viviant
      * true si viviant
@@ -58,10 +62,14 @@ class Joueur
     /**
      * Permet au joueur d'attaquer un monstre
      *
-     * @return void
      */
-    public function attaque($montre)
+    public function attaque($monstre)
     {
+        if ($monstre->lancerDe() < $this->lancerDe()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -84,4 +92,6 @@ class Joueur
 
         return $de->lanceLeDe();
     }
+
+    // Bouclier bool
 }

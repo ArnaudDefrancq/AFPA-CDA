@@ -2,6 +2,8 @@
 class MonstreD extends MonstreF
 {
     /***Attributs***/
+    // nb monstre tuer static 
+    //degat sort constante xx__x
 
     /***Accesseur***/
     #region
@@ -37,4 +39,7 @@ class MonstreD extends MonstreF
     public function attaque()
     {
     }
+
+    // subit degat
+    // sort magic
 }
