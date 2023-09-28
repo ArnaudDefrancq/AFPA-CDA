@@ -65,11 +65,18 @@ class Joueur
      */
     public function attaque($monstre, $debug)
     {
-        if ($monstre->lancerDe() < $this->lancerDe()) {
-            if ($debug) echo "le joueur fait " . $this->lancerDe() . " et le monstre fait " . $monstre->lancerDe();
-            return true;
+
+        $deJoueur = $this->lancerDe();
+        $deMonstre = $monstre->lancerDe();
+
+        $degat = MonstreF::DEGAT;
+
+        if ($deJoueur >= $deMonstre) {
+            if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le joueur gagne !";
         } else {
-            return false;
+            if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le monstre gagne !";
+
+            $this->subitDegats($degat, $debug);
         }
     }
 
@@ -77,13 +84,13 @@ class Joueur
      * Retire des points de vie si le joueur est touché
      *
      */
-    public static function subitDegats($degatSubit, $debug)
+    public function subitDegats($degatSubit, $debug)
     {
-        if ($degatSubit->attaque($degatSubit, $debug)) {
-            self::setPv(self::getPv() - $degatSubit->DEGAT);
-            if ($debug) echo "\n" . "le joueur perd 10 pv";
+        if ($this->bouclier($debug)) {
+            self::setPv(self::getPv() - $degatSubit);
+            if ($debug) echo "\n" . "le joueur perd " . $degatSubit . " pv";
         } else {
-            if ($debug) echo "\n" . "le joueur ne perd rien";
+            if ($debug) echo "\n" . "le joueur se protege";
         }
     }
 
@@ -97,7 +104,21 @@ class Joueur
         return De::lanceLeDe();
     }
 
-    public function bouclier()
+    /**
+     * Permet de dire si le bouclier est levé
+     *
+     * @return bool
+     */
+    public function bouclier($debug)
     {
+        $bouclier = $this->lancerDe();
+
+        if ($bouclier <= 2) {
+            if ($debug) echo "\n" . $bouclier;
+            return false;
+        } else {
+            if ($debug) echo "\n" . $bouclier;
+            return true;
+        }
     }
 }

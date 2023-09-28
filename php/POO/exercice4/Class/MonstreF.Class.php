@@ -62,13 +62,13 @@ class MonstreF
      */
     public function attaque($joueur, $debug)
     {
-        if ($joueur->lancerDe() < $this->lancerDe()) {
-            if ($debug) echo "le monstre fait " . $this->lancerDe() . " et le joueur fait " . $joueur->lancerDe() . " et le monstre mort mdr";
-            self::setNbMonstreTue(self::getNbMonstreTue() + 1);
-            return true;
+        $deMonstre = $this->lancerDe();
+        $deJoueur = $joueur->lancerDe();
+
+        if ($deMonstre >= $deJoueur) {
+            if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le joueur gagne !";
         } else {
-            if ($debug) echo "le monstre fait " . $this->lancerDe() . " et le joueur fait " . $joueur->lancerDe() . " le monstre gagne";
-            return false;
+            if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le monstre gagne !";
         }
     }
 

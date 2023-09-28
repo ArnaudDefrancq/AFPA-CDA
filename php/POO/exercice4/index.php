@@ -18,4 +18,4 @@ $monstre = new MonstreF();
 // }
 
 
-$joueur->subitDegats($monstre, $debug);
+echo $joueur->attaque($monstre, $debug);
