@@ -9,8 +9,8 @@ class Employe
     private $_salaire;
     private $_service;
     private Agence $_agence;
-    public static $_nbEmployer;
-    private $_enfant;
+    public static $nbEmployer;
+    private array $_enfant;
 
     /***Accesseur***/
     #region 
@@ -86,12 +86,12 @@ class Employe
 
     public function getNbEmployer()
     {
-        return $this->_nbEmployer;
+        return $this->nbEmployer;
     }
 
     public function setNbEmployer($nbEmployer)
     {
-        $this->_nbEmployer = $nbEmployer;
+        $this->nbEmployer = $nbEmployer;
     }
 
     public function getEnfant()
@@ -99,7 +99,7 @@ class Employe
         return $this->_enfant;
     }
 
-    public function setEnfant($enfant)
+    public function setEnfant(array $enfant)
     {
         $this->_enfant = $enfant;
     }
@@ -111,7 +111,7 @@ class Employe
         if (!empty($options)) // empty : renvoi vrai si le tableau est vide
         {
             $this->hydrate($options);
-            self::$_nbEmployer++;
+            self::$nbEmployer++;
         }
     }
     public function hydrate($data)
@@ -244,12 +244,13 @@ class Employe
     /**
      * indique le nombre de cheque noel par enfant et d'emplayer
      *
-     * @return void
+     * 
      */
     public function chequeNoel()
     {
+        // var_dump($this->getEnfant());
         foreach ($this->getEnfant() as $enfant) {
-            return $enfant;
+            return $enfant->getAge();
         }
     }
 

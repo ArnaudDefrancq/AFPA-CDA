@@ -32,6 +32,7 @@ $employe5 = new Employe(["nom" => "beton", "prenom" => "cis", "embauche" => "26-
 // tab des employees
 $arrayEmployer = [$employe1, $employe2, $employe3, $employe4, $employe5];
 
+#region
 // // affiche la prime annuel par employe
 // echo 'Prime annuel :';
 // echo "\n";
@@ -123,17 +124,37 @@ $arrayEmployer = [$employe1, $employe2, $employe3, $employe4, $employe5];
 // echo "\n";
 
 
+#endregion
 // Cheque pour la NOEL  !!
+
 // foreach ($arrayEmployer as $employe) {
-//     echo $employe->getNom() . " : ";
-//     foreach ($employe->getEnfant() as $enfant) {
-//         if ($enfant->getAge() < 11) {
-//             echo " 20 € ";
-//         } elseif ($enfant->getAge() < 16) {
-//             echo " 30 € ";
-//         } elseif ($enfant->getAge() < 19) {
-//             echo " 50 € ";
-//         }
-//     };
+//     echo $employe->aDesEnfants() ? $employe->getNom() . " a des enfants et peut avoir des cheques noel" : $employe->getNom() . " n'a pas d'enfant et ne peut pas avoir de cheque";
 //     echo "\n";
 // }
+
+function chequeNoel($arrayEmployer)
+{
+    $totalCheque = 0;
+
+    foreach ($arrayEmployer as $employe) {
+        echo $employe->getNom() . " : ";
+        foreach ($employe->getEnfant() as $enfant) {
+            if ($enfant->getAge() < 11) {
+                $totalCheque += 20;
+                echo " 20 € ";
+            } elseif ($enfant->getAge() < 16) {
+                $totalCheque += 30;
+                echo " 30 € ";
+            } elseif ($enfant->getAge() < 19) {
+                $totalCheque += 50;
+                echo " 50 € ";
+            }
+        };
+        echo "\n";
+        echo "somme cheque " . $totalCheque . " €";
+        echo "\n";
+        $totalCheque = 0;
+    }
+}
+
+chequeNoel($arrayEmployer);

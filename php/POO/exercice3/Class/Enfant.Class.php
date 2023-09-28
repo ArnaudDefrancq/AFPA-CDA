@@ -38,15 +38,4 @@ class Enfant
     }
 
     /***Methodes***/
-    /**
-     * donne l'argent en faonc
-     *
-     * @return void
-     */
-    public function prixParAge()
-    {
-        if ($this->getAge() < 11) return 20;
-        elseif ($this->getAge() < 16) return 30;
-        elseif ($this->getAge() < 19) return 50;
-    }
 }
