@@ -2,9 +2,9 @@
 class MonstreF
 {
     /***Attributs***/
-    private $_vivant;
-    //nb monstre tuer static
-    //degat qu'il fait subir constante = 10
+    private $_vivant = true;
+    public static $nbMonstreTue;
+    const DEGAT = 10;
 
     /***Accesseur***/
     #region
@@ -16,6 +16,16 @@ class MonstreF
     public function setVivant(bool $vivant)
     {
         $this->_vivant = $vivant;
+    }
+
+    public function getNbMonstreTue()
+    {
+        return self::$nbMonstreTue;
+    }
+
+    public function setNbMonstreTue($nbMonstreTue)
+    {
+        self::$nbMonstreTue = $nbMonstreTue;
     }
 
     #endregion
@@ -46,10 +56,14 @@ class MonstreF
     {
     }
 
-    public function estVivant($joueur)
+    public function estVivant($joueur, $debug)
     {
-        if ($joueur->attaque($this->lancerDe())) {
+        if ($joueur->attaque()) {
             $this->setVivant(false);
+            self::setNbMonstreTue(self::getNbMonstreTue() + 1);
+            if ($debug) {
+                echo "le monstre est mort !";
+            }
         }
     }
 
@@ -57,8 +71,14 @@ class MonstreF
      * Permet au monstre d'attaquer
      *
      */
-    public function attaque()
+    public function attaque($joueur, $debug)
     {
+        if ($joueur->lancerDe() < $this->lancerDe()) {
+            if ($debug) echo "le monstre fait " . $this->lancerDe() . " et le joueur fait " . $joueur->lancerDe();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -72,6 +92,4 @@ class MonstreF
 
         return $de->lanceLeDe();
     }
-
-    //subitDegat
 }

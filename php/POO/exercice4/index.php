@@ -5,6 +5,8 @@ function chargerClasse($classe)
 }
 spl_autoload_register('chargerClasse');
 
+$debug = true;
+
 // Création objet Joueur
 $joueur = new Joueur();
 

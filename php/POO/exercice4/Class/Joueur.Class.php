@@ -63,9 +63,10 @@ class Joueur
      * Permet au joueur d'attaquer un monstre
      *
      */
-    public function attaque($monstre)
+    public function attaque($monstre, $debug)
     {
         if ($monstre->lancerDe() < $this->lancerDe()) {
+            if ($debug) echo "le joueur fait " . $this->lancerDe() . " et le monstre fait " . $monstre->lancerDe();
             return true;
         } else {
             return false;
@@ -79,6 +80,7 @@ class Joueur
      */
     public static function subitDegats($degatSubit)
     {
+        if ()
     }
 
     /**
@@ -88,10 +90,10 @@ class Joueur
      */
     public function lancerDe()
     {
-        $de = new De();
-
-        return $de->lanceLeDe();
+        return De::lanceLeDe();
     }
 
-    // Bouclier bool
+    public function bouclier()
+    {
+    }
 }
