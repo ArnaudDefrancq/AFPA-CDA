@@ -63,7 +63,7 @@ class MonstreF
 
         if ($deMonstre > $deJoueur) {
             if ($debug) echo "le monstre fait " . $deMonstre . " et le joueur fait " . $deJoueur . " : Le monstre gagne !";
-            return $joueur->subitDegats(self::DEGAT, $debug);
+            $joueur->subitDegats(self::DEGAT, $debug);
         } else {
             if ($debug) echo "monstre rate, tour du joueur";
         }

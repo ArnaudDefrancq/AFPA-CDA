@@ -45,18 +45,32 @@ class MonstreD extends MonstreF
      * Permet d'attaquer le joueur (herite de la methode attaque de MonstreF)
      *
      */
-    public function attaqueDifficile($joueur, $debug)
+    public function attaque($joueur, $debug)
     {
-        Parent::attaque($joueur, $debug);
+        parent::attaque($joueur, $debug);
+        $joueur->subitDegats(self::DEGAT_SORT, $debug);
     }
 
+    public function subitDegats()
+    {
+        return self::setNbMontreTue(self::getNbMontreTue() + 1);
+    }
+
+    /**
+     * Si le dé fait 6 le monstre fait un sort
+     *
+     * @return bool
+     */
     public function degatSort()
     {
         $deSort = Parent::lancerDe();
+        var_dump($deSort);
 
-        if ($deSort != 6) {
+        if ($deSort == 6) {
+            echo "le monstre fait " . $deSort . " pour jeter sont sort";
             return true;
         } else {
+            echo "le monstre fait " . $deSort . " pour jeter sont sort";
             return false;
         }
     }

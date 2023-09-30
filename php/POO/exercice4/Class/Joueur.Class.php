@@ -3,7 +3,6 @@ class Joueur
 {
     /***Attributs***/
     public static $pv;
-    private $_nom;
 
     /***Accesseur***/
     #region
@@ -16,16 +15,6 @@ class Joueur
     public function setPv($pv)
     {
         self::$pv = $pv;
-    }
-
-    public function getNom()
-    {
-        return $this->_nom;
-    }
-
-    public function setNom($nom)
-    {
-        $this->_nom = $nom;
     }
     #endregion
 
@@ -64,7 +53,7 @@ class Joueur
      */
     public static function estVivant()
     {
-        return (self::$pv == 0) ? true : false;
+        return (self::$pv < 0) ? true : false;
     }
 
     /**
