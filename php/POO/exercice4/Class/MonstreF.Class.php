@@ -52,10 +52,6 @@ class MonstreF
 
     /***Methodes***/
 
-    public function __toString()
-    {
-    }
-
     /**
      * Permet au monstre d'attaquer
      *
@@ -65,12 +61,18 @@ class MonstreF
         $deMonstre = $this->lancerDe();
         $deJoueur = $joueur->lancerDe();
 
-        if ($deMonstre <= $deJoueur) {
-            if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le joueur gagne !";
-            self::setNbMonstreTue(self::getNbMonstreTue() + 1);
+        if ($deMonstre > $deJoueur) {
+            if ($debug) echo "le monstre fait " . $deMonstre . " et le joueur fait " . $deJoueur . " : Le monstre gagne !";
+            return $joueur->subitDegats(self::DEGAT, $debug);
         } else {
-            if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le monstre gagne !";
+            if ($debug) echo "monstre rate, tour du joueur";
         }
+    }
+
+    public function subitDegats()
+    {
+        self::setNbMonstreTue(self::getNbMonstreTue() + 1);
+        return $this->setVivant(false);
     }
 
     /**

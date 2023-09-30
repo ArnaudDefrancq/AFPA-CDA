@@ -3,9 +3,11 @@ class Joueur
 {
     /***Attributs***/
     public static $pv;
+    private $_nom;
 
     /***Accesseur***/
     #region
+
     public function getPv()
     {
         return self::$pv;
@@ -14,6 +16,16 @@ class Joueur
     public function setPv($pv)
     {
         self::$pv = $pv;
+    }
+
+    public function getNom()
+    {
+        return $this->_nom;
+    }
+
+    public function setNom($nom)
+    {
+        $this->_nom = $nom;
     }
     #endregion
 
@@ -52,11 +64,7 @@ class Joueur
      */
     public static function estVivant()
     {
-        if (self::$pv == 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return (self::$pv == 0) ? true : false;
     }
 
     /**
@@ -69,13 +77,11 @@ class Joueur
         $deJoueur = $this->lancerDe();
         $deMonstre = $monstre->lancerDe();
 
-        $degat = MonstreF::DEGAT;
-        $degatSort = MonstreD::DEGAT_SORT;
-
         if ($deJoueur >= $deMonstre) {
             if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le joueur gagne !";
+            return  $monstre->subitDegats();
         } else {
-            if ($debug) echo "le joueur fait " . $deJoueur . " et le monstre fait " . $deMonstre . " : Le monstre gagne  c'est au tour du monstre d'attaquer!";
+            if ($debug) echo "joueur rate, tour du monstre";
         }
     }
 
@@ -85,10 +91,10 @@ class Joueur
      */
     public function subitDegats($degatSubit, $debug)
     {
-        if ($this->bouclier($debug)) {
-            self::setPv(self::getPv() - $degatSubit);
+
+        if (!$this->bouclier($debug)) {
             if ($debug) echo "\n" . "le joueur perd " . $degatSubit . " pv";
-            var_dump(self::getPv());
+            return self::setPv(self::getPv() - $degatSubit);
         } else {
             if ($debug) echo "\n" . "le joueur se protege";
         }
@@ -105,7 +111,7 @@ class Joueur
     }
 
     /**
-     * Permet de dire si le bouclier est levé
+     * Permet de dire si le bouclier est levé si <= 2 bouclier lever
      *
      * @return bool
      */
@@ -114,11 +120,11 @@ class Joueur
         $bouclier = $this->lancerDe();
 
         if ($bouclier <= 2) {
-            if ($debug) echo "\n" . $bouclier;
-            return false;
-        } else {
-            if ($debug) echo "\n" . $bouclier;
+            if ($debug) echo "\n" . "le bouclier fait : " . $bouclier;
             return true;
+        } else {
+            if ($debug) echo "\n" . "le bouclier fait : " . $bouclier;
+            return false;
         }
     }
 }
