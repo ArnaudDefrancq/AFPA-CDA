@@ -1,99 +1,21 @@
 <?php
-class DBConnect
+class DbConnect
 {
-    /***Attributs***/
-    private $_dbName;
-    private $_host;
-    private $_driver;
-    private $_root;
-    private $_password;
+    private static $_db;
 
-    /***Accesseur***/
-    #region
-    public function getDbName()
+
+
+    public static function getDb()
     {
-        return $this->_dbName;
+        return self::$_db;
     }
 
-    public function setDbName($dbName)
-    {
-        $this->_dbName = $dbName;
-    }
-
-    public function getHost()
-    {
-        return $this->_host;
-    }
-
-    public function setHost($host)
-    {
-        $this->_host = $host;
-    }
-
-    public function getDriver()
-    {
-        return $this->_driver;
-    }
-
-    public function setDriver($driver)
-    {
-        $this->_driver = $driver;
-    }
-
-    public function getRoot()
-    {
-        return $this->_root;
-    }
-
-    public function setRoot($root)
-    {
-        $this->_root = $root;
-    }
-
-    public function getPassword()
-    {
-        return $this->_password;
-    }
-
-    public function setPassword($password)
-    {
-        $this->_password = $password;
-    }
-
-    #endregion
-
-    /***Construct***/
-    public function __construct(array $options = [])
-    {
-        if (!empty($options)) // empty : renvoi vrai si le tableau est vide
-        {
-            $this->hydrate($options);
-        }
-    }
-
-    public function hydrate($data)
-    {
-        foreach ($data as $key => $value) {
-            $methode = 'set' . ucfirst($key); //ucfirst met la 1ere lettre en majuscule
-            if (is_callable([$this, $methode])) // is_callable verifie que la methode existe
-            {
-                $this->$methode($value);
-            }
-        }
-    }
-
-    /***Methodes***/
-
-    public function connectDB()
+    public static function init()
     {
         try {
-            $db = new PDO($this->getDriver() . ":host" . $this->getHost() . ";charset=utf8;dbname=" . $this->getDbName(), $this->getRoot(), $this->getPassword());
-
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            self::$_db = new PDO('mysql:host=localhost;port=3306;dbname=exercice6;charset=utf8', "root", "");
         } catch (Exception $e) {
-            echo 'Erreur : ' . $e->getMessage() . '<br />';
-            echo 'numéro : ' . $e->getCode();
-            die('Fin du script');
+            die('Erreur : ' . $e->getMessage());
         }
     }
 }

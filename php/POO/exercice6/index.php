@@ -6,12 +6,6 @@ function chargerClasse($classe)
 spl_autoload_register('chargerClasse');
 
 
-$arrayConnection = [
-    "dbName" => "exercicebdd",
-    "host" => "localhost",
-    "driver" => "mysql",
-    "root" => "root",
-    "password" => ""
-];
-
-// $dbb = new DBConnect()
+DbConnect::init();
+$perso = new Personne(["nom" => "dupon", "prenom" => "toto", "adresse" => "oui", "ville" => "dk"]);
+PersonneManager::create($perso);
