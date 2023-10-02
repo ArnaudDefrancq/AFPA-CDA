@@ -84,10 +84,6 @@ class DBConnect
 
     /***Methodes***/
 
-    /**
-     * Permet de nous connecter a une base de donnée
-     *
-     */
     public function connectDB()
     {
         try {
