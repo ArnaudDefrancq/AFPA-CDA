@@ -5,7 +5,11 @@ function chargerClasse($classe)
 }
 spl_autoload_register('chargerClasse');
 
-
+/**
+ * Créer un object monstreD ou D random
+ *
+ * @return object
+ */
 function creationMonstre()
 {
     if (rand(0, 1) == 1) {
@@ -23,6 +27,12 @@ $debug = true;
 // Création objet Joueur
 $joueur = new Joueur([]);
 
+/**
+ * Contient tout le code de jeu
+ *
+ * @param bool $debug
+ * @param object $joueur
+ */
 function game($debug, $joueur)
 {
 
