@@ -31,4 +31,10 @@ class PersonneManager
         $query->bindValue(":idPersonne", $p->getIdPersonne());
         $query->execute();
     }
+
+    public static function selectById(Personne $p)
+    {
+        $db = DbConnect::getDb();
+        $query = $db->prepare("SELECT idPersonne, nom, prenom, adresse, ville FROM personne WHERE idPersonne=:idPersonne");
+    }
 }
