@@ -1,7 +1,7 @@
 <?php
 class PersonneManager
 {
-    public static function create(Personne $p)
+    static public function create(Personne $p)
     {
         $db = DbConnect::getDb();
         $query = $db->prepare("INSERT INTO personne (nom,prenom,adresse,ville) VALUES (:nom,:prenom,:adresse,:ville)");
@@ -12,7 +12,7 @@ class PersonneManager
         $query->execute();
     }
 
-    public static function update(Personne $p)
+    static public function update(Personne $p)
     {
         $db = DbConnect::getDb();
         $query = $db->prepare("UPDATE  personne SET nom=:nom,prenom=:prenom,adresse=:adresse,ville=:ville WHERE idPersonne=:idPersonne");
@@ -24,7 +24,7 @@ class PersonneManager
         $query->execute();
     }
 
-    public static function delete(Personne $p)
+    static public function delete(Personne $p)
     {
         $db = DbConnect::getDb();
         $query = $db->prepare("DELETE FROM personne WHERE idPersonne=:idPersonne");
@@ -32,9 +32,30 @@ class PersonneManager
         $query->execute();
     }
 
-    public static function selectById(Personne $p)
+    static public function selectById($id)
     {
         $db = DbConnect::getDb();
-        $query = $db->prepare("SELECT idPersonne, nom, prenom, adresse, ville FROM personne WHERE idPersonne=:idPersonne");
+
+        $id = $id;
+
+        $query = $db->query("SELECT idPersonne, nom, prenom, adresse, ville FROM personne WHERE idPersonne=" . $id);
+        $donnes = $query->fetch(PDO::FETCH_ASSOC);
+
+        return new Personne($donnes);
+    }
+
+    static public function getListe()
+    {
+        $db = DbConnect::getDb();
+
+        $perso = [];
+
+        $query = $db->query('SELECT id, nom, prenom FROM personne ORDER BY nom');
+
+        while ($donnes = $query->fetch(PDO::FETCH_ASSOC)) {
+            $perso[] = new Personne($donnes);
+        }
+
+        return $perso;
     }
 }
