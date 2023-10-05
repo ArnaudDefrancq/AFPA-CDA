@@ -18,13 +18,11 @@ spl_autoload_register('chargerClasse');
 
 
 // $arrayTest = ["idPersonne", "nom", "prenom", "adresse", "ville"];
-$arrayTest = [
-    ["nom", "jean"],
-    ["nom", "jean"]
-];
+$arrayTest = ["nom" => false, "prenom" => true];
 
-echo count($arrayTest);
+// echo count($arrayTest);
 
 
 
 // PersonneManager::getColonne(); ok
+echo PersonneManager::getOrderBy($arrayTest);

@@ -103,6 +103,18 @@ class PersonneManager
      */
     static public function getOrderBy(?array $orderBy = null)
     {
+        $order = "";
+        if ($orderBy) {
+            foreach ($orderBy as $keys => $values) {
+                if ($values == false) {
+                    $order = $order . $keys . " DESC ";
+                } else {
+                    $order = $order . $keys . " ASC ";
+                }
+            }
+        }
+
+        return $order;
     }
 
     /**
