@@ -91,8 +91,21 @@ class PersonneManager
      */
     static public function getConditions(?array $conditions = null)
     {
+        $affCondition = "";
         if ($conditions) {
+            foreach ($conditions as $key => $value) {
+                if (!is_array($value) && strpos($value, "%")) $affCondition = $affCondition . $key . " LIKE " . $value;
+                if ($value == " ") $affCondition = $affCondition . $key . " IS NULL ";
+                if ($value[0] == "!") $affCondition = $affCondition . $key . " != " . substr($value, 1);
+                if ($value[0] == "<" || $value[0] == ">") $affCondition = $affCondition . $key . $value;
+                if (!is_array($value) && strpos($value, "->")) $affCondition = $affCondition . $key . " BETWEN " . str_replace("->", " AND ", $value);
+                if (is_array($value)) $affCondition = $affCondition . $key . " IN (" . implode(',', $value) . ")";
+
+                $affCondition = $affCondition . " AND ";
+            }
         }
+
+        return substr($affCondition, 0, -4);
     }
 
     /**
