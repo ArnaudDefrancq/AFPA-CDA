@@ -83,6 +83,38 @@ class PersonneManager
         }
     }
 
+    /**
+     * Permet Les condition pour le SELECT
+     *
+     * @param array|null $conditions
+     * @return string
+     */
+    static public function getConditions(?array $conditions = null)
+    {
+        if ($conditions) {
+        }
+    }
+
+    /**
+     * Permtet d'ajouter un trie sur le SELECT
+     *
+     * @param array|null $orderBy
+     * @return void
+     */
+    static public function getOrderBy(?array $orderBy = null)
+    {
+    }
+
+    /**
+     * Permet d'ajouter LIMIT et OFFSET sur le SELECT
+     *
+     *  @param string|null $limit
+     * @return void
+     */
+    static public function getLimit(?string $limit = null)
+    {
+    }
+
     static public function getListe($table, ?array $colonnes = null, ?array $conditions = null, ?array $orderBy = null, ?string $limit = null, ?bool $debug = false)
     {
         $db = DbConnect::getDb();

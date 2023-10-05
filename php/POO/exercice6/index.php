@@ -18,6 +18,12 @@ spl_autoload_register('chargerClasse');
 
 
 // $arrayTest = ["idPersonne", "nom", "prenom", "adresse", "ville"];
+$arrayTest = [
+    ["nom", "jean"],
+    ["nom", "jean"]
+];
+
+echo count($arrayTest);
 
 
 
