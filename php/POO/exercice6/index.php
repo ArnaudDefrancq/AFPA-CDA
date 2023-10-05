@@ -9,10 +9,16 @@ function chargerClasse($classe)
 spl_autoload_register('chargerClasse');
 
 
-DbConnect::init();
+// DbConnect::init();
 // $perso = new Personne(["nom" => "dupon", "prenom" => "toto", "adresse" => "oui", "ville" => "dk"]);
 // $perso->setIdPersonne(1);
 // PersonneManager::create($perso);
-$perso1 = PersonneManager::selectById(1);
+// $perso1 = PersonneManager::getListe('personne');
+// var_dump($perso1);
 
-var_dump($perso1);
+
+// $arrayTest = ["idPersonne", "nom", "prenom", "adresse", "ville"];
+
+
+
+// PersonneManager::getColonne(); ok

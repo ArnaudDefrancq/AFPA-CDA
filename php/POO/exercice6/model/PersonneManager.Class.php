@@ -1,6 +1,12 @@
 <?php
 class PersonneManager
 {
+    /**
+     * Ajout d'une personne en base de donnée
+     *
+     * @param Personne $p
+     * @return void
+     */
     static public function create(Personne $p)
     {
         $db = DbConnect::getDb();
@@ -12,6 +18,12 @@ class PersonneManager
         $query->execute();
     }
 
+    /**
+     * Update d'une personne en base de donnée
+     *
+     * @param Personne $p
+     * @return void
+     */
     static public function update(Personne $p)
     {
         $db = DbConnect::getDb();
@@ -24,6 +36,12 @@ class PersonneManager
         $query->execute();
     }
 
+    /**
+     * Supprime une personne en base de donnée
+     *
+     * @param Personne $p
+     * @return void
+     */
     static public function delete(Personne $p)
     {
         $db = DbConnect::getDb();
@@ -32,6 +50,12 @@ class PersonneManager
         $query->execute();
     }
 
+    /**
+     * Sélectionne une personne en base de donnée
+     *
+     * @param int $id
+     * @return void
+     */
     static public function selectById($id)
     {
         $db = DbConnect::getDb();
@@ -44,13 +68,34 @@ class PersonneManager
         return new Personne($donnes);
     }
 
-    static public function getListe()
+    /**
+     * Permet de sélectionner les colonnes de recherche pour le SELECT
+     *
+     * @param array|null $colonnes
+     * @return string
+     */
+    static public function getColonne(?array $colonnes = null)
+    {
+        if ($colonnes) {
+            return implode(",", $colonnes);
+        } else {
+            return "*";
+        }
+    }
+
+    static public function getListe($table, ?array $colonnes = null, ?array $conditions = null, ?array $orderBy = null, ?string $limit = null, ?bool $debug = false)
     {
         $db = DbConnect::getDb();
 
+        if ($debug) echo 'debug';
+
         $perso = [];
 
-        $query = $db->query('SELECT id, nom, prenom FROM personne ORDER BY nom');
+        // Tester les variables
+
+
+
+        $query = $db->query('SELECT ' . $colonnes  . ' FROM ' . $table . ' WHERE ' . $conditions . ' ORDER BY ' . $orderBy . ' LIMIT ' . $limit);
 
         while ($donnes = $query->fetch(PDO::FETCH_ASSOC)) {
             $perso[] = new Personne($donnes);
