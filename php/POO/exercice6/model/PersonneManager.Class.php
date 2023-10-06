@@ -9,13 +9,7 @@ class PersonneManager
      */
     static public function create(Personne $p)
     {
-        $db = DbConnect::getDb();
-        $query = $db->prepare("INSERT INTO personne (nom,prenom,adresse,ville) VALUES (:nom,:prenom,:adresse,:ville)");
-        $query->bindValue(":nom", $p->getNom());
-        $query->bindValue(":prenom", $p->getPrenom());
-        $query->bindValue(":adresse", $p->getAdresse());
-        $query->bindValue(":ville", $p->getVille());
-        $query->execute();
+        DAO::create("Personne");
     }
 
     /**
@@ -193,6 +187,6 @@ class PersonneManager
      */
     static public function getList(?array $colonnes = null, ?array $conditions = null, ?array $orderBy = null, ?string $limit = null, ?bool $debug = false)
     {
-        DAO::select("Personnes", $colonnes, $conditions, $orderBy, $limit, $debug);
+        DAO::select("Personne", $colonnes, $conditions, $orderBy, $limit, $debug);
     }
 }

@@ -19,7 +19,7 @@ class DAO
      * @param boolean|null $debug si true on affiche la requête formulée
      * @return array(object)
      */
-    public static function select(string $table, ?array $colonnes = null, ?array $conditions = null, ?array $orderBy = null, ?string $limit = null, ?bool $debug = false)
+    static  public function select(string $table, ?array $colonnes = null, ?array $conditions = null, ?array $orderBy = null, ?string $limit = null, ?bool $debug = false)
     {
 
         $verif = $table . json_encode($colonnes) . json_encode($conditions) . json_encode($orderBy) . $limit; // encode la requête 
@@ -55,7 +55,7 @@ class DAO
      * @param array|null $colonnes Nom des colonnes présents dans la base de donnée
      * @return string
      */
-    private static function setColonnes(?array $colonnes)
+    static private function setColonnes(?array $colonnes)
     {
         if ($colonnes != null) {
             return implode(', ', $colonnes);
@@ -77,7 +77,7 @@ class DAO
      *  - Si rien de spéciale pour comparaison 
      * @return string
      */
-    private static function setConditions(?array $conditions)
+    static private function setConditions(?array $conditions)
     {
         $requete = "";
         if ($conditions != null) {
@@ -113,7 +113,7 @@ class DAO
      * @param array|null $orderBy array associatif [nom_colonne => true (ASC) / false (DESC)]
      * @return string
      */
-    private static function setOrderBy(?array $orderBy = null)
+    static private function setOrderBy(?array $orderBy = null)
     {
         $retour = '';
         if ($orderBy != null) {
@@ -125,4 +125,16 @@ class DAO
         }
         return $retour;
     }
+
+
+    // static public function create(string $table)
+    // {
+    //     $db = DbConnect::getDb();
+    //     $query = $db->prepare("INSERT INTO $table (nom,prenom,adresse,ville) VALUES (:nom,:prenom,:adresse,:ville)");
+    //     $query->bindValue(":nom", $p->getNom());
+    //     $query->bindValue(":prenom", $p->getPrenom());
+    //     $query->bindValue(":adresse", $p->getAdresse());
+    //     $query->bindValue(":ville", $p->getVille());
+    //     $query->execute();
+    // }
 }
