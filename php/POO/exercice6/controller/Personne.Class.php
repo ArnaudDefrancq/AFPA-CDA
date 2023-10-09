@@ -7,7 +7,6 @@ class Personne
     private $_prenom;
     private $_adresse;
     private $_ville;
-    private $_age;
 
     /***Accesseur***/
     #region
@@ -59,17 +58,7 @@ class Personne
     {
         $this->_ville = $ville;
     }
-    public function get_age()
-    {
-        return $this->_age;
-    }
 
-    public function set_age($_age)
-    {
-        $this->_age = $_age;
-
-        return $this;
-    }
     #endregion
 
     /***Construct***/

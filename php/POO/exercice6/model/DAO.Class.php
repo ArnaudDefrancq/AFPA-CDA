@@ -29,7 +29,7 @@ class DAO
             $liste = [];
             $db = DbConnect::getDb();
             $requete = "SELECT ";
-            $requete .= self::setColonnes($colonnes);
+            $requete .= self::setColonnes($colonnes, $table);
             $requete .= " FROM " . $table;
             $requete .= self::setConditions($conditions);
             $requete .= self::setOrderBy($orderBy, $requete);
@@ -55,13 +55,13 @@ class DAO
      * @param array|null $colonnes Nom des colonnes présents dans la base de donnée
      * @return string
      */
-    static private function setColonnes(?array $colonnes)
+    static private function setColonnes(?array $colonnes = null, string $classe)
     {
         if ($colonnes != null) {
             return implode(', ', $colonnes);
         }
 
-        return '*';
+        return implode(", ", self::getProperties($classe));
     }
 
     /**
@@ -77,7 +77,7 @@ class DAO
      *  - Si rien de spéciale pour comparaison 
      * @return string
      */
-    static private function setConditions(?array $conditions)
+    static private function setConditions(?array $conditions = null)
     {
         $requete = "";
         if ($conditions != null) {
@@ -126,15 +126,47 @@ class DAO
         return $retour;
     }
 
+    /**
+     * Permet de récupérer les attributs d'une classe dynamiquement
+     *
+     * @param string $classe
+     * @return array Tablau avec les attributs
+     */
+    private static function getProperties(string $classe)
+    {
+        // Instanciatin de la classe
+        $obj = new $classe();
 
-    // static public function create(string $table)
-    // {
-    //     $db = DbConnect::getDb();
-    //     $query = $db->prepare("INSERT INTO $table (nom,prenom,adresse,ville) VALUES (:nom,:prenom,:adresse,:ville)");
-    //     $query->bindValue(":nom", $p->getNom());
-    //     $query->bindValue(":prenom", $p->getPrenom());
-    //     $query->bindValue(":adresse", $p->getAdresse());
-    //     $query->bindValue(":ville", $p->getVille());
-    //     $query->execute();
-    // }
+        // récupération des propriétés de la classe
+        $properties = (new ReflectionClass($obj))->getProperties();
+
+        $propertiesListe = [];
+        // création de la liste des propriétés
+        foreach ($properties as $property) {
+            $propertiesListe[] = substr($property->getName(), 1);
+        }
+
+        return $propertiesListe;
+    }
+
+
+    /**
+     * Permet d'ajouter un élément dans la base de donnée
+     *
+     * @param string $table Table où l'on veut ajouter des choses
+     * @return void
+     */
+    static public function create(string $table, object $newData)
+    {
+        $db = DbConnect::getDb();
+
+        $allAttributs = self::getProperties($table);
+
+        $query = $db->prepare("INSERT INTO $table (" . implode(", ", $allAttributs) . ") VALUES (:" . implode(", :", $allAttributs) . ")");
+
+        foreach ($allAttributs as $attributs) {
+            $query->bindValue(':' . $attributs, $newData->{'get' . ucfirst($attributs)}());
+        }
+        $query->execute();
+    }
 }

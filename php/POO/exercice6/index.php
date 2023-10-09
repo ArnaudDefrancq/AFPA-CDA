@@ -9,21 +9,10 @@ function chargerClasse($classe)
 spl_autoload_register('chargerClasse');
 
 
-// DbConnect::init();
-// $perso = new Personne(["nom" => "dupon", "prenom" => "toto", "adresse" => "oui", "ville" => "dk"]);
+DbConnect::init();
+$perso = new Personne(["nom" => "test", "prenom" => "jean", "adresse" => "oui"]);
 // $perso->setIdPersonne(1);
 // PersonneManager::create($perso);
 // $perso1 = PersonneManager::getListe('personne');
 // var_dump($perso1);
-
-
-// $arrayTest = ["idPersonne", "nom", "prenom", "adresse", "ville"];
-// $arrayTest = ["nom" => "%jean", "prenom" => "marc", "age" => '>18'];
-// $arrayTest = ["nom" => false, "prenom" => true];
-$arrayTest = ["nom" => "jean%", "age" => "<2", "ville" => "!londres", "adresse" => ["winn", "steen"]];
-
-// echo count($arrayTest);
-
-// PersonneManager::getColonne(); ok
-// PersonneManager::getOrderBy($arrayTest); ok
-echo PersonneManager::getConditions($arrayTest);
+PersonneManager::create("Personne", $perso);

@@ -7,9 +7,9 @@ class PersonneManager
      * @param Personne $p
      * @return void
      */
-    static public function create(Personne $p)
+    static public function create(string $table, object $object)
     {
-        DAO::create("Personne");
+        DAO::create($table, $object);
     }
 
     /**
