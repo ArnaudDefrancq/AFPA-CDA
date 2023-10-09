@@ -154,6 +154,7 @@ class DAO
      * Permet d'ajouter un élément dans la base de donnée
      *
      * @param string $table Table où l'on veut ajouter des choses
+     * @param object $newData objet a ajouter à la base de donnée
      * @return void
      */
     static public function create(string $table, object $newData)
@@ -163,6 +164,32 @@ class DAO
         $allAttributs = self::getProperties($table);
 
         $query = $db->prepare("INSERT INTO $table (" . implode(", ", $allAttributs) . ") VALUES (:" . implode(", :", $allAttributs) . ")");
+
+        foreach ($allAttributs as $attributs) {
+            $query->bindValue(':' . $attributs, $newData->{'get' . ucfirst($attributs)}());
+        }
+        $query->execute();
+    }
+
+    /**
+     * Permet de modifier des données dans une BDD
+     *
+     * @param string $table nom de la table 
+     * @param object $newData objet modifier
+     * @return void
+     */
+    static public function update(string $table, object $newData)
+    {
+        $db = DbConnect::getDb();
+
+        $allAttributs = self::getProperties($table);
+
+        $req = '';
+        foreach ($allAttributs as $attributs) {
+            $req .= $attributs . " = :" . $attributs . ", ";
+        }
+
+        $query = $db->prepare("UPDATE " . $table . " SET " . substr($req, 0, -2) . " WHERE " . $allAttributs[0] . " = :" . $allAttributs[0]);
 
         foreach ($allAttributs as $attributs) {
             $query->bindValue(':' . $attributs, $newData->{'get' . ucfirst($attributs)}());

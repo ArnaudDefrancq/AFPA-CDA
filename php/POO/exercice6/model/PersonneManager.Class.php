@@ -18,16 +18,9 @@ class PersonneManager
      * @param Personne $p
      * @return void
      */
-    static public function update(Personne $p)
+    static public function update(string $table, object $object)
     {
-        $db = DbConnect::getDb();
-        $query = $db->prepare("UPDATE  personne SET nom=:nom,prenom=:prenom,adresse=:adresse,ville=:ville WHERE idPersonne=:idPersonne");
-        $query->bindValue(":idPersonne", $p->getIdPersonne());
-        $query->bindValue(":nom", $p->getNom());
-        $query->bindValue(":prenom", $p->getPrenom());
-        $query->bindValue(":adresse", $p->getAdresse());
-        $query->bindValue(":ville", $p->getVille());
-        $query->execute();
+        DAO::update($table, $object);
     }
 
     /**
