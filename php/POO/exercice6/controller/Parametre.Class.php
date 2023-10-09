@@ -99,6 +99,22 @@ class Parametre
     {
         $fichier = file_get_contents("config.json");
         $jsonData = json_decode($fichier, true);
-        return $jsonData;
+
+        foreach ($jsonData as $key => $value) {
+            switch ($key) {
+                case "host":
+                    self::setHost($value);
+                case "port":
+                    self::setPort($value);
+                case "dbname":
+                    self::setDbName($value);
+                case "username":
+                    self::setUsername($value);
+                case "password":
+                    self::setPassword($value);
+                case "bdd":
+                    self::setBdd($value);
+            }
+        }
     }
 }
