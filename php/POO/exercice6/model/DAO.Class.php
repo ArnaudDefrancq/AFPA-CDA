@@ -163,12 +163,18 @@ class DAO
 
         $allAttributs = self::getProperties($table);
 
-        $query = $db->prepare("INSERT INTO $table (" . implode(", ", $allAttributs) . ") VALUES (:" . implode(", :", $allAttributs) . ")");
+        try {
 
-        foreach ($allAttributs as $attributs) {
-            $query->bindValue(':' . $attributs, $newData->{'get' . ucfirst($attributs)}());
+
+            $query = $db->prepare("INSERT INTO $table (" . implode(", ", $allAttributs) . ") VALUES (:" . implode(", :", $allAttributs) . ")");
+
+            foreach ($allAttributs as $attributs) {
+                $query->bindValue(':' . $attributs, $newData->{'get' . ucfirst($attributs)}());
+            }
+            $query->execute();
+        } catch (Exception $e) {
+            return "error =>" . $e->getMessage();
         }
-        $query->execute();
     }
 
     /**
@@ -188,12 +194,39 @@ class DAO
         foreach ($allAttributs as $attributs) {
             $req .= $attributs . " = :" . $attributs . ", ";
         }
+        try {
 
-        $query = $db->prepare("UPDATE " . $table . " SET " . substr($req, 0, -2) . " WHERE " . $allAttributs[0] . " = :" . $allAttributs[0]);
+            $query = $db->prepare("UPDATE " . $table . " SET " . substr($req, 0, -2) . " WHERE " . $allAttributs[0] . " = :" . $allAttributs[0]);
 
-        foreach ($allAttributs as $attributs) {
-            $query->bindValue(':' . $attributs, $newData->{'get' . ucfirst($attributs)}());
+            foreach ($allAttributs as $attributs) {
+                $query->bindValue(':' . $attributs, $newData->{'get' . ucfirst($attributs)}());
+            }
+            $query->execute();
+        } catch (Exception $e) {
+            return "error =>" . $e->getMessage();
         }
-        $query->execute();
+    }
+
+    /**
+     * Permet de supprimer une ligne dans la base de donnée
+     *
+     * @param string $table
+     * @param object $newData
+     * @return void
+     */
+    static public function delete(string $table, object $newData)
+    {
+        $db = DbConnect::getDb();
+
+        $allAttributs = self::getProperties($table);
+
+        try {
+
+            $query = $db->prepare("DELETE FROM " . $table . " WHERE " . $allAttributs[0] . " = :" . $allAttributs[0]);
+            $query->bindValue(':' . $allAttributs[0], $newData->{'get' . ucfirst($allAttributs[0])}());
+            $query->execute();
+        } catch (Exception $e) {
+            return "error =>" . $e->getMessage();
+        }
     }
 }

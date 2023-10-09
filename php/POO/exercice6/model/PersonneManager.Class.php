@@ -26,15 +26,13 @@ class PersonneManager
     /**
      * Supprime une personne en base de donnée
      *
-     * @param Personne $p
+     * @param string $table
+     * @param object $object
      * @return void
      */
-    static public function delete(Personne $p)
+    static public function delete(string $table, object $object)
     {
-        $db = DbConnect::getDb();
-        $query = $db->prepare("DELETE FROM personne WHERE idPersonne=:idPersonne");
-        $query->bindValue(":idPersonne", $p->getIdPersonne());
-        $query->execute();
+        DAO::delete($table, $object);
     }
 
     #region
