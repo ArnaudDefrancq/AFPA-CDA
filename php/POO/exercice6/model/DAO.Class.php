@@ -151,7 +151,7 @@ class DAO
 
 
     /**
-     * Permet d'ajouter un élément dans la base de donnée
+     * Permet d'ajouter un élément dans la base de donnée avec l'ID de la ligne
      *
      * @param string $table Table où l'on veut ajouter des choses
      * @param object $newData objet a ajouter à la base de donnée
@@ -161,11 +161,9 @@ class DAO
     {
         $db = DbConnect::getDb();
 
-        $allAttributs = self::getProperties($table);
+        $allAttributs = Personne::$attributs;
 
         try {
-
-
             $query = $db->prepare("INSERT INTO $table (" . implode(", ", $allAttributs) . ") VALUES (:" . implode(", :", $allAttributs) . ")");
 
             foreach ($allAttributs as $attributs) {
@@ -188,16 +186,14 @@ class DAO
     {
         $db = DbConnect::getDb();
 
-        $allAttributs = self::getProperties($table);
+        $allAttributs = Personne::$attributs;
 
         $req = '';
         foreach ($allAttributs as $attributs) {
             $req .= $attributs . " = :" . $attributs . ", ";
         }
         try {
-
             $query = $db->prepare("UPDATE " . $table . " SET " . substr($req, 0, -2) . " WHERE " . $allAttributs[0] . " = :" . $allAttributs[0]);
-
             foreach ($allAttributs as $attributs) {
                 $query->bindValue(':' . $attributs, $newData->{'get' . ucfirst($attributs)}());
             }
@@ -208,7 +204,7 @@ class DAO
     }
 
     /**
-     * Permet de supprimer une ligne dans la base de donnée
+     * Permet de supprimer une ligne dans la base de donnée avec l'ID de la ligne
      *
      * @param string $table
      * @param object $newData
@@ -218,7 +214,7 @@ class DAO
     {
         $db = DbConnect::getDb();
 
-        $allAttributs = self::getProperties($table);
+        $allAttributs = Personne::$attributs;
 
         try {
 

@@ -7,6 +7,7 @@ class Personne
     private $_prenom;
     private $_adresse;
     private $_ville;
+    static public $attributs = ["idPersonne", "nom", "prenom", "adresse", "ville"];
 
     /***Accesseur***/
     #region
@@ -58,7 +59,10 @@ class Personne
     {
         $this->_ville = $ville;
     }
-
+    public function getAttributs()
+    {
+        return self::$attributs;
+    }
     #endregion
 
     /***Construct***/
