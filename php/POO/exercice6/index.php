@@ -10,9 +10,10 @@ spl_autoload_register('chargerClasse');
 
 
 DbConnect::init();
-$perso = new Personne(["nom" => "arnaud", "prenom" => "moi"]);
+// $perso = new Personne(["nom" => "arnaud", "prenom" => "moi"]);
 // $perso->setIdPersonne(1);
 // PersonneManager::delete("Personne", $perso);
 // $perso1 = PersonneManager::getListe('personne');
-PersonneManager::create($perso);
-// var_dump(Parametre::getConfig());
+// PersonneManager::create($perso);
+// Parametre::getConfig();
+// echo Parametre::getBdd() . ":host=" . Parametre::getHost() . ";port=" . Parametre::getPort() . ";dbname=" . Parametre::getDbName() . ";charset=utf8 ", Parametre::getUsername(), Parametre::getPassword();

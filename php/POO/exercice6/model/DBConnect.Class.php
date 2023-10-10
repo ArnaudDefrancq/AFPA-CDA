@@ -12,8 +12,12 @@ class DbConnect
 
     public static function init()
     {
+
         try {
-            self::$_db = new PDO('mysql:host=localhost;port=3306;dbname=exercice6;charset=utf8', "root", "");
+            Parametre::getConfig();
+
+            // var_dump(Parametre::getBdd() . ":host=" . Parametre::getHost() . ";port=" . Parametre::getPort() . ";dbname=" . Parametre::getDbName() . ";charset=utf8 ", Parametre::getUsername(), Parametre::getPassword());
+            self::$_db = new PDO(Parametre::getBdd() . ":host=" . Parametre::getHost() . ";port=" . Parametre::getPort() . ";dbname=" . Parametre::getDbName() . ";charset=utf8", Parametre::getUsername(), Parametre::getPassword());
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
