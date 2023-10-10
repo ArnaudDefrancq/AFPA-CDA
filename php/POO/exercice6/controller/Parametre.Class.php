@@ -83,7 +83,7 @@ class Parametre
 
             $jsonData = json_decode($fichier, true);
 
-            foreach ($jsonData as $key => $value) {
+            foreach ($jsonData["database"] as $key => $value) {
                 if ($key == "host") self::setHost($value);
                 if ($key == "port") self::setPort($value);
                 if ($key == "dbname") self::setDbName($value);

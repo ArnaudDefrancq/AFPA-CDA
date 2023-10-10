@@ -1,8 +1,10 @@
 {
-    "host": "localhost",
-    "port": "3306",
-    "dbname": "exercice6",
-    "username": "root",
-    "password": "",
-    "bdd": "mysql"
+    "database": {
+        "host": "localhost",
+        "port": "3306",
+        "dbname": "exercice6",
+        "username": "root",
+        "password": "",
+        "bdd": "mysql"
+    }
 }
