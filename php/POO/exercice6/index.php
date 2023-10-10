@@ -8,12 +8,11 @@ function chargerClasse($classe)
 }
 spl_autoload_register('chargerClasse');
 
-
+Parametre::getConfig();
 DbConnect::init();
-$perso = new Personne(["idPersonne" => 7]);
+// $perso = new Personne(["idPersonne" => 7]);
 // $perso->setIdPersonne(1);
 // PersonneManager::delete("Personne", $perso);
 // $perso1 = PersonneManager::getListe('personne');
-PersonneManager::delete($perso);
+// PersonneManager::delete($perso);
 // Parametre::getConfig();
-// echo Parametre::getBdd() . ":host=" . Parametre::getHost() . ";port=" . Parametre::getPort() . ";dbname=" . Parametre::getDbName() . ";charset=utf8 ", Parametre::getUsername(), Parametre::getPassword();

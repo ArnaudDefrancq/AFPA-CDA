@@ -79,16 +79,20 @@ class Parametre
     {
         $fichier = file_get_contents("config.json");
 
+        if ($fichier) {
 
-        $jsonData = json_decode($fichier, true);
+            $jsonData = json_decode($fichier, true);
 
-        foreach ($jsonData as $key => $value) {
-            if ($key == "host") self::setHost($value);
-            if ($key == "port") self::setPort($value);
-            if ($key == "dbname") self::setDbName($value);
-            if ($key == "username") self::setUsername($value);
-            if ($key == "password") self::setPassword($value);
-            if ($key == "bdd") self::setBdd($value);
+            foreach ($jsonData as $key => $value) {
+                if ($key == "host") self::setHost($value);
+                if ($key == "port") self::setPort($value);
+                if ($key == "dbname") self::setDbName($value);
+                if ($key == "username") self::setUsername($value);
+                if ($key == "password") self::setPassword($value);
+                if ($key == "bdd") self::setBdd($value);
+            }
+        } else {
+            var_dump('probleme fichier');
         }
     }
 }
