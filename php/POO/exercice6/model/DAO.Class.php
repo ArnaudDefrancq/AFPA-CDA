@@ -180,7 +180,7 @@ class DAO
         for ($i = 1; $i < count($allAttributs); $i++) {
             $methode = $newData->{'get' . ucfirst($allAttributs[$i])}();
             if ($methode !== null) {
-                $query->bindValue(':' . $allAttributs[$i], $newData->{'get' . ucfirst($allAttributs[$i])}());
+                $query->bindValue(':' . $allAttributs[$i], $methode);
             }
         }
         $query->execute();
@@ -216,7 +216,7 @@ class DAO
         foreach ($allAttributs as $attributs) {
             $methode = $newData->{'get' . ucfirst($attributs)}();
             if ($methode !== null) {
-                $query->bindValue(':' . $attributs, $newData->{'get' . ucfirst($attributs)}());
+                $query->bindValue(':' . $attributs, $methode);
             }
         }
         $query->execute();

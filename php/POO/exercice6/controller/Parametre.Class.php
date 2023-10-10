@@ -78,6 +78,8 @@ class Parametre
     static public function getConfig()
     {
         $fichier = file_get_contents("config.json");
+
+
         $jsonData = json_decode($fichier, true);
 
         foreach ($jsonData as $key => $value) {
