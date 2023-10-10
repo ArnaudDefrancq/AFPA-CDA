@@ -7,9 +7,9 @@ class PersonneManager
      * @param Personne $p
      * @return void
      */
-    static public function create(string $table, object $object)
+    static public function create(object $object)
     {
-        DAO::create($table, $object);
+        DAO::create($object);
     }
 
     /**
@@ -18,9 +18,9 @@ class PersonneManager
      * @param Personne $p
      * @return void
      */
-    static public function update(string $table, object $object)
+    static public function update(object $object)
     {
-        DAO::update($table, $object);
+        DAO::update($object);
     }
 
     /**
@@ -30,9 +30,9 @@ class PersonneManager
      * @param object $object
      * @return void
      */
-    static public function delete(string $table, object $object)
+    static public function delete(object $object)
     {
-        DAO::delete($table, $object);
+        DAO::delete($object);
     }
 
     #region

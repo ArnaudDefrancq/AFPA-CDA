@@ -1,8 +1,10 @@
 {
-    "host": "loacalhost",
+   
+   "host": "loacalhost",
     "port": "3306",
     "dbname": "exercice6",
     "username": "root",
     "password": "",
     "bdd": "mysql"
+
 }

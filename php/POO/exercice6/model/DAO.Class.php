@@ -157,22 +157,36 @@ class DAO
      * @param object $newData objet a ajouter à la base de donnée
      * @return void
      */
-    static public function create(string $table, object $newData)
+    static public function create(object $newData)
     {
         $db = DbConnect::getDb();
+        $table = get_class($newData);
+        $allAttributs = Personne::getAttributs();
+        $req = '';
+        $value = '';
 
-        $allAttributs = Personne::$attributs;
-
-        try {
-            $query = $db->prepare("INSERT INTO $table (" . implode(", ", $allAttributs) . ") VALUES (:" . implode(", :", $allAttributs) . ")");
-
-            foreach ($allAttributs as $attributs) {
-                $query->bindValue(':' . $attributs, $newData->{'get' . ucfirst($attributs)}());
+        // prépare les paramètres
+        for ($i = 1; $i < count($allAttributs); $i++) {
+            $methode = $newData->{'get' . ucfirst($allAttributs[$i])}();
+            if ($methode !== null) {
+                $req .= $allAttributs[$i] . ", ";
+                $value .= ":" . $allAttributs[$i] . ", ";
             }
-            $query->execute();
-        } catch (Exception $e) {
-            return "error =>" . $e->getMessage();
         }
+
+        $query = $db->prepare("INSERT INTO " . $table . "(" . substr($req, 0, -2) . ") VALUES (" . substr($value, 0, -2) . ")");
+
+        // on prépare les bind
+        for ($i = 1; $i < count($allAttributs); $i++) {
+            $methode = $newData->{'get' . ucfirst($allAttributs[$i])}();
+            if ($methode !== null) {
+                $query->bindValue(':' . $allAttributs[$i], $newData->{'get' . ucfirst($allAttributs[$i])}());
+            }
+        }
+        $query->execute();
+
+        // récup le dernier Id
+        return $db->lastInsertId();
     }
 
     /**
@@ -182,25 +196,30 @@ class DAO
      * @param object $newData objet modifier
      * @return void
      */
-    static public function update(string $table, object $newData)
+    static public function update(object $newData)
     {
         $db = DbConnect::getDb();
-
-        $allAttributs = Personne::$attributs;
-
+        $table = get_class($newData);
+        $allAttributs = Personne::getAttributs();
         $req = '';
+
+        // prépare les paramètres
         foreach ($allAttributs as $attributs) {
-            $req .= $attributs . " = :" . $attributs . ", ";
+            $methode = $newData->{'get' . ucfirst($attributs)}();
+            if ($methode !== null) {
+                $req .= $attributs . " = :" . $attributs . ", ";
+            }
         }
-        try {
-            $query = $db->prepare("UPDATE " . $table . " SET " . substr($req, 0, -2) . " WHERE " . $allAttributs[0] . " = :" . $allAttributs[0]);
-            foreach ($allAttributs as $attributs) {
+        $query = $db->prepare("UPDATE " . $table . " SET " . substr($req, 0, -2) . " WHERE " . $allAttributs[0] . " = :" . $allAttributs[0]);
+
+        // on prépare les bind
+        foreach ($allAttributs as $attributs) {
+            $methode = $newData->{'get' . ucfirst($attributs)}();
+            if ($methode !== null) {
                 $query->bindValue(':' . $attributs, $newData->{'get' . ucfirst($attributs)}());
             }
-            $query->execute();
-        } catch (Exception $e) {
-            return "error =>" . $e->getMessage();
         }
+        $query->execute();
     }
 
     /**
@@ -210,19 +229,14 @@ class DAO
      * @param object $newData
      * @return void
      */
-    static public function delete(string $table, object $newData)
+    static public function delete(object $newData)
     {
         $db = DbConnect::getDb();
+        $table = get_class($newData);
+        $allAttributs = Personne::getAttributs();
 
-        $allAttributs = Personne::$attributs;
-
-        try {
-
-            $query = $db->prepare("DELETE FROM " . $table . " WHERE " . $allAttributs[0] . " = :" . $allAttributs[0]);
-            $query->bindValue(':' . $allAttributs[0], $newData->{'get' . ucfirst($allAttributs[0])}());
-            $query->execute();
-        } catch (Exception $e) {
-            return "error =>" . $e->getMessage();
-        }
+        $query = $db->prepare("DELETE FROM " . $table . " WHERE " . $allAttributs[0] . " = :" . $allAttributs[0]);
+        $query->bindValue(':' . $allAttributs[0], $newData->{'get' . ucfirst($allAttributs[0])}());
+        $query->execute();
     }
 }
