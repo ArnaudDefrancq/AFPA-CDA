@@ -4,7 +4,7 @@
  * Permet d'ouvrir la balise PHP et la Class
  *
  * @param string $className Nom de la table
- * @return void
+ * @return string
  */
 function startClassManager(string $className)
 {
@@ -19,7 +19,7 @@ function startClassManager(string $className)
  * Permet de créer le CREATE
  *
  * @param string $className Nom de la table
- * @return void
+ * @return string
  */
 function createAdd(string $className)
 {
@@ -35,7 +35,7 @@ function createAdd(string $className)
  * Permet de créer le UPDATE
  *
  * @param string $className Nom de la Table
- * @return void
+ * @return string
  */
 function createUpdate(string $className)
 {
@@ -51,7 +51,7 @@ function createUpdate(string $className)
  * Permet de créer le DELETE
  *
  * @param string $className Nom de la classe
- * @return void
+ * @return string
  */
 function createDelete(string $className)
 {
@@ -67,7 +67,7 @@ function createDelete(string $className)
  * Permet de créer le FindById
  *
  * @param string $className Nom de la classe
- * @return void
+ * @return string
  */
 function createFindById(string $className)
 {
@@ -83,7 +83,7 @@ function createFindById(string $className)
  * Permet de créer le GetList
  *
  * @param string $className nom de table
- * @return void
+ * @return string
  */
 function createGetList(string $className)
 {
@@ -99,7 +99,7 @@ function createGetList(string $className)
 /**
  * Permet de fermer la Class
  *
- * @return void
+ * @return string
  */
 function endClassManager()
 {
@@ -111,7 +111,7 @@ function endClassManager()
  * Permet de tous écrire
  *
  * @param string $className
- * @return void
+ * @return string
  */
 function createManager(string $className)
 {
