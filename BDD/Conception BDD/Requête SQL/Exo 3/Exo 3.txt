@@ -1,0 +1,22 @@
+a. SELECT nomEtudiant, dateNaissanceEtudiant FROM etudiants WHERE dateNaissanceEtudiant < (SELECT  dateNaissanceEtudiant FROM etudiants WHERE nomEtudiant = "leclercq" AND prenomEtudiant = "jules");
+
+b. SELECT nomEtudiant, note FROM etudiants JOIN avoir_note ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note > (SELECT AVG(note) FROM avoir_note WHERE idEpreuve = 4);
+
+c. SELECT nomEtudiant FROM etudiants JOIN avoir_note ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note >= 12; 
+
+d. SELECT nomEtudiant FROM etudiants JOIN avoir_note ON etudiants.idEtudiant = avoir_note.idEtudiant WHERE note > (SELECT note FROM avoir_note JOIN etudiants ON etudiants.idEtudiant = avoir_note.idEtudiant WHERE nomEtudiant = "dupont" AND prenomEtudiant = "luc" AND idEpreuve = 4);
+
+e. SELECT nomEtudiant FROM etudiants JOIN avoir_note ON avoir_note.idEtudiant = etudiants.idEtudiant GROUP BY note HAVING COUNT(note) = (SELECT COUNT(note) FROM avoir_note JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE nomEtudiant = "dupont" AND prenomEtudiant = "luc");
+
+f.g. ALTER TABLE etudiants ADD NEWCOL integer / ALTER TABLE etudiants DROP NEWCOL
+
+h. ALTER TABLE etudiants MODIFY prenomEtudiant VARCHAR(20) NOT NULL;
+
+i. INSERT INTO epreuves(`libelleEpreuve`, `idEnseignantEpreuve`, `idMatiereEpreuve`, `dateEpreuve`, `CoefficientEpreuve`) VALUES ('interro écrite',9,1,'1996-10-21',1);
+
+j. INSERT INTO avoir_note(`idEtudiant`, `idEpreuve`, `note`) VALUES (1, 7, 10);
+INSERT INTO avoir_note(`idEtudiant`, `idEpreuve`, `note`) VALUES (2, 7, 08);
+INSERT INTO avoir_note(`idEtudiant`, `idEpreuve`, `note`) VALUES (3, 7, 05);
+INSERT INTO avoir_note(`idEtudiant`, `idEpreuve`, `note`) VALUES (4, 7, 09);
+INSERT INTO avoir_note(`idEtudiant`, `idEpreuve`, `note`) VALUES (17, 3, 15);
+

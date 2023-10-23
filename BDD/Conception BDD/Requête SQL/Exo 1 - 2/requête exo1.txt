@@ -1,0 +1,33 @@
+a. SELECT * FROM clients;
+
+b .SELECT nomClient FROM clients;
+
+c. SELECT dateCommande, COUNT(dateCommande) FROM commandes GROUP BY dateCommande;
+
+d. SELECT prenomClient FROM clients WHERE prenomClient = "sophie";
+
+e. SELECT idArticle, quantiteCommande FROM commandes WHERE idClient = 1;
+
+f. SELECT UPPER(nomClient) FROM clients GROUP BY nomClient;
+
+g. SELECT CONCAT(UPPER(LEFT(nomClient, 1)),LOWER(SUBSTRING(nomClient,2))) FROM clients GROUP BY nomClient;
+
+h. SELECT nomClient FROM clients GROUP BY nomClient HAVING LENGTH(nomClient) = 5;
+
+i. SELECT nomClient FROM clients GROUP BY nomClient HAVING nomClient LIKE "t%" OR nomClient LIKE "%%l%";
+
+j. SELECT idClient, idCommande, dateCommande, ADDDATE(dateCommande, 15) AS datePaiement FROM commandes;
+
+k. SELECT now();
+
+l. SELECT FROM_DAYS(DATEDIFF(now(), dateEntreeClient)) AS anciennete FROM clients;
+
+m. SELECT MAX(quantiteCommande) FROM commandes;
+
+n. SELECT SUM(quantiteCommande) FROM commandes WHERE idClient = 1;
+
+o. SELECT AVG(quantiteCommande) FROM commandes WHERE idClient = 2;
+
+p. SELECT nomClient FROM clients ORDER BY nomClient;
+
+q. SELECT prixArticle FROM articles ORDER BY prixArticle DESC;

@@ -1,0 +1,31 @@
+a. SELECT MAX(cde_total) FROM commandes;
+
+b. SELECT AVG(cde_total) FROM commandes;
+
+c. SELECT MIN(cde_total) FROM commandes;
+
+d. SELECT COUNT(*) FROM commandes;
+
+e. SELECT idClient, AVG(cde_total) FROM commandes GROUP BY idClient;
+
+f. SELECT idClient, MAX(cde_total) FROM commandes GROUP BY idClient;
+
+g. SELECT idClient, COUNT(idClient) FROM commandes GROUP BY idClient;
+
+h. SELECT idClient, AVG(quantiteCommande) FROM commandes GROUP BY idClient;
+
+i. SELECT idArticle, AVG(idArticle) FROM commandes GROUP BY idArticle;
+
+j. SELECT idArticle, SUM(idArticle) FROM commandes GROUP BY idArticle;
+
+k. SELECT AVG(idArticle), idClient, dateCommande FROM commandes GROUP BY dateCommande;
+
+l. SELECT COUNT(*), dateCommande FROM commandes GROUP BY dateCommande;
+
+m. SELECT COUNT(*) FROM clients;
+
+n. SELECT idClient FROM commandes GROUP BY idClient;
+
+o. SELECT idArticle FROM commandes GROUP BY idArticle;
+
+p. SELECT dateCommande FROM commandes GROUP BY dateCommande;
