@@ -1,0 +1,57 @@
+A Requêtes Simples
+a.1 SELECT nomDep FROM departement;
+a.2 SELECT numDep, nomDep FROM departement;
+a.3 SELECT nomEmp, fonction, dateEmbauche, salaire, comm, Id_Employe_1, Id_Departement FROM employe;
+a.4 SELECT fonction FROM employe;
+a.5 SELECT fonction FROM employe GROUP BY fonction;
+a.6 SELECT nomEmp, dateEmbauche, ADDDATE(dateEmbauche, 1) AS "dateEmbauche + 1" FROM employe;
+a.7 SELECT CONCAT(nomEmp," ", fonction) FROM employe;
+
+B Requêtes avec clause "where"
+b.1 SELECT Id_Employe, nomEmp FROM employe JOIN departement ON employe.Id_Departement = departement.Id_Departement WHERE numDep = 30;
+b.2 SELECT Id_Employe, nomEmp, numDep FROM employe JOIN departement ON employe.Id_Departement = departement.Id_Departement WHERE fonction = "ouvrier";
+b.3 SELECT nomDep, numDep FROM departement WHERE numDep >= 30;
+b.4 SELECT nomEmp, salaire, comm FROM employe WHERE comm > salaire;
+b.5 SELECT nomEmp, salaire FROM employe JOIN departement ON employe.Id_Departement = departement.Id_Departement WHERE fonction = "vendeur" AND numDep = 30;
+b.6 SELECT nomEmp, fonction, salaire FROM employe WHERE fonction = "directeur" OR fonction = "president";
+b.7 SELECT nomEmp, fonction, salaire FROM employe WHERE fonction != "president" AND salaire > 2500;
+b.8 SELECT nomEmp, numDep FROM employe JOIN departement ON departement.Id_Departement = employe.Id_Departement WHERE (fonction = "directeur" OR fonction = "ouvrier") AND numDep = 10;
+b.9 SELECT nomEmp, fonction, numDep FROM employe JOIN departement ON departement.Id_Departement = employe.Id_Departement WHERE fonction != "directeur" AND fonction != "ouvrier" AND numDep = 10;
+b.10 SELECT nomEmp, fonction, numDep FROM employe JOIN departement ON departement.Id_Departement = employe.Id_Departement WHERE fonction = "directeur" AND numDep != 30;
+b.11 SELECT nomEmp, fonction, salaire FROM employe WHERE salaire BETWEEN 1200 AND 1300;
+b.12 SELECT nomEmp, numDep, fonction FROM employe JOIN departement ON departement.Id_Departement = employe.Id_Departement WHERE fonction IN ("ouvrier", "analyste", "vendeur");
+b.13 SELECT nomEmp, fonction, dateEmbauche, salaire, comm, Id_Employe_1, Id_Departement FROM employe WHERE fonction != "vendeur";
+b.14 SELECT nomEmp, fonction, dateEmbauche, salaire, comm, Id_Employe_1, Id_Departement FROM employe WHERE nomEmp LIKE "c%";
+b.15 SELECT nomEmp, fonction, dateEmbauche, salaire, comm, Id_Employe_1, Id_Departement FROM employe WHERE comm = 0;
+b.16 SELECT nomEmp, fonction, dateEmbauche, salaire, comm, Id_Employe_1, employe.Id_Departement FROM employe JOIN departement ON employe.Id_Departement = departement.Id_Departement WHERE comm != 0 AND numDep LIKE 30 OR 20;
+
+C Requêtes avec clause "order by"
+c.1 SELECT salaire, fonction, nomEmp FROM employe JOIN departement ON employe.Id_Departement = departement.Id_Departement WHERE numDep = 30 ORDER BY salaire;
+c.2 SELECT salaire, fonction, nomEmp FROM employe JOIN departement ON employe.Id_Departement = departement.Id_Departement WHERE numDep = 30 ORDER BY salaire DESC;
+c.3 SELECT nomEmp, fonction, dateEmbauche, salaire, comm, Id_Employe_1, Id_Departement FROM employe ORDER BY fonction AND salaire DESC;
+c.4 SELECT comm, salaire, nomEmp FROM employe ORDER BY comm;
+c.5 SELECT comm, salaire, nomEmp FROM employe ORDER BY comm DESC;
+
+D Requêtes multi-tables
+d.1 SELECT ville FROM employe JOIN departement ON departement.Id_Departement = employe.Id_Departement WHERE nomEmp = "costanza";
+d.2 SELECT nomEmp, fonction, nomDep, numDep FROM employe JOIN departement ON employe.Id_Departement = departement.Id_Departement WHERE numDep = 40 OR numDep = 30;
+d.3 SELECT Id_Garde, nomEmp, salaire FROM employe, grade WHERE salaire BETWEEN salMin AND salMax
+d.4 SELECT e.nomEmp, e.salaire FROM employe AS e JOIN employe AS e2 ON e.Id_Employe = e2.Id_Employe_1 WHERE e.salaire > e2.salaire;
+d.5 SELECT e.nomEmp, e.salaire, e.fonction FROM employe AS e WHERE e.nomEmp != "perou" AND e.salaire > (SELECT e2.salaire FROM employe AS e2 WHERE e2.nomEmp = "perou");
+
+E Requête avec fonctions et expressions numériques
+e.1 SELECT nomEmp, salaire, comm, comm + salaire AS revenus FROM employe WHERE fonction = "vendeur";
+e.2 SELECT nomEmp, salaire, comm FROM employe WHERE comm > (salaire * 0.25)
+e.3 SELECT nomEmp FROM employe WHERE fonction = "vendeur" ORDER BY (comm / salaire) DESC
+e.4 SELECT salaire * 12 AS revenuAnnuel FROM employe WHERE fonction = "vendeur"; / SELECT (salaire + comm) * 12 AS revenuAnnuel FROM employe WHERE fonction = "vendeur";
+e.5 SELECT (salaire / 31) AS revenuAnnuel FROM employe WHERE fonction = "vendeur";
+e.6 SELECT AVG(salaire) FROM employe WHERE fonction = "ouvrier";
+e.7 SELECT SUM(salaire + comm) AS totalSalaireComm FROM employe WHERE fonction = "vendeur";
+e.8 SELECT AVG(salaire + comm) * 12 AS totalSalaireComm FROM employe WHERE fonction = "vendeur";
+e.9 SELECT MAX(salaire) AS salaireHaut, MIN(salaire) AS salaireMin,  MAX(salaire) - MIN(salaire) AS ecart  FROM employe WHERE fonction = "vendeur";
+e.10 SELECT COUNT(*) FROM employe JOIN departement ON employe.Id_Departement = departement.Id_Departement WHERE numDep = 30;
+
+F Requêtes avec clause "group by"
+f.1 SELECT AVG(salaire), fonction FROM employe GROUP BY fonction;
+f.2 SELECT AVG(salaire) * 12 AS salaireAnnuelMoyen FROM employe WHERE nomEmp != "president" AND nomEmp != "directeur" GROUP BY Id_Departement; 
+f.3 

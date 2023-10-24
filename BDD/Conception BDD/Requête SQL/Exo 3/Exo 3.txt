@@ -1,6 +1,6 @@
 a. SELECT nomEtudiant, dateNaissanceEtudiant FROM etudiants WHERE dateNaissanceEtudiant < (SELECT  dateNaissanceEtudiant FROM etudiants WHERE nomEtudiant = "leclercq" AND prenomEtudiant = "jules");
 
-b. SELECT nomEtudiant, note FROM etudiants JOIN avoir_note ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note > (SELECT AVG(note) FROM avoir_note WHERE idEpreuve = 4);
+b. SELECT nomEtudiant, note FROM avoir_note JOIN etudiants ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE idEpreuve = 4 AND note > (SELECT AVG(note) FROM avoir_note WHERE idEpreuve = 4);
 
 c. SELECT nomEtudiant FROM etudiants JOIN avoir_note ON avoir_note.idEtudiant = etudiants.idEtudiant WHERE note >= 12; 
 
@@ -20,3 +20,16 @@ INSERT INTO avoir_note(`idEtudiant`, `idEpreuve`, `note`) VALUES (3, 7, 05);
 INSERT INTO avoir_note(`idEtudiant`, `idEpreuve`, `note`) VALUES (4, 7, 09);
 INSERT INTO avoir_note(`idEtudiant`, `idEpreuve`, `note`) VALUES (17, 3, 15);
 
+j. UPDATE avoir_note SET note = 7 WHERE idEtudiant = 3 AND idEpreuve = 7;
+
+k. UPDATE avoir_note SET note = note + 1 WHERE idEtudiant = 1 AND idEpreuve = 7;
+
+l. DELETE FROM avoir_note WHERE idEpreuve = 7 / DELETE FROM epreuves WHERE idEpreuve = 7;
+
+m. Pour détruire les notes en même temps que la table Epreuves, On aurait pu faire un DELETE en cascade.
+
+n. UPDATE avoir_note JOIN etudiants ON etudiants.idEtudiant = avoir_note.idEtudiant JOIN epreuves ON avoir_note.idEpreuve = epreuves.idEpreuve JOIN matieres ON epreuves.idMatiereEpreuve = matieres.idMatiere SET note = note - 3 WHERE nomEtudiant = "marke" AND nomMatiere = "BD";
+
+o. INSERT INTO avoir_note(`idEtudiant`, `idEpreuve`, `note`) VALUES ((SELECT idEtudiant FROM etudiants WHERE nomEtudiant = "dewa"), 4, (SELECT AVG(an.note) * 0.9 FROM avoir_note AS an WHERE an.idEpreuve = 4));
+
+p. INSERT INTO etudiants(`idEtudiant`, `nomEtudiant`, `prenomEtudiant`, `HOBBY`, `anneeEtudiant`) VALUES (25, "darte", "remy", "sculpture", 1);
