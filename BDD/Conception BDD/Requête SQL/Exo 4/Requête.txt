@@ -54,4 +54,17 @@ e.10 SELECT COUNT(*) FROM employe JOIN departement ON employe.Id_Departement = d
 F Requêtes avec clause "group by"
 f.1 SELECT AVG(salaire), fonction FROM employe GROUP BY fonction;
 f.2 SELECT AVG(salaire) * 12 AS salaireAnnuelMoyen FROM employe WHERE nomEmp != "president" AND nomEmp != "directeur" GROUP BY Id_Departement; 
-f.3 
+f.3 SELECT fonction, nomDep, COUNT(nomEmp) AS nbEmploye, AVG(salaire) * 12 AS salaireAnnuelMoyen FROM employe JOIN departement ON employe.Id_Departement = departement.Id_Departement GROUP BY fonction;
+f.4 SELECT fonction, AVG(salaire) * 12 AS salaireAnnuelMoyen FROM employe GROUP BY fonction HAVING COUNT(fonction)> 2;
+f.5 SELECT nomDep FROM departement JOIN employe ON employe.Id_Departement = departement.Id_Departement GROUP BY nomDep HAVING COUNT(fonction = "ouvrier") > 2;
+f.6 SELECT AVG(salaire) AS salaireMoyen FROM employe  GROUP BY fonction HAVING fonction = "president" OR fonction = "directeur" OR fonction = "responsable";
+
+G Requêtes imbriquées
+g.1 SELECT e.nomEmp, e.fonction FROM employe AS e WHERE e.salaire > (SELECT e2.salaire FROM employe AS e2 WHERE e2.nomEmp = "bibaut");
+g.2 SELECT e.fonction FROM employe e GROUP BY e.fonction HAVING AVG(e.salaire) > (SELECT AVG(e2.salaire) FROM employe e2 WHERE e2.fonction = "vendeur");
+g.3 SELECT d.nomDep FROM employe e JOIN departement d ON e.Id_Departement = d.Id_Departement WHERE e.salaire > 2700;
+g.4 SELECT e.nomEmp FROM employe e WHERE e.dateEmbauche = ( SELECT MIN(e2.dateEmbauche) FROM employe e2);
+g.5 SELECT e.nomEmp FROM employe e WHERE e.dateEmbauche = ( SELECT MAX(e2.dateEmbauche) FROM employe e2);
+g.6 SELECT e.nomEmp FROM employe e GROUP BY e.Id_Employe_1;
+g.7 SELECT e.nomEmp FROM employe e WHERE e.Id_Employe IN (SELECT h.Id_Employe FROM histofonction h WHERE fonction = "vendeur" OR fonction = "directeur");
+g.8 SELECT e.Id_Departement, e.nomEmp, e.salaire FROM employe e WHERE (e.salaire > (SELECT AVG(e2.salaire) FROM employe e2 WHERE e2.Id_Departement = 1) AND e.Id_Departement = 1) OR (e.salaire > (SELECT AVG(e3.salaire) FROM employe e3 WHERE e3.Id_Departement = 2) AND e.Id_Departement = 2) OR (e.salaire > (SELECT AVG(e4.salaire) FROM employe e4 WHERE e4.Id_Departement = 2) AND e.Id_Departement = 3) OR (e.salaire > (SELECT AVG(e5.salaire) FROM employe e5 WHERE e5.Id_Departement = 2) AND e.Id_Departement = 4);
