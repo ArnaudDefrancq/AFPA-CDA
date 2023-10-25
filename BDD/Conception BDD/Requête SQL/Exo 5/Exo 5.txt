@@ -1,0 +1,19 @@
+A Requêtes simples
+a.1 SELECT pp.Name, pp.ProductID FROM Production.Product pp ORDER BY pp.Name;
+a.2 SELECT pp.Name, pp.ProductNumber FROM Production.Product pp WHERE pp.ProductNumber LIKE '%a%' ORDER BY pp.Name;
+a.3 SELECT pp.Name, pp.ProductNumber FROM Production.Product pp WHERE pp.ProductNumber LIKE '%a%' AND pp.SellStartDate > '2008-01-01' ORDER BY pp.Name;
+
+B Requêtes avec jointure
+b.1 SELECT ps.Name, pc.Name FROM Production.ProductSubcategory ps JOIN Production.ProductCategory pc ON ps.ProductCategoryID = pc.ProductCategoryID;
+b.2 SELECT ps.Name, pc.Name FROM Production.ProductSubcategory ps JOIN Production.ProductCategory pc ON ps.ProductCategoryID = pc.ProductCategoryID WHERE ps.Name LIKE '%mountain%';
+b.3 SELECT pp.Name, pp.Size, pp.Weight FROM Production.Product pp 
+JOIN Production.ProductSubcategory ps ON pp.ProductSubcategoryID = ps.ProductSubcategoryID 
+JOIN Production.ProductCategory pc ON pc.ProductCategoryID = ps.ProductCategoryID
+WHERE ps.Name LIKE '%mountain%' AND pc.Name LIKE 'bikes'; 
+b.4 SELECT pp.Name, ps.Name FROM Production.Product pp 
+JOIN Production.ProductSubcategory ps ON pp.ProductSubcategoryID = ps.ProductSubcategoryID 
+ORDER BY ps.Name;
+b.5 SELECT pp.Name FROM Production.Product pp WHERE pp.ProductSubcategoryID is null;
+b.6 SELECT pp.Name FROM Production.Product pp WHERE pp.Color = (SELECT pp2.Color FROM Production.Product pp2 WHERE pp2.Name = 'Mountain-500 Black, 40') AND pp.Size = (SELECT pp3.Size FROM Production.Product pp3 WHERE pp3.Name = 'Mountain-500 Black, 40');
+b.7 SELECT pp.Name, pp.Color, pp.Size, ps.Name FROM Production.Product pp  JOIN Production.ProductSubcategory ps ON pp.ProductSubcategoryID = ps.ProductSubcategoryID WHERE pp.Color = (SELECT pp2.Color FROM Production.Product pp2 WHERE pp2.Name = 'Mountain-500 Black, 40') AND pp.Size = (SELECT pp3.Size FROM Production.Product pp3 WHERE pp3.Name = 'Mountain-500 Black, 40');
+b.8 
