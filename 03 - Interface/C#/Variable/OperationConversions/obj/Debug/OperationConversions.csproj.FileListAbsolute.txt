@@ -4,3 +4,10 @@ U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\OperationConversions\bin\Debu
 U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\OperationConversions\obj\Debug\OperationConversions.csproj.CoreCompileInputs.cache
 U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\OperationConversions\obj\Debug\OperationConversions.exe
 U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\OperationConversions\obj\Debug\OperationConversions.pdb
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\OperationConversions\bin\Debug\OperationConversions.exe.config
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\OperationConversions\bin\Debug\OperationConversions.exe
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\OperationConversions\bin\Debug\OperationConversions.pdb
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\OperationConversions\obj\Debug\OperationConversions.csproj.AssemblyReference.cache
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\OperationConversions\obj\Debug\OperationConversions.csproj.CoreCompileInputs.cache
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\OperationConversions\obj\Debug\OperationConversions.exe
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\OperationConversions\obj\Debug\OperationConversions.pdb

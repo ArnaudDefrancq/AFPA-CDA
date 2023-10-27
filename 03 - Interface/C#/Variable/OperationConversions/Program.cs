@@ -39,14 +39,35 @@ namespace OperationConversions
 
             // Ecercice 4 - Pièce de monnaie
 
-            Double somme;
+            //Double somme; // somme saisie 
+            //int nbPiece05 = 0;
+            //int nbPiece01 = 0;
+            //int nbPiece001 = 0;
 
-            do
-            {
-                Console.WriteLine("Entrez une somme comprise entre 0 et 0.99");
-                somme = (Double)Convert.ToDouble(Console.ReadLine());
-            } while (somme > 0 && somme < 1);
-                
-         }
+            //do // demande une somme
+            //{
+            //    Console.WriteLine("Entrez une somme comprise entre 0 et 0,99");
+            //    somme = (Double)Convert.ToDouble(Console.ReadLine()); //Conversion en Double
+            //} while (somme <= 0.0d || somme >= 1.0d);
+
+            //while (somme >= 0.5d)
+            //{
+            //    somme -= 0.5d;
+            //    nbPiece05++;
+            //};
+            //while (somme >= 0.1d)
+            //{
+            //    somme -= 0.1d;
+            //    nbPiece01++;
+            //};
+            //while (somme >= 0.1d)
+            //{
+            //    somme -= 0.01d;
+            //    nbPiece001++;
+            //};
+
+            //Console.WriteLine("Il y a " + nbPiece05 + " pièce de 0.5, " + nbPiece01 + " pièce de 0.1 et " + nbPiece001 + " pièce de 0.01");
+
+        }
     }
 }
