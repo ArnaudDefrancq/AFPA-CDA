@@ -1,7 +1,0 @@
-U:\59011-82-04\AFPA-CDA\03 - Interface\C#\PremierTest\PremierTest\bin\Debug\PremierTest.exe.config
-U:\59011-82-04\AFPA-CDA\03 - Interface\C#\PremierTest\PremierTest\bin\Debug\PremierTest.exe
-U:\59011-82-04\AFPA-CDA\03 - Interface\C#\PremierTest\PremierTest\bin\Debug\PremierTest.pdb
-U:\59011-82-04\AFPA-CDA\03 - Interface\C#\PremierTest\PremierTest\obj\Debug\PremierTest.csproj.AssemblyReference.cache
-U:\59011-82-04\AFPA-CDA\03 - Interface\C#\PremierTest\PremierTest\obj\Debug\PremierTest.csproj.CoreCompileInputs.cache
-U:\59011-82-04\AFPA-CDA\03 - Interface\C#\PremierTest\PremierTest\obj\Debug\PremierTest.exe
-U:\59011-82-04\AFPA-CDA\03 - Interface\C#\PremierTest\PremierTest\obj\Debug\PremierTest.pdb

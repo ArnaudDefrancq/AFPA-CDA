@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PremierTest
+namespace Exercice
 {
     class Program
     {
         static void Main(string[] args)
         {
+            #region
             // Exercice 1 -> Variable
             //string chaineSaisie;
             //Console.WriteLine("Entrez votre nom :");
@@ -76,9 +77,15 @@ namespace PremierTest
             //Console.WriteLine("Périmètre rectangle : " + (largeur * longeur));
 
             // Exercice 7 -> Caractères
-            char variable = 'a';
-            UnicodeEncoding(variable);
+            //Char variable = 'a';
+            //Console.WriteLine(Convert.ToUInt16(variable));
 
+            // Exercercic 8
+            //Char caractere;
+            //Console.WriteLine("Entrez un caratère : ");
+            //caractere = Console.ReadLine()[0];
+            //Console.WriteLine("Caractère en majuscule : " + caractere.ToString().ToUpper());
+            #endregion
         }
     }
 }
