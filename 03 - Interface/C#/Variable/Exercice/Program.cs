@@ -10,14 +10,14 @@ namespace Exercice
     {
         static void Main(string[] args)
         {
-            #region
+            // Retravailler en gerant les erreurs possibles !
             // Exercice 1 -> Variable
             //string chaineSaisie;
             //Console.WriteLine("Entrez votre nom :");
             //chaineSaisie = Console.ReadLine();
             //Console.WriteLine("Vous avez saisie : " + chaineSaisie);
 
-            // Exercice 2 
+            // Exercice 2 Ajouter une vérification des valeurs saisi
             //string chiffreChoisie;
             //int nb;
             //Console.WriteLine("Entrez un chiffre :");
@@ -85,7 +85,6 @@ namespace Exercice
             //Console.WriteLine("Entrez un caratère : ");
             //caractere = Console.ReadLine()[0];
             //Console.WriteLine("Caractère en majuscule : " + caractere.ToString().ToUpper());
-            #endregion
         }
     }
 }

@@ -13,3 +13,18 @@ C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\Tra
 C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\TraitementsConditionnels.pdb
 C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\TraitementsConditionnels.genruntimeconfig.cache
 C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\ref\TraitementsConditionnels.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\bin\Debug\net5.0\TraitementsConditionnels.exe
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\bin\Debug\net5.0\TraitementsConditionnels.deps.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\bin\Debug\net5.0\TraitementsConditionnels.runtimeconfig.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\bin\Debug\net5.0\TraitementsConditionnels.runtimeconfig.dev.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\bin\Debug\net5.0\TraitementsConditionnels.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\bin\Debug\net5.0\TraitementsConditionnels.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\TraitementsConditionnels.GeneratedMSBuildEditorConfig.editorconfig
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\TraitementsConditionnels.AssemblyInfoInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\TraitementsConditionnels.AssemblyInfo.cs
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\TraitementsConditionnels.csproj.CoreCompileInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\TraitementsConditionnels.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\refint\TraitementsConditionnels.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\TraitementsConditionnels.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\TraitementsConditionnels.genruntimeconfig.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\obj\Debug\net5.0\ref\TraitementsConditionnels.dll
