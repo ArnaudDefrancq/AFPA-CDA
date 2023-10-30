@@ -11,15 +11,11 @@ namespace TraitementsConditionnels
             // Exercice 3.1 - Prise en main
             // Exercice 1 - Majorité
             //int ageUtilisateur;
-            //String checkAge;
-            //String pattern = @"^\d+$";
-            //Regex regex = new Regex(pattern);
             //do
             //{
-            //    Console.WriteLine("Qu'elle est votre âge : ");
-            //    checkAge = Console.ReadLine();
-            //} while (!regex.IsMatch(checkAge));
-            //ageUtilisateur = Convert.ToInt32(checkAge);
+            //    Console.WriteLine("Quel est votre âge : ");
+            //} while (!int.TryParse(Console.ReadLine(), out ageUtilisateur));
+
             //if (ageUtilisateur >= 18)
             //{
             //    Console.WriteLine("Vous êtes majeur");
@@ -100,34 +96,33 @@ namespace TraitementsConditionnels
             //Console.WriteLine("Il y a " + nbDistinctes + "valeur(s) distincte(s)");
 
             // Exercice 6 - Plus petite valeur
-            //List<int> listNombre = new List<int>();
-            //int nbSaisi;
-            //int nombrePetit = 0;
-            //String checkNombre;
-            //String pattern = @"^\d+$";
-            //Regex regex = new Regex(pattern);
+            //List<Double> listNombre = new List<Double>();
+            //Double nbSaisi;
+            //Double nbPetit;
             //do
             //{
             //    do
             //    {
             //        Console.WriteLine("Saisir un nombre entier : ");
-            //        checkNombre = Console.ReadLine();
-            //    } while (!regex.IsMatch(checkNombre));
 
-            //    nbSaisi = Convert.ToInt32(checkNombre);
+            //    } while (!Double.TryParse(Console.ReadLine(), out nbSaisi));
+
             //    listNombre.Add(nbSaisi);
+
+            //    nbPetit = listNombre[0];
+
+            //    if (listNombre.Count > 1)
+            //    {
+            //        if (nbSaisi < nbPetit)
+            //        {
+            //            nbPetit = nbSaisi;
+            //        }
+
+            //    }
+
             //} while (listNombre.Count != 3);
 
-            //for (int i = 0; i < listNombre.Count; i++)
-            //{
-            //    nombrePetit = listNombre[0];
-
-            //    if (nombrePetit > listNombre[i])
-            //    {
-            //        nombrePetit = listNombre[i];
-            //    }
-            //};
-            //Console.WriteLine("Le nombre le plus petit est : " + nombrePetit);
+            //Console.WriteLine("Le nombre le plus petit est : " + nbPetit);
 
             // Exercice 3.2 - Switch
             // Exercice 7 - Calculatrice
@@ -196,9 +191,6 @@ namespace TraitementsConditionnels
             //int i, j;
             //String valeurI;
             //String valeurJ;
-            //String pattern = @"^\d+$";
-            //Regex regex = new Regex(pattern);
-
             //do
             //{
             //    do
@@ -207,11 +199,7 @@ namespace TraitementsConditionnels
             //        valeurI = Console.ReadLine();
             //        Console.WriteLine("Valeur de j (1 - 8) : ");
             //        valeurJ = Console.ReadLine();
-            //    } while (!regex.IsMatch(valeurI) || !regex.IsMatch(valeurJ)); // Check valeur de A et B
-
-            //    i = int.Parse(valeurI);
-            //    j = int.Parse(valeurJ);
-
+            //    } while (!int.TryParse(valeurI, out i) || !int.TryParse(valeurJ, out j)); // Check valeur de i et j
             //} while (i < 1 || i > 8 || j < 1 || j > 8);
 
             //if ((i + j) % 2 == 0)
@@ -350,7 +338,7 @@ namespace TraitementsConditionnels
             //        break;
             //    // fou
             //    case 2:
-            //        if (Math.Abs(i - i2) == 1 && Math.Abs(j - j2) == 1)
+            //        if (Math.Abs(i - i2) == Math.Abs(j - j2))
             //        {
             //            Console.WriteLine("Déplacement du fou OK");
             //            Console.WriteLine("Nouvelle coordonnée : " + i2 + " , " + j2);
@@ -400,6 +388,182 @@ namespace TraitementsConditionnels
 
             // Exercice 3.4 - Heures et dates
             // Exercice 11 - Opérations sur les heures
+            //int heureDebut, minuteDebut, heureFin, minuteFin;
+            //String pattern = @"^\d+$";
+            //Regex regex = new Regex(pattern);
+            //String hDep, mDep, hFin, mFin;
+            //do
+            //{
+            //    do
+            //    {
+            //        Console.WriteLine("Entrez une heure de début : ");
+            //        hDep = Console.ReadLine();
+
+            //        Console.WriteLine("Entrez les minutes de début: ");
+            //        mDep = Console.ReadLine();
+
+            //        Console.WriteLine("Entrez une heure de fin : ");
+            //        hFin = Console.ReadLine();
+
+            //        Console.WriteLine("Entrez les minutes de fin: ");
+            //        mFin = Console.ReadLine();
+
+            //    } while (!regex.IsMatch(hDep) || !regex.IsMatch(mDep) || !regex.IsMatch(hFin) || !regex.IsMatch(mFin));
+            //    heureDebut = int.Parse(hDep);
+            //    minuteDebut = int.Parse(mDep);
+            //    heureFin = int.Parse(hFin);
+            //    minuteFin = int.Parse(mFin);
+            //} while (heureDebut < 0 || heureDebut > 23 || minuteDebut < 0 || minuteDebut > 59 || heureFin < 0 || heureFin > 23 || minuteFin < 0 || minuteFin > 59);
+
+            //Console.WriteLine(heureDebut + ":" + minuteDebut + " heure début " + heureFin + ":" + minuteFin + " heure de fin");
+
+
+            //if (heureDebut > heureFin || heureDebut == heureFin && minuteDebut > minuteFin)
+            //{
+            //    Console.WriteLine("Temps invalide");
+            //}
+            //else
+            //{
+            //    int heureDiff = heureFin - heureDebut;
+            //    int minuteDiff = minuteFin - minuteDebut;
+
+            //    if (minuteDiff < 0)
+            //    {
+            //        heureDiff -= 1;
+            //        minuteDiff = 60 - Math.Abs(minuteDiff);
+            //    }
+            //    Console.WriteLine(heureDiff + ":" + minuteDiff + " de différence");
+            //}
+
+            // Exercice 12 - Lejour d'après
+            //int jour, mois, annee;
+            //int jourPlus, moisPlus, anneePlus;
+            //String valeurJour, valeurMois, valeurAnnee;
+            //do
+            //{
+            //    do
+            //    {
+            //        Console.WriteLine("Entrez un jour : ");
+            //        valeurJour = Console.ReadLine();
+
+            //        Console.WriteLine("Entrez un mois: ");
+            //        valeurMois = Console.ReadLine();
+
+            //        Console.WriteLine("Entrez une année : ");
+            //        valeurAnnee = Console.ReadLine();
+            //    } while (!int.TryParse(valeurJour, out jour) || !int.TryParse(valeurMois, out mois) || !int.TryParse(valeurAnnee, out annee));
+            //} while (jour < 0 || jour > 31 || mois < 1 || mois > 12);
+
+            //static bool estBissextile(int an)
+            //{
+            //    if (an % 4 == 0)
+            //    {
+            //        if (an % 100 == 0 && an % 400 != 0)
+            //        {
+            //            return false;
+            //        }
+            //    }
+            //    else if (an % 4 == 0)
+            //    {
+            //        if (an % 100 == 0 && an % 400 == 0)
+            //        {
+            //            return true;
+            //        }
+
+            //    }
+            //    return false;
+            //}
+
+            //Console.WriteLine(jour + " " + mois + " " + annee);
+
+            //moisPlus = mois;
+            //anneePlus = annee;
+
+            //if (jour == 31 && 12 % mois == 0)
+            //{
+            //    jourPlus = 1;
+            //    if (mois == 12)
+            //    {
+            //        moisPlus = 1;
+            //        anneePlus = annee + 1;
+            //    }
+            //    else
+            //    {
+            //        moisPlus = mois + 1;
+            //    }
+            //}
+            //else if (jour == 28 && mois == 2 && estBissextile(annee))
+            //{
+            //    jourPlus = 1;
+            //    moisPlus = 3;
+            //}
+            //else if (jour == 29 && mois == 2)
+            //{
+            //    jourPlus = 1;
+            //    moisPlus = 3;
+            //}
+            //else
+            //{
+            //    jourPlus = jour + 1;
+            //}
+
+            //Console.WriteLine(jourPlus + " " + moisPlus + " " + anneePlus);
+
+            // 3.5 - Intervalles et rectangles
+            // Exercice 13 - Intervalles bien formés 
+            Double a, b;
+            Double x;
+            String valeurA, valeurB;
+
+            do
+            {
+                Console.WriteLine("valeur de A : ");
+                valeurA = Console.ReadLine();
+
+                Console.WriteLine("Valeur de B : ");
+                valeurB = Console.ReadLine();
+            } while (!Double.TryParse(valeurA, out a) || !Double.TryParse(valeurB, out b));
+
+            Console.WriteLine("intervalle : " + a + b);
+
+            // Exercice 14 - Appartenance
+            do
+            {
+                Console.WriteLine("Valeur de x : ");
+            } while (!Double.TryParse(Console.ReadLine(), out x));
+
+            if (a < x && x < b)
+            {
+                Console.WriteLine("X est dans l'intervalle");
+            }
+
+            // Exercice 15 - Rectangle
+            Double xHautGauche, xBasDroite, yHautGauche, yBasDroite;
+            String valeurXHG, valeurYHG, valeurXBD, valeurYBD;
+
+            do
+            {
+                Console.WriteLine("Coordonnée point xHautGauche : ");
+                valeurXHG = Console.ReadLine();
+                Console.WriteLine("Coordonnée point yHautGauche : ");
+                valeurYHG = Console.ReadLine();
+                Console.WriteLine("Coordonnée point xBasDroite : ");
+                valeurXBD = Console.ReadLine();
+                Console.WriteLine("Coordonnée point yBasDroite : ");
+                valeurYBD = Console.ReadLine();
+            } while (!Double.TryParse(valeurXHG, out xHautGauche) || !Double.TryParse(valeurYHG, out yHautGauche) || !Double.TryParse(valeurXBD, out xBasDroite) || !Double.TryParse(valeurYBD, out yBasDroite));
+
+            // Exercice 16 - Appartenance
+            Double p1, p2;
+            String valeurP1, valeurP2;
+
+            do
+            {
+                Console.WriteLine("Valeur p1 : ");
+                valeurP1 = Console.ReadLine();
+                Console.WriteLine("Valeur p2 : ");
+                valeurP2 = Console.ReadLine();
+            } while (true);
         }
     }
 }
