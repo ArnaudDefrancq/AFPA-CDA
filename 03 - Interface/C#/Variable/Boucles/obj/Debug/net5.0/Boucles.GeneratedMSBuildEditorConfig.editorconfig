@@ -7,5 +7,5 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.RootNamespace = TraitementsConditionnels
-build_property.ProjectDir = C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\TraitementsConditionnels\
+build_property.RootNamespace = Boucles
+build_property.ProjectDir = C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\Boucles\

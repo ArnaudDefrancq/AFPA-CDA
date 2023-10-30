@@ -437,7 +437,6 @@ namespace TraitementsConditionnels
 
             // Exercice 12 - Lejour d'après
             //int jour, mois, annee;
-            //int jourPlus, moisPlus, anneePlus;
             //String valeurJour, valeurMois, valeurAnnee;
             //do
             //{
@@ -476,38 +475,30 @@ namespace TraitementsConditionnels
 
             //Console.WriteLine(jour + " " + mois + " " + annee);
 
-            //moisPlus = mois;
-            //anneePlus = annee;
+            //int jourSuivant = jour + 1;
+            //int moisSuivant = mois;
+            //int anneeSuivante = annee;
 
-            //if (jour == 31 && 12 % mois == 0)
+            //if (mois == 2 && jour == 28 && estBissextile(annee))
             //{
-            //    jourPlus = 1;
-            //    if (mois == 12)
-            //    {
-            //        moisPlus = 1;
-            //        anneePlus = annee + 1;
-            //    }
-            //    else
-            //    {
-            //        moisPlus = mois + 1;
-            //    }
+            //    jourSuivant = 1;
+            //    moisSuivant = 3;
             //}
-            //else if (jour == 28 && mois == 2 && estBissextile(annee))
+            //if ((mois == 2 && jourSuivant > 29) ||
+            //    ((mois == 4 || mois == 6 || mois == 9 || mois == 11) && jourSuivant > 30) ||
+            //    (jourSuivant > 31))
             //{
-            //    jourPlus = 1;
-            //    moisPlus = 3;
+            //    jourSuivant = 1;
+            //    moisSuivant++;
             //}
-            //else if (jour == 29 && mois == 2)
+            //if (moisSuivant > 12)
             //{
-            //    jourPlus = 1;
-            //    moisPlus = 3;
-            //}
-            //else
-            //{
-            //    jourPlus = jour + 1;
+            //    moisSuivant = 1;
+            //    anneeSuivante++;
             //}
 
-            //Console.WriteLine(jourPlus + " " + moisPlus + " " + anneePlus);
+            //Console.WriteLine($"La date du lendemain est : {jourSuivant} {moisSuivant} {anneeSuivante}");
+
 
             // 3.5 - Intervalles et rectangles
             // Exercice 13 - Intervalles bien formés 
@@ -563,7 +554,16 @@ namespace TraitementsConditionnels
                 valeurP1 = Console.ReadLine();
                 Console.WriteLine("Valeur p2 : ");
                 valeurP2 = Console.ReadLine();
-            } while (true);
+            } while (!Double.TryParse(valeurP1, out p1) || !Double.TryParse(valeurP2, out p2));
+
+            if (p1 >= xHautGauche && p1 <= xBasDroite && p2 >= yHautGauche && p2 <= yBasDroite)
+            {
+                Console.WriteLine("Le point est dans le rectangle");
+            }
+            else
+            {
+                Console.WriteLine("Le point n'est pas dans le rectangle");
+            }
         }
     }
 }
