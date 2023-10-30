@@ -265,7 +265,7 @@ namespace TraitementsConditionnels
             //} while (i2 < 1 || i2 > 8 || j2 < 1 || j2 > 8); // Check si il est bien dans l'air de jeu
             //Console.WriteLine("Coordonnée de déplacement de la pièce : " + i2 + " , " + j2);
 
-            //if ((Math.Abs((i - i2)) + Math.Abs((j - j2))) == 3)
+            //if (Math.Abs(i - i2) == 2 && Math.Abs(j - j2) == 1 || Math.Abs(i - i2) == 1 && Math.Abs(j - j2) == 2)
             //{
             //    Console.WriteLine("Déplacement du cavalier ok");
             //}
@@ -275,81 +275,131 @@ namespace TraitementsConditionnels
             //}
 
             // Exercice 10 - Autres pièce
-            int choixPiece;
-            String valeurPiece;
-            int i, j, i2, j2;
-            String valeurI;
-            String valeurI2;
-            String valeurJ;
-            String valeurJ2;
-            String pattern = @"^\d+$";
-            Regex regex = new Regex(pattern);
+            //int choixPiece;
+            //String valeurPiece;
+            //int i, j, i2, j2;
+            //String valeurI;
+            //String valeurI2;
+            //String valeurJ;
+            //String valeurJ2;
+            //String pattern = @"^\d+$";
+            //Regex regex = new Regex(pattern);
 
-            // Choix de la pièce
-            do
-            {
-                do
-                {
-                    Console.WriteLine("Choisir une pièce (0: cavalier, 1: tour, 2: fou, 3: dame, 4: roi): ");
-                    valeurPiece = Console.ReadLine();
+            //// Choix de la pièce
+            //do
+            //{
+            //    do
+            //    {
+            //        Console.WriteLine("Choisir une pièce (0: cavalier, 1: tour, 2: fou, 3: dame, 4: roi): ");
+            //        valeurPiece = Console.ReadLine();
 
-                } while (!regex.IsMatch(valeurPiece)); // Check si c'est bien 
+            //    } while (!regex.IsMatch(valeurPiece)); // Check si c'est bien 
 
-                choixPiece = int.Parse(valeurPiece);
+            //    choixPiece = int.Parse(valeurPiece);
 
-            } while (choixPiece < 0 || choixPiece > 4);
+            //} while (choixPiece < 0 || choixPiece > 4);
 
-            // Coordonnée de la pièce
-            do
-            {
-                do
-                {
-                    Console.WriteLine("Valeur de i (1 - 8) : ");
-                    valeurI = Console.ReadLine();
-                    Console.WriteLine("Valeur de j (1 - 8) : ");
-                    valeurJ = Console.ReadLine();
-                } while (!regex.IsMatch(valeurI) || !regex.IsMatch(valeurJ)); // Check si c'est bien un chiffre
+            //// Coordonnée de la pièce
+            //do
+            //{
+            //    do
+            //    {
+            //        Console.WriteLine("Valeur de i (1 - 8) : ");
+            //        valeurI = Console.ReadLine();
+            //        Console.WriteLine("Valeur de j (1 - 8) : ");
+            //        valeurJ = Console.ReadLine();
+            //    } while (!regex.IsMatch(valeurI) || !regex.IsMatch(valeurJ)); // Check si c'est bien un chiffre
 
-                i = int.Parse(valeurI);
-                j = int.Parse(valeurJ);
+            //    i = int.Parse(valeurI);
+            //    j = int.Parse(valeurJ);
 
-            } while (i < 1 || i > 8 || j < 1 || j > 8); // Check si il est bien dans l'air de jeu
-            Console.WriteLine("Coordonnée de la pièce : " + i + " , " + j);
+            //} while (i < 1 || i > 8 || j < 1 || j > 8); // Check si il est bien dans l'air de jeu
+            //Console.WriteLine("Coordonnée de la pièce : " + i + " , " + j);
 
-            // Coordonnée de déplacement
-            do
-            {
-                do
-                {
-                    Console.WriteLine("Valeur de i2 (1 - 8) : ");
-                    valeurI2 = Console.ReadLine();
-                    Console.WriteLine("Valeur de j2 (1 - 8) : ");
-                    valeurJ2 = Console.ReadLine();
-                } while (!regex.IsMatch(valeurI2) || !regex.IsMatch(valeurJ2)); // Check si c'est bien un chiffre
+            //// Coordonnée de déplacement
+            //do
+            //{
+            //    do
+            //    {
+            //        Console.WriteLine("Valeur de i2 (1 - 8) : ");
+            //        valeurI2 = Console.ReadLine();
+            //        Console.WriteLine("Valeur de j2 (1 - 8) : ");
+            //        valeurJ2 = Console.ReadLine();
+            //    } while (!regex.IsMatch(valeurI2) || !regex.IsMatch(valeurJ2)); // Check si c'est bien un chiffre
 
-                i2 = int.Parse(valeurI2);
-                j2 = int.Parse(valeurJ2);
+            //    i2 = int.Parse(valeurI2);
+            //    j2 = int.Parse(valeurJ2);
 
-            } while (i2 < 1 || i2 > 8 || j2 < 1 || j2 > 8); // Check si il est bien dans l'air de jeu
-            Console.WriteLine("Coordonnée de déplacement de la pièce : " + i + " , " + j);
+            //} while (i2 < 1 || i2 > 8 || j2 < 1 || j2 > 8); // Check si il est bien dans l'air de jeu
 
-            // Déplacement en fonction de la pièce choisie
-            switch (choixPiece)
-            {
-                // tour
-                case 1:
-                    break;
-                // fou
-                case 2: break;
-                // dame
-                case 3: break;
-                // roi
-                case 4: break;
-                // cavalier
-                default:
-                    break;
-            }
 
+            //// Déplacement en fonction de la pièce choisie
+            //switch (choixPiece)
+            //{
+            //    // tour
+            //    case 1:
+            //        if (Math.Abs(i - i2) == 0 && Math.Abs(j - j2) != 0 || Math.Abs(i - i2) != 0 && Math.Abs(j - j2) == 0)
+            //        {
+            //            Console.WriteLine("Déplacement de la tour OK");
+            //            Console.WriteLine("Nouvelle coordonnée : " + i2 + " , " + j2);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Déplacement interdit");
+            //        }
+            //        break;
+            //    // fou
+            //    case 2:
+            //        if (Math.Abs(i - i2) == 1 && Math.Abs(j - j2) == 1)
+            //        {
+            //            Console.WriteLine("Déplacement du fou OK");
+            //            Console.WriteLine("Nouvelle coordonnée : " + i2 + " , " + j2);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Déplacement interdit");
+            //        }
+            //        break;
+            //    // dame
+            //    case 3:
+            //        if (Math.Abs(i - i2) == 0 && Math.Abs(j - j2) != 0 || Math.Abs(i - i2) != 0 && Math.Abs(j - j2) == 0 || Math.Abs(i - i2) == 1 && Math.Abs(j - j2) == 1)
+            //        {
+            //            Console.WriteLine("Déplavcement de la dame OK");
+            //            Console.WriteLine("Nouvelle coordonnée : " + i2 + " , " + j2);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Déplacement interdit");
+            //        }
+            //        break;
+            //    // roi
+            //    case 4:
+            //        if (Math.Abs(i - i2) + Math.Abs(j - j2) == 1)
+            //        {
+            //            Console.WriteLine("Déplavcement du roi OK");
+            //            Console.WriteLine("Nouvelle coordonnée : " + i2 + " , " + j2);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Déplacement interdit");
+            //        }
+            //        break;
+            //    // cavalier
+            //    default:
+            //        if (Math.Abs(i - i2) == 2 && Math.Abs(j - j2) == 1 || Math.Abs(i - i2) == 1 && Math.Abs(j - j2) == 2)
+            //        {
+            //            Console.WriteLine("Déplacement du cavalier ok");
+            //            Console.WriteLine("Nouvelle coordonnée : " + i + " , " + j);
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Déplacement du cavalier interdit");
+            //        }
+            //        break;
+            //}
+
+            // Exercice 3.4 - Heures et dates
+            // Exercice 11 - Opérations sur les heures
         }
     }
 }
