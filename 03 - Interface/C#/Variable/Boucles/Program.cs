@@ -48,7 +48,33 @@ namespace Boucles
 
             // 4.2 - Utilisation de toutes les boucles
             // Exercice 4 - Compte à rebours 
+            //int nb;
+            //do
+            //{
+            //    Console.WriteLine("Choisir un nb numérique positive");
 
+            //} while (!int.TryParse(Console.ReadLine(), out nb) || nb < 0);
+
+            //for (int i = nb; i >= 0; i--)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            // Exercice 5 - Factorielle
+            //int nbFactorielle;
+            //int somme = 1;
+            //do
+            //{
+            //    Console.WriteLine("Choisir un nb");
+            //} while (!int.TryParse(Console.ReadLine(), out nbFactorielle) || nbFactorielle < 0);
+
+            //for (int i = 1; i <= nbFactorielle; i++)
+            //{
+            //    somme *= i;
+            //}
+            //Console.WriteLine("La factorielle de " + nbFactorielle + " est " + somme);
+
+            // 4.3 - Choix de la boucle la plus appropriée
         }
     }
 }
