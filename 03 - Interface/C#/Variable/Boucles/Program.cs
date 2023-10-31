@@ -150,19 +150,7 @@ namespace Boucles
             Double a, b;
             Char op;
             String valeurA, valeurB;
-
-            static bool checkOp(Char o) // Fonction qui check le signe
-            {
-                List<Char> operateur = new List<Char> { '+', '-', '*', '/', '=', '$', 'r', 'f' };
-                foreach (Char c in operateur)
-                {
-                    if (o == c)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            };
+            List<Char> operateur = new List<Char> { '+', '-', '*', '/', '=', '$', 'r', 'f' };
             do
             {
                 Console.WriteLine("Saisir la valeur de a : ");
@@ -180,7 +168,7 @@ namespace Boucles
                 {
                     Console.WriteLine("Saisir un signe opérateur (' = ' pour sortir) : ");
                     op = Console.ReadLine()[0];
-                } while (!checkOp(op));
+                } while (!operateur.Contains(op));
 
                 if (op != '=')
                 {
