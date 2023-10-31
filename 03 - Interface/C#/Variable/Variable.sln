@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TraitementsConditionnels", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boucles", "Boucles\Boucles.csproj", "{156B7C44-ECD0-4D4D-B0DC-0444F54558F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChaineDeCaracteres", "ChaineDeCaracteres\ChaineDeCaracteres.csproj", "{8E5428EF-B8EC-445C-AF68-FDE03A67C7D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChaineDeCaracteres", "ChaineDeCaracteres\ChaineDeCaracteres.csproj", "{8E5428EF-B8EC-445C-AF68-FDE03A67C7D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tableaux", "Tableaux\Tableaux.csproj", "{3BE4FBD5-6210-4582-94B9-00203CF6E297}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{8E5428EF-B8EC-445C-AF68-FDE03A67C7D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E5428EF-B8EC-445C-AF68-FDE03A67C7D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E5428EF-B8EC-445C-AF68-FDE03A67C7D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BE4FBD5-6210-4582-94B9-00203CF6E297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BE4FBD5-6210-4582-94B9-00203CF6E297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BE4FBD5-6210-4582-94B9-00203CF6E297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BE4FBD5-6210-4582-94B9-00203CF6E297}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
