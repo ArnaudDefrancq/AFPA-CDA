@@ -11,13 +11,11 @@ namespace Boucles
             // 4 - Boucles
             // 4.1 - Compréhension
             // Exercice 1 
-            //int a = 1, b = 0, n = 5;
-            //while (a <= n)
-            //{
-            //    b += a++;
-            //    Console.WriteLine("a : " + a + ", " + " b :" + b);
-            //};
-
+            // a: 2,  b: 1
+            // a: 3,  b: 3
+            // a: 4,  b: 6
+            // a: 5,  b: 10
+            // a: 6,  b: 15
             // Exercice 2
             //int b = 0, c = 0, d = 3, m = 3, n = 4;
 
@@ -32,10 +30,11 @@ namespace Boucles
             //    }
             //    Console.WriteLine("a : " + a + ", b : " + b + " , c :" + c + " , d :" + d + " . ");
             //}
+            // a : 2, b: 4 , c: 30 , d: 6.
 
             // Exercice 3
             //int a, b, c, d;
-            //a = 1; 
+            //a = 1;
             //b = 2;
             //c = a / b;
             //d = (a == b) ? 3 : 4;
@@ -48,7 +47,7 @@ namespace Boucles
             //    c = ++b;
             //Console.WriteLine(a + " , " + b + " , " + c + " , " + d + " . ");
 
-            // 4.2 - Utilisation de toutes les boucles
+            // 4.2 - Utilisation de toutes les boucles (refaire avec toutes les boucles possible)
             // Exercice 4 - Compte à rebours 
             //int nb;
             //do
@@ -78,17 +77,17 @@ namespace Boucles
 
             // 4.3 - Choix de la boucle la plus appropriée
             // Exercice 6 - Table de multiplication
-            // int nbChoisi;
+            //int nbChoisi;
 
-            // do
-            // {
-            //     Console.WriteLine("Choisir un nb et vous aurez sa table de multiplication : ");
-            // } while (!int.TryParse(Console.ReadLine(), out nbChoisi));
+            //do
+            //{
+            //    Console.WriteLine("Choisir un nb et vous aurez sa table de multiplication : ");
+            //} while (!int.TryParse(Console.ReadLine(), out nbChoisi));
 
-            // for (int i = 0; i < 11; i++)
-            // {
-            //     Console.WriteLine(nbChoisi + " * " + i + " = " + (nbChoisi * i));
-            // }
+            //for (int i = 0; i < 11; i++)
+            //{
+            //    Console.WriteLine(nbChoisi + " * " + i + " = " + (nbChoisi * i));
+            //}
 
             // Exercice 7 - Tables de multiplications
 
@@ -126,7 +125,7 @@ namespace Boucles
 
             //Console.WriteLine("Resultat de " + b + " puissance " + n + " = " + result);
 
-            // Exercice 9 -Joli carré
+            // Exercice 9 - Joli carré
             //int saisirNb;
 
             //do
@@ -147,98 +146,98 @@ namespace Boucles
 
             // 4.4 - Extension de la calculatrice
             // Exercice 10 - Calculatrice de poche / Exercice 11 - Puissance / Exercice 12 - Opérations unaires
-            Double a, b;
-            Char op;
-            String valeurA, valeurB;
-            List<Char> operateur = new List<Char> { '+', '-', '*', '/', '=', '$', 'r', 'f' };
-            do
-            {
-                Console.WriteLine("Saisir la valeur de a : ");
-                valeurA = Console.ReadLine();
+            //Double a, b;
+            //Char op;
+            //String valeurA, valeurB;
+            //List<Char> operateur = new List<Char> { '+', '-', '*', '/', '=', '$', 'r', 'f' };
+            //do
+            //{
+            //    Console.WriteLine("Saisir la valeur de a : ");
+            //    valeurA = Console.ReadLine();
 
-            } while (!Double.TryParse(valeurA, out a));
-
-
-
-            do
-            {
-                Double result;
-                // Demande l'opérateur
-                do
-                {
-                    Console.WriteLine("Saisir un signe opérateur (' = ' pour sortir) : ");
-                    op = Console.ReadLine()[0];
-                } while (!operateur.Contains(op));
-
-                if (op != '=')
-                {
-                    if (op == 'r')
-                    {
-                        result = Math.Sqrt(a);
-                        Console.WriteLine(result);
-                        a = result;
-                    }
-                    else if (op == 'f')
-                    {
-                        Double nbTour = a;
-                        Double facto = 1;
-                        for (Double i = 1; i <= nbTour; i++)
-                        {
-                            facto *= i;
-                        }
-                        Console.WriteLine(facto);
-                        a = facto;
-                    }
-                    else
-                    {
-                        do
-                        {
-                            Console.WriteLine("Saisir un nombre : ");
-                            valeurB = Console.ReadLine();
-                        } while (!Double.TryParse(valeurB, out b));
+            //} while (!Double.TryParse(valeurA, out a));
 
 
-                        // Les opérations de calculs
-                        switch (op)
-                        {
-                            case '-':
-                                result = (a - b);
-                                Console.WriteLine(result);
-                                a = result;
-                                break;
-                            case '*':
-                                result = (a * b);
-                                Console.WriteLine(result);
-                                a = result;
-                                break;
-                            case '/':
-                                if (b != 0)
-                                {
-                                    result = (a / b);
-                                    Console.WriteLine(result);
-                                    a = result;
-                                    break;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Diviser par 0 ! T'es pas malade !");
-                                    break;
-                                };
-                            case '$':
-                                result = Math.Pow(a, Math.Floor(b));
-                                Console.WriteLine(result);
-                                a = result;
-                                break;
-                            default:
-                                result = (a + b);
-                                Console.WriteLine(result);
-                                a = result;
-                                break;
 
-                        }
-                    }
-                }
-            } while (op != '=');
+            //do
+            //{
+            //    Double result;
+            //    // Demande l'opérateur
+            //    do
+            //    {
+            //        Console.WriteLine("Saisir un signe opérateur (' = ' pour sortir) : ");
+            //        op = Console.ReadLine()[0];
+            //    } while (!operateur.Contains(op));
+
+            //    if (op != '=')
+            //    {
+            //        if (op == 'r')
+            //        {
+            //            result = Math.Sqrt(a);
+            //            Console.WriteLine(result);
+            //            a = result;
+            //        }
+            //        else if (op == 'f')
+            //        {
+            //            Double nbTour = a;
+            //            Double facto = 1;
+            //            for (Double i = 1; i <= nbTour; i++)
+            //            {
+            //                facto *= i;
+            //            }
+            //            Console.WriteLine(facto);
+            //            a = facto;
+            //        }
+            //        else
+            //        {
+            //            do
+            //            {
+            //                Console.WriteLine("Saisir un nombre : ");
+            //                valeurB = Console.ReadLine();
+            //            } while (!Double.TryParse(valeurB, out b));
+
+
+            //            // Les opérations de calculs
+            //            switch (op)
+            //            {
+            //                case '-':
+            //                    result = (a - b);
+            //                    Console.WriteLine(result);
+            //                    a = result;
+            //                    break;
+            //                case '*':
+            //                    result = (a * b);
+            //                    Console.WriteLine(result);
+            //                    a = result;
+            //                    break;
+            //                case '/':
+            //                    if (b != 0)
+            //                    {
+            //                        result = (a / b);
+            //                        Console.WriteLine(result);
+            //                        a = result;
+            //                        break;
+            //                    }
+            //                    else
+            //                    {
+            //                        Console.WriteLine("Diviser par 0 ! T'es pas malade !");
+            //                        break;
+            //                    };
+            //                case '$':
+            //                    result = Math.Pow(a, Math.Floor(b));
+            //                    Console.WriteLine(result);
+            //                    a = result;
+            //                    break;
+            //                default:
+            //                    result = (a + b);
+            //                    Console.WriteLine(result);
+            //                    a = result;
+            //                    break;
+
+            //            }
+            //        }
+            //    }
+            //} while (op != '=');
         }
     }
 }

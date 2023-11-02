@@ -12,3 +12,17 @@ C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\Tab
 C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\Tableaux.pdb
 C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\Tableaux.genruntimeconfig.cache
 C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\ref\Tableaux.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\bin\Debug\net7.0\Tableaux.exe
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\bin\Debug\net7.0\Tableaux.deps.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\bin\Debug\net7.0\Tableaux.runtimeconfig.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\bin\Debug\net7.0\Tableaux.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\bin\Debug\net7.0\Tableaux.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\Tableaux.GeneratedMSBuildEditorConfig.editorconfig
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\Tableaux.AssemblyInfoInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\Tableaux.AssemblyInfo.cs
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\Tableaux.csproj.CoreCompileInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\Tableaux.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\refint\Tableaux.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\Tableaux.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\Tableaux.genruntimeconfig.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\Tableaux\obj\Debug\net7.0\ref\Tableaux.dll

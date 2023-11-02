@@ -266,12 +266,7 @@ namespace TraitementsConditionnels
             //int choixPiece;
             //String valeurPiece;
             //int i, j, i2, j2;
-            //String valeurI;
-            //String valeurI2;
-            //String valeurJ;
-            //String valeurJ2;
-            //String pattern = @"^\d+$";
-            //Regex regex = new Regex(pattern);
+            //String valeurI, valeurJ, valeurI2, valeurJ2;
 
             //// Choix de la pièce
             //do
@@ -279,11 +274,9 @@ namespace TraitementsConditionnels
             //    do
             //    {
             //        Console.WriteLine("Choisir une pièce (0: cavalier, 1: tour, 2: fou, 3: dame, 4: roi): ");
-            //        valeurPiece = Console.ReadLine();
+            //        ;
 
-            //    } while (!regex.IsMatch(valeurPiece)); // Check si c'est bien 
-
-            //    choixPiece = int.Parse(valeurPiece);
+            //    } while (!int.TryParse(Console.ReadLine(), out choixPiece)); // Check si c'est bien        
 
             //} while (choixPiece < 0 || choixPiece > 4);
 
@@ -296,10 +289,7 @@ namespace TraitementsConditionnels
             //        valeurI = Console.ReadLine();
             //        Console.WriteLine("Valeur de j (1 - 8) : ");
             //        valeurJ = Console.ReadLine();
-            //    } while (!regex.IsMatch(valeurI) || !regex.IsMatch(valeurJ)); // Check si c'est bien un chiffre
-
-            //    i = int.Parse(valeurI);
-            //    j = int.Parse(valeurJ);
+            //    } while (!int.TryParse(valeurI, out i) || !int.TryParse(valeurJ, out j)); // Check si c'est bien un chiffre
 
             //} while (i < 1 || i > 8 || j < 1 || j > 8); // Check si il est bien dans l'air de jeu
             //Console.WriteLine("Coordonnée de la pièce : " + i + " , " + j);
@@ -313,11 +303,7 @@ namespace TraitementsConditionnels
             //        valeurI2 = Console.ReadLine();
             //        Console.WriteLine("Valeur de j2 (1 - 8) : ");
             //        valeurJ2 = Console.ReadLine();
-            //    } while (!regex.IsMatch(valeurI2) || !regex.IsMatch(valeurJ2)); // Check si c'est bien un chiffre
-
-            //    i2 = int.Parse(valeurI2);
-            //    j2 = int.Parse(valeurJ2);
-
+            //    } while (!int.TryParse(valeurI2, out i2) || !int.TryParse(valeurJ2, out j2)); // Check si c'est bien un chiffre
             //} while (i2 < 1 || i2 > 8 || j2 < 1 || j2 > 8); // Check si il est bien dans l'air de jeu
 
 
@@ -389,8 +375,6 @@ namespace TraitementsConditionnels
             // Exercice 3.4 - Heures et dates
             // Exercice 11 - Opérations sur les heures
             //int heureDebut, minuteDebut, heureFin, minuteFin;
-            //String pattern = @"^\d+$";
-            //Regex regex = new Regex(pattern);
             //String hDep, mDep, hFin, mFin;
             //do
             //{
@@ -408,11 +392,8 @@ namespace TraitementsConditionnels
             //        Console.WriteLine("Entrez les minutes de fin: ");
             //        mFin = Console.ReadLine();
 
-            //    } while (!regex.IsMatch(hDep) || !regex.IsMatch(mDep) || !regex.IsMatch(hFin) || !regex.IsMatch(mFin));
-            //    heureDebut = int.Parse(hDep);
-            //    minuteDebut = int.Parse(mDep);
-            //    heureFin = int.Parse(hFin);
-            //    minuteFin = int.Parse(mFin);
+            //    } while (!int.TryParse(hDep, out heureDebut) || !int.TryParse(mDep, out minuteDebut) || !int.TryParse(hFin, out heureFin) || !int.TryParse(mFin, out minuteFin));
+
             //} while (heureDebut < 0 || heureDebut > 23 || minuteDebut < 0 || minuteDebut > 59 || heureFin < 0 || heureFin > 23 || minuteFin < 0 || minuteFin > 59);
 
             //Console.WriteLine(heureDebut + ":" + minuteDebut + " heure début " + heureFin + ":" + minuteFin + " heure de fin");
@@ -502,68 +483,68 @@ namespace TraitementsConditionnels
 
             // 3.5 - Intervalles et rectangles
             // Exercice 13 - Intervalles bien formés 
-            Double a, b;
-            Double x;
-            String valeurA, valeurB;
+            //Double a, b;
+            //Double x;
+            //String valeurA, valeurB;
 
-            do
-            {
-                Console.WriteLine("valeur de A : ");
-                valeurA = Console.ReadLine();
+            //do
+            //{
+            //    Console.WriteLine("valeur de A : ");
+            //    valeurA = Console.ReadLine();
 
-                Console.WriteLine("Valeur de B : ");
-                valeurB = Console.ReadLine();
-            } while (!Double.TryParse(valeurA, out a) || !Double.TryParse(valeurB, out b));
+            //    Console.WriteLine("Valeur de B : ");
+            //    valeurB = Console.ReadLine();
+            //} while (!Double.TryParse(valeurA, out a) || !Double.TryParse(valeurB, out b) || a > b);
 
-            Console.WriteLine("intervalle : " + a + b);
+            //Console.WriteLine("intervalle : " + a + b);
 
-            // Exercice 14 - Appartenance
-            do
-            {
-                Console.WriteLine("Valeur de x : ");
-            } while (!Double.TryParse(Console.ReadLine(), out x));
+            //// Exercice 14 - Appartenance
+            //do
+            //{
+            //    Console.WriteLine("Valeur de x : ");
+            //} while (!Double.TryParse(Console.ReadLine(), out x));
 
-            if (a < x && x < b)
-            {
-                Console.WriteLine("X est dans l'intervalle");
-            }
+            //if (a < x && x < b)
+            //{
+            //    Console.WriteLine("X est dans l'intervalle");
+            //}
 
             // Exercice 15 - Rectangle
-            Double xHautGauche, xBasDroite, yHautGauche, yBasDroite;
-            String valeurXHG, valeurYHG, valeurXBD, valeurYBD;
+            //Double xHautGauche, xBasDroite, yHautGauche, yBasDroite;
+            //String valeurXHG, valeurYHG, valeurXBD, valeurYBD;
 
-            do
-            {
-                Console.WriteLine("Coordonnée point xHautGauche : ");
-                valeurXHG = Console.ReadLine();
-                Console.WriteLine("Coordonnée point yHautGauche : ");
-                valeurYHG = Console.ReadLine();
-                Console.WriteLine("Coordonnée point xBasDroite : ");
-                valeurXBD = Console.ReadLine();
-                Console.WriteLine("Coordonnée point yBasDroite : ");
-                valeurYBD = Console.ReadLine();
-            } while (!Double.TryParse(valeurXHG, out xHautGauche) || !Double.TryParse(valeurYHG, out yHautGauche) || !Double.TryParse(valeurXBD, out xBasDroite) || !Double.TryParse(valeurYBD, out yBasDroite));
+            //do
+            //{
+            //    Console.WriteLine("Coordonnée point xHautGauche : ");
+            //    valeurXHG = Console.ReadLine();
+            //    Console.WriteLine("Coordonnée point yHautGauche : ");
+            //    valeurYHG = Console.ReadLine();
+            //    Console.WriteLine("Coordonnée point xBasDroite : ");
+            //    valeurXBD = Console.ReadLine();
+            //    Console.WriteLine("Coordonnée point yBasDroite : ");
+            //    valeurYBD = Console.ReadLine();
+            //} while (!Double.TryParse(valeurXHG, out xHautGauche) || !Double.TryParse(valeurYHG, out yHautGauche) || !Double.TryParse(valeurXBD, out xBasDroite) || !Double.TryParse(valeurYBD, out yBasDroite));
 
-            // Exercice 16 - Appartenance
-            Double p1, p2;
-            String valeurP1, valeurP2;
+            //// Exercice 16 - Appartenance
+            //Double p1, p2;
+            //String valeurP1, valeurP2;
 
-            do
-            {
-                Console.WriteLine("Valeur p1 : ");
-                valeurP1 = Console.ReadLine();
-                Console.WriteLine("Valeur p2 : ");
-                valeurP2 = Console.ReadLine();
-            } while (!Double.TryParse(valeurP1, out p1) || !Double.TryParse(valeurP2, out p2));
+            //do
+            //{
+            //    Console.WriteLine("Valeur p1 : ");
+            //    valeurP1 = Console.ReadLine();
+            //    Console.WriteLine("Valeur p2 : ");
+            //    valeurP2 = Console.ReadLine();
+            //} while (!Double.TryParse(valeurP1, out p1) || !Double.TryParse(valeurP2, out p2));
 
-            if (p1 >= xHautGauche && p1 <= xBasDroite && p2 >= yHautGauche && p2 <= yBasDroite)
-            {
-                Console.WriteLine("Le point est dans le rectangle");
-            }
-            else
-            {
-                Console.WriteLine("Le point n'est pas dans le rectangle");
-            }
+            //if (p1 >= xHautGauche && p1 <= xBasDroite && p2 >= yHautGauche && p2 <= yBasDroite)
+            //{
+            //    Console.WriteLine("Le point est dans le rectangle");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Le point n'est pas dans le rectangle");
+            //}
         }
     }
 }
