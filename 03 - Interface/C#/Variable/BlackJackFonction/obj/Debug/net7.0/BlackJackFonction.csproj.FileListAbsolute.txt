@@ -1,0 +1,14 @@
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\bin\Debug\net7.0\BlackJackFonction.exe
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\bin\Debug\net7.0\BlackJackFonction.deps.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\bin\Debug\net7.0\BlackJackFonction.runtimeconfig.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\bin\Debug\net7.0\BlackJackFonction.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\bin\Debug\net7.0\BlackJackFonction.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\obj\Debug\net7.0\BlackJackFonction.GeneratedMSBuildEditorConfig.editorconfig
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\obj\Debug\net7.0\BlackJackFonction.AssemblyInfoInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\obj\Debug\net7.0\BlackJackFonction.AssemblyInfo.cs
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\obj\Debug\net7.0\BlackJackFonction.csproj.CoreCompileInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\obj\Debug\net7.0\BlackJackFonction.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\obj\Debug\net7.0\refint\BlackJackFonction.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\obj\Debug\net7.0\BlackJackFonction.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\obj\Debug\net7.0\BlackJackFonction.genruntimeconfig.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Variable\BlackJackFonction\obj\Debug\net7.0\ref\BlackJackFonction.dll
