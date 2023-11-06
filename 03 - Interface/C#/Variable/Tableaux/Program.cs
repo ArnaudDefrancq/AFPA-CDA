@@ -198,7 +198,7 @@
 
 // 6.5 - Morceaux choisis
 // Exercice 15 - Pièces de monnaie
-//Double[] valeurPiece = { 0.5, 0.2, 0.1, 0.05, 0.02, 0.01 };
+//Double[] valeurPiece = { 0.5d, 0.2d, 0.1d, 0.05d, 0.02d, 0.01d };
 //Double[] nombrePiece = { };
 //Double somme;
 
@@ -207,7 +207,22 @@
 //	Console.WriteLine("Entrez une somme comprise entre 0 et 0,99");
 //} while (!Double.TryParse(Console.ReadLine(), out somme) || somme > 0.99 || somme < 0);
 
-//while (somme != 0)
+//while (somme > 0.001)
 //{
 
+//	foreach (Double val in valeurPiece)
+//	{
+//		if (somme >= val)
+//		{
+//			nombrePiece = nombrePiece.Append(val).ToArray();
+//			somme -= val;
+//		}
+//	}
 //}
+
+
+//foreach (Double val in nombrePiece)
+//{
+//	Console.WriteLine(val);
+//}
+

@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChaineDeCaracteres", "Chain
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tableaux", "Tableaux\Tableaux.csproj", "{3BE4FBD5-6210-4582-94B9-00203CF6E297}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackJackFonction", "BlackJackFonction\BlackJackFonction.csproj", "{49F63AF2-0450-4338-8A15-C58EB67B502A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlackJackFonction", "BlackJackFonction\BlackJackFonction.csproj", "{49F63AF2-0450-4338-8A15-C58EB67B502A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SousProgrammes", "SousProgrammes\SousProgrammes.csproj", "{C5251C3F-736D-4F9D-A1AB-DC1DD49EFB69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{49F63AF2-0450-4338-8A15-C58EB67B502A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49F63AF2-0450-4338-8A15-C58EB67B502A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49F63AF2-0450-4338-8A15-C58EB67B502A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5251C3F-736D-4F9D-A1AB-DC1DD49EFB69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5251C3F-736D-4F9D-A1AB-DC1DD49EFB69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5251C3F-736D-4F9D-A1AB-DC1DD49EFB69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5251C3F-736D-4F9D-A1AB-DC1DD49EFB69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

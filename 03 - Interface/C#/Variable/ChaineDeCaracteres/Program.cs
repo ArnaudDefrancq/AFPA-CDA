@@ -52,32 +52,32 @@
 
 //do
 //{
-//    Console.WriteLine("Saisir une phrase : ");
-//    phrase = Console.ReadLine();
+//	Console.WriteLine("Saisir une phrase : ");
+//	phrase = Console.ReadLine();
 //} while (phrase.Length < 3);
 
 //do
 //{
-//    Console.WriteLine("Saisir un indice i : ");
-//    valeurI = Console.ReadLine();
+//	Console.WriteLine("Saisir un indice i : ");
+//	valeurI = Console.ReadLine();
 
-//    Console.WriteLine("Saisir un indice j : ");
-//    valeurJ = Console.ReadLine();
+//	Console.WriteLine("Saisir un indice j : ");
+//	valeurJ = Console.ReadLine();
 //} while (!int.TryParse(valeurI, out i) || !int.TryParse(valeurJ, out j));
 
 //if (i < j)
 //{
-//    Char separator = '%';
-//    phraseConcat = phrase.Insert(i, "%");
-//    phraseConcat = phraseConcat.Insert(j, "%");
+//	Char separator = '%';
+//	phraseConcat = phrase.Insert(i, "%");
+//	phraseConcat = phraseConcat.Insert(j, "%");
 
-//    String[] newPhrase = phraseConcat.Split(separator);
+//	String[] newPhrase = phraseConcat.Split(separator);
 
-//    Console.WriteLine(newPhrase[1]);
+//	Console.WriteLine(newPhrase[1]);
 //}
 //else
 //{
-//    Console.WriteLine("Valeur pas bonne");
+//	Console.WriteLine("Valeur pas bonne");
 //}
 
 // Exercice 4 - Substitution
@@ -95,11 +95,11 @@
 
 //if (phrase.Contains(b))
 //{
-//    Console.WriteLine(phrase.Replace(b, a));
+//	Console.WriteLine(phrase.Replace(b, a));
 //}
 //else
 //{
-//    Console.WriteLine("La lettre " + b + " n'est pas dans la phrase");
+//	Console.WriteLine("La lettre " + b + " n'est pas dans la phrase");
 //}
 
 // Exercice 5 - Substitution sans Replace
@@ -109,6 +109,7 @@
 //Char a, b;
 
 //Console.WriteLine("Saisir une phrase : ");
+
 //phrase.Append(Console.ReadLine());
 
 //Console.WriteLine("Saisir une lettre a :");
@@ -118,10 +119,10 @@
 
 //for (int i = 0; i < phrase.Length; i++)
 //{
-//    if (phrase[i] == b)
-//    {
-//        phrase[i] = a;
-//    }
+//	if (phrase[i] == b)
+//	{
+//		phrase[i] = a;
+//	}
 //}
 
 //Console.WriteLine(phrase);
@@ -148,25 +149,21 @@
 
 //if (expression[index] == ')')
 //{
-//    Console.WriteLine("Commence par une fermante");
-//}
-//else if (expression[index] == '(')
-//{
-//    Console.WriteLine("Termine par une ouvrante");
+//	Console.WriteLine("Commence par une fermante");
 //}
 //else
 //{
-//    int nbParenthese = 0;
-//    int nbTour = 0;
+//	int nbParenthese = 0;
+//	int nbTour = 0;
 
-//    while (nbParenthese > 0 || nbTour != expression.Length)
-//    {
-//        if (expression[index] == ')') nbParenthese--;
-//        if (expression[index] == '(') nbParenthese++;
-//        index++;
-//        nbTour++;
-//    }
-//    if (nbParenthese == 0) Console.WriteLine("Autant de ( et de  )");
-//    else if (nbParenthese < 0) Console.WriteLine("Trop de fermante");
-//    else Console.WriteLine("trop d'ouvrante");
-//}
+//	while (nbTour != expression.Length)
+//	{
+//		if (expression[index] == ')') nbParenthese--;
+//		if (expression[index] == '(') nbParenthese++;
+//		index++;
+//		nbTour++;
+//	}
+//	if (nbParenthese == 0) Console.WriteLine("Autant de ( et de  )");
+//	else if (nbParenthese < 0) Console.WriteLine("Trop de fermante");
+//	else Console.WriteLine("trop d'ouvrante");
+}
