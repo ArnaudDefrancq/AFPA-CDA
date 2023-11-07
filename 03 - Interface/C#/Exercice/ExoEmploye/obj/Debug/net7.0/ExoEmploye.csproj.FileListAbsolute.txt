@@ -1,0 +1,14 @@
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\bin\Debug\net7.0\ExoEmploye.exe
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\bin\Debug\net7.0\ExoEmploye.deps.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\bin\Debug\net7.0\ExoEmploye.runtimeconfig.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\bin\Debug\net7.0\ExoEmploye.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\bin\Debug\net7.0\ExoEmploye.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\obj\Debug\net7.0\ExoEmploye.GeneratedMSBuildEditorConfig.editorconfig
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\obj\Debug\net7.0\ExoEmploye.AssemblyInfoInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\obj\Debug\net7.0\ExoEmploye.AssemblyInfo.cs
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\obj\Debug\net7.0\ExoEmploye.csproj.CoreCompileInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\obj\Debug\net7.0\ExoEmploye.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\obj\Debug\net7.0\refint\ExoEmploye.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\obj\Debug\net7.0\ExoEmploye.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\obj\Debug\net7.0\ExoEmploye.genruntimeconfig.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Exercice\ExoEmploye\obj\Debug\net7.0\ref\ExoEmploye.dll
