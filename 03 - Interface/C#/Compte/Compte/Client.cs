@@ -23,6 +23,7 @@ namespace Compte
 			Tel = tel;
 		}
 
+		// Methode
 		public override string ToString()
 		{
 			String aff;
