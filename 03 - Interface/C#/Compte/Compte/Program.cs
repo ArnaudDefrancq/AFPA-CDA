@@ -15,7 +15,7 @@ class Programm
 		Console.WriteLine("Opération effectuée");
 		Console.WriteLine("****************************************");
 
-		c1.CrediterSansDebit(somme);
+		c1.Crediter(somme);
 		Console.WriteLine(c1.ToString());
 
 		int debiter = 1000;
@@ -38,7 +38,7 @@ class Programm
 		Console.WriteLine("Opération effectuée");
 		Console.WriteLine("****************************************");
 
-		c2.CrediterAvecDebit(somme2, c1);
+		c2.Crediter(somme2, c1);
 		Console.WriteLine(c1.ToString());
 		Console.WriteLine(c2.ToString());
 
@@ -48,13 +48,13 @@ class Programm
 		Console.WriteLine("débiter compte 1 avec le montant " + debit2 + " pour le compte 2");
 		Console.WriteLine("Opération effectuée");
 		Console.WriteLine("****************************************");
-		c1.DebiterAvecAutreCompte(debit2, c2);
+		c1.Debiter(debit2, c2);
 
 		Console.WriteLine(c1.ToString());
 		Console.WriteLine(c2.ToString());
 
 		Console.WriteLine("****************************************");
-
+		Console.WriteLine("il y a " + Compte.NbComtpe() + " compte créer");
 
 
 	}

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExerciceGeo
 {
-	internal class Rectangle
+	public class Rectangle
 	{
 		// Propriete
 		public int Longeur { get; set; }
@@ -30,14 +30,14 @@ namespace ExerciceGeo
 		}
 
 		// Methode pour calcul le perimetre
-		private int Perimetre()
+		public int Perimetre()
 		{
 			int peri = (Longeur + Largeur) * 2;
 			return peri;
 		}
 
 		// Methode pour calcul l'aire
-		private int Aire()
+		public int Aire()
 		{
 			int aire = (Longeur * Largeur);
 			return aire;

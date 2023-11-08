@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExerciceGeo
 {
-	internal class TriangleRectangle
+	public class TriangleRectangle
 	{
 		// Propriete
 		public Double Base { get; set; }

@@ -10,15 +10,15 @@ namespace Compte
 	internal class Compte
 	{
 		// Proporiété
-		private int IdCompte { get; }
-		private int Solde { get; set; } = 0;
+		public int IdCompte { get; private set; }
+		public int Solde { get; private set; } = 0;
 		public Client Proprietaire { get; set; }
-		public static int Compteur { get; set; } = 1;
+		public static int Compteur { get; set; } = 0;
 
 		// Constructeur
 		public Compte(int solde, Client proprietaire)
 		{
-			IdCompte = Compteur++;
+			IdCompte = ++Compteur;
 			Solde = solde;
 			Proprietaire = proprietaire;
 		}
@@ -40,53 +40,63 @@ namespace Compte
 			return aff;
 		}
 
-		// Crediter un comtpe (sans débit autre comtpe)
-		public int CrediterSansDebit(int somme)
+		/// <summary>
+		/// Crediter un compte sans débiter d'autre compte
+		/// </summary>
+		/// <param name="somme"></param>
+		/// <returns>int</returns>
+		public int Crediter(int somme)
 		{
 			int credit = Solde + somme;
 			return Solde = credit;
 		}
 
-		// Vérifie si on peut débiter le compte
-		private bool CheckCredit(int somme, Compte compte)
+		/// <summary>
+		/// Crediter un compte avec débit d'autre compte
+		/// </summary>
+		/// <param name="somme"></param>
+		/// <param name="compte"></param>
+		/// <returns>bool</returns>
+		public bool Crediter(int somme, Compte compteADebiter)
 		{
-			return somme >= compte.Solde ? true : false;
+			Solde += this.Crediter(somme);
+			compteADebiter.Solde -= this.Debiter(somme);
+			return true;
 
 		}
 
-		// Crediter un compte (avec débit autre compte)
-		public int CrediterAvecDebit(int somme, Compte compte)
-		{
-
-
-			Solde = Solde + somme;
-			compte.Solde = compte.Solde - somme;
-
-			return Solde;
-
-		}
-
-		// Check débit
-		private bool CheckDebit(int somme, int solde)
-		{
-			return somme >= solde ? true : false;
-
-		}
-		// Debiter un compte (sans autre compte)
+		/// <summary>
+		/// Debiter une comtpe
+		/// </summary>
+		/// <param name="somme"></param>
+		/// <returns>int</returns>
 		public int Debiter(int somme)
 		{
 			int debit = Solde - somme;
 			return Solde = debit;
 		}
 
-		//Debiter un compte (avec autre comte)
-		public int DebiterAvecAutreCompte(int somme, Compte compte)
+		/// <summary>
+		/// Debiter le compte et crediter un autre comtpe
+		/// </summary>
+		/// <param name="somme"></param>
+		/// <param name="compte"></param>
+		/// <returns></returns>
+		public bool Debiter(int somme, Compte compteADebiter)
 		{
+			Solde = this.Debiter(somme);
+			compteADebiter.Solde = this.Crediter(somme);
 
-			Solde = Solde - somme;
-			compte.Solde = compte.Solde + somme;
+			return true;
+		}
 
-			return Solde;
+		/// <summary>
+		/// Permet de savoir combien de comtpe a été créer
+		/// </summary>
+		/// <returns>int nb compte</returns>
+		public static int NbComtpe()
+		{
+			return Compteur;
 		}
 	}
 }

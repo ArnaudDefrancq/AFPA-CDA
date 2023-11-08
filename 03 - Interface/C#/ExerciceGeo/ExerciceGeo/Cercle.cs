@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExerciceGeo
 {
-	internal class Cercle
+	public class Cercle
 	{
 		// Propriete
 		public Double Diametre { get; set; }
@@ -21,25 +21,31 @@ namespace ExerciceGeo
 
 		// Methode
 		// Affichage
-		//public override string ToString()
-		//{
-		//	String aff = "";
-		//	aff += "Diametre :  " + Diametre + " - Périmètre : " + Perimetre() + " - Aire : " + Aire();
+		public override string ToString()
+		{
+			String aff = "";
+			aff += "Diametre :  " + Diametre + " - Périmètre : " + Perimetre() + " - Aire : " + Aire();
 
-		//	return aff;
-		//}
+			return aff;
+		}
 
-		//// Calcul perimetre
-		//public Double Perimetre()
-		//{
-		//	Double peri;
+		// Calcul perimetre
+		public Double Perimetre()
+		{
+			Double peri;
+			peri = Math.PI * Diametre;
 
-		//}
+			return peri;
 
-		//// Calcul aire
-		//public Double Aire()
-		//{
+		}
 
-		//}
+		// Calcul aire
+		public Double Aire()
+		{
+			Double aire;
+			aire = Math.PI * Math.Pow(Rayon, 2);
+
+			return aire;
+		}
 	}
 }
