@@ -27,6 +27,7 @@ namespace ExoPoo.Class
 		public override string ToString()
 		{
 			String aff = "";
+
 			aff += "Nom :" + Nom + " - Prénom : " + Prenom + " - Age : " + Age + " - Salaire : " + Salaire + "\n";
 
 			return aff;

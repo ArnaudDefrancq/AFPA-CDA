@@ -25,8 +25,8 @@ namespace ExoPoo.Class
 		public override string ToString()
 		{
 			String aff = "";
-			aff += "Nom : " + Nom + " - Prenom : " + Prenom + " - Age : " + Age + " - Salaire : " + Salaire + "\n";
-			aff += "Salaire de base : " + SALAIRE_DE_BASE + " - Prime par semaine : " + NB_IRIS_PAR_PRIME + " - nb de prime : " + base.NbPrime;
+			aff += "Nom : " + Nom + " - Prenom : " + Prenom + " - Age : " + Age + " - Salaire : " + Salaire;
+			aff += " Dont Salaire de " + SALAIRE_DE_BASE + " + " + base.NbPrime + " primes à " + NB_IRIS_PAR_PRIME;
 
 			return aff;
 		}

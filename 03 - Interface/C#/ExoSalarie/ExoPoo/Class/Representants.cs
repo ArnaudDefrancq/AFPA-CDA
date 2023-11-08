@@ -22,9 +22,9 @@ namespace ExoPoo.Class
 		// Affichage
 		public override string ToString()
 		{
-			String aff = "";
-			aff += "Nom : " + Nom + " - Prenom : " + Prenom + " - Age : " + Age + " - Salaire : " + Salaire + "\n";
-			aff += "nb iris par déplacement : " + NB_IRIS_PAR_DEPLACEMENT + " - nb iris par prime : " + NB_IRIS_PAR_PRIME + " - salaire de base : " + SALAIRE_DE_BASE;
+			String aff = "Salaries.Représentant ";
+			aff += "Nom : " + Nom + " - Prenom : " + Prenom + " - Age : " + Age + " - Salaire : " + Salaire;
+			aff += " Dont Salaire de " + SALAIRE_DE_BASE + " + " + base.NbPrime + " primes à " + NB_IRIS_PAR_PRIME + " + " + base.NbDeplacement + " deplacement à " + NB_IRIS_PAR_DEPLACEMENT;
 
 			return aff;
 		}
