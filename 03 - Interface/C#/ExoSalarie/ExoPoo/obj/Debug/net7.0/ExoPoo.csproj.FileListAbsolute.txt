@@ -1,0 +1,14 @@
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\bin\Debug\net7.0\ExoPoo.exe
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\bin\Debug\net7.0\ExoPoo.deps.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\bin\Debug\net7.0\ExoPoo.runtimeconfig.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\bin\Debug\net7.0\ExoPoo.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\bin\Debug\net7.0\ExoPoo.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\obj\Debug\net7.0\ExoPoo.GeneratedMSBuildEditorConfig.editorconfig
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\obj\Debug\net7.0\ExoPoo.AssemblyInfoInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\obj\Debug\net7.0\ExoPoo.AssemblyInfo.cs
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\obj\Debug\net7.0\ExoPoo.csproj.CoreCompileInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\obj\Debug\net7.0\ExoPoo.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\obj\Debug\net7.0\refint\ExoPoo.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\obj\Debug\net7.0\ExoPoo.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\obj\Debug\net7.0\ExoPoo.genruntimeconfig.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\ExoSalarie\ExoPoo\obj\Debug\net7.0\ref\ExoPoo.dll
