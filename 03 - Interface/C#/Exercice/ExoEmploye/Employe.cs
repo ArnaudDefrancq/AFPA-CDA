@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ExoEmploye.Program;
 
 namespace ExoEmploye
 {
@@ -15,7 +16,7 @@ namespace ExoEmploye
 		public int Salaire { get; set; }
 		public String Service { get; set; }
 		public Agence Agence { get; set; }
-		public List<Enfant> Enfant { get; set; }
+		public List<Enfant> Enfant { get; set; } = new List<Enfant>();
 
 		// Constructeur
 		public Employe(string nom, string prenom, string dateEmbauche, int salaire, string service, Agence agence, List<Enfant> enfants)
@@ -48,43 +49,18 @@ namespace ExoEmploye
 			aff += "******************** \n";
 			aff += ChequeVacances() ? "Peut avoir des cheques \n" : "Ne peut pas avoir de cheque \n";
 			aff += "******************** \n";
-			aff += "Enfant";
-			aff += "******************** \n";
+			aff += "Enfant \n";
 			if (Enfant.Count() > 0)
 			{
-				foreach (Enfant e in Enfant)
+				foreach (Enfant enf in Enfant)
 				{
-					aff += e.ToString();
+					aff += enf.ToString() + "\n";
 				}
-			}
-			else
-			{
-				aff += "pas de cheque \n";
 			}
 			aff += "******************** \n";
 			aff += "Cheque Noel \n";
-			List<int> cheque = new List<int>();
-			int c50 = 0;
-			int c30 = 0;
-			int c20 = 0;
-			cheque = ChequeNoel();
+			aff += ChequeNoel2();
 
-			if (cheque.Count() > 0)
-			{
-				foreach (int i in cheque)
-				{
-					if (i == 50) c50++;
-					if (i == 30) c30++;
-					if (i == 20) c20++;
-				}
-				aff += c50 + " cheque de 50 euro \n";
-				aff += c30 + " cheque de 30 euro \n";
-				aff += c20 + " cheque de 20 euro \n";
-			}
-			else
-			{
-				aff += "Pas de cheque \n";
-			}
 
 			return aff;
 		}
@@ -157,32 +133,81 @@ namespace ExoEmploye
 			return (AnneeAnciennete() >= 1) ? true : false;
 		}
 
-		// Distribution des cheques noels
-		private List<int> ChequeNoel()
+		// Ajout un enfant a l'employe
+		public void AjouterEnfant(Enfant enf)
 		{
-			List<int> cheque = new List<int>();
+			Enfant.Add(enf);
+		}
 
-			foreach (Enfant age in Enfant)
+		// Distribution des cheques noel
+		//private String ChequeNoel()
+		//{
+		//	List<int> cheque = new List<int>() { };
+		//	String rep = "";
+
+		//	foreach (Enfant age in Enfant)
+		//	{
+		//		if (age.Age < 10)
+		//		{
+		//			cheque.Add(20);
+		//		}
+		//		else if (age.Age < 15)
+		//		{
+		//			cheque.Add(30);
+
+		//		}
+		//		else if (age.Age < 18)
+		//		{
+		//			cheque.Add(50);
+		//		}
+		//		else
+		//		{
+		//			cheque.Add(0);
+		//		}
+		//	}
+
+		//	int c50 = 0;
+		//	int c30 = 0;
+		//	int c20 = 0;
+
+		//	if (cheque.Count() > 0)
+		//	{
+		//		foreach (int i in cheque)
+		//		{
+		//			if (i == 50) c50++;
+		//			if (i == 30) c30++;
+		//			if (i == 20) c20++;
+		//		}
+		//		rep += c50 + " cheque de 50 euro \n";
+		//		rep += c30 + " cheque de 30 euro \n";
+		//		rep += c20 + " cheque de 20 euro \n";
+		//	}
+		//	else
+		//	{
+		//		rep += "Pas de cheque \n";
+		//	}
+		//	return rep;
+		//}
+
+		// Autre manière d'attribuer des chèques noel
+		private String ChequeNoel2()
+		{
+			int[] tab = new int[3] { 0, 0, 0 };
+			String resp = "";
+
+			foreach (var enfant in Enfant)
 			{
-				if (age.Age < 10)
-				{
-					cheque.Add(20);
-				}
-				else if (age.Age < 15)
-				{
-					cheque.Add(30);
-
-				}
-				else if (age.Age < 18)
-				{
-					cheque.Add(50);
-				}
-				else
-				{
-					cheque.Add(0);
-				}
+				tab[(int)enfant.ChequeNoel2()]++;
 			}
-			return cheque;
+
+			if (tab.Sum() == 0) return "Pas de froit aux chèques Noel";
+
+			for (int i = 0; i < tab.Length; i++)
+			{
+				if (tab[i] > 0) resp += tab[i] + " chèque de " + (Enum.GetName(typeof(valeurNoel), i)).Substring(1) + "\n";
+			}
+
+			return resp;
 		}
 	}
 }

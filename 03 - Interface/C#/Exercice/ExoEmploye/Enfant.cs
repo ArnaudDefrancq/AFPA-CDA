@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ExoEmploye.Program;
 
 namespace ExoEmploye
 {
@@ -31,21 +32,41 @@ namespace ExoEmploye
 		}
 
 		// Determine si il ya des cheque noel
-		public int MontantCheque()
+		//public int MontantCheque()
+		//{
+		//	if (Age >= 0 && Age < 11)
+		//	{
+		//		return 20;
+		//	}
+		//	else if (Age < 16)
+		//	{
+		//		return 30;
+		//	}
+		//	else if (Age < 19)
+		//	{
+		//		return 50;
+		//	}
+		//	return 0;
+		//}
+
+		// Autre facon
+		public valeurNoel ChequeNoel2()
 		{
-			if (Age >= 0 && Age < 11)
+			if (Age < 11)
 			{
-				return 20;
+				return valeurNoel.C20;
 			}
 			else if (Age < 16)
 			{
-				return 30;
+				return valeurNoel.C30;
 			}
 			else if (Age < 19)
 			{
-				return 50;
+				return valeurNoel.C50;
 			}
 			return 0;
+
+
 		}
 	}
 }

@@ -1,4 +1,6 @@
-﻿namespace ExoEmploye;
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace ExoEmploye;
 
 class Program
 {
@@ -49,44 +51,53 @@ class Program
 
 
 		Employe e2 = new Employe("xarc", "Jean", "02/05/1996", 34, "fictif", a1, enfants1);
-		Employe e3 = new Employe("Paul", "Jean", "04/11/2023", 30, "daltonien", a1, enfants3);
-		Employe e4 = new Employe("hierre", "Pierre", "03/06/2020", 15, "stage", a2, enfants2);
-		Employe e5 = new Employe("Monique", "Nicmo", "07/12/2003", 10, "Alternant", a2, enfants4);
-		Employe e6 = new Employe("Francine", "Farine", "14/02/1980", 4, "Change", a3, enfants2);
+		//Employe e3 = new Employe("Paul", "Jean", "04/11/2023", 30, "daltonien", a1, enfants3);
+		//Employe e4 = new Employe("hierre", "Pierre", "03/06/2020", 15, "stage", a2, enfants2);
+		//Employe e5 = new Employe("Monique", "Nicmo", "07/12/2003", 10, "Alternant", a2, enfants4);
+		//Employe e6 = new Employe("Francine", "Farine", "14/02/1980", 4, "Change", a3, enfants2);
 
 
-		List<Employe> employes = new List<Employe> { e2, e3, e4, e5, e6 };
-		Console.WriteLine("*******************************");
-		Console.WriteLine("Nombre employe : " + employes.Count());
+		//List<Employe> employes = new List<Employe> { e2, e3, e4, e5, e6 };
+		//Console.WriteLine("*******************************");
+		//Console.WriteLine("Nombre employe : " + employes.Count());
+		//Console.WriteLine("*******************************");
+
+		//IEnumerable<Employe> sort;
+		//sort = employes.OrderBy(e => e.Nom).ThenBy(e => e.Prenom);
+		//Console.WriteLine("*******************************");
+		//foreach (Employe emp in sort)
+		//{
+		//	Console.WriteLine(emp);
+		//}
+		//Console.WriteLine("*******************************");
+		//sort = employes.OrderBy(e => e.Service).ThenBy(e => e.Nom).ThenBy(e => e.Prenom);
+		//foreach (Employe emp in sort)
+		//{
+		//	Console.WriteLine(emp.ToString());
+		//}
+		//Console.WriteLine("*******************************");
+
+		//int MasseSalarial(List<Employe> emp)
+		//{
+		//	int total = 0;
+		//	foreach (Employe e in emp)
+		//	{
+		//		total += e.MasseSalarial();
+		//	}
+		//	return total;
+		//}
+
+		//Console.WriteLine("La masse salarial est de " + MasseSalarial(employes) + " euro");
 		Console.WriteLine("*******************************");
 
-		IEnumerable<Employe> sort;
-		sort = employes.OrderBy(e => e.Nom).ThenBy(e => e.Prenom);
-		Console.WriteLine("*******************************");
-		foreach (Employe emp in sort)
-		{
-			Console.WriteLine(emp);
-		}
-		Console.WriteLine("*******************************");
-		sort = employes.OrderBy(e => e.Service).ThenBy(e => e.Nom).ThenBy(e => e.Prenom);
-		foreach (Employe emp in sort)
-		{
-			Console.WriteLine(emp);
-		}
-		Console.WriteLine("*******************************");
 
-		int MasseSalarial(List<Employe> emp)
-		{
-			int total = 0;
-			foreach (Employe e in emp)
-			{
-				total += e.MasseSalarial();
-			}
-			return total;
-		}
+		Console.WriteLine(e2.ToString());
 
-		Console.WriteLine("La masse salarial est de " + MasseSalarial(employes) + " euro");
-		Console.WriteLine("*******************************");
-
+	}
+	public enum valeurNoel
+	{
+		C20,
+		C30,
+		C50
 	}
 }
