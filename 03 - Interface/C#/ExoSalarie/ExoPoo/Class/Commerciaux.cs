@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExoPoo.Class
 {
-	public abstract class Commerciaux : Employe
+	abstract public class Commerciaux : Employe
 	{
 		// Propriete
 		public Double NbDeplacement { get; set; }

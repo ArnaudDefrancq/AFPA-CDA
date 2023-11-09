@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExoPoo.Class
 {
-	public abstract class Employe
+	abstract public class Employe
 	{
 		// Propriete
 		public int Age { get; set; }
@@ -45,6 +45,6 @@ namespace ExoPoo.Class
 		/// Calcul le salaire de l'employe
 		/// </summary>
 		/// <returns>Double</returns>
-		public abstract Double CalculSalaire();
+		abstract public Double CalculSalaire();
 	}
 }
