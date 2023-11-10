@@ -1,0 +1,14 @@
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\ExoGestionFichier.exe
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\ExoGestionFichier.deps.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\ExoGestionFichier.runtimeconfig.json
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\ExoGestionFichier.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\ExoGestionFichier.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.GeneratedMSBuildEditorConfig.editorconfig
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.AssemblyInfoInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.AssemblyInfo.cs
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.csproj.CoreCompileInputs.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\refint\ExoGestionFichier.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.pdb
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.genruntimeconfig.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ref\ExoGestionFichier.dll

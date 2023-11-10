@@ -51,38 +51,35 @@ namespace JeuSpaceInvaders.Class
 			return Grille;
 		}
 
-		public void Affiche()
-		{
-			for (int i = 0; i < NbLigne; i++)
-			{
-				for (int j = 0; j < NbColonnes; j++)
-				{
-					if (i == 1)
-					{
-						Console.Write(Grille[i, j] = VisuMechant());
-					}
-					else
-					{
-						Console.Write(Grille[i, j]);
-					}
+		//public void Affiche()
+		//{
+		//	for (int i = 0; i < NbLigne; i++)
+		//	{
+		//		for (int j = 0; j < NbColonnes; j++)
+		//		{
+		//			if (i == 1)
+		//			{
+		//				Console.Write(Grille[i, j] = VisuMechant());
+		//			}
+		//			else
+		//			{
+		//				Console.Write(Grille[i, j]);
+		//			}
 
-				}
-				Console.WriteLine(" ");
-			}
-		}
+		//		}
+		//		Console.WriteLine(" ");
+		//	}
+		//}
 
-		public Char VisuMechant()
+		public void VisuMechant()
 		{
-			Char test = ' ';
 
 			for (int i = 0; i < Mechant.Count; i++)
 			{
-				test = Mechant[i].Motif;
+				Console.Write(Mechant[i].Motif);
 			}
-			return test;
 
 		}
-
 
 	}
 }

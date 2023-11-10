@@ -4,6 +4,8 @@ class Program
 {
 	static void Main()
 	{
+		int nbLigne = 10;
+		int nbColonnes = 20;
 
 		List<Invaders> invaders = new List<Invaders>();
 
@@ -21,8 +23,11 @@ class Program
 
 
 
+
 		Space jeu = new Space(10, 20, invaders);
-		jeu.Affiche();
+		//jeu.Affiche();
+
+		jeu.VisuMechant();
 
 	}
 }
