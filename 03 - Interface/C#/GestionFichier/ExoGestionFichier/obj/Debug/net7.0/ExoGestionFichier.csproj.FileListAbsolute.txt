@@ -12,3 +12,21 @@ U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\D
 U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.pdb
 U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.genruntimeconfig.cache
 U:\59011-82-04\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ref\ExoGestionFichier.dll
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\ExoGestionFichier.exe
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\ExoGestionFichier.deps.json
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\ExoGestionFichier.runtimeconfig.json
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\ExoGestionFichier.dll
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\ExoGestionFichier.pdb
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.AssemblyInfoInputs.cache
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.AssemblyInfo.cs
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.csproj.CoreCompileInputs.cache
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.dll
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\refint\ExoGestionFichier.dll
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.pdb
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.genruntimeconfig.cache
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ref\ExoGestionFichier.dll
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.csproj.AssemblyReference.cache
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C#\GestionFichier\ExoGestionFichier\obj\Debug\net7.0\ExoGestionFichier.csproj.CopyComplete

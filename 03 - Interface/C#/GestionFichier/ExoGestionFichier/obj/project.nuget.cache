@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Kxcw88bgo3vjfboGUy96v/9Txr2B7A/MKrrXU+Wls1yMmMTdqfPJAxPwuQp1p66Anm5OAxtcpZswjFCVUO5SFw==",
+  "dgSpecHash": "jeZ5ybkU9yc1hxnq2zvm56/VZrPM+0hIz+nIOlTP/TEdhDeYoQJXaldRsYPsnXmEjU/9lHSvfsOSPyRfvhSA8w==",
   "success": true,
-  "projectFilePath": "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C#\\GestionFichier\\ExoGestionFichier\\ExoGestionFichier.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Toyger\\OneDrive\\Bureau\\Git AFPA\\AFPA-CDA\\03 - Interface\\C#\\GestionFichier\\ExoGestionFichier\\ExoGestionFichier.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Toyger\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
+    "C:\\Users\\Toyger\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

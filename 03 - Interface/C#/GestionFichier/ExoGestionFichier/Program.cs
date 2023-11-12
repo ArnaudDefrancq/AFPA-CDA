@@ -1,4 +1,8 @@
-﻿namespace ExoGestionFichier;
+﻿using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+namespace ExoGestionFichier;
 
 class Program
 {
@@ -27,8 +31,6 @@ class Program
 	//		Console.WriteLine(ex.Message); // Si problème on affiche le message d'erreur
 	//	}
 	//}
-
-
 	public static void LectureFichier(String emplacementFichier)
 	{
 		try
@@ -45,44 +47,108 @@ class Program
 	}
 
 	/// <summary>
-	/// Ecrit dans un fichier texte exisant
+	/// Ecrit une string dans un fichier texte exisant
 	/// </summary>
 	/// <param name="ecriture"></param>
 	/// <param name="emplacementFichier"></param>
 	public static void EcrireDansFichier(String ecriture, String emplacementFichier)
 	{
-		if (File.Exists(emplacementFichier))
+		try
 		{
-			using (StreamWriter ligneAjout = File.AppendText(emplacementFichier))
+			if (File.Exists(emplacementFichier))
 			{
-				ligneAjout.WriteLine(ecriture);
+				File.WriteAllText(emplacementFichier, ecriture);
+			}
+			else
+			{
+				Console.WriteLine("Pas de fichier - Veuillez créer le fichier");
 			}
 		}
-		else
+		catch (Exception ex)
 		{
-			Console.WriteLine("Pas de fichier");
+			Console.Write(ex.Message);
 		}
 	}
 
-	//public static bool CreationFichierJSON(String emplacementFichier)
-	//{
+	/// <summary>
+	/// Ajoute une liste de string dans un fichier texte
+	/// </summary>
+	/// <param name="listeString"></param>
+	/// <param name="emplacementFichier"></param>
+	public static void EcrireUneListeDansFichier(List<String> listeString, String emplacementFichier)
+	{
+		if (File.Exists(emplacementFichier))
+		{
+			File.WriteAllLines(emplacementFichier, listeString);
+		}
+		else
+		{
+			Console.WriteLine("Pas de fichier - Veuillez créer le fichier");
+		}
+	}
 
-	//}
+	/// <summary>
+	/// Permet de créer un fichier .json
+	/// </summary>
+	/// <param name="emplacementFichier"></param>
+	/// <returns></returns>
+	public static void CreationFichierJSON(String emplacementFichier, Contact contact)
+	{
+		String json = JsonSerializer.Serialize(contact);
+
+		try
+		{
+			if (File.Exists(emplacementFichier))
+			{
+				File.WriteAllText(emplacementFichier, json);
+			}
+			else
+			{
+				Console.WriteLine("Pas de fichier - Veuillez créer le fichier");
+			}
+		}
+		catch (Exception ex)
+		{
+			Console.Write(ex.Message);
+		}
+	}
+
+	/// <summary>
+	/// Permet de lire un fichier JSON
+	/// </summary>
+	/// <param name="emplacementFichier"></param>
+	public static void LireFichierJSON(String emplacementFichier)
+	{
+
+	}
+
 	static void Main()
 	{
 		//String path = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C#\\GestionFichier\\ExoGestionFichier\\ExoGestionFichier.csproj\\";
 		//String directoryPath = Directory.GetCurrentDirectory();
 		//String nomFichier = "test.txt";
 		//String emplacementFichier = directoryPath + nomFichier;
+		//String monFichier = "test.txt";
+		//String emplacementFichier = Path.Combine(Environment.CurrentDirectory, monFichier);
 
-		String emplacementFichier = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C#\\GestionFichier\\ExoGestionFichier\\test.txt";
-		String ecriture = "Ligne supp";
+		//String emplacementFichier = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C#\\GestionFichier\\ExoGestionFichier\\test.txt";
 
+		//String emplacementFichier = "C:\\Users\\Toyger\\OneDrive\\Bureau\\Git AFPA\\AFPA-CDA\\03 - Interface\\C#\\GestionFichier\\ExoGestionFichier\\test.txt";
+		String pathDossierJson = "C:\\Users\\Toyger\\OneDrive\\Bureau\\Git AFPA\\AFPA-CDA\\03 - Interface\\C#\\GestionFichier\\ExoGestionFichier\\dossier\\test.json";
 
+		//Console.WriteLine(emplacementFichier + monFichier);
+		//String ecriture = "Ligne supp";
+		List<String> listeString = new List<String>() { "item1", "item2", "item3" };
 
-		EcrireDansFichier(ecriture, emplacementFichier);
-		LectureFichier(emplacementFichier);
+		Contact c1 = new Contact("Defrancq", "Arnaud", "nono@mail.com");
 
+		//EcrireDansFichier(ecriture, emplacementFichier);
+		//EcrireUneListeDansFichier(listeString, emplacementFichier);
+		//LectureFichier(emplacementFichier);
+
+		//CreationFichierJSON(pathDossierJson, c1);
+
+		LireFichierJSON(pathDossierJson);
 	}
 
 }

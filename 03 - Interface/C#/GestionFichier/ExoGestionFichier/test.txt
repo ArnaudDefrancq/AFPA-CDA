@@ -1,5 +1,3 @@
-Ligne 1
-Ligne 2
-Ligne 3Ligne supp
-Ligne supp
-Ligne supp
+item1
+item2
+item3
