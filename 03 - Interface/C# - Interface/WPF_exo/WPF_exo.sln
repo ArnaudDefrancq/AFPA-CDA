@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendier", "Calendier\Cale
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adhesion", "Adhesion\Adhesion.csproj", "{221D0DCA-9CD0-4CD6-A350-C0E1F2F01E70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Produits", "Produits\Produits.csproj", "{77CC9C22-A7B9-4C16-9408-F875404C530D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{221D0DCA-9CD0-4CD6-A350-C0E1F2F01E70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{221D0DCA-9CD0-4CD6-A350-C0E1F2F01E70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{221D0DCA-9CD0-4CD6-A350-C0E1F2F01E70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77CC9C22-A7B9-4C16-9408-F875404C530D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77CC9C22-A7B9-4C16-9408-F875404C530D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77CC9C22-A7B9-4C16-9408-F875404C530D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77CC9C22-A7B9-4C16-9408-F875404C530D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

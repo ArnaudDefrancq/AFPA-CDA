@@ -5,8 +5,104 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Produits"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="500" Width="800" MinHeight="300" MinWidth="600">
+	<Grid Background="#FFEEF5D1">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="0.5*"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="0.5*"/>
+			<ColumnDefinition Width="0.5*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="0.5*"/>
+			<ColumnDefinition Width="0.5*"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="0.5*"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="1*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="8*"/>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="2.5*"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
 
-    </Grid>
+		<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" >
+			<Button.Background>
+				<RadialGradientBrush Center="1,0.5" RadiusX="3">
+					<GradientStop Color="#FFABFF00"/>
+					<GradientStop Color="#FF00D0FF" Offset="1"/>
+				</RadialGradientBrush>
+			</Button.Background>
+		</Button>
+
+		<Button x:Name="btnModifier" Grid.Column="3" Content="Modifier" Grid.Row="1" >
+			<Button.Background>
+				<RadialGradientBrush Center="1,0.5" RadiusX="3">
+					<GradientStop Color="#FFABFF00"/>
+					<GradientStop Color="#FF00D0FF" Offset="1"/>
+				</RadialGradientBrush>
+			</Button.Background>
+		</Button>
+
+		<Button x:Name="btnSupprimer" Grid.Column="5" Grid.ColumnSpan="3" Content="Supprimer" Grid.Row="1" >
+			<Button.Background>
+				<RadialGradientBrush Center="1,0.5" RadiusX="3">
+					<GradientStop Color="#FFABFF00"/>
+					<GradientStop Color="#FF00D0FF" Offset="1"/>
+				</RadialGradientBrush>
+			</Button.Background>
+		</Button>
+
+		<Button x:Name="btnDuppliquer" Grid.Column="9" Content="Duppliquer" Grid.Row="1" >
+			<Button.Background>
+				<RadialGradientBrush Center="1,0.5" RadiusX="3">
+					<GradientStop Color="#FFABFF00"/>
+					<GradientStop Color="#FF00D0FF" Offset="1"/>
+				</RadialGradientBrush>
+			</Button.Background>
+		</Button>
+
+		<Button x:Name="btnVider" Grid.Column="11" Content="Vider" Grid.Row="1" >
+			<Button.Background>
+				<RadialGradientBrush Center="1,0.5" RadiusX="3">
+					<GradientStop Color="#FFABFF00"/>
+					<GradientStop Color="#FF00D0FF" Offset="1"/>
+				</RadialGradientBrush>
+			</Button.Background>
+		</Button>
+
+		<Button x:Name="btnListCategorie" Grid.Column="1" Content="Lsite des catégories" Grid.ColumnSpan="5" Grid.Row="5">
+			<Button.Background>
+				<RadialGradientBrush Center="1,0.5" RadiusX="3">
+					<GradientStop Color="#FFABFF00"/>
+					<GradientStop Color="#FF00D0FF" Offset="1"/>
+				</RadialGradientBrush>
+			</Button.Background>
+		</Button>
+
+		<Button x:Name="btnListRayon" Grid.Column="7" Content="Lsite des rayons" Grid.ColumnSpan="5" Grid.Row="5">
+			<Button.Background>
+				<RadialGradientBrush Center="1,0.5" RadiusX="3">
+					<GradientStop Color="#FFABFF00"/>
+					<GradientStop Color="#FF00D0FF" Offset="1"/>
+				</RadialGradientBrush>
+			</Button.Background>
+		</Button>
+
+		<DataGrid Grid.Column="1" Grid.ColumnSpan="11"  Grid.Row="3" >
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="IdProduit" x:Name="idProduit" />
+				<DataGridTextColumn Header="LibelleProduit" x:Name="libelleProduit" Width="350"/>
+				<DataGridTextColumn Header="Catégories" x:Name="categorie" Width="150"/>
+				<DataGridTextColumn Header="Rayon" x:Name="rayon" Width="120"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+	</Grid>
 </Window>
