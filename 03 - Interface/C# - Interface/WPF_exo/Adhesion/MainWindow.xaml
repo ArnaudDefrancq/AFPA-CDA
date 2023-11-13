@@ -1,0 +1,33 @@
+﻿<Window x:Class="Adhesion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Adhesion"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="29*"/>
+			<RowDefinition Height="30*"/>
+			<RowDefinition Height="15*"/>
+			<RowDefinition Height="30*"/>
+			<RowDefinition Height="25*"/>
+			<RowDefinition Height="30*"/>
+			<RowDefinition Height="18*"/>
+			<RowDefinition Height="45*"/>
+			<RowDefinition Height="189*"/>
+			<RowDefinition Height="29*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="31*"/>
+			<ColumnDefinition Width="134*"/>
+			<ColumnDefinition Width="90*"/>
+			<ColumnDefinition Width="514*"/>
+			<ColumnDefinition Width="31*"/>
+		</Grid.ColumnDefinitions>
+
+
+
+	</Grid>
+</Window>
