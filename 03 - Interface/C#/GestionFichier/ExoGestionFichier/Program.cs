@@ -61,7 +61,7 @@ class Program
 			}
 			else
 			{
-				Console.WriteLine("Pas de fichier - Veuillez créer le fichier");
+				File.Create(emplacementFichier);
 			}
 		}
 		catch (Exception ex)
@@ -94,7 +94,7 @@ class Program
 	/// <returns></returns>
 	public static void CreationFichierJSON(String emplacementFichier, Contact contact)
 	{
-		String json = JsonSerializer.Serialize(contact);
+		String json = System.Text.Json.JsonSerializer.Serialize(contact);
 
 		try
 		{
@@ -113,14 +113,14 @@ class Program
 		}
 	}
 
-	/// <summary>
-	/// Permet de lire un fichier JSON
-	/// </summary>
-	/// <param name="emplacementFichier"></param>
-	public static void LireFichierJSON(String emplacementFichier)
-	{
+	///// <summary>
+	///// Permet de lire un fichier JSON
+	///// </summary>
+	///// <param name="emplacementFichier"></param>
+	//public static void LireFichierJSON(String emplacementFichier)
+	//{
 
-	}
+	//}
 
 	static void Main()
 	{
@@ -134,7 +134,7 @@ class Program
 		//String emplacementFichier = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C#\\GestionFichier\\ExoGestionFichier\\test.txt";
 
 		//String emplacementFichier = "C:\\Users\\Toyger\\OneDrive\\Bureau\\Git AFPA\\AFPA-CDA\\03 - Interface\\C#\\GestionFichier\\ExoGestionFichier\\test.txt";
-		String pathDossierJson = "C:\\Users\\Toyger\\OneDrive\\Bureau\\Git AFPA\\AFPA-CDA\\03 - Interface\\C#\\GestionFichier\\ExoGestionFichier\\dossier\\test.json";
+		//String pathDossierJson = "C:\\Users\\Toyger\\OneDrive\\Bureau\\Git AFPA\\AFPA-CDA\\03 - Interface\\C#\\GestionFichier\\ExoGestionFichier\\dossier\\test.json";
 
 		//Console.WriteLine(emplacementFichier + monFichier);
 		//String ecriture = "Ligne supp";
@@ -148,7 +148,7 @@ class Program
 
 		//CreationFichierJSON(pathDossierJson, c1);
 
-		LireFichierJSON(pathDossierJson);
+		//LireFichierJSON(pathDossierJson);
 	}
 
 }
