@@ -5,29 +5,88 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Adhesion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="800" MinHeight="300" MinWidth="200">
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="29*"/>
-			<RowDefinition Height="30*"/>
-			<RowDefinition Height="15*"/>
-			<RowDefinition Height="30*"/>
-			<RowDefinition Height="25*"/>
-			<RowDefinition Height="30*"/>
-			<RowDefinition Height="18*"/>
-			<RowDefinition Height="45*"/>
-			<RowDefinition Height="189*"/>
-			<RowDefinition Height="29*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="11*"/>
+			<RowDefinition Height="1*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="31*"/>
-			<ColumnDefinition Width="134*"/>
-			<ColumnDefinition Width="90*"/>
-			<ColumnDefinition Width="514*"/>
-			<ColumnDefinition Width="31*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="3*"/>
+			<ColumnDefinition Width="0.5*"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="3*"/>
+			<ColumnDefinition Width="1*"/>
 		</Grid.ColumnDefinitions>
 
 
+		<Grid Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="8">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="0.5*"/>
+				<RowDefinition Height="3*"/>
+				<RowDefinition Height="0.5*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="0.5*"/>
+				<RowDefinition Height="1*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
+
+			<Label x:Name="lblActivite" Content="Activité :" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="14" />
+			<Label x:Name="lblNiveau" Content="Niveau :" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="14"  Grid.Column="4" Grid.ColumnSpan="2"/>
+
+			<ListBox x:Name="listActivite" Grid.ColumnSpan="3" Grid.Row="2"  d:ItemsSource="{d:SampleData ItemCount=4}"/>
+			<ListBox x:Name="listNiveau" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="3" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+
+			<Button x:Name="btnEnregistrer" Grid.Column="6" Content="Enregistrer" Grid.Row="4"/>
+			<Button x:Name="btnQuitter" Grid.Column="6" Content="Quitter" Grid.Row="6"/>
+
+			<GroupBox Grid.ColumnSpan="2" Header="Documents fournis" Grid.RowSpan="4" Grid.Row="3" >
+				<StackPanel Height="68" VerticalAlignment="Center" >
+					<CheckBox x:Name="inputCertificat" Content="Certificat médical" Height="25"/>
+					<CheckBox x:Name="inputEnveloppes" Content="5 Enveloppes timbrés" Height="25"/>
+					<CheckBox x:Name="inputPhotos" Content="2 Photos récentes" Height="25"/>
+				</StackPanel>
+			</GroupBox>
+
+
+
+
+
+		</Grid>
+		<Label x:Name="lblNom" Grid.Column="1" Content="Nom/Prénom :" Grid.Row="1" FontWeight="Bold" FontSize="14" VerticalContentAlignment="Center" />
+		<Label x:Name="lblAdresse" Grid.Column="1" Content="Adresse :" Grid.Row="3" FontWeight="Bold" FontSize="14" VerticalContentAlignment="Center" />
+		<Label x:Name="lblNaissance" Grid.Column="1" Content="Date de naissance :" Grid.Row="6" FontWeight="Bold" FontSize="14" VerticalContentAlignment="Center" />
+
+		<TextBox x:Name="textNom" Grid.Column="3" Grid.ColumnSpan="5" Grid.Row="1" TextWrapping="Wrap" Text="DENRY Didier" VerticalContentAlignment="Center"/>
+		<TextBox x:Name="textAdresse" Grid.Column="3" Grid.ColumnSpan="5" Grid.Row="3" Grid.RowSpan="2" TextWrapping="Wrap" Text="2, Rue des Fleurs 59000 Lille"/>
+		<DatePicker x:Name="comboDate" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="6" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+		<GroupBox Grid.Column="7" Header="Sexe" Grid.RowSpan="2" Grid.Row="6" >
+			<StackPanel  Height="60" VerticalAlignment="Center" >
+				<RadioButton x:Name="inputMasculin" Content="Masculin" Height="30" VerticalContentAlignment="Center"/>
+				<RadioButton x:Name="inputFeminin" Content="Féminin" Height="30" VerticalContentAlignment="Center"/>
+			</StackPanel>
+		</GroupBox>
 
 	</Grid>
 </Window>
