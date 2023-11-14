@@ -1,0 +1,164 @@
+﻿<Window x:Class="Operation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Operation"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="1000" MinHeight="600" MinWidth="1000">
+	<Grid x:Name="gridPrincipal" >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="4*"/>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="20*"/>
+			<RowDefinition Height="0.5*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="98*"/>
+			<ColumnDefinition Width="1*"/>
+		</Grid.ColumnDefinitions>
+
+		<TextBlock x:Name="titreApp" Grid.Column="1"  Grid.Row="1" Text="Opération de pêche" FontWeight="Bold" VerticalAlignment="Center" />
+
+		<Grid x:Name="gridTop" Grid.Column="1" Grid.Row="2" >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="10*"/>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="11*"/>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="10*"/>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="13*"/>
+			</Grid.ColumnDefinitions>
+
+			<GroupBox x:Name="groupNavire" Header="Navire">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="1*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="1*"/>
+					</Grid.ColumnDefinitions>
+
+					<Label x:Name="lblImmatriculation" Content="Immatriculation :" VerticalAlignment="Center" HorizontalAlignment="Right" />
+					<Label x:Name="lblNom" Content="Nom :" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Right" />
+
+					<TextBox x:Name="textImmatriculation" Grid.Column="1" TextWrapping="WrapWithOverflow" Text="639451" VerticalAlignment="Center"  Background="#FFECEBEB"/>
+					<TextBox x:Name="textNom" Grid.Column="1" TextWrapping="WrapWithOverflow" Text="PHILCATHAN" VerticalAlignment="Center" Grid.Row="1"  Background="#FFECEBEB"/>
+				</Grid>
+			</GroupBox>
+
+			<GroupBox x:Name="groupMaree" Header="Marée" Grid.Column="2">
+				<Grid Name="gridTopOperation">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="1*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.55*"/>
+						<ColumnDefinition Width="1.8*"/>
+					</Grid.ColumnDefinitions>
+
+					<Label x:Name="lblDepart" Content="Départ :" VerticalAlignment="Center" HorizontalAlignment="Right" />
+					<Label x:Name="lblRetour" Content="Retour :" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Right" />
+
+					<TextBox x:Name="textDepart" Grid.Column="1" TextWrapping="WrapWithOverflow" Text="22/01/2013 - UHC - Granville" VerticalAlignment="Center" Background="#FFECEBEB"/>
+					<TextBox x:Name="textRetour" Grid.Column="1" TextWrapping="WrapWithOverflow" Text="23/01/2013 - UHC - Granville" VerticalAlignment="Center" Grid.Row="1"  Background="#FFECEBEB"/>
+
+
+				</Grid>
+			</GroupBox>
+
+			<GroupBox x:Name="groupProgram" Header="Programme d'observation" Grid.Column="4">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="1*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.6*"/>
+						<ColumnDefinition Width="1*"/>
+					</Grid.ColumnDefinitions>
+
+					<Label x:Name="lblProgram" Content="Programme :"  VerticalAlignment="Center" HorizontalAlignment="Right" Background="{x:Null}" Foreground="Red" />
+					<Label x:Name="lblStrategie" Content="Stratégie :" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Right" />
+
+					<TextBox x:Name="textProgram" Grid.Column="1" TextWrapping="WrapWithOverflow" Text="SIH-OBSMER" VerticalAlignment="Center" Background="#FFECEBEB"/>
+					<TextBox x:Name="textStrategie" Grid.Column="1" TextWrapping="WrapWithOverflow" Text="OBSMER démar" VerticalAlignment="Center" Grid.Row="1"  Background="#FFECEBEB"/>
+				</Grid>
+			</GroupBox>
+
+			<GroupBox x:Name="groupSaississeur" Header="Saississeur" Grid.Column="6">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="1*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.9*"/>
+						<ColumnDefinition Width="1*"/>
+					</Grid.ColumnDefinitions>
+
+					<Label x:Name="lblOPerateur" Content="Operateur de saisie :"  VerticalAlignment="Center" HorizontalAlignment="Right" Background="{x:Null}"  />
+					<Label x:Name="lblModif" Content="Dernière modification :" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Right" />
+
+					<TextBox x:Name="textOperateur" Grid.Column="1" TextWrapping="WrapWithOverflow" Text="TETARD Xavier" VerticalAlignment="Center" Background="#FFECEBEB"/>
+					<TextBox x:Name="textModif" Grid.Column="1" TextWrapping="WrapWithOverflow" Text="25/11/2013 10:16:37" VerticalAlignment="Center" Grid.Row="1"  Background="#FFECEBEB"/>
+				</Grid>
+			</GroupBox>
+		</Grid>
+
+		<TabControl Name="tabOperation" Grid.Column="1" Grid.Row="4">
+			<TabItem Name="operation" Header="Opération">
+				<Grid Name="gridOperation">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width="99*"/>
+						<ColumnDefinition Width="0.5*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="0.5*"/>
+						<RowDefinition Height="6*"/>
+						<RowDefinition Height="0.5*"/>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="0.5*"/>
+						<RowDefinition Height="6*"/>
+						<RowDefinition Height="0.5*"/>
+						<RowDefinition Height="11*"/>
+						<RowDefinition Height="0.5*"/>
+					</Grid.RowDefinitions>
+
+					<Grid Grid.Column="1" Grid.Row="1" >
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="1*"/>
+						</Grid.ColumnDefinitions>
+					</Grid>
+
+				</Grid>
+			</TabItem>
+			<TabItem Name="Engin" Header="Engin">
+				<Grid Name="gridEngin" />
+			</TabItem>
+			<TabItem Name="Position" Header="Positions géographiques">
+				<Grid Name="gridPosition" />
+			</TabItem>
+			<TabItem Name="Commentaire" Header="Commentaire">
+				<Grid Name="gridCommentaire"/>
+			</TabItem>
+
+
+		</TabControl>
+
+
+	</Grid>
+
+
+
+</Window>
