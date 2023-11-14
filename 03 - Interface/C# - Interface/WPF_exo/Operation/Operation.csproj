@@ -7,4 +7,20 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="img\btnDupliquer.png" />
+    <None Remove="img\btnInfo.png" />
+    <None Remove="img\btnMoins.png" />
+    <None Remove="img\btnPlus.png" />
+    <None Remove="img\peche.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\btnDupliquer.png" />
+    <Resource Include="img\btnInfo.png" />
+    <Resource Include="img\btnMoins.png" />
+    <Resource Include="img\btnPlus.png" />
+    <Resource Include="img\peche.png" />
+  </ItemGroup>
+
 </Project>

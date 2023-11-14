@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<BitmapImage x:Key="image-peche" UriSource="img/peche.png" />
+	<BitmapImage x:Key="image-dupliquer" UriSource="img/btnDupliquer.png" />
+	<BitmapImage x:Key="image-info" UriSource="img/btnInfo.png" />
+	<BitmapImage x:Key="image-plus" UriSource="img/btnPlus.png" />
+	<BitmapImage x:Key="image-moins" UriSource="img/btnMoins.png" />
+</ResourceDictionary>
