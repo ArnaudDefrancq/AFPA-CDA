@@ -5,21 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Maintenance"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="1000" MinHeight="700" MinWidth="1000">
 	<Grid Name="gridPrincipal">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="0.2*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.3*"/>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="1.5*"/>
 			<RowDefinition Height="1*"/>
-			<RowDefinition Height="0.5*"/>
-			<RowDefinition Height="5*"/>
-			<RowDefinition Height="0.2*"/>
+			<RowDefinition Height="0.1*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="0.2*"/>
-			<ColumnDefinition Width="2*"/>
-			<ColumnDefinition Width="0.5*"/>
+			<ColumnDefinition Width="0.1*"/>
+			<ColumnDefinition Width="1.5*"/>
+			<ColumnDefinition Width="0.1*"/>
 			<ColumnDefinition Width="8*"/>
-			<ColumnDefinition Width="0.2*"/>
+			<ColumnDefinition Width="0.11*"/>
 		</Grid.ColumnDefinitions>
 
 		<Grid Name="gridAnnee" Grid.Column="1" Grid.Row="1" >
@@ -51,7 +52,7 @@
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="1*"/>
-				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="0.7*"/>
 				<ColumnDefinition Width="1*"/>
 			</Grid.ColumnDefinitions>
 			<Button x:Name="btnAjout" Grid.Column="1"  Grid.Row="0"/>
@@ -61,16 +62,224 @@
 			<Button x:Name="btnImpr" Grid.Column="1"  Grid.Row="8"/>
 		</Grid>
 
-		<Grid Name="gridList" Grid.Column="3" Grid.RowSpan="3" Grid.Row="1" >
+		<Grid Name="gridList" Grid.Column="3" Grid.RowSpan="4" Grid.Row="1" >
 			<Grid.RowDefinitions>
-				<RowDefinition Height="185*"/>
-				<RowDefinition Height="7*"/>
-				<RowDefinition Height="216*"/>
+				<RowDefinition Height="5*"/>
+				<RowDefinition Height="0.2*"/>
+				<RowDefinition Height="10*"/>
 			</Grid.RowDefinitions>
 
-			<DataGrid>
+			<DataGrid Name="gridListData">
+				<DataGrid.Columns>
+					<DataGridTextColumn x:Name="interNumero" Header="Numéro" />
+					<DataGridTextColumn x:Name="interPrestataire" Header="Prestataire" />
+					<DataGridTextColumn x:Name="interCodeUem" Header="Code UEM" />
+					<DataGridTextColumn x:Name="interTypeTravail" Header="Type Travail" />
+					<DataGridTextColumn x:Name="interKmDebut" Header="KM Début" />
+					<DataGridTextColumn x:Name="interKmFin" Header="KM Fin" />
+					<DataGridTextColumn x:Name="interVolume" Header="Volume" />
+					<DataGridTextColumn x:Name="interUnitaire" Header="Prix Unitaire" />
+					<DataGridTextColumn x:Name="interDateReception" Header="Date de Reception" />
+				</DataGrid.Columns>
 
 			</DataGrid>
+
+			<Grid Name="gridPartie" Grid.Row="2" >
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1.2*"/>
+					<ColumnDefinition Width="0.1*"/>
+					<ColumnDefinition Width="3*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="0.05*"/>
+					<RowDefinition Height="1.4*"/>
+				</Grid.RowDefinitions>
+
+				<GroupBox Name="groupeUem" Header="UEM">
+					<Grid Name="gridUem">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="0.*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="0.2*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height=".2*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="0.4*"/>
+							<RowDefinition Height="1*"/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.7*"/>
+							<ColumnDefinition Width="1*"/>
+						</Grid.ColumnDefinitions>
+
+						<Label x:Name="lblCodeUem" Content="Code :" Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+						<Label x:Name="lblAccesUem" Content="Accès :" Grid.Row="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+						<Label x:Name="lblCanalUem" Content="Canal :" Grid.Row="5" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"  />
+						<Label x:Name="lblTypeCanalUem" Content="Type de canal :" Grid.Row="7"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+
+						<TextBox x:Name="inputCodeUem" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" />
+						<ComboBox Name="inputAccesUem" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Center" >
+							<ComboBoxItem x:Name="accesCanalUem" Content="" IsSelected="True" />
+							<ComboBoxItem x:Name="accesTousUem" Content="" />
+						</ComboBox>
+						<ComboBox Name="inputCanalUem" Grid.Row="5" Grid.Column="1" VerticalContentAlignment="Center" >
+							<ComboBoxItem x:Name="nomCanalUem1" Content="" IsSelected="True" />
+							<ComboBoxItem x:Name="nomCanalUem2" Content="" />
+						</ComboBox>
+						<ComboBox Name="inputTypeCanalUem" Grid.Row="7" Grid.Column="1" VerticalContentAlignment="Center" >
+							<ComboBoxItem x:Name="typeCanalUem1" Content="" IsSelected="True" />
+							<ComboBoxItem x:Name="typeCanalUem2" Content="" />
+						</ComboBox>
+
+
+					</Grid>
+				</GroupBox>
+
+				<GroupBox Name="groupePrevision" Header="Prévisions" Grid.Column="3">
+					<Grid Name="gridPrevision">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="0.1*"/>
+							<ColumnDefinition Width="1.5*"/>
+							<ColumnDefinition Width="0.2*"/>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="0.1*"/>
+							<ColumnDefinition Width="1.5*"/>
+
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="0.2*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="0.2*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="0.2*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="0.2*"/>
+
+						</Grid.RowDefinitions>
+
+						<Label x:Name="lblPrevisionTypeTravail" Content="Type de travail :" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+						<Label x:Name="lblPrevisionTypeEntretien" Content="Type d'entretien :" Grid.Column="4" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+						<Label x:Name="lblPrevisionKmDebut" Content="Km début :" Grid.Row="2" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+						<Label x:Name="lblPrevisionKmFin" Content="Km fin :"  Grid.Row="2" Grid.Column="4" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+						<Label x:Name="lblPrevisionQuantite" Content="Quantité :"  Grid.Row="4" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+						<Label x:Name="lblPrevisionPrixUnitaire" Content="Prix Unitaire :" Grid.Row="4" Grid.Column="4" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+						<Label x:Name="lblPrevisionMontant" Content="Montant :"  Grid.Row="6" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+						<Label x:Name="lblPrevisionDefectuosite" Content="Défectuosité :"  Grid.Row="6" Grid.Column="4" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+
+						<TextBox x:Name="textPrevisionTypeTravail" Grid.Column="2" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" Background="#FFE2E2E2" IsEnabled="False"/>
+						<TextBox x:Name="textPrevisionTypeEntretien" Grid.Column="6" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" Background="#FFE2E2E2" IsEnabled="False"/>
+						<TextBox x:Name="textPrevisionKmDebut" Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" Background="#FFE2E2E2" IsEnabled="False"/>
+						<TextBox x:Name="textPrevisionKmFin" Grid.Column="6" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" Background="#FFE2E2E2" IsEnabled="False"/>
+						<TextBox x:Name="textPrevisionQuantite" Grid.Column="2" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" Background="#FFE2E2E2" IsEnabled="False"/>
+						<TextBox x:Name="textPrevisionPrixUnitaire" Grid.Column="6" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" Background="#FFE2E2E2" IsEnabled="False"/>
+						<TextBox x:Name="textPrevisionMontant" Grid.Column="2" Grid.Row="6" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" Background="#FFE2E2E2" IsEnabled="False"/>
+						<TextBox x:Name="textPrevisionDefectuosite" Grid.Column="6" Grid.Row="6" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" Background="#FFE2E2E2" IsEnabled="False"/>
+
+
+
+					</Grid>
+				</GroupBox>
+
+				<GroupBox Name="groupeRealisation" Header="Réalisations" Grid.Row="2" Grid.ColumnSpan="23">
+					<Grid Name="gridRealisation">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="3*"/>
+							<RowDefinition Height="0.2*"/>
+							<RowDefinition Height="1*"/>
+						</Grid.RowDefinitions>
+
+						<Grid Name="gridRealisationTop">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="1*"/>
+								<ColumnDefinition Width="0.05*"/>
+								<ColumnDefinition Width="1*"/>
+								<ColumnDefinition Width="0.1*"/>
+								<ColumnDefinition Width="1*"/>
+								<ColumnDefinition Width="0.05*"/>
+								<ColumnDefinition Width="1*"/>
+								<ColumnDefinition Width="0.1*"/>
+								<ColumnDefinition Width="1*"/>
+								<ColumnDefinition Width=".05*"/>
+								<ColumnDefinition Width="1*"/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="0.2*"/>
+								<RowDefinition Height="1*"/>
+								<RowDefinition Height="0.2*"/>
+								<RowDefinition Height="1*"/>
+								<RowDefinition Height="0.2*"/>
+								<RowDefinition Height="1*"/>
+								<RowDefinition Height="0.2*"/>
+								<RowDefinition Height="1*"/>
+							</Grid.RowDefinitions>
+
+							<Label x:Name="lblReveisionTypeTravail" Content="Type de travail :" Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+							<ComboBox Name="comboRevisionTypeTravail" Grid.Column="2" Grid.Row="1">
+								<ComboBoxItem x:Name="revisionTypeTravail1" Content="" IsSelected="True"/>
+								<ComboBoxItem x:Name="revisionTypeTravail2" Content="" IsSelected="True"/>
+							</ComboBox>
+
+							<Label x:Name="lblRevisionTypeTTravailConcerne" Content="Partie concernée :" Grid.Row="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+							<ComboBox Name="comboRevisionTypeTTravailConcerne" Grid.Column="2" Grid.Row="3">
+								<ComboBoxItem x:Name="comboRevisionTypeTTravailConcerne1" Content="" IsSelected="True"/>
+								<ComboBoxItem x:Name="comboRevisionTypeTTravailConcerne2" Content="" IsSelected="True"/>
+							</ComboBox>
+
+							<Label x:Name="lblReveisionTypeEntretien" Content="Type de entretien :" Grid.Row="1" Grid.Column="4" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+							<ComboBox Name="comboRevisionTypeEntretien" Grid.Column="6" Grid.Row="1">
+								<ComboBoxItem x:Name="revisionTypeEntretien1" Content="" IsSelected="True"/>
+								<ComboBoxItem x:Name="revisionTypeEntretien2" Content="" IsSelected="True"/>
+							</ComboBox>
+
+							<Label x:Name="lblRevisionPrestataire" Content="Prestataire :" Grid.Row="3" Grid.Column="4" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+							<ComboBox Name="comboRevisionPrestataire" Grid.Column="6" Grid.Row="3">
+								<ComboBoxItem x:Name="comboRevisionPrestataire1" Content="" IsSelected="True"/>
+								<ComboBoxItem x:Name="comboRevisionPrestataire2" Content="" IsSelected="True"/>
+							</ComboBox>
+
+							<Label x:Name="lblRevisionQuantite" Content="Quantité :" Grid.Row="3" Grid.Column="8" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+							<TextBox x:Name="textRevisionQuantite" Grid.Row="3" TextWrapping="Wrap" Text="" Grid.Column="10"/>
+
+							<Label x:Name="lblRevisionPrixUnitaire" Content="Prix unitaire :" Grid.Row="5" Grid.Column="8" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+							<TextBox x:Name="textRevisionPrixUnitaire" Grid.Row="5" TextWrapping="Wrap" Text="" Grid.Column="10"/>
+
+							<Label x:Name="lblRevisionMontant" Content="Montant :" Grid.Row="7" Grid.Column="8" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+							<TextBox x:Name="textRevisionMontant" Grid.Row="7" TextWrapping="Wrap" Text="" Grid.Column="10" IsEnabled="False" Background="#FFE2E2E2"/>
+
+							<Label x:Name="lblRevisionKmDebut" Content="Km début :" Grid.Row="5" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+							<TextBox x:Name="textRevisionKmDebut" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" />
+
+							<Label x:Name="lblRevisionKmFin" Content="Km fin :" Grid.Row="7" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+							<TextBox x:Name="textRevisionKmFin" Grid.Column="2" Grid.Row="7" TextWrapping="Wrap" Text="" />
+
+							<Label x:Name="lblRevisionContrat" Grid.Column="4" Content="Numéro de contrat :" Grid.Row="5" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+							<TextBox x:Name="textRevisionContrat" Grid.Column="6" Grid.Row="5" TextWrapping="Wrap" Text=""/>
+
+							<Label x:Name="lblRevisionDateFin" Grid.Column="4" Content="Date de fin :" Grid.Row="7" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+							<DatePicker x:Name="dateFinRevision" Grid.Column="6"  Grid.Row="7" VerticalContentAlignment="Center" />
+
+							<Label x:Name="lblRevisionDateModif" Grid.Column="8" Content="Date modification :" Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+							<DatePicker x:Name="dateModifRevision" Grid.Column="10" Grid.Row="1" VerticalContentAlignment="Center" />
+						</Grid>
+
+						<Grid Name="gridBottomRevision" Grid.Row="2" >
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="1.05*"/>
+								<ColumnDefinition Width="0.05*"/>
+								<ColumnDefinition Width="5.6*"/>
+							</Grid.ColumnDefinitions>
+
+							<Label x:Name="reservationCommentaire" Content="Onservation :" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+							<TextBox x:Name="textRevisionCommentaire" Grid.Column="2" TextWrapping="Wrap" Text="" />
+						</Grid>
+
+					</Grid>
+				</GroupBox>
+
+			</Grid>
 
 		</Grid>
 
