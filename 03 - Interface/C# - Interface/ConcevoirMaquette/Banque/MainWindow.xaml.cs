@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculatrice;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace Banque
 		public MainWindow()
 		{
 			InitializeComponent();
+		}
+
+		private void Main_SizeChanged(object sender, SizeChangedEventArgs e)
+		{
+			((Window)sender).ActualHeight.Dump();
+			((Window)sender).ActualWidth.Dump();
 		}
 	}
 }

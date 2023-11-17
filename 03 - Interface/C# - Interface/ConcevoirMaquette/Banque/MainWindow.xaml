@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Banque"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="850" Background="#FF687FFF" >
+        Title="MainWindow" Height="600" Width="850" Background="#FF687FFF" SizeChanged="Main_SizeChanged">
 	<Grid Name="gridMain" >
 		<Grid.RowDefinitions>
 			<RowDefinition Height="0.5*"/>
@@ -45,39 +45,40 @@
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="1*"/>
 							<ColumnDefinition Width="0.05*"/>
-							<ColumnDefinition Width="2*"/>
+							<ColumnDefinition Width="2.5*"/>
 						</Grid.ColumnDefinitions>
 
 						<GroupBox Name="infoCompteFinancier" Header="Détails financiers" >
 							<Grid Name="gridCompteDetails">
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition Width="0.8*" />
+									<ColumnDefinition Width="0.05*" />
 									<ColumnDefinition Width="1*" />
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>
-									<RowDefinition Height="0.2*"/>
+									<RowDefinition Height="0.5*"/>
 									<RowDefinition Height="1*"/>
-									<RowDefinition Height="0.2*"/>
 									<RowDefinition Height="1*"/>
-									<RowDefinition Height="0.2*"/>
 									<RowDefinition Height="1*"/>
-									<RowDefinition Height="0.2*"/>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="0.5*"/>
 								</Grid.RowDefinitions>
 
 								<Label x:Name="lblCompteRevenus" Content="Revenus :" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-								<TextBox x:Name="inputCompteRevenus" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+								<TextBox x:Name="inputCompteRevenus" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
 									<TextBox.Background>
 										<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
 									</TextBox.Background>
 								</TextBox>
 								<Label x:Name="lblCompteDepense" Content="Dépenses :"   Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-								<TextBox x:Name="inputCompteDepense" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  IsEnabled="False">
+								<TextBox x:Name="inputCompteDepense" Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  IsEnabled="False">
 									<TextBox.Background>
 										<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
 									</TextBox.Background>
 								</TextBox>
 								<Label x:Name="lblCompteTotal" Content="Montant total :"  Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-								<TextBox x:Name="inputCompteTotal" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+								<TextBox x:Name="inputCompteTotal" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
 									<TextBox.Background>
 										<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
 									</TextBox.Background>
@@ -87,31 +88,107 @@
 						</GroupBox>
 
 						<GroupBox Name="infoCompteCaracteristique" Grid.Column="2" Header="Caractéristiques" >
-							<Grid Name="gridCompteCaracteristique" >
+							<Grid Name="gridCompteCaract">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
+								</Grid.RowDefinitions>
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="1*"/>
-									<ColumnDefinition Width="1*"/>
-									<ColumnDefinition Width="1*"/>
-									<ColumnDefinition Width="1*"/>
-									<ColumnDefinition Width="1*"/>
-									<ColumnDefinition Width="1*"/>
-									<ColumnDefinition Width="1*"/>
-									<ColumnDefinition Width="1*"/>
-									<ColumnDefinition Width="1*"/>
-									<ColumnDefinition Width="1*"/>
-									<ColumnDefinition Width="1*"/>
-
+									<ColumnDefinition Width="0.8*"/>
+									<ColumnDefinition Width="0.05*"/>
+									<ColumnDefinition Width="0.8*"/>
+									<ColumnDefinition Width="0.2*"/>
+									<ColumnDefinition Width="2.5*"/>
 								</Grid.ColumnDefinitions>
 
-								<Grid.RowDefinitions>
-									<RowDefinition Height="0.5*" />
-									<RowDefinition Height="1*" />
-									<RowDefinition Height="0.2*" />
-									<RowDefinition Height="1*" />
-									<RowDefinition Height="0.5*" />
+								<Label x:Name="lblComtpePlafond" Content="Plafond :" Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+								<TextBox x:Name="textComptePlafond" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+									<TextBox.Background>
+										<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+									</TextBox.Background>
+								</TextBox>
 
-								</Grid.RowDefinitions>
+								<Label x:Name="lblComtpeType" Content="Type de comtpe :" Grid.Row="3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+								<TextBox x:Name="textCompteType" Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+									<TextBox.Background>
+										<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+									</TextBox.Background>
+								</TextBox>
+
+								<Label x:Name="lblComtpeTaux" Content="Taux :" Grid.Row="5" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+								<TextBox x:Name="textComptePlaTaux" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+									<TextBox.Background>
+										<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+									</TextBox.Background>
+								</TextBox>
+
+								<TextBlock Grid.Column="4" TextWrapping="Wrap" Text="Intérêt :" />
+
+								<Grid Grid.Column="4" Grid.RowSpan="2" Grid.Row="1" >
+									<Grid.RowDefinitions>
+										<RowDefinition Height="1*"/>
+										<RowDefinition Height="0.1*"/>
+										<RowDefinition Height="1*"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1*"/>
+										<ColumnDefinition Width="0.5*"/>
+										<ColumnDefinition Width="1*"/>
+									</Grid.ColumnDefinitions>
+
+									<Label x:Name="interetPrev" Content="Prévisionnel :"  Grid.Row="0"/>
+									<TextBox x:Name="textInteretPrevisionnel" Grid.Column="0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+										<TextBox.Background>
+											<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+										</TextBox.Background>
+									</TextBox>
+									<Label x:Name="interetActuel" Content="Actuel :"  Grid.Row="0" Grid.Column="2"/>
+									<TextBox x:Name="textInteretActuel" Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+										<TextBox.Background>
+											<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+										</TextBox.Background>
+									</TextBox>
+
+								</Grid>
+
+								<Grid Grid.Column="4" Grid.RowSpan="4" Grid.Row="3" >
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1*"/>
+										<ColumnDefinition Width="0.1*"/>
+										<ColumnDefinition Width="1*"/>
+
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="0.5*"/>
+										<RowDefinition Height="1*"/>
+										<RowDefinition Height="0.5*"/>
+										<RowDefinition Height="1*"/>
+										<RowDefinition Height="0.5*"/>
+									</Grid.RowDefinitions>
+
+									<Label  Content="Date d'ouverture :"  Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+									<TextBox x:Name="textCompteDateOuverture" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+										<TextBox.Background>
+											<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+										</TextBox.Background>
+									</TextBox>
+
+									<Label  Content="Solde :"  Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+									<TextBox x:Name="textCompteSolde" Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+										<TextBox.Background>
+											<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+										</TextBox.Background>
+									</TextBox>
+								</Grid>
+
+
 							</Grid>
+
 						</GroupBox>
 
 					</Grid>
@@ -119,12 +196,191 @@
 				</Grid>
 			</TabItem>
 
-			<TabItem Name="tabCarte" Header="Cartes">
-				<Grid Background="#FFE5E5E5"/>
+			<TabItem Name="tabCarte" Header="Cartes" Height="20" VerticalAlignment="Top">
+				<Grid Name="gridCarte">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="0.1*"/>
+						<RowDefinition Height="1.5*"/>
+						<RowDefinition Height="0.05*"/>
+						<RowDefinition Height="1*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width="20*"/>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width="5*"/>
+						<ColumnDefinition Width="0.5*"/>
+					</Grid.ColumnDefinitions>
+
+					<ListBox x:Name="listCarte" Grid.Column="1" Grid.Row="1">
+						<ListBoxItem x:Name="listCarte1" >carte numéro 1</ListBoxItem>
+						<ListBoxItem x:Name="listCarte2" >carte numéro 2</ListBoxItem>
+						<ListBoxItem x:Name="listCarte3" >carte numéro 3</ListBoxItem>
+						<ListBoxItem x:Name="listCarte4" >carte numéro 4</ListBoxItem>
+						<ListBoxItem x:Name="listCarte5" >carte numéro 5</ListBoxItem>
+					</ListBox>
+
+					<Grid Grid.Column="3" Grid.Row="1">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="2*"/>
+							<ColumnDefinition Width="1*"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="0.5*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="0.2*"/>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="5*"/>
+						</Grid.RowDefinitions>
+
+
+						<Border BorderBrush="Black" BorderThickness="0.5" Grid.Column="1" Grid.Row="1">
+							<Border.Background>
+								<SolidColorBrush Color="#FFC8C8C8" />
+							</Border.Background>
+							<Button Grid.Column="1" Grid.Row="1" Content="Opposition" Background="#FF04EEFF" Foreground="#FF023396"  MaxWidth="100px" MaxHeight="80px" FontWeight="Bold"/>
+						</Border>
+
+
+						<Border BorderBrush="Black" BorderThickness="0.5" Grid.Column="1" Grid.Row="3">
+							<Border.Background>
+								<SolidColorBrush Color="#FFC8C8C8" />
+							</Border.Background>
+							<Button Grid.Column="1" Content="Bloquer" Grid.Row="3" Background="#FF04EEFF" Foreground="#FF023396" MaxWidth="100px" MaxHeight="80px" FontWeight="Bold"/>
+						</Border>
+
+					</Grid>
+
+					<Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3">
+
+						<GroupBox Header="Contrat" >
+							<Grid >
+								<Grid.RowDefinitions>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
+									<RowDefinition Height="1*"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="1*"/>
+									<ColumnDefinition Width="0.1*"/>
+									<ColumnDefinition Width="1*"/>
+									<ColumnDefinition Width="0.5*"/>
+									<ColumnDefinition Width="1*"/>
+									<ColumnDefinition Width="0.1*"/>
+									<ColumnDefinition Width="1*"/>
+									<ColumnDefinition Width="1*"/>
+								</Grid.ColumnDefinitions>
+
+								<Label Content="Plafond paiement :" Grid.Row="2" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+								<TextBox x:Name="textPlafondPaiement" Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+									<TextBox.Background>
+										<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+									</TextBox.Background>
+								</TextBox>
+								<Label Content="Plafond retrait :" Grid.Row="2" Grid.Column="4" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+								<TextBox x:Name="textPlafondRetrait" Grid.Column="6" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+									<TextBox.Background>
+										<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+									</TextBox.Background>
+								</TextBox>
+							</Grid>
+						</GroupBox>
+					</Grid>
+
+
+
+
+				</Grid>
 			</TabItem>
 
 			<TabItem x:Name="tabDepense" Header="Dépenses">
-				<Grid Background="#FFE5E5E5"/>
+				<Grid Name="gridDepense">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.05*"/>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="0.05*"/>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="0.05*"/>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="3*"/>
+						<ColumnDefinition Width="0.05*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="0.2*"/>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="0.2*"/>
+						<RowDefinition Height="10*"/>
+						<RowDefinition Height="0.2*"/>
+						<RowDefinition Height="5*"/>
+						<RowDefinition Height="0.2*"/>
+					</Grid.RowDefinitions>
+
+					<Label Grid.Column="1" Content="Mois :"  Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+					<Label Grid.Column="5" Content="Année :"  Grid.Row="1"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+					<Label Grid.Column="1" Content="Mois :"  Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+					<ComboBox Grid.Column="3"  Grid.Row="1"/>
+					<ComboBox Grid.Column="7"  Grid.Row="1"/>
+
+					<DataGrid Grid.Column="1" Grid.ColumnSpan="8" Grid.Row="3">
+						<DataGrid.Columns>
+							<DataGridTextColumn Header="Type"  Width="0.5*"/>
+							<DataGridTextColumn Header="Catégorie" Width="2*"/>
+							<DataGridTextColumn Header="Prix"  Width="0.5*"/>
+						</DataGrid.Columns>
+					</DataGrid>
+
+					<Grid Grid.Column="1" Grid.ColumnSpan="8" Grid.Row="5" >
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.2*"/>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="0.2*"/>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="0.5*"/>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="0.2*"/>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="0.5*"/>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="0.2*"/>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="0.2*"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="1*"/>
+							<RowDefinition Height="0.5*"/>
+							<RowDefinition Height="1*"/>
+						</Grid.RowDefinitions>
+
+						<Label Grid.Column="1" Content="Dépense :" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+						<TextBox Grid.Column="3" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+							<TextBox.Background>
+								<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+							</TextBox.Background>
+						</TextBox>
+						<Label Grid.Column="5" Content="Revenus :" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+						<TextBox Grid.Column="7" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+							<TextBox.Background>
+								<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+							</TextBox.Background>
+						</TextBox>
+						<Label Grid.Column="9" Content="Solde :" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+						<TextBox  Grid.Column="11" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsEnabled="False" >
+							<TextBox.Background>
+								<SolidColorBrush Color="{DynamicResource SolidColorBrushColor1}"/>
+							</TextBox.Background>
+						</TextBox>
+					</Grid>
+
+
+
+
+
+				</Grid>
 			</TabItem>
 		</TabControl>
 
