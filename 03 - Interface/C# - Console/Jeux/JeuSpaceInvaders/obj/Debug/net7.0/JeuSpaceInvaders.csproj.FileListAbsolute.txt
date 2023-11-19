@@ -12,3 +12,10 @@ U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Jeux\JeuSpaceInvaders\obj\Debug\net7.0
 U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Jeux\JeuSpaceInvaders\obj\Debug\net7.0\JeuSpaceInvaders.pdb
 U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Jeux\JeuSpaceInvaders\obj\Debug\net7.0\JeuSpaceInvaders.genruntimeconfig.cache
 U:\59011-82-04\AFPA-CDA\03 - Interface\C#\Jeux\JeuSpaceInvaders\obj\Debug\net7.0\ref\JeuSpaceInvaders.dll
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C# - Console\Jeux\JeuSpaceInvaders\obj\Debug\net7.0\JeuSpaceInvaders.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C# - Console\Jeux\JeuSpaceInvaders\obj\Debug\net7.0\JeuSpaceInvaders.AssemblyInfoInputs.cache
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C# - Console\Jeux\JeuSpaceInvaders\obj\Debug\net7.0\JeuSpaceInvaders.AssemblyInfo.cs
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C# - Console\Jeux\JeuSpaceInvaders\obj\Debug\net7.0\JeuSpaceInvaders.csproj.CoreCompileInputs.cache
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C# - Console\Jeux\JeuSpaceInvaders\obj\Debug\net7.0\JeuSpaceInvaders.dll
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C# - Console\Jeux\JeuSpaceInvaders\obj\Debug\net7.0\refint\JeuSpaceInvaders.dll
+C:\Users\Toyger\OneDrive\Bureau\Git AFPA\AFPA-CDA\03 - Interface\C# - Console\Jeux\JeuSpaceInvaders\obj\Debug\net7.0\JeuSpaceInvaders.pdb

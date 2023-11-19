@@ -13,15 +13,13 @@ namespace JeuSpaceInvaders.Class
 		public int NbLigne { get; set; }
 		public int NbColonnes { get; set; }
 		public Char[,] Grille { get; set; }
-		public List<Invaders> Mechant { get; set; }
 
 		// Constructeur
-		public Space(int nbLigne, int nbColonnes, List<Invaders> mechant)
+		public Space(int nbLigne, int nbColonnes)
 		{
 			NbLigne = nbLigne;
 			NbColonnes = nbColonnes;
 			Grille = InitGrille();
-			Mechant = mechant;
 		}
 
 		// Methode
@@ -51,35 +49,6 @@ namespace JeuSpaceInvaders.Class
 			return Grille;
 		}
 
-		//public void Affiche()
-		//{
-		//	for (int i = 0; i < NbLigne; i++)
-		//	{
-		//		for (int j = 0; j < NbColonnes; j++)
-		//		{
-		//			if (i == 1)
-		//			{
-		//				Console.Write(Grille[i, j] = VisuMechant());
-		//			}
-		//			else
-		//			{
-		//				Console.Write(Grille[i, j]);
-		//			}
-
-		//		}
-		//		Console.WriteLine(" ");
-		//	}
-		//}
-
-		public void VisuMechant()
-		{
-
-			for (int i = 0; i < Mechant.Count; i++)
-			{
-				Console.Write(Mechant[i].Motif);
-			}
-
-		}
 
 	}
 }

@@ -9,7 +9,7 @@ namespace JeuSpaceInvaders.Class
 	public class Invaders
 	{
 		// Propriete
-		public Char Motif { get; set; } = '#';
+
 
 		// Constructeur
 
