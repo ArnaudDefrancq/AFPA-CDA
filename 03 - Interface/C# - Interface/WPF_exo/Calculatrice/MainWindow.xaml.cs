@@ -25,6 +25,7 @@ namespace Calculatrice
 		{
 			InitializeComponent();
 			result.Text = "";
+			List<Button> btnSigne = new List<Button>() { btnPlus, btnMoins, btnDiviser, btnMultiple };
 		}
 
 		private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -39,17 +40,75 @@ namespace Calculatrice
 
 		}
 
+		private bool avoirSigne()
+		{
+			List<Char> signe = new List<Char>() { '+', '-', '/', '*' };
+
+			foreach (Char c in signe)
+			{
+				if (result.Text.Contains(c))
+				{
+					return true;
+				}
+			}
+			return false;
+
+		}
+
+		//private void activeBtn(Button btn)
+		//{
+		//	foreach (Button item in btn)
+		//	{
+
+		//	}
+		//}
+
+		private void desactiveBtn()
+		{
+
+		}
+
 		private void btnNumb_Click(object sender, RoutedEventArgs e)
 		{
 			result.Text += (String)((Button)sender).Content;
+
+			if (avoirSigne())
+			{
+				btnVirgule.IsEnabled = true;
+			}
 		}
+
+
 
 		private void btnVirgule_Click(object sender, RoutedEventArgs e)
 		{
 			if (!result.Text.Contains(','))
 			{
 				result.Text += (String)((Button)sender).Content;
+				btnVirgule.IsEnabled = false;
 			}
+		}
+
+
+
+		private void btnSigne_Click(object sender, RoutedEventArgs e)
+		{
+			if (!avoirSigne())
+			{
+				result.Text += (String)((Button)sender).Content;
+			}
+
+
+		}
+
+		private void btnCe_Click(object sender, RoutedEventArgs e)
+		{
+			result.Text = "";
+		}
+
+		private void btnEgal_Click(object sender, RoutedEventArgs e)
+		{
+
 		}
 	}
 }
