@@ -18,3 +18,6 @@ U:\59011-82-04\AFPA-CDA\03 - Interface\C# - Interface\WPF_exo\Calculatrice\obj\D
 U:\59011-82-04\AFPA-CDA\03 - Interface\C# - Interface\WPF_exo\Calculatrice\obj\Debug\net7.0-windows\Calculatrice.pdb
 U:\59011-82-04\AFPA-CDA\03 - Interface\C# - Interface\WPF_exo\Calculatrice\obj\Debug\net7.0-windows\Calculatrice.genruntimeconfig.cache
 U:\59011-82-04\AFPA-CDA\03 - Interface\C# - Interface\WPF_exo\Calculatrice\obj\Debug\net7.0-windows\ref\Calculatrice.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C# - Interface\WPF_exo\Calculatrice\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+U:\59011-82-04\AFPA-CDA\03 - Interface\C# - Interface\WPF_exo\Calculatrice\obj\Debug\net7.0-windows\Calculatrice.csproj.AssemblyReference.cache
+U:\59011-82-04\AFPA-CDA\03 - Interface\C# - Interface\WPF_exo\Calculatrice\obj\Debug\net7.0-windows\Calculatrice.csproj.CopyComplete
