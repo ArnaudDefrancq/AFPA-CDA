@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculatrice;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,30 +11,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Produits
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Logique d'interaction pour Fenetre2.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class Fenetre2 : Window
 	{
-		public MainWindow()
+		public Fenetre2(MainWindow w)
 		{
 			InitializeComponent();
-		}
-
-		private void btnModifier_Click(object sender, RoutedEventArgs e)
-		{
-			Window f2 = new Fenetre2(this);
-			this.Opacity = 0.6;
-			f2.ShowDialog();
-			this.Opacity = 1;
-			btnModifier.Content = "Changer !";
-
-
 		}
 	}
 }

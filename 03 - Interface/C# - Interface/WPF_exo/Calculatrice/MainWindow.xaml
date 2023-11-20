@@ -35,7 +35,7 @@
 		</Grid.RowDefinitions>
 
 		<Button x:Name="btn0" Grid.Column="1" Content="0" Grid.Row="9" Click="btnNumb_Click" />
-		<Button x:Name="btnVirgule" Grid.Column="3" Content="," Grid.Row="9" Click="btnVirgule_Click" />
+		<Button x:Name="btnVirgule" Grid.Column="3" Content="." Grid.Row="9" IsEnabled="false" Click="btnVirgule_Click" />
 		<Button x:Name="btnDiviser"  Grid.Column="5" Content="/" Grid.Row="9"  IsEnabled="False" Click="btnSigne_Click" />
 		<Button x:Name="btnMultiple" Grid.Column="7" Content="*" Grid.Row="9"  IsEnabled="False" Click="btnSigne_Click"/>
 
@@ -56,7 +56,7 @@
 		<Button x:Name="btn3" Grid.Column="5" Content="3" Grid.Row="3" Click="btnNumb_Click" />
 		<Button x:Name="btnCe" Grid.Column="7" Content="CE" Grid.Row="3" Click="btnCe_Click" />
 
-		<TextBox x:Name="result" Grid.Column="1" TextWrapping="Wrap" Text="" Grid.Row="1" Grid.ColumnSpan="7" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="10px"/>
+		<TextBlock x:Name="result" Grid.Column="1" TextWrapping="Wrap" Text="" Grid.Row="1" Grid.ColumnSpan="7" Padding="10px" HorizontalAlignment="Right" VerticalAlignment="Center" />
 		<Button x:Name="btnEgal" Grid.Column="1" Content="=" Grid.Row="11" Grid.ColumnSpan="7" Click="btnEgal_Click"/>
 		<Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.ColumnSpan="7" Margin="0,28,0,0" Grid.RowSpan="2"/>
 

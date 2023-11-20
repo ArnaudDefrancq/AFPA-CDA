@@ -41,7 +41,7 @@
 			</Button.Background>
 		</Button>
 
-		<Button x:Name="btnModifier" Grid.Column="3" Content="Modifier" Grid.Row="1" >
+		<Button x:Name="btnModifier" Grid.Column="3" Content="Modifier" Grid.Row="1" Click="btnModifier_Click" >
 			<Button.Background>
 				<RadialGradientBrush Center="1,0.5" RadiusX="3">
 					<GradientStop Color="#FFABFF00"/>
