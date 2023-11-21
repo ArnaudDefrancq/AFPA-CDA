@@ -17,7 +17,6 @@ namespace APP.CLASS
 
 		public Produits(string libelleProduit, int quantite, int prixUnitaire, int date)
 		{
-
 			IdProduit = ++Compteur;
 			LibelleProduit = libelleProduit;
 			Quantite = quantite;

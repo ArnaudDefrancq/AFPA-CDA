@@ -12,14 +12,15 @@ namespace APP.CLASS
 	public class GestionDonnees
 	{
 		// Propriété
-		public List<Produits> ListProd { get; set; } = new List<Produits>();
-		public static String Path { get; set; } = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
+		//public List<Produits> ListProd { get; set; }
+		//public static String Path { get; set; } = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
+		public static String Path { get; set; } = "C:\\Users\\Toyger\\OneDrive\\Bureau\\Git AFPA\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
 
 		// Constructeur
-		public GestionDonnees(List<Produits> listProd)
-		{
-			ListProd = listProd;
-		}
+		//public GestionDonnees(List<Produits> listProd)
+		//{
+		//	ListProd = listProd;
+		//}
 
 
 
@@ -28,12 +29,18 @@ namespace APP.CLASS
 		/// <summary>
 		/// Créer les données dans le fichier JSON
 		/// </summary>
-		public void CreateJSON()
-		{
-			String json = JsonConvert.SerializeObject(ListProd);
-
-			File.WriteAllText(Path, json);
-		}
+		//public void CreateJSON()
+		//{
+		//	try
+		//	{
+		//		string json = JsonConvert.SerializeObject(ListProd);
+		//		File.WriteAllText(Path, json);
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		Console.WriteLine($"Une erreur s'est produite lors de la création du fichier JSON : {ex.Message}");
+		//	}
+		//}
 
 		/// <summary>
 		/// Va chercher les données dans le JSON
@@ -41,27 +48,23 @@ namespace APP.CLASS
 		/// <returns>Une list d'objet Produits</returns>
 		public List<Produits> GetListProd()
 		{
-			List<Produits> prods = new List<Produits>();
 
-			try
+
+			if (File.Exists(Path))
 			{
-				if (File.Exists(Path))
-				{
-					string json = File.ReadAllText(Path);
-					prods = JsonConvert.DeserializeObject<List<Produits>>(json);
-				}
-				else
-				{
-					Console.WriteLine("Le fichier JSON n'existe pas.");
-				}
+				string json = File.ReadAllText(Path);
+				List<Produits> prods = JsonConvert.DeserializeObject<List<Produits>>(json);
+				return prods;
 			}
-			catch (Exception ex)
+			else
 			{
-				Console.WriteLine($"Une erreur s'est produite : {ex.Message}");
+				Console.WriteLine("Le fichier JSON n'existe pas.");
+				return new List<Produits>();
 			}
 
-			return prods;
+
 		}
+
 
 		/// <summary>
 		/// Ajout de données dans le fichier JSON
@@ -70,7 +73,7 @@ namespace APP.CLASS
 		{
 			String json = JsonConvert.SerializeObject(p);
 
-			File.WriteAllText(Path, json);
+			File.AppendAllText(Path, json);
 		}
 	}
 

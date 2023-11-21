@@ -29,16 +29,13 @@ namespace APP
 			InitializeComponent();
 
 			// Ajout de la classe GestionDonnée
-			GestionDonnees BDD = new GestionDonnees(CreerListe());
+			GestionDonnees BDD = new GestionDonnees();
 
 			// Création des données JSON
-			BDD.CreateJSON();
+			//BDD.CreateJSON();
 
 			// Récupération des données du JSON
-
-			List<Produits> prod = BDD.GetListProd();
-			prod.Dump();
-
+			//List<Produits> prod = BDD.GetListProd();
 
 
 			// Ajout des données du JSON dans la DataGrid
@@ -67,6 +64,7 @@ namespace APP
 
 		private void btnAjouter_Click(object sender, RoutedEventArgs e)
 		{
+			GestionDonnees BDD = new GestionDonnees();
 			int quantite, date, prixUnitaire;
 			String libelleProd = "";
 			String valueQuantite = txtQuantite.Text;
@@ -86,7 +84,7 @@ namespace APP
 
 					p.Dump();
 
-					//((GestionDonnees)sender).AjouterDonneeJSON(p);
+					BDD.AjouterDonneeJSON(p);
 				}
 			}
 			catch (Exception ex)
