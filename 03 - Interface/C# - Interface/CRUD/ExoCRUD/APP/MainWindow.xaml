@@ -24,7 +24,7 @@
 
 			<DataGrid x:Name="gridData" AutoGenerateColumns="False" IsReadOnly="True">
 				<DataGrid.Columns>
-					<DataGridTextColumn x:Name="dataQuantite" Header="Quantité" Binding="{Binding quantite}" />
+					<DataGridTextColumn x:Name="dataQuantite" Header="Quantité" Binding="{Binding Quantite}" />
 					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé du produit" Binding="{Binding LibelleProduit}" />
 					<DataGridTextColumn x:Name="dataPrixUnitaire" Header="Prix Unitaire" Binding="{Binding PrixUnitaire}" />
 					<DataGridTextColumn x:Name="dataDate" Header="Année" Binding="{Binding Date}" />

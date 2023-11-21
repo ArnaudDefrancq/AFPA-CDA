@@ -27,18 +27,31 @@ namespace APP
 		public MainWindow()
 		{
 			InitializeComponent();
-			CreerListeJSON(path);
-			gridData.ItemsSource = CreerDataGrid();
+
+			// Ajout de la classe GestionDonnée
+			GestionDonnees BDD = new GestionDonnees(CreerListe());
+
+			// Création des données JSON
+			//BDD.CreateJSON();
+
+			// Récupération des données du JSON
+			List<Produits> produits = new List<Produits>();
+			produits = BDD.GetListProd();
+
+			// Ajout des données du JSON dans la DataGrid
+			gridData.ItemsSource = produits;
 		}
 
 		List<Produits> produits = new List<Produits>();
-		String path = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
+
 
 		/// <summary>
 		/// Création de la BDD JSON
 		/// </summary>
 		/// <param name="path">Chemin du fichier</param>
-		private void CreerListeJSON(String path)
+
+
+		private List<Produits> CreerListe()
 		{
 			List<Produits> liste = new List<Produits>();
 
@@ -48,15 +61,7 @@ namespace APP
 				liste.Add(p);
 			}
 
-
-			String json = JsonConvert.SerializeObject(liste);
-
-			File.WriteAllText(path, json);
-		}
-
-		private void CreerDataGrid()
-		{
-
+			return liste;
 		}
 
 
