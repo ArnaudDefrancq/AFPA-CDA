@@ -8,6 +8,7 @@
         Title="Fenetre2" Height="450" Width="800">
 	<Grid>
 		<Label x:Name="lblF2" Content="bonjour" HorizontalAlignment="Left" Height="54" Margin="167,84,0,0" VerticalAlignment="Top" Width="171"/>
+		<TextBox x:Name="test" HorizontalAlignment="Left" Height="75" Margin="208,192,0,0" TextWrapping="Wrap" Text="Ceci est un titre" VerticalAlignment="Top" Width="361" TextChanged="TextBox_TextChanged"/>
 
 	</Grid>
 </Window>

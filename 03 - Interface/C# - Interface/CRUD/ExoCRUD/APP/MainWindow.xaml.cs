@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Produits
+namespace APP
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
@@ -23,20 +23,6 @@ namespace Produits
 		public MainWindow()
 		{
 			InitializeComponent();
-		}
-
-		private void btnModifier_Click(object sender, RoutedEventArgs e)
-		{
-			String codeTest = "Test";
-			Fenetre2 f2 = new Fenetre2(this, codeTest);
-			this.Opacity = 0.6;
-			f2.ShowDialog();
-			this.Opacity = 1;
-		}
-
-		public void ChangeTextBtn(String mot)
-		{
-			btnModifier.Content = mot;
 		}
 	}
 }

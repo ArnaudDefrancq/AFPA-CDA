@@ -20,9 +20,21 @@ namespace Produits
 	/// </summary>
 	public partial class Fenetre2 : Window
 	{
-		public Fenetre2(MainWindow w)
+		public MainWindow Mw { get; set; }
+		//public String MotRecup { get; set; } = "";
+
+		public Fenetre2(MainWindow w, String mot)
 		{
+			Mw = w;
 			InitializeComponent();
+			test.Text = mot;
+
+		}
+
+		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			Mw.ChangeTextBtn(test.Text);
+			//	MotRecup = test.Text;
 		}
 	}
 }

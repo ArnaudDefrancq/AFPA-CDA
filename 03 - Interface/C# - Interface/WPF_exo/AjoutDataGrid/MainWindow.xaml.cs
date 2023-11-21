@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Calculatrice;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,30 +15,39 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Produits
+namespace AjoutDataGrid
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+
 		public MainWindow()
 		{
 			InitializeComponent();
+			dataG.ItemsSource = CreerList();
+
 		}
 
-		private void btnModifier_Click(object sender, RoutedEventArgs e)
+		private List<Produits> CreerList()
 		{
-			String codeTest = "Test";
-			Fenetre2 f2 = new Fenetre2(this, codeTest);
-			this.Opacity = 0.6;
-			f2.ShowDialog();
-			this.Opacity = 1;
+			List<Produits> prods = new List<Produits>();
+
+			for (int i = 0; i < 15; i++)
+			{
+				Produits p = new Produits(i, (i * 2), "Produit");
+				prods.Add(p);
+			}
+			return prods;
+
 		}
 
-		public void ChangeTextBtn(String mot)
+
+
+		private void dataG_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
 		{
-			btnModifier.Content = mot;
+			dataG.Dump();
 		}
 	}
 }
