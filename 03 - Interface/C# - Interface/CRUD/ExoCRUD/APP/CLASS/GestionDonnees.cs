@@ -10,15 +10,20 @@ namespace APP.CLASS
 {
 	internal class GestionDonnees
 	{
-
+		// Propriété
 		public List<Produits> ListProd { get; set; }
 
+		// Constructeur
 		public GestionDonnees(List<Produits> listProd)
 		{
 			ListProd = listProd;
 		}
 
+		// Méthodes
 
+		/// <summary>
+		/// Créer les données dans le fichier JSON
+		/// </summary>
 		public void CreateJSON()
 		{
 			String path = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
@@ -28,16 +33,37 @@ namespace APP.CLASS
 			File.WriteAllText(path, json);
 		}
 
+		/// <summary>
+		/// Va chercher les données dans le JSON
+		/// </summary>
+		/// <returns>Une list d'objet Produits</returns>
 		public List<Produits> GetListProd()
 		{
 			String path = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
 
-			String JSON = File.ReadAllText(path);
+			List<Produits> prods = new List<Produits>() { };
 
-			List<Produits> prods = new List<Produits>();
+			try
+			{
 
-			prods = JsonConvert.DeserializeObject<List<Produits>>(JSON);
+				if (!File.Exists(path))
+				{
+					Console.WriteLine("Pas de fichier");
+				}
+				else
+				{
+					String JSON = File.ReadAllText(path);
+					if (JsonConvert.DeserializeObject<List<Produits>>(JSON) != null)
+					{
+						prods = JsonConvert.DeserializeObject<List<Produits>>(JSON);
+					}
 
+				}
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
 			return prods;
 		}
 	}

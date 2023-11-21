@@ -49,8 +49,6 @@ namespace APP
 		/// Création de la BDD JSON
 		/// </summary>
 		/// <param name="path">Chemin du fichier</param>
-
-
 		private List<Produits> CreerListe()
 		{
 			List<Produits> liste = new List<Produits>();
