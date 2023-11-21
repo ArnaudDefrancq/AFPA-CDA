@@ -12,14 +12,16 @@ namespace APP.CLASS
 		public String LibelleProduit { get; set; }
 		public int Quantite { get; set; }
 		public int PrixUnitaire { get; set; }
+		public int Date { get; set; }
 		public static int Compteur { get; set; } = 0;
 
-		public Produits(string libelleProduit, int quantite, int prixUnitaire)
+		public Produits(string libelleProduit, int quantite, int prixUnitaire, int date)
 		{
 			IdProduit = Compteur + 1;
 			LibelleProduit = libelleProduit;
 			Quantite = quantite;
 			PrixUnitaire = prixUnitaire;
+			Date = date;
 			Compteur++;
 		}
 	}

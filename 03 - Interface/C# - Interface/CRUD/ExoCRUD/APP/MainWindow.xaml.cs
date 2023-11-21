@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Printing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,18 +28,23 @@ namespace APP
 		{
 			InitializeComponent();
 			CreerListeJSON(path);
+			gridData.ItemsSource = CreerDataGrid();
 		}
 
 		List<Produits> produits = new List<Produits>();
 		String path = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
 
+		/// <summary>
+		/// Création de la BDD JSON
+		/// </summary>
+		/// <param name="path">Chemin du fichier</param>
 		private void CreerListeJSON(String path)
 		{
 			List<Produits> liste = new List<Produits>();
 
 			for (int i = 1; i < 15; i++)
 			{
-				Produits p = new Produits("Produit" + i, i * 2, i * 6);
+				Produits p = new Produits("Produit" + i, i * 2, i * 6, 2023);
 				liste.Add(p);
 			}
 
@@ -48,8 +54,10 @@ namespace APP
 			File.WriteAllText(path, json);
 		}
 
+		private void CreerDataGrid()
+		{
 
-
+		}
 
 
 	}

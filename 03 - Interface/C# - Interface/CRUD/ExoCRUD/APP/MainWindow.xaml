@@ -11,7 +11,7 @@
 			<RowDefinition Height="1*"/>
 			<RowDefinition Height="50*"/>
 			<RowDefinition Height="1*"/>
-			<RowDefinition Height="30*"/>
+			<RowDefinition Height="20*"/>
 			<RowDefinition Height="1*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
@@ -22,9 +22,81 @@
 
 		<Grid x:Name="gridMainTop" Grid.Column="1"  Grid.Row="1" >
 
-			<DataGrid x:Name="gridData" AutoGenerateColumns="False" IsReadOnly="True"/>
+			<DataGrid x:Name="gridData" AutoGenerateColumns="False" IsReadOnly="True">
+				<DataGrid.Columns>
+					<DataGridTextColumn x:Name="dataQuantite" Header="Quantité" Binding="{Binding quantite}" />
+					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé du produit" Binding="{Binding LibelleProduit}" />
+					<DataGridTextColumn x:Name="dataPrixUnitaire" Header="Prix Unitaire" Binding="{Binding PrixUnitaire}" />
+					<DataGridTextColumn x:Name="dataDate" Header="Année" Binding="{Binding Date}" />
+				</DataGrid.Columns>
+			</DataGrid>
+		</Grid>
 
+		<Grid Name="gridDetailBtn" Grid.Column="1" Grid.Row="3" >
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="6*"/>
+				<ColumnDefinition Width="0.1*"/>
+				<ColumnDefinition Width="1.5*"/>
+			</Grid.ColumnDefinitions>
 
+			<GroupBox Name="groupDetail"  Header="Detail Commande" >
+				<Grid >
+					<Grid.RowDefinitions>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="0.1*"/>
+						<RowDefinition Height="1*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="0.1*"/>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="0.05*"/>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="0.05*"/>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="0.05*"/>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="0.1*"/>
+						<ColumnDefinition Width="1*"/>
+					</Grid.ColumnDefinitions>
+
+					<Label x:Name="lblQuantite" Content="Quantité :" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+					<Label x:Name="lblLibelle" Content="Libellé Produit :" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+					<Label x:Name="lblPrixUnitaire" Content="Prix unitaire :" Grid.Column="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+					<Label x:Name="lblDate" Content="Date :" Grid.Column="6" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+
+					<TextBox x:Name="txtQuantite" Grid.Column="2"  TextWrapping="Wrap" Text="" />
+					<TextBox x:Name="txtQuantiteFixe" Grid.Column="4"  TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" />
+					<TextBox x:Name="txtLibelle" Grid.Column="2" Grid.Row="2"  TextWrapping="Wrap" Text="" />
+					<TextBox x:Name="txtLibelleFixe" Grid.Column="4" Grid.Row="2" TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False"/>
+					<TextBox x:Name="txtPrixUnitaire" Grid.Column="8" TextWrapping="Wrap" Text="" />
+					<TextBox x:Name="txtPrixUnitaireFixe" Grid.Column="10"  TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False"/>
+					<TextBox x:Name="txtDate" Grid.Column="8" Grid.Row="2" TextWrapping="Wrap" Text="" />
+					<TextBox x:Name="txtDateFixe" Grid.Column="10" Grid.Row="2" TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False"/>
+				</Grid>
+			</GroupBox>
+
+			<Grid Name="gridBtn" Grid.Column="2" >
+				<Grid.RowDefinitions>
+					<RowDefinition Height="0.5*"/>
+					<RowDefinition Height="1.5*"/>
+					<RowDefinition Height="0.5*"/>
+					<RowDefinition Height="1.5*"/>
+					<RowDefinition Height="0.5*"/>
+					<RowDefinition Height="1.5*"/>
+					<RowDefinition Height="0.5*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="3*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+
+				<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" />
+				<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier" Grid.Row="3" />
+				<Button x:Name="btnSuppr" Grid.Column="1" Content="Supprimer" Grid.Row="5" Background="White" BorderBrush="White" />
+
+			</Grid>
 		</Grid>
 	</Grid>
 </Window>
