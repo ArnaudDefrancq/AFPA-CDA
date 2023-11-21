@@ -17,12 +17,13 @@ namespace APP.CLASS
 
 		public Produits(string libelleProduit, int quantite, int prixUnitaire, int date)
 		{
-			IdProduit = Compteur + 1;
+
+			IdProduit = ++Compteur;
 			LibelleProduit = libelleProduit;
 			Quantite = quantite;
 			PrixUnitaire = prixUnitaire;
 			Date = date;
-			Compteur++;
+			Compteur.Dump();
 		}
 	}
 }

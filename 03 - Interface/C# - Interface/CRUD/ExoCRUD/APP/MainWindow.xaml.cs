@@ -32,17 +32,19 @@ namespace APP
 			GestionDonnees BDD = new GestionDonnees(CreerListe());
 
 			// Création des données JSON
-			//BDD.CreateJSON();
+			BDD.CreateJSON();
 
 			// Récupération des données du JSON
-			List<Produits> produits = new List<Produits>();
-			produits = BDD.GetListProd();
+
+			List<Produits> prod = BDD.GetListProd();
+			prod.Dump();
+
+
 
 			// Ajout des données du JSON dans la DataGrid
-			gridData.ItemsSource = produits;
+			gridData.ItemsSource = BDD.GetListProd();
 		}
 
-		List<Produits> produits = new List<Produits>();
 
 
 		/// <summary>
@@ -62,6 +64,37 @@ namespace APP
 			return liste;
 		}
 
+
+		private void btnAjouter_Click(object sender, RoutedEventArgs e)
+		{
+			int quantite, date, prixUnitaire;
+			String libelleProd = "";
+			String valueQuantite = txtQuantite.Text;
+			String valueDate = txtDate.Text;
+			String valuePrixUnitaire = txtPrixUnitaire.Text;
+
+			try
+			{
+				int.TryParse(valueQuantite, out quantite);
+				int.TryParse(valueDate, out date);
+				int.TryParse(valuePrixUnitaire, out prixUnitaire);
+				libelleProd = txtLibelle.Text;
+
+				if (libelleProd.Length > 0)
+				{
+					Produits p = new Produits(libelleProd, quantite, prixUnitaire, date);
+
+					p.Dump();
+
+					//((GestionDonnees)sender).AjouterDonneeJSON(p);
+				}
+			}
+			catch (Exception ex)
+			{
+				ex.Message.Dump();
+			}
+
+		}
 
 	}
 

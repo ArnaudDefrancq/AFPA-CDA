@@ -28,6 +28,7 @@
 					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé du produit" Binding="{Binding LibelleProduit}" />
 					<DataGridTextColumn x:Name="dataPrixUnitaire" Header="Prix Unitaire" Binding="{Binding PrixUnitaire}" />
 					<DataGridTextColumn x:Name="dataDate" Header="Année" Binding="{Binding Date}" />
+					<DataGridTextColumn x:Name="dataId" Header="Année" Binding="{Binding IdProduit}" />
 				</DataGrid.Columns>
 			</DataGrid>
 		</Grid>
@@ -92,7 +93,7 @@
 					<ColumnDefinition Width="1*"/>
 				</Grid.ColumnDefinitions>
 
-				<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" />
+				<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" Click="btnAjouter_Click" />
 				<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier" Grid.Row="3" />
 				<Button x:Name="btnSuppr" Grid.Column="1" Content="Supprimer" Grid.Row="5" Background="White" BorderBrush="White" />
 
