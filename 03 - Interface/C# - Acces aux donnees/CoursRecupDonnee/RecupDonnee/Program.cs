@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-builder.Services.AddDbContext<MyDBConnext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddDbContext<MyDBContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
 
 
 var app = builder.Build();
