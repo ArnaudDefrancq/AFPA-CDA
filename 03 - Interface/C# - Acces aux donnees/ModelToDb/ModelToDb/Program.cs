@@ -14,6 +14,7 @@ namespace ModelToDb
 
 			builder.Services.AddDbContext<MyDBContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
 
+
 			var app = builder.Build();
 
 			// Configure the HTTP request pipeline.

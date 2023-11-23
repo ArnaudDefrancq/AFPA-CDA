@@ -15,5 +15,7 @@ namespace ModelToDb.Models.Data
 
 
 		public int Age { get; set; }
+
+		public DateOnly Naissance { get; set; }
 	}
 }

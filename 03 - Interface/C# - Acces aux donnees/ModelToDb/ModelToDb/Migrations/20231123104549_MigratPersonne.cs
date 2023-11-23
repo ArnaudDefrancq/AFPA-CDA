@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using MySql.EntityFrameworkCore.Metadata;
 
 #nullable disable
@@ -6,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace ModelToDb.Migrations
 {
     /// <inheritdoc />
-    public partial class MigratPersonnes : Migration
+    public partial class MigratPersonne : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,7 +23,8 @@ namespace ModelToDb.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     Prenom = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     Nom = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
-                    Age = table.Column<int>(type: "int", nullable: false)
+                    Age = table.Column<sbyte>(type: "tinyint", nullable: false),
+                    Naissance = table.Column<DateOnly>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
