@@ -22,7 +22,6 @@ namespace APP.CLASS
 			Quantite = quantite;
 			PrixUnitaire = prixUnitaire;
 			Date = date;
-			Compteur.Dump();
 		}
 	}
 }
