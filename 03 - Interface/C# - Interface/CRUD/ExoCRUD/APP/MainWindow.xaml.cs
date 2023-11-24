@@ -37,11 +37,10 @@ namespace APP
 			// Récupération des données du JSON
 			List<Produits> prod = BDD.DownloaderDonnees();
 
-			prod.Dump();
-
+			//prod.Dump();
 
 			// Ajout des données du JSON dans la DataGrid
-			//gridData.ItemsSource = BDD.GetListProd();
+			gridData.ItemsSource = prod;
 		}
 
 
