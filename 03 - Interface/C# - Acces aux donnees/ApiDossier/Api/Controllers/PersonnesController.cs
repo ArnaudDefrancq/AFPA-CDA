@@ -3,7 +3,9 @@ using Api.Models.Data.DTO;
 using Api.Models.Data.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.JsonPatch.Adapters;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Api.Controllers
 {
@@ -29,7 +31,7 @@ namespace Api.Controllers
 		}
 
 		// GET  api/personnes/{id}
-		[HttpGet("{id}", Name = "GetPersonnesById")]
+		[HttpGet("{id}", Name = "GetPersonneById")]
 		public ActionResult<PersonnesDTO> GetPersonneById(int id)
 		{
 			var commandItem = _service.GetPersonneById(id);
@@ -40,13 +42,7 @@ namespace Api.Controllers
 			return NotFound();
 		}
 
-		// POST api/personnes
-		//[HttpPost]
-		//public ActionResult<PersonnesDTO> CreatePersonne(Personne personne)
-		//{
-		//	_service.AddPersonnes(personne);
-		//	return CreatedAtRoute(nameof(GetPersonneById), new { personne.Id }, personne);
-		//}
+		// POST api/Personnes
 		[HttpPost]
 		public ActionResult<PersonnesDTO> CreatePersonne(Personne personne)
 		{
@@ -75,8 +71,43 @@ namespace Api.Controllers
 		}
 
 		// PATCH api/personnes/{id}
-		//[HttpPatch("{id}")]
-		//public ActionResult PartialPersonneUpdate(int id, JsonPatchDocument<Personne>patchDoc)
-		//{ }
+		[HttpPatch("{id}")]
+		public ActionResult PartialPersonneUpdate(int id, JsonPatchDocument<Personne> patchDoc)
+		{
+			var personneFromRepo = _service.GetPersonneById(id);
+			if (personneFromRepo == null)
+			{
+				return NotFound();
+			}
+
+			var personneToPatch = _mapper.Map<Personne>(personneFromRepo);
+
+			patchDoc.ApplyTo(personneFromRepo, ModelState);
+
+			if (!TryValidateModel(personneToPatch))
+			{
+				return ValidationProblem(ModelState);
+			}
+			personneFromRepo.Dump();
+			_mapper.Map(personneToPatch, personneFromRepo);
+			personneFromRepo.Dump();
+			_service.UpdatePersonne(personneFromRepo);
+
+			return NoContent();
+		}
+
+		// DELETE api/personnes/{id}
+		[HttpDelete("{id}")]
+		public ActionResult DeletePersonne(int id)
+		{
+			var personneModelFromRepo = _service.GetPersonneById(id);
+			if (personneModelFromRepo == null)
+			{
+				return NotFound();
+			}
+
+			_service.DeletePersonne(personneModelFromRepo);
+			return NoContent();
+		}
 	}
 }

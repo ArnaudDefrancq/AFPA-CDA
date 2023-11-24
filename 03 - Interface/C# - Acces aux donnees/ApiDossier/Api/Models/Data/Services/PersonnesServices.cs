@@ -40,7 +40,7 @@
 		// Donne une personne en particulier
 		public Personne GetPersonneById(int id)
 		{
-			return _context.Personnes.FirstOrDefault(p => p.Id == id);
+			return _context.Personnes.FirstOrDefault(p => p.Id == id)!;
 		}
 
 		// Permet de update une personne
