@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Printing;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +25,10 @@ namespace APP
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		public bool validAjout = false;
+		public bool validModif = false;
+		public bool validSuppr = false;
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -37,13 +42,13 @@ namespace APP
 			// Récupération des données du JSON
 			List<Produits> prod = BDD.DownloaderDonnees();
 
-			//prod.Dump();
-
 			// Ajout des données du JSON dans la DataGrid
 			gridData.ItemsSource = prod;
+
+
 		}
 
-
+		//**************Création de la liste**************//
 
 		/// <summary>
 		/// Création de la BDD JSON
@@ -61,6 +66,104 @@ namespace APP
 
 			return liste;
 		}
+
+		//************************************************//
+
+		//**************Activation des btns***************//
+		private void TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+			String quantite = txtQuantite.Text;
+			String libelleProduit = txtLibelle.Text;
+			String valuePrixUnitaire = txtPrixUnitaire.Text;
+			String valueDate = txtDate.Text;
+
+			String quantiteFixe = txtQuantiteFixe.Text;
+			String libelleProduitFixe = txtLibelleFixe.Text;
+			String valuePrixUnitaireFixe = txtPrixUnitaireFixe.Text;
+			String valueDateFixe = txtDateFixe.Text;
+
+
+			if (quantite != "" && libelleProduit != "" && valuePrixUnitaire != "" && valueDate != "")
+			{
+				validAjout = true;
+				BtnActive();
+
+				if (quantiteFixe != "" && libelleProduitFixe != "" && valuePrixUnitaireFixe != "" && valueDateFixe != "")
+				{
+					validModif = true;
+					BtnActive();
+
+				}
+				else
+				{
+					validModif = false;
+					BtnDesactive();
+				}
+			}
+			else
+			{
+				validAjout = false;
+				BtnDesactive();
+			}
+
+
+		}
+
+		private void gridData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (gridData.SelectedItem != null)
+			{
+				validSuppr = true;
+				BtnActive();
+			}
+			else
+			{
+				validSuppr = false;
+				BtnDesactive();
+			}
+		}
+
+
+		private void BtnActive()
+		{
+			if (validAjout)
+			{
+				btnAjouter.IsEnabled = true;
+			}
+			if (validModif)
+			{
+				btnModifier.IsEnabled = true;
+			}
+			if (validSuppr)
+			{
+				btnSuppr.IsEnabled = true;
+			}
+		}
+		private void BtnDesactive()
+
+		{
+			if (!validAjout)
+			{
+				btnAjouter.IsEnabled = false;
+			}
+			if (!validModif)
+			{
+				btnModifier.IsEnabled = false;
+			}
+			if (!validSuppr)
+			{
+				btnSuppr.IsEnabled = false;
+			}
+		}
+
+
+
+
+		//*************************************************//
+
+
+
 
 
 		//private void btnAjouter_Click(object sender, RoutedEventArgs e)
