@@ -18,7 +18,7 @@ namespace NewApi.Models.Services
 			{
 				throw new ArgumentNullException(nameof(e));
 			}
-			_context.Employes.Add(v);
+			_context.Employes.Add(e);
 			_context.SaveChanges();
 		}
 

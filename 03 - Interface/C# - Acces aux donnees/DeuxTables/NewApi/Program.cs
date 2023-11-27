@@ -1,7 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
-using NewApi.Models;
 using NewApi.Models.Services;
+using NewApi.Models;
 
 namespace NewApi
 {
@@ -22,7 +22,6 @@ namespace NewApi
 			builder.Services.AddTransient<EmployesService>();
 			builder.Services.AddTransient<VoitureFonctionsService>();
 			builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
 
 			var app = builder.Build();
 
