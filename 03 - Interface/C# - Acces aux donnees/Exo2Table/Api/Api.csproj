@@ -26,7 +26,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Constroller\" />
 	  <Folder Include="Data\Models\" />
 	</ItemGroup>
 

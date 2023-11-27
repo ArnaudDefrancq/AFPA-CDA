@@ -5,9 +5,9 @@ namespace Api.Data
 {
 	public class MyDBContext : DbContext
 	{
-		public DbSet<Employe> Employes { get; set; }
+		public DbSet<Employe> Employe { get; set; }
 
-		public DbSet<Voiturefonction> Voiturefonctions { get; set; }
+		public DbSet<Voiturefonction> Voiturefonction { get; set; }
 
 		public MyDBContext(DbContextOptions options) : base(options)
 		{

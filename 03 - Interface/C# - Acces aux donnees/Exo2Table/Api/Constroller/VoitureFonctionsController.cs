@@ -24,20 +24,19 @@ namespace Api.Controllers
 
 		// GET api/personnes
 		[HttpGet]
-		public ActionResult<IEnumerable<VoitureFonctionDTO>
-			> GetAllPersonne()
+		public ActionResult<IEnumerable<VoitureFonctionDTO>> GetAllVoitures()
 		{
-			var listePersonnes = _service.GetAllPersonnes();
+			var listePersonnes = _service.GetAllVoitures();
 			return Ok(_mapper.Map<IEnumerable<VoitureFonctionDTO>
 				>(listePersonnes));
 		}
 
 		// GET  api/personnes/{id}
-		[HttpGet("{id}", Name = "GetPersonneById")]
+		[HttpGet("{id}", Name = "GetVoitureById")]
 		public ActionResult<VoitureFonctionDTO>
-			GetPersonneById(int id)
+			GetVoitureById(int id)
 		{
-			var commandItem = _service.GetPersonneById(id);
+			var commandItem = _service.GetVoitureById(id);
 			if (commandItem != null)
 			{
 				return Ok(_mapper.Map<VoitureFonctionDTO>
@@ -49,19 +48,19 @@ namespace Api.Controllers
 		// POST api/Personnes
 		[HttpPost]
 		public ActionResult<VoitureFonctionDTO>
-			CreatePersonne(Voiturefonction voiture)
+			CreateVoiture(Voiturefonction voiture)
 		{
 			//on ajoute l’objet à la base de données
-			_service.AddPersonnes(voiture);
+			_service.AddVoiture(voiture);
 			//on retourne le chemin de findById avec l'objet créé
-			return CreatedAtRoute(nameof(GetPersonneById), new { voiture.IdVoitureFonction }, voiture);
+			return CreatedAtRoute(nameof(GetVoitureById), new { voiture.IdVoitureFonction }, voiture);
 		}
 
 		// PUT api/personnes/{id}
 		[HttpPut("{id}")]
-		public ActionResult UpdatePersonne(int id, VoitureFonctionDTO voiture)
+		public ActionResult UpdateVoiture(int id, VoitureFonctionDTO voiture)
 		{
-			var voitureFromRepo = _service.GetPersonneById(id);
+			var voitureFromRepo = _service.GetVoitureById(id);
 			if (voitureFromRepo == null)
 			{
 				return NotFound();
@@ -70,17 +69,17 @@ namespace Api.Controllers
 			_mapper.Map(voiture, voitureFromRepo);
 			voitureFromRepo.Dump();
 
-			_service.UpdatePersonne(voitureFromRepo);
+			_service.UpdateVoiture(voitureFromRepo);
 
 			return NoContent();
 		}
 
 		// PATCH api/personnes/{id}
 		[HttpPatch("{id}")]
-		public ActionResult PartialPersonneUpdate(int id, JsonPatchDocument<Voiturefonction>
+		public ActionResult PartialVoitureUpdate(int id, JsonPatchDocument<Voiturefonction>
 			patchDoc)
 		{
-			var voitureFromRepo = _service.GetPersonneById(id);
+			var voitureFromRepo = _service.GetVoitureById(id);
 			if (voitureFromRepo == null)
 			{
 				return NotFound();
@@ -97,22 +96,22 @@ namespace Api.Controllers
 			voitureFromRepo.Dump();
 			_mapper.Map(voitureToPatch, voitureFromRepo);
 			voitureFromRepo.Dump();
-			_service.UpdatePersonne(voitureFromRepo);
+			_service.UpdateVoiture(voitureFromRepo);
 
 			return NoContent();
 		}
 
 		// DELETE api/personnes/{id}
 		[HttpDelete("{id}")]
-		public ActionResult DeletePersonne(int id)
+		public ActionResult DeleteVoiture(int id)
 		{
-			var voitureModelFromRepo = _service.GetPersonneById(id);
+			var voitureModelFromRepo = _service.GetVoitureById(id);
 			if (voitureModelFromRepo == null)
 			{
 				return NotFound();
 			}
 
-			_service.DeletePersonne(voitureModelFromRepo);
+			_service.DeleteVoiture(voitureModelFromRepo);
 			return NoContent();
 		}
 	}

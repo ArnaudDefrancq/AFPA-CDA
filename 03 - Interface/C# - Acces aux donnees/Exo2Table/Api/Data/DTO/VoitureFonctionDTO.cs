@@ -10,6 +10,5 @@ namespace Api.Data.DTO
 
 		public string Model { get; set; } = null!;
 
-		public virtual ICollection<Employe> Employes { get; set; } = new List<Employe>();
 	}
 }

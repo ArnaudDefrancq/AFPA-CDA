@@ -12,41 +12,41 @@ namespace Api.Data.Service
 		}
 
 		// Ajout d'une personne dans la base de donnée
-		public void AddPersonnes(Employe p)
+		public void AddEmployes(Employe p)
 		{
 			if (p == null)
 			{
 				throw new ArgumentNullException(nameof(p));
 			}
-			_context.Employes.Add(p);
+			_context.Employe.Add(p);
 			_context.SaveChanges();
 		}
 
 		// Suppr une personne dans la base de donnée
-		public void DeletePersonne(Employe p)
+		public void DeleteEmploye(Employe p)
 		{
 			if (p == null)
 			{
 				throw new ArgumentNullException(nameof(p));
 			}
-			_context.Employes.Remove(p);
+			_context.Employe.Remove(p);
 			_context.SaveChanges();
 		}
 
 		// Donner la liste des personnes en base de donnée
-		public IEnumerable<Employe> GetAllPersonnes()
+		public IEnumerable<Employe> GetAllEmployes()
 		{
-			return _context.Employes.ToList();
+			return _context.Employe.ToList();
 		}
 
 		// Donne une personne en particulier
-		public Employe GetPersonneById(int id)
+		public Employe GetEmployeById(int id)
 		{
-			return _context.Employes.FirstOrDefault(p => p.IdEmploye == id)!;
+			return _context.Employe.FirstOrDefault(p => p.IdEmploye == id)!;
 		}
 
 		// Permet de update une personne
-		public void UpdatePersonne(Employe p)
+		public void UpdateEmploye(Employe p)
 		{
 
 		}

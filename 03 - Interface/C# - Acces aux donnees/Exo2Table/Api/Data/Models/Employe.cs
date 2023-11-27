@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Api.Data.Models;
 
 public partial class Employe
 {
-    public int IdEmploye { get; set; }
+	[Key]
+	public int IdEmploye { get; set; }
 
-    public string Nom { get; set; } = null!;
+	public string Nom { get; set; } = null!;
 
-    public string Prenom { get; set; } = null!;
+	public string Prenom { get; set; } = null!;
 
-    public int Age { get; set; }
+	public int Age { get; set; }
 
-    public int? IdVoitureFonction { get; set; }
+	public int? IdVoitureFonction { get; set; }
 
-    public virtual Voiturefonction? IdVoitureFonctionNavigation { get; set; }
+	public virtual Voiturefonction? IdVoitureFonctionNavigation { get; set; }
 }

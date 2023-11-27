@@ -6,7 +6,7 @@ namespace Api.Data.Profiles
 {
 	public class EmployesProfile : Profile
 	{
-		protected EmployesProfile()
+		public EmployesProfile()
 		{
 			CreateMap<Employe, EmployeDTO>();
 			CreateMap<EmployeDTO, Employe>();

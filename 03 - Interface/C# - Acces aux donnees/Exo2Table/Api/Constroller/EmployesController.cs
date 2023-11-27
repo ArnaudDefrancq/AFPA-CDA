@@ -25,20 +25,18 @@ namespace Api.Controllers
 
 		// GET api/personnes
 		[HttpGet]
-		public ActionResult<IEnumerable<EmployeDTO>
-			> GetAllPersonne()
+		public ActionResult<IEnumerable<EmployeDTO>> GetAllEmploye()
 		{
-			var listePersonnes = _service.GetAllPersonnes();
+			var listePersonnes = _service.GetAllEmployes();
 			return Ok(_mapper.Map<IEnumerable<EmployeDTO>
 				>(listePersonnes));
 		}
 
 		// GET  api/personnes/{id}
-		[HttpGet("{id}", Name = "GetPersonneById")]
-		public ActionResult<EmployeDTO>
-			GetPersonneById(int id)
+		[HttpGet("{id}", Name = "GetEmployeById")]
+		public ActionResult<EmployeDTO> GetEmployeById(int id)
 		{
-			var commandItem = _service.GetPersonneById(id);
+			var commandItem = _service.GetEmployeById(id);
 			if (commandItem != null)
 			{
 				return Ok(_mapper.Map<EmployeDTO>
@@ -49,20 +47,19 @@ namespace Api.Controllers
 
 		// POST api/Personnes
 		[HttpPost]
-		public ActionResult<EmployeDTO>
-			CreatePersonne(Employe employe)
+		public ActionResult<EmployeDTO> CreatePersonne(Employe employe)
 		{
 			//on ajoute l’objet à la base de données
-			_service.AddPersonnes(employe);
+			_service.AddEmployes(employe);
 			//on retourne le chemin de findById avec l'objet créé
-			return CreatedAtRoute(nameof(GetPersonneById), new { employe.IdEmploye }, employe);
+			return CreatedAtRoute(nameof(GetEmployeById), new { employe.IdEmploye }, employe);
 		}
 
 		// PUT api/personnes/{id}
 		[HttpPut("{id}")]
-		public ActionResult UpdatePersonne(int id, EmployeDTO employe)
+		public ActionResult UpdateEmploye(int id, EmployeDTO employe)
 		{
-			var employeFromRepo = _service.GetPersonneById(id);
+			var employeFromRepo = _service.GetEmployeById(id);
 			if (employeFromRepo == null)
 			{
 				return NotFound();
@@ -71,17 +68,17 @@ namespace Api.Controllers
 			_mapper.Map(employe, employeFromRepo);
 			employeFromRepo.Dump();
 
-			_service.UpdatePersonne(employeFromRepo);
+			_service.UpdateEmploye(employeFromRepo);
 
 			return NoContent();
 		}
 
 		// PATCH api/personnes/{id}
 		[HttpPatch("{id}")]
-		public ActionResult PartialPersonneUpdate(int id, JsonPatchDocument<Employe>
+		public ActionResult PartialEmployeUpdate(int id, JsonPatchDocument<Employe>
 			patchDoc)
 		{
-			var employeFromRepo = _service.GetPersonneById(id);
+			var employeFromRepo = _service.GetEmployeById(id);
 			if (employeFromRepo == null)
 			{
 				return NotFound();
@@ -98,22 +95,22 @@ namespace Api.Controllers
 			employeFromRepo.Dump();
 			_mapper.Map(employeToPatch, employeFromRepo);
 			employeFromRepo.Dump();
-			_service.UpdatePersonne(employeFromRepo);
+			_service.UpdateEmploye(employeFromRepo);
 
 			return NoContent();
 		}
 
 		// DELETE api/personnes/{id}
 		[HttpDelete("{id}")]
-		public ActionResult DeletePersonne(int id)
+		public ActionResult DeleteEmploye(int id)
 		{
-			var employeModelFromRepo = _service.GetPersonneById(id);
+			var employeModelFromRepo = _service.GetEmployeById(id);
 			if (employeModelFromRepo == null)
 			{
 				return NotFound();
 			}
 
-			_service.DeletePersonne(employeModelFromRepo);
+			_service.DeleteEmploye(employeModelFromRepo);
 			return NoContent();
 		}
 	}

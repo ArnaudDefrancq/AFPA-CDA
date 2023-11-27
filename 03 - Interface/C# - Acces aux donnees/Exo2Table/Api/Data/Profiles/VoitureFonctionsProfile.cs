@@ -6,7 +6,7 @@ namespace Api.Data.Profiles
 {
 	public class VoitureFonctionsProfile : Profile
 	{
-		protected VoitureFonctionsProfile()
+		public VoitureFonctionsProfile()
 		{
 			CreateMap<Voiturefonction, VoitureFonctionDTO>();
 			CreateMap<VoitureFonctionDTO, Voiturefonction>();
