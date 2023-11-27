@@ -18,6 +18,8 @@ namespace NewApi
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
 
+			builder.Services.AddControllers().AddNewtonsoftJson();
+
 			builder.Services.AddDbContext<EntrepriseDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
 			builder.Services.AddTransient<EmployesService>();
 			builder.Services.AddTransient<VoitureFonctionsService>();

@@ -1,4 +1,5 @@
-﻿using NewApi.Models.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using NewApi.Models.Data;
 
 namespace NewApi.Models.Services
 {
@@ -36,7 +37,7 @@ namespace NewApi.Models.Services
 		// Donner la liste des personnes en base de donnée
 		public IEnumerable<Voiturefonction> GetAllVoitureFonctions()
 		{
-			return _context.Voiturefonctions.ToList();
+			return _context.Voiturefonctions.Include("IdEmployeNavigation").ToList();
 		}
 
 		// Donne une personne en particulier

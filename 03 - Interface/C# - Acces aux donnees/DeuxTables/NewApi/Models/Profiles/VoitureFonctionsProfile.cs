@@ -6,7 +6,7 @@ namespace NewApi.Models.Profiles
 {
 	public class VoitureFonctionsProfile : Profile
 	{
-		protected VoitureFonctionsProfile()
+		public VoitureFonctionsProfile()
 		{
 			CreateMap<Voiturefonction, VoituresFonctionsDto>();
 			CreateMap<VoituresFonctionsDto, Voiturefonction>();
