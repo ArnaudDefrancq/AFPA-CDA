@@ -1,12 +1,12 @@
 ﻿using Api.Data.Models;
 
-namespace Api.Data.Services
+namespace Api.Data.Service
 {
-	public class PersonnesServices
+	public class EmployeServices
 	{
 		private readonly MyDBContext _context;
 
-		public PersonnesServices(MyDBContext context)
+		public EmployeServices(MyDBContext context)
 		{
 			_context = context;
 		}

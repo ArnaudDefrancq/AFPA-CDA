@@ -1,4 +1,5 @@
 using Api.Data;
+using Api.Data.Service;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api
@@ -17,6 +18,10 @@ namespace Api
 			//builder.Services.AddSwaggerGen();
 
 			builder.Services.AddDbContext<MyDBContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
+
+
+			builder.Services.AddTransient<EmployeServices>();
+			builder.Services.AddTransient<VoitureFonctionServices>();
 
 			var app = builder.Build();
 
@@ -41,4 +46,3 @@ namespace Api
 
 	}
 }
-

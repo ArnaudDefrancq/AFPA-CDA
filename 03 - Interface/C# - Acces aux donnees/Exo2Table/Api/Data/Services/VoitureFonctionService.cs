@@ -2,11 +2,11 @@
 
 namespace Api.Data
 {
-	public class PersonnesServices
+	public class VoitureFonctionServices
 	{
 		private readonly MyDBContext _context;
 
-		public PersonnesServices(MyDBContext context)
+		public VoitureFonctionServices(MyDBContext context)
 		{
 			_context = context;
 		}
