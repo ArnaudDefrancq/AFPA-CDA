@@ -4,8 +4,6 @@ namespace Api.Data.DTO
 {
 	public class EmployeDTO
 	{
-		public int IdEmploye { get; set; }
-
 		public string Nom { get; set; } = null!;
 
 		public string Prenom { get; set; } = null!;

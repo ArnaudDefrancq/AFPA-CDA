@@ -23,6 +23,8 @@ namespace Api
 			builder.Services.AddTransient<EmployeServices>();
 			builder.Services.AddTransient<VoitureFonctionServices>();
 
+			builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 			var app = builder.Build();
 
 			// Configure the HTTP request pipeline.

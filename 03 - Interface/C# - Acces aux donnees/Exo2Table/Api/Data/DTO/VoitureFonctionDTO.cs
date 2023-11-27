@@ -4,8 +4,6 @@ namespace Api.Data.DTO
 {
 	public class VoitureFonctionDTO
 	{
-		public int IdVoitureFonction { get; set; }
-
 		public string Marque { get; set; } = null!;
 
 		public int Kilometre { get; set; }
