@@ -1,15 +1,9 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
-namespace Api
+namespace NewApi.Helpers
 {
-	static class ObjectHelper
+	static class ObjectsHelpers
 	{
 		public static void Dump(this object data)
 		{

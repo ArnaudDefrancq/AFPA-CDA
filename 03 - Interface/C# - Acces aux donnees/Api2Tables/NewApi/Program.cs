@@ -1,8 +1,9 @@
-using Api.Data;
-using Api.Data.Service;
-using Microsoft.EntityFrameworkCore;
 
-namespace Api
+using Microsoft.EntityFrameworkCore;
+using NewApi.Models;
+using NewApi.Models.Services;
+
+namespace NewApi
 {
 	public class Program
 	{
@@ -17,13 +18,11 @@ namespace Api
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
 
-			builder.Services.AddDbContext<MyDBContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
-
-
-			builder.Services.AddTransient<EmployeServices>();
-			builder.Services.AddTransient<VoitureFonctionServices>();
-
+			builder.Services.AddDbContext<EntrepriseDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
+			builder.Services.AddTransient<EmployesService>();
+			builder.Services.AddTransient<VoitureFonctionsService>();
 			builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 			var app = builder.Build();
 
@@ -43,8 +42,5 @@ namespace Api
 
 			app.Run();
 		}
-
-
-
 	}
 }

@@ -1,8 +1,8 @@
-﻿using Api.Data.Models;
+﻿using NewApi.Models.Data;
 
-namespace Api.Data.DTO
+namespace NewApi.Models.Dtos
 {
-	public class EmployeDTO
+	public class EmployesDto
 	{
 		public string Nom { get; set; } = null!;
 
