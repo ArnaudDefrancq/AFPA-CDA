@@ -49,7 +49,7 @@ namespace NewApi.Controllers
 
 		// POST api/Prescription
 		[HttpPost]
-		public ActionResult<PrescriptionDto> CreateEmploye(Prescription p)
+		public ActionResult<PrescriptionDtoPost> CreateEmploye(Prescription p)
 		{
 			//on ajoute l’objet à la base de données
 			_service.AddPrescription(p);

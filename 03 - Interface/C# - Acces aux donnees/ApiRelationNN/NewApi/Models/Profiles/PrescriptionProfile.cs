@@ -10,6 +10,12 @@ namespace NewApi.Models.Profiles
 		{
 			CreateMap<Prescription, PrescriptionDto>();
 			CreateMap<PrescriptionDto, Prescription>();
+
+			CreateMap<Prescription, PrescriptionDtoGetMedecin>();
+			CreateMap<PrescriptionDtoGetMedecin, Prescription>();
+
+			CreateMap<Prescription, PrescriptionDtoGetMedicament>();
+			CreateMap<PrescriptionDtoGetMedicament, Prescription>();
 		}
 	}
 }

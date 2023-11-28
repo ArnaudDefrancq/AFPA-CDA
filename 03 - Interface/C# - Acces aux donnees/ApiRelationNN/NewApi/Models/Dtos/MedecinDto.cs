@@ -10,6 +10,15 @@ namespace NewApi.Models.Dtos
 
 		public int? Age { get; set; }
 
-		public virtual ICollection<Prescription> Prescriptions { get; set; } = new List<Prescription>();
+		public virtual ICollection<PrescriptionDtoGetMedecin> Prescriptions { get; set; } = new List<PrescriptionDtoGetMedecin>();
 	}
+	public class MedecinDtoPost
+	{
+		public string Nom { get; set; } = null!;
+
+		public string Prenom { get; set; } = null!;
+
+		public int? Age { get; set; }
+	}
+
 }

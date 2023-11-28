@@ -45,7 +45,7 @@ namespace NewApi.Controllers
 
 		// POST api/Medecin
 		[HttpPost]
-		public ActionResult<MedecinDto> CreateEmploye(Medecin m)
+		public ActionResult<MedecinDtoPost> CreateEmploye(Medecin m)
 		{
 			//on ajoute l’objet à la base de données
 			_service.AddMedecin(m);

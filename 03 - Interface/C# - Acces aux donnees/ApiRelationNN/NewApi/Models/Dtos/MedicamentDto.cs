@@ -8,6 +8,13 @@ namespace NewApi.Models.Dtos
 
 		public string Entreprise { get; set; } = null!;
 
-		public virtual ICollection<Prescription> Prescriptions { get; set; } = new List<Prescription>();
+		public virtual ICollection<PrescriptionDtoGetMedicament> Prescriptions { get; set; } = new List<PrescriptionDtoGetMedicament>();
+	}
+
+	public class MedicamentDtoMedecin
+	{
+		public string NomMedicament { get; set; } = null!;
+
+		public string Entreprise { get; set; } = null!;
 	}
 }

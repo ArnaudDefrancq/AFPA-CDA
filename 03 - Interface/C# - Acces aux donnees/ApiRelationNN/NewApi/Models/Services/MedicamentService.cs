@@ -1,4 +1,5 @@
-﻿using NewApi.Models.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using NewApi.Models.Data;
 
 namespace NewApi.Models.Services
 {
@@ -39,14 +40,14 @@ namespace NewApi.Models.Services
 		// Donner la liste des personnes en base de donnée
 		public IEnumerable<Medicament> GetAllMedicaments()
 		{
-			return _context.Medicaments.ToList();
+			return _context.Medicaments.Include("Prescriptions").ToList();
 		}
 
 
 		// Donne une personne en particulier
 		public Medicament GetMedicamentById(int id)
 		{
-			return _context.Medicaments.FirstOrDefault(v => v.IdMedicament == id);
+			return _context.Medicaments.Include("Prescriptions").FirstOrDefault(v => v.IdMedicament == id);
 		}
 
 
