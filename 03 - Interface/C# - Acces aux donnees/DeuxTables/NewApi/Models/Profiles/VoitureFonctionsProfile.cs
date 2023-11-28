@@ -10,6 +10,12 @@ namespace NewApi.Models.Profiles
 		{
 			CreateMap<Voiturefonction, VoituresFonctionsDto>();
 			CreateMap<VoituresFonctionsDto, Voiturefonction>();
+
+			CreateMap<Voiturefonction, VoituresFonctionsDtoTest>();
+			CreateMap<VoituresFonctionsDtoTest, Voiturefonction>();
+
+			CreateMap<Voiturefonction, VoituresFonctionsDto2>();
+			CreateMap<VoituresFonctionsDto2, Voiturefonction>();
 		}
 	}
 }

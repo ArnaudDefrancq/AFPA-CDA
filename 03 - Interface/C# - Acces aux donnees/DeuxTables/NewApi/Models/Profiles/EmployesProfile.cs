@@ -10,6 +10,9 @@ namespace NewApi.Models.Profiles
 		{
 			CreateMap<Employe, EmployesDto>();
 			CreateMap<EmployesDto, Employe>();
+
+			CreateMap<Employe, EmployesDtoTest>();
+			CreateMap<EmployesDtoTest, Employe>();
 		}
 	}
 }

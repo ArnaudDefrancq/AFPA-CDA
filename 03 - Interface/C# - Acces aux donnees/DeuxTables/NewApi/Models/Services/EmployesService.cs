@@ -1,4 +1,5 @@
-﻿using NewApi.Models.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using NewApi.Models.Data;
 
 namespace NewApi.Models.Services
 {
@@ -36,13 +37,13 @@ namespace NewApi.Models.Services
 		// Donner la liste des personnes en base de donnée
 		public IEnumerable<Employe> GetAllEmployes()
 		{
-			return _context.Employes.ToList();
+			return _context.Employes.Include("Voiturefonctions").ToList();
 		}
 
 		// Donne une personne en particulier
 		public Employe GetEmployeById(int id)
 		{
-			return _context.Employes.FirstOrDefault(v => v.IdEmploye == id);
+			return _context.Employes.Include("Voiturefonctions").FirstOrDefault(v => v.IdEmploye == id);
 		}
 
 		// Permet de update une personne

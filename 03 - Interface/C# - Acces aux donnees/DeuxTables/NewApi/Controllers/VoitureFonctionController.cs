@@ -24,21 +24,21 @@ namespace NewApi.Controllers
 
 		// GET api/VoitureFonction
 		[HttpGet]
-		public ActionResult<IEnumerable<VoituresFonctionsDto>> GetAllVoitureFonctions()
+		public ActionResult<IEnumerable<VoituresFonctionsDtoTest>> GetAllVoitureFonctions()
 		{
 			var listeVoitureFonction = _service.GetAllVoitureFonctions();
-			return Ok(_mapper.Map<IEnumerable<VoituresFonctionsDto>>(listeVoitureFonction));
+			return Ok(_mapper.Map<IEnumerable<VoituresFonctionsDtoTest>>(listeVoitureFonction));
 		}
 
 
 		// GET  api/VoitureFonction/{id}
 		[HttpGet("{id}", Name = "GetVoitureFonctionById")]
-		public ActionResult<VoituresFonctionsDto> GetVoitureFonctionById(int id)
+		public ActionResult<VoituresFonctionsDtoTest> GetVoitureFonctionById(int id)
 		{
 			var item = _service.GetVoitureFonctionById(id);
 			if (item != null)
 			{
-				return Ok(_mapper.Map<VoituresFonctionsDto>(item));
+				return Ok(_mapper.Map<VoituresFonctionsDtoTest>(item));
 			}
 			return NotFound();
 		}

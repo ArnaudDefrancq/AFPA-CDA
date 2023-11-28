@@ -43,7 +43,7 @@ namespace NewApi.Models.Services
 		// Donne une personne en particulier
 		public Voiturefonction GetVoitureFonctionById(int id)
 		{
-			return _context.Voiturefonctions.FirstOrDefault(v => v.IdVoitures == id);
+			return _context.Voiturefonctions.Include("IdEmployeNavigation").FirstOrDefault(v => v.IdVoitures == id);
 		}
 
 		// Permet de update une personne
