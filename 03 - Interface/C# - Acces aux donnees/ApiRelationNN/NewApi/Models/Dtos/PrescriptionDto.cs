@@ -6,24 +6,24 @@ namespace NewApi.Models.Dtos
 	{
 		public int DatePrescription { get; set; }
 
-		public virtual MedicamentDtoMedecin? MedocNavigation { get; set; }
+		public virtual MedicamentDtoOutPrescription? ListMedicaments { get; set; }
 
-		public virtual MedecinDtoPost? SoignantNavigation { get; set; }
+		public virtual MedecinDtoPost? ListeMedecins { get; set; }
 	}
 
-	public class PrescriptionDtoGetMedecin
+	public class PrescriptionDtoOutSoignant
 	{
-		public int? Medoc { get; set; }
-
 		public int DatePrescription { get; set; }
+
+		public virtual MedicamentDtoOutPrescription? ListMedicaments { get; set; }
 
 	}
 
-	public class PrescriptionDtoGetMedicament
+	public class PrescriptionDtoOutSoignantOutMedoc
 	{
-		public int? Soignant { get; set; }
-
 		public int DatePrescription { get; set; }
+
+		public virtual MedecinDtoPost? ListMedecins { get; set; }
 	}
 
 	public class PrescriptionDtoPost

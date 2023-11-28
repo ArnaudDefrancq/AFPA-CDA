@@ -48,7 +48,7 @@ namespace NewApi.Controllers
 
 		// POST api/Medicament
 		[HttpPost]
-		public ActionResult<MedicamentDtoMedecin> CreateMedicament(Medicament m)
+		public ActionResult<MedicamentDtoOutPrescription> CreateMedicament(Medicament m)
 		{
 			//on ajoute l’objet à la base de données
 			_service.AddMedicament(m);

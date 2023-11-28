@@ -40,14 +40,14 @@ namespace NewApi.Models.Services
 		// Donner la liste des personnes en base de donnée
 		public IEnumerable<Medecin> GetAllMedecins()
 		{
-			return _context.Medecins.Include("Prescriptions").ToList();
+			return _context.Medecins.Include("Prescriptions.ListMedicaments").ToList();
 		}
 
 
 		// Donne une personne en particulier
 		public Medecin GetMedecinById(int id)
 		{
-			return _context.Medecins.Include("Prescriptions").FirstOrDefault(v => v.IdMedecin == id);
+			return _context.Medecins.Include("Prescriptions.ListMedicaments").FirstOrDefault(v => v.IdMedecin == id);
 		}
 
 
