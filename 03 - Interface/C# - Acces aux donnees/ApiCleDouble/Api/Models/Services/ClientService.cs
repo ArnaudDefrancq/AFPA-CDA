@@ -4,60 +4,54 @@ namespace Api.Models.Services
 {
 	public class ClientService
 	{
-		private readonly SpectacleDBContext _context;
 
+		// dbcontextname = Spectacle
+		// classname =  Client
+		// nameVar = s 
+
+		private readonly SpectacleDBContext _context;
 		public ClientService(SpectacleDBContext context)
 		{
 			_context = context;
 		}
 
-		// Ajout d'une personne dans la base de donnée
-		public void AddClient(Client c)
+		public void AddClient(Client s)
 		{
-			if (c == null)
+			if (s == null)
 			{
-				throw new ArgumentNullException(nameof(c));
+				throw new ArgumentNullException(nameof(s));
 			}
-			_context.Clients.Add(c);
+			_context.Clients.Add(s);
 			_context.SaveChanges();
 		}
 
-
-		// Suppr une personne dans la base de donnée
-		public void DeleteClient(Client c)
+		public void DeleteClient(Client s)
 		{
-			if (c == null)
+			//si l'objet personne est null, on renvoi une exception
+			if (s == null)
 			{
-				throw new ArgumentNullException(nameof(c));
+				throw new ArgumentNullException(nameof(s));
 			}
-			_context.Clients.Remove(c);
+			// on met à jour le context
+			_context.Clients.Remove(s);
 			_context.SaveChanges();
 		}
 
-
-		// Donner la liste des personnes en base de donnée
 		public IEnumerable<Client> GetAllClients()
 		{
 			return _context.Clients.ToList();
 		}
 
-
-		// Donne une personne en particulier
 		public Client GetClientById(int id)
 		{
-			return _context.Clients.FirstOrDefault(v => v.IdClient == id);
+			return _context.Clients.FirstOrDefault(p => p.IdClient == id);
 		}
 
-
-
-		// Permet de update une personne
-		public void UpdateClient(Client c)
+		public void UpdateClient(Client s)
 		{
 			_context.SaveChanges();
 		}
 
 
-
 	}
 }
-
