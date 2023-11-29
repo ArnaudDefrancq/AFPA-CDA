@@ -91,13 +91,19 @@ namespace APP.CLASS
 		{
 			List<Produits> prod = DownloaderDonnees();
 
-		
-				//prod.Dump();
-				prod.Remove(p);
+			prod.Dump();
+
+			if (prod.Contains(p))
+			{
 				prod.Dump();
-				//String json = JsonConvert.SerializeObject(prod);
-				//File.WriteAllText(Path, json);
-			
+			}
+
+			//prod.Dump();
+			//prod.Remove(p);
+			//prod.Dump();
+			//String json = JsonConvert.SerializeObject(prod);
+			//File.WriteAllText(Path, json);
+
 
 		}
 	}

@@ -24,7 +24,6 @@
 		<PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.10" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 	</ItemGroup>
+
+
 </Project>
-
-
-//  scaffold-DbContext -Connection Name=Default -Provider MySql.EntityFrameworkCore -OutputDir Models/Data -Context SpectacleDBContext -ContextDir Models
