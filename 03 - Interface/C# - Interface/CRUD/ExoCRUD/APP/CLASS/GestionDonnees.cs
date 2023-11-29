@@ -22,6 +22,10 @@ namespace APP.CLASS
 			ListProd = listProd;
 		}
 
+		public GestionDonnees()
+		{
+		}
+
 
 
 		// Méthodes
@@ -73,12 +77,15 @@ namespace APP.CLASS
 		/// <summary>
 		/// Ajout de données dans le fichier JSON
 		/// </summary>
-		//public void AjouterDonneeJSON(Produits p)
-		//{
-		//	String json = JsonConvert.SerializeObject(p);
+		public void AjouterDonneeJSON(Produits p)
+		{
+			List<Produits> prod = DownloaderDonnees();
+			prod.Add(p);
 
-		//	File.AppendAllText(Path, json);
-		//}
+			String json = JsonConvert.SerializeObject(prod);
+
+			File.WriteAllText(Path, json);
+		}
 	}
 
 }

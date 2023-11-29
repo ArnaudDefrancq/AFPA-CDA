@@ -47,8 +47,6 @@ namespace APP
 			gridData.ItemsSource = prod;
 
 
-
-
 		}
 
 		//**************Création de la liste**************//
@@ -73,47 +71,42 @@ namespace APP
 		//************************************************//
 
 		//**************Activation des btns***************//
-		private void TextChanged(object sender, TextChangedEventArgs e)
+		/// <summary>
+		/// Permet d'activer les btn modifier et ajouter
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void TextChangedAjout(object sender, TextChangedEventArgs e)
 		{
 
-			String quantite = txtQuantite.Text;
-			String libelleProduit = txtLibelle.Text;
-			String valuePrixUnitaire = txtPrixUnitaire.Text;
+			int quantite, date, prixUnitaire;
+			String libelleProd = "";
+			String valueQuantite = txtQuantite.Text;
 			String valueDate = txtDate.Text;
-
-			String quantiteFixe = txtQuantiteFixe.Text;
-			String libelleProduitFixe = txtLibelleFixe.Text;
-			String valuePrixUnitaireFixe = txtPrixUnitaireFixe.Text;
-			String valueDateFixe = txtDateFixe.Text;
+			String valuePrixUnitaire = txtPrixUnitaire.Text;
 
 
-			if (quantite != "" && libelleProduit != "" && valuePrixUnitaire != "" && valueDate != "")
+			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0)
 			{
 				validAjout = true;
-				BtnActive();
+				BtnActiveAjout();
 
-				if (quantiteFixe != "" && libelleProduitFixe != "" && valuePrixUnitaireFixe != "" && valueDateFixe != "")
-				{
-					validModif = true;
-					BtnActive();
 
-				}
-				else
-				{
-					validModif = false;
-					BtnDesactive();
-				}
 			}
 			else
 			{
 				validAjout = false;
-				BtnDesactive();
+				BtnDesactiveAjout();
 			}
 
 
 		}
 
-		// Ajout dans les inputs des valeurs de la ligne du datagrid
+		/// <summary>
+		/// out dans les inputs des valeurs de la ligne du datagrid et active le btn suppr
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void gridData_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			Produits p;
@@ -138,13 +131,9 @@ namespace APP
 
 		}
 
-
 		private void BtnActive()
 		{
-			if (validAjout)
-			{
-				btnAjouter.IsEnabled = true;
-			}
+
 			if (validModif)
 			{
 				btnModifier.IsEnabled = true;
@@ -154,13 +143,25 @@ namespace APP
 				btnSuppr.IsEnabled = true;
 			}
 		}
-		private void BtnDesactive()
 
+		private void BtnActiveAjout()
+		{
+			if (validAjout)
+			{
+				btnAjouter.IsEnabled = true;
+			}
+		}
+		private void BtnDesactiveAjout()
 		{
 			if (!validAjout)
 			{
 				btnAjouter.IsEnabled = false;
 			}
+		}
+		private void BtnDesactive()
+
+		{
+
 			if (!validModif)
 			{
 				btnModifier.IsEnabled = false;
@@ -172,43 +173,36 @@ namespace APP
 		}
 
 		//*************************************************//
+		//***************Actions des btns******************//
 
+		private void btnAjouter_Click(object sender, RoutedEventArgs e)
+		{
+			int quantite, date, prixUnitaire;
+			String libelleProd = "";
+			String valueQuantite = txtQuantite.Text;
+			String valueDate = txtDate.Text;
+			String valuePrixUnitaire = txtPrixUnitaire.Text;
 
+			try
+			{
+				if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0)
+				{
+					GestionDonnees BDD = new GestionDonnees();
 
+					Produits p = new Produits(libelleProd, quantite, prixUnitaire, date);
 
+					BDD.AjouterDonneeJSON(p);
 
-		//private void btnAjouter_Click(object sender, RoutedEventArgs e)
-		//{
-		//	GestionDonnees BDD = new GestionDonnees();
-		//	int quantite, date, prixUnitaire;
-		//	String libelleProd = "";
-		//	String valueQuantite = txtQuantite.Text;
-		//	String valueDate = txtDate.Text;
-		//	String valuePrixUnitaire = txtPrixUnitaire.Text;
+					gridData.ItemsSource = BDD.DownloaderDonnees();
 
-		//	try
-		//	{
-		//		int.TryParse(valueQuantite, out quantite);
-		//		int.TryParse(valueDate, out date);
-		//		int.TryParse(valuePrixUnitaire, out prixUnitaire);
-		//		libelleProd = txtLibelle.Text;
+				}
+			}
+			catch (Exception ex)
+			{
+				ex.Message.Dump();
+			}
 
-		//		if (libelleProd.Length > 0)
-		//		{
-		//			Produits p = new Produits(libelleProd, quantite, prixUnitaire, date);
-
-		//			p.Dump();
-
-		//			BDD.AjouterDonneeJSON(p);
-		//		}
-		//	}
-		//	catch (Exception ex)
-		//	{
-		//		ex.Message.Dump();
-		//	}
-
-		//}
-
+		}
 	}
 
 
