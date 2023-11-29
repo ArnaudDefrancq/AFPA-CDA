@@ -23,10 +23,10 @@ namespace NewApi.Controllers
 
 		// GET api/Medecin
 		[HttpGet]
-		public ActionResult<IEnumerable<MedecinDto>> GetAllMedecins()
+		public ActionResult<IEnumerable<MedecinDtoAplatie>> GetAllMedecins()
 		{
 			var liste = _service.GetAllMedecins();
-			return Ok(_mapper.Map<IEnumerable<MedecinDto>>(liste));
+			return Ok(_mapper.Map<IEnumerable<MedecinDtoAplatie>>(liste));
 		}
 
 

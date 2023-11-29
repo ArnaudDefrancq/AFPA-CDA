@@ -21,4 +21,16 @@ namespace NewApi.Models.Dtos
 		public int? Age { get; set; }
 	}
 
+	public class MedecinDtoAplatie
+	{
+		public string Nom { get; set; } = null!;
+
+		public string Prenom { get; set; } = null!;
+
+		public int? Age { get; set; }
+
+		public int DatePrescription { get; set; }
+
+	}
+
 }

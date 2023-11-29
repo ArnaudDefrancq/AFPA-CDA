@@ -13,6 +13,9 @@ namespace NewApi.Models.Profiles
 
 			CreateMap<Medecin, MedecinDtoPost>();
 			CreateMap<MedecinDtoPost, Medecin>();
+
+			CreateMap<Medecin, MedecinDtoAplatie>().ForMember(md => md.DatePrescription, a => a.MapFrom(m => m.Prescriptions));
+			CreateMap<MedecinDtoAplatie, Medecin>();
 		}
 	}
 }

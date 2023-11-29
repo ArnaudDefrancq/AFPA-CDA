@@ -23,5 +23,9 @@ namespace APP.CLASS
 			PrixUnitaire = prixUnitaire;
 			Date = date;
 		}
+
+		public Produits()
+		{
+		}
 	}
 }

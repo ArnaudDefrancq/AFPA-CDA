@@ -42,8 +42,11 @@ namespace APP
 			// Récupération des données du JSON
 			List<Produits> prod = BDD.DownloaderDonnees();
 
+
 			// Ajout des données du JSON dans la DataGrid
 			gridData.ItemsSource = prod;
+
+
 
 
 		}
@@ -110,18 +113,29 @@ namespace APP
 
 		}
 
+		// Ajout dans les inputs des valeurs de la ligne du datagrid
 		private void gridData_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			Produits p;
 			if (gridData.SelectedItem != null)
 			{
 				validSuppr = true;
 				BtnActive();
+				p = gridData.SelectedItem as Produits;
+
+				txtLibelleFixe.Text = p.LibelleProduit;
+				txtQuantiteFixe.Text = p.Quantite.ToString();
+				txtPrixUnitaireFixe.Text = p.PrixUnitaire.ToString();
+				txtDateFixe.Text = p.Date.ToString();
+
+
 			}
 			else
 			{
 				validSuppr = false;
 				BtnDesactive();
 			}
+
 		}
 
 
@@ -156,9 +170,6 @@ namespace APP
 				btnSuppr.IsEnabled = false;
 			}
 		}
-
-
-
 
 		//*************************************************//
 
