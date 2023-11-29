@@ -32,21 +32,14 @@ namespace APP
 		public MainWindow()
 		{
 			InitializeComponent();
-
 			// Ajout de la class GestionDonnée
 			GestionDonnees BDD = new GestionDonnees(CreerListe());
-
 			// Création des données JSON
 			BDD.UploaderDonnees();
-
 			// Récupération des données du JSON
 			List<Produits> prod = BDD.DownloaderDonnees();
-
-
 			// Ajout des données du JSON dans la DataGrid
 			gridData.ItemsSource = prod;
-
-
 		}
 
 		//**************Création de la liste**************//
@@ -76,15 +69,24 @@ namespace APP
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void TextChangedAjout(object sender, TextChangedEventArgs e)
+		private void TextChanged(object sender, TextChangedEventArgs e)
 		{
-
 			int quantite, date, prixUnitaire;
 			String libelleProd = "";
 			String valueQuantite = txtQuantite.Text;
 			String valueDate = txtDate.Text;
 			String valuePrixUnitaire = txtPrixUnitaire.Text;
 
+			String libelleFixe = txtLibelleFixe.Text;
+			String quantiteFixe = txtQuantiteFixe.Text;
+			String dateFixe = txtDateFixe.Text;
+			String prixUnitaireFixe = txtPrixUnitaireFixe.Text;
+
+
+			//libelleFixe.Dump();
+			//quantiteFixe.Dump();
+			//dateFixe.Dump();
+			//prixUnitaireFixe.Dump();
 
 			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0)
 			{
@@ -175,6 +177,11 @@ namespace APP
 		//*************************************************//
 		//***************Actions des btns******************//
 
+		/// <summary>
+		/// Permet d'ajouter dun nouvelle item dans le JSON et d'actualiser le dataGrid au click
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void btnAjouter_Click(object sender, RoutedEventArgs e)
 		{
 			int quantite, date, prixUnitaire;
@@ -202,6 +209,36 @@ namespace APP
 				ex.Message.Dump();
 			}
 
+		}
+
+		/// <summary>
+		/// Permet de modifier un nouvelle item dans le JSON et d'actualiser le dataGrid au click
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void btnModifier_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		/// <summary>
+		/// Permet de supprimer un element et d'actualiser la liste au click
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void btnSuppr_Click(object sender, RoutedEventArgs e)
+		{
+			GestionDonnees BDD = new GestionDonnees();
+			if (validSuppr)
+			{
+				Produits p = gridData.SelectedItem as Produits;
+
+				//p.Dump();
+
+				BDD.SupprimerDonneeJson(p);
+
+				//BDD.DownloaderDonnees();
+			}
 		}
 	}
 

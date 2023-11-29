@@ -86,6 +86,20 @@ namespace APP.CLASS
 
 			File.WriteAllText(Path, json);
 		}
+
+		public void SupprimerDonneeJson(Produits p)
+		{
+			List<Produits> prod = DownloaderDonnees();
+
+		
+				//prod.Dump();
+				prod.Remove(p);
+				prod.Dump();
+				//String json = JsonConvert.SerializeObject(prod);
+				//File.WriteAllText(Path, json);
+			
+
+		}
 	}
 
 }

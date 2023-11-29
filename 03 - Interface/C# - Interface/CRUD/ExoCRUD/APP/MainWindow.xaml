@@ -66,14 +66,14 @@
 					<Label x:Name="lblPrixUnitaire" Content="Prix unitaire :" Grid.Column="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 					<Label x:Name="lblDate" Content="Date :" Grid.Column="6" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 
-					<TextBox x:Name="txtQuantite" Grid.Column="2"  TextWrapping="Wrap" Text="" TextChanged="TextChangedAjout" />
-					<TextBox x:Name="txtQuantiteFixe" Grid.Column="4"  TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" />
-					<TextBox x:Name="txtLibelle" Grid.Column="2" Grid.Row="2"  TextWrapping="Wrap" Text="" TextChanged="TextChangedAjout"/>
-					<TextBox x:Name="txtLibelleFixe" Grid.Column="4" Grid.Row="2" TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" />
-					<TextBox x:Name="txtPrixUnitaire" Grid.Column="8" TextWrapping="Wrap" Text="" TextChanged="TextChangedAjout"/>
-					<TextBox x:Name="txtPrixUnitaireFixe" Grid.Column="10"  TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" />
-					<TextBox x:Name="txtDate" Grid.Column="8" Grid.Row="2" TextWrapping="Wrap" Text="" TextChanged="TextChangedAjout"/>
-					<TextBox x:Name="txtDateFixe" Grid.Column="10" Grid.Row="2" TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" />
+					<TextBox x:Name="txtQuantite" Grid.Column="2"  TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
+					<TextBox x:Name="txtQuantiteFixe" Grid.Column="4"  TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" TextChanged="TextChanged" />
+					<TextBox x:Name="txtLibelle" Grid.Column="2" Grid.Row="2"  TextWrapping="Wrap" Text="" TextChanged="TextChanged"/>
+					<TextBox x:Name="txtLibelleFixe" Grid.Column="4" Grid.Row="2" TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" TextChanged="TextChanged"/>
+					<TextBox x:Name="txtPrixUnitaire" Grid.Column="8" TextWrapping="Wrap" Text="" TextChanged="TextChanged"/>
+					<TextBox x:Name="txtPrixUnitaireFixe" Grid.Column="10"  TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" TextChanged="TextChanged"/>
+					<TextBox x:Name="txtDate" Grid.Column="8" Grid.Row="2" TextWrapping="Wrap" Text="" TextChanged="TextChanged"/>
+					<TextBox x:Name="txtDateFixe" Grid.Column="10" Grid.Row="2" TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" TextChanged="TextChanged"/>
 				</Grid>
 			</GroupBox>
 
@@ -94,8 +94,8 @@
 				</Grid.ColumnDefinitions>
 
 				<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" IsEnabled="False" Click="btnAjouter_Click" />
-				<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False"/>
-				<Button x:Name="btnSuppr" Grid.Column="1" Content="Supprimer" Grid.Row="5" BorderBrush="White" IsEnabled="False" Background="White" />
+				<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False" Click="btnModifier_Click"/>
+				<Button x:Name="btnSuppr" Content="Supprimer" Grid.Row="4" BorderBrush="White" IsEnabled="False" Background="White" Grid.ColumnSpan="2" Height="28" Margin="30,9,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Click="btnSuppr_Click" />
 
 			</Grid>
 		</Grid>
