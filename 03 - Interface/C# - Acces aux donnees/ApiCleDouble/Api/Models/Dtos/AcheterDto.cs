@@ -6,8 +6,8 @@ namespace Api.Models.Dtos
 	{
 		public int DatePresta { get; set; }
 
-		public virtual Client IdClientNavigation { get; set; } = null!;
+		public virtual ClientDtoNoLoop ListClients { get; set; } = null!;
 
-		public virtual Prestation IdPrestationNavigation { get; set; } = null!;
+		public virtual PrestationDtoNoLoop ListPrestations { get; set; } = null!;
 	}
 }

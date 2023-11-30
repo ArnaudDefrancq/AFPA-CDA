@@ -11,7 +11,7 @@ namespace Api.Controllers
 	[Route("api/[Controller]")]
 	[ApiController]
 
-	public class PrestationController
+	public class PrestationController : ControllerBase
 	{
 		// Extend ControllerBase				
 		private readonly PrestationService _service;

@@ -8,6 +8,12 @@ namespace Api.Models.Dtos
 
 		public string? Prenom { get; set; }
 
-		public virtual ICollection<Acheter> Acheters { get; set; } = new List<Acheter>()
+		public virtual ICollection<AcheterDto> Acheters { get; set; } = new List<AcheterDto>();
+	}
+	public class ClientDtoNoLoop
+	{
+		public string? Nom { get; set; }
+
+		public string? Prenom { get; set; }
 	}
 }

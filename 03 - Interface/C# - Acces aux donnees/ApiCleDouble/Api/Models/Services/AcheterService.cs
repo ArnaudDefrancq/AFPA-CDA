@@ -1,4 +1,5 @@
 ﻿using Api.Models.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Models.Services
 {
@@ -38,14 +39,14 @@ namespace Api.Models.Services
 		// Donner la liste des personnes en base de donnée
 		public IEnumerable<Acheter> GetAllAcheters()
 		{
-			return _context.Acheters.ToList();
+			return _context.Acheters.Include("ListClients").Include("ListPrestations").ToList();
 		}
 
 
 		// Donne une personne en particulier
 		public Acheter GetAcheterById(int id)
 		{
-			return _context.Acheters.FirstOrDefault(a => a.IdClient == id && a.IdPrestation == id);
+			return _context.Acheters.Include("ListClients").Include("ListPrestations").FirstOrDefault(a => a.IdClient == id && a.IdPrestation == id);
 		}
 
 

@@ -1,39 +1,39 @@
-﻿using Api.Models.Data;
+﻿// dbcontextname = Spectacle
+// classname =  Client
+// nameVar = c
+// projetName  = Api
+
+using Api.Models.Data;
 
 namespace Api.Models.Services
 {
 	public class ClientService
 	{
-
-		// dbcontextname = Spectacle
-		// classname =  Client
-		// nameVar = s 
-
 		private readonly SpectacleDBContext _context;
 		public ClientService(SpectacleDBContext context)
 		{
 			_context = context;
 		}
 
-		public void AddClient(Client s)
+		public void AddClient(Client c)
 		{
-			if (s == null)
+			if (c == null)
 			{
-				throw new ArgumentNullException(nameof(s));
+				throw new ArgumentNullException(nameof(c));
 			}
-			_context.Clients.Add(s);
+			_context.Clients.Add(c);
 			_context.SaveChanges();
 		}
 
-		public void DeleteClient(Client s)
+		public void DeleteClient(Client c)
 		{
 			//si l'objet personne est null, on renvoi une exception
-			if (s == null)
+			if (c == null)
 			{
-				throw new ArgumentNullException(nameof(s));
+				throw new ArgumentNullException(nameof(c));
 			}
 			// on met à jour le context
-			_context.Clients.Remove(s);
+			_context.Clients.Remove(c);
 			_context.SaveChanges();
 		}
 
@@ -47,11 +47,10 @@ namespace Api.Models.Services
 			return _context.Clients.FirstOrDefault(p => p.IdClient == id);
 		}
 
-		public void UpdateClient(Client s)
+		public void UpdateClient(Client c)
 		{
 			_context.SaveChanges();
 		}
-
-
 	}
 }
+

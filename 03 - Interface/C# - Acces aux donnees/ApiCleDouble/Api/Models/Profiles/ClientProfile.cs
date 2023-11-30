@@ -10,6 +10,9 @@ namespace Api.Models.Profiles
 		{
 			CreateMap<Client, ClientDto>();
 			CreateMap<ClientDto, Client>();
+
+			CreateMap<Client, ClientDtoNoLoop>();
+			CreateMap<ClientDtoNoLoop, Client>();
 		}
 	}
 }

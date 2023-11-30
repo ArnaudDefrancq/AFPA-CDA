@@ -17,7 +17,7 @@ namespace Api.Models.Services
 		{
 			if (p == null)
 			{
-				throw new ArgumentNullException(nameof(p);
+				throw new ArgumentNullException(nameof(p));
 			}
 			_context.Prestations.Add(p);
 			_context.SaveChanges();
