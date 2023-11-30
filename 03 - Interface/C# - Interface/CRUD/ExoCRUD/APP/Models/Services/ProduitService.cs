@@ -1,5 +1,7 @@
 ﻿using APP.Helpers;
 using APP.Models.Data;
+using APP.Models.Dtos;
+using APP.Models.Profiles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,21 +18,20 @@ namespace APP.Models.Service
 
 		public void AddProduit(Produits p)
 		{
-			GestionDonnees BDD = new GestionDonnees();
-			BDD.AjouterDonneeJSON(p);
+			GestionDonnees context = new GestionDonnees();
+			context.AjouterDonneeJSON(p);
 		}
 
 		public void DeleteProduit(Produits p)
 		{
-			GestionDonnees BDD = new GestionDonnees();
-			BDD.SupprimerDonneeJson(p);
+			GestionDonnees context = new GestionDonnees();
+			context.SupprimerDonneeJson(p);
 		}
 
 		public List<Produits> GetAllProduits()
 		{
-			GestionDonnees BDD = new GestionDonnees();
-			List<Produits> p = BDD.DownloaderDonnees();
-			p.Dump();
+			GestionDonnees context = new GestionDonnees();
+			List<Produits> p = context.DownloaderDonnees();
 			return p;
 		}
 
@@ -41,8 +42,8 @@ namespace APP.Models.Service
 
 		public void UpdateProduit(Produits p)
 		{
-			GestionDonnees BDD = new GestionDonnees();
-			BDD.UpdateDonneeJson(p);
+			GestionDonnees context = new GestionDonnees();
+			context.UpdateDonneeJson(p);
 		}
 
 	}

@@ -38,6 +38,7 @@ namespace APP
 		public MainWindow()
 		{
 			InitializeComponent();
+			InitJSON();
 
 			DisplayDataGrid();
 		}
@@ -59,6 +60,15 @@ namespace APP
 
 			return liste;
 		}
+
+		//************************************************//
+		// Init JSon
+		private void InitJSON()
+		{
+			GestionDonnees BDD = new GestionDonnees(CreerListe());
+			BDD.UploaderDonnees();
+		}
+
 		//************************************************//
 		// Affiche dans le dataGrid
 		public void DisplayDataGrid()
@@ -68,6 +78,7 @@ namespace APP
 
 			gridData.ItemsSource = produitDtos;
 		}
+
 		//************************************************//
 		// Permet d'activer les btn ajouter
 		private void TextChanged(object sender, TextChangedEventArgs e)
@@ -90,7 +101,6 @@ namespace APP
 			}
 
 		}
-
 		private void BtnActiveAjout()
 		{
 			if (validAjout)
@@ -107,7 +117,7 @@ namespace APP
 		}
 
 		//************************************************//
-		// Permet d'ajouter un produit en base de donnée
+		// Permet d'ajouter un produit en base de donnée JSON
 		private void btnAjouter_Click(object sender, RoutedEventArgs e)
 		{
 			if (validAjout)
@@ -127,6 +137,50 @@ namespace APP
 
 			}
 		}
+
+		//************************************************//
+		// Permet d'activer le Btn Supprimer
+		private void gridData_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (gridData.SelectedItem != null)
+			{
+				validSuppr = true;
+				BtnActiveSuppr();
+			}
+		}
+
+		private void BtnActiveSuppr()
+		{
+			if (validSuppr)
+			{
+				btnSuppr.IsEnabled = true;
+			}
+		}
+		private void BtnDesactiveSuppr()
+		{
+			if (!validAjout)
+			{
+				btnAjouter.IsEnabled = false;
+			}
+		}
+
+		//************************************************//
+		// Permet de supprimer un produit de la base JSON
+		private void btnSuppr_Click(object sender, RoutedEventArgs e)
+		{
+			if (validSuppr)
+			{
+				ProduitController controller = new ProduitController();
+				ProduitDto p = gridData.SelectedItem as ProduitDto;
+				controller.DeleteProduit(p);
+				validSuppr = false;
+				DisplayDataGrid();
+			}
+		}
+
+
+
+
 		//************************************************//
 
 

@@ -13,7 +13,7 @@ namespace APP.Models.Data
 		public int Quantite { get; set; }
 		public int PrixUnitaire { get; set; }
 		public int Date { get; set; }
-		public static int Compteur { get; set; } = 16;
+		public static int Compteur { get; set; } = 0;
 
 		public Produits(string libelleProduit, int quantite, int prixUnitaire, int date)
 		{
@@ -26,6 +26,15 @@ namespace APP.Models.Data
 
 		public Produits()
 		{
+		}
+
+		public Produits(int idProduit, string libelleProduit, int quantite, int prixUnitaire, int date)
+		{
+			IdProduit = idProduit;
+			LibelleProduit = libelleProduit;
+			Quantite = quantite;
+			PrixUnitaire = prixUnitaire;
+			Date = date;
 		}
 	}
 }

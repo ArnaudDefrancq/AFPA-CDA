@@ -1,4 +1,5 @@
-﻿using APP.Models.Data;
+﻿using APP.Controller;
+using APP.Models.Data;
 using APP.Models.Dtos;
 using APP.Models.Service;
 using System;
@@ -11,11 +12,15 @@ namespace APP.Models.Profiles
 {
 	public class ProduitProfile
 	{
-		public List<ProduitDto> produitDto()
+		public ProduitProfile()
+		{
+		}
+
+		public List<ProduitDto> produitDtoOut()
 		{
 			// Récup service
-			ProduitService service = new ProduitService();
-			List<Produits> p = service.GetAllProduits();
+			ProduitService produitService = new ProduitService();
+			List<Produits> p = produitService.GetAllProduits();
 
 			// Initialisation de la List produitDto sans Id pour affichage
 			List<ProduitDto> produitsDtoList = new List<ProduitDto>();
@@ -37,5 +42,23 @@ namespace APP.Models.Profiles
 			return produitsDtoList;
 		}
 
+		public Produits produitDtoIn(ProduitDto pDto)
+		{
+			// Récup service
+			ProduitService produitService = new ProduitService();
+			List<Produits> p = produitService.GetAllProduits();
+			Produits prod = new Produits();
+
+			foreach (Produits produit in p)
+			{
+				if (produit.LibelleProduit == pDto.LibelleProduit && produit.PrixUnitaire == pDto.PrixUnitaire && produit.Quantite == pDto.Quantite)
+				{
+					prod = new Produits(produit.IdProduit, produit.LibelleProduit, produit.Quantite, produit.PrixUnitaire, produit.Date);
+					return prod;
+				}
+			}
+
+			return prod;
+		}
 	}
 }

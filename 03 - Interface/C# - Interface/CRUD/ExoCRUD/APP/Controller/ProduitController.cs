@@ -13,6 +13,8 @@ namespace APP.Controller
 {
 	public class ProduitController
 	{
+
+
 		public ProduitController()
 		{
 		}
@@ -20,7 +22,7 @@ namespace APP.Controller
 		public List<ProduitDto> GetAllProduits()
 		{
 			ProduitProfile profile = new ProduitProfile();
-			List<ProduitDto> produitDtos = profile.produitDto();
+			List<ProduitDto> produitDtos = profile.produitDtoOut();
 			return produitDtos;
 		}
 
@@ -28,7 +30,15 @@ namespace APP.Controller
 		{
 			ProduitService service = new ProduitService();
 			service.AddProduit(p);
+		}
 
+		public void DeleteProduit(ProduitDto pDto)
+		{
+			ProduitProfile profile = new ProduitProfile();
+			Produits p = profile.produitDtoIn(pDto);
+
+			ProduitService service = new ProduitService();
+			service.DeleteProduit(p);
 		}
 	}
 }

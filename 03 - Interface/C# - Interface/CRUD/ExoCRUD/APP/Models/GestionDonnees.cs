@@ -28,8 +28,6 @@ namespace APP.Models
 		{
 		}
 
-
-
 		// Méthodes
 		/// <summary>
 		/// Créer les données dans le fichier JSON
@@ -39,10 +37,9 @@ namespace APP.Models
 			try
 			{
 				string json = System.Text.Json.JsonSerializer.Serialize(ListProd);
-				if (!File.Exists(Path))
-				{
-					File.WriteAllText(Path, json);
-				}
+
+				File.WriteAllText(Path, json);
+
 			}
 			catch (Exception ex)
 			{
@@ -94,17 +91,18 @@ namespace APP.Models
 		public void SupprimerDonneeJson(Produits p)
 		{
 			List<Produits> prod = DownloaderDonnees();
+			List<Produits> cloneProd = new List<Produits>(prod);
+
+			foreach (Produits item in cloneProd)
+			{
+				if (item.IdProduit == p.IdProduit)
+				{
+					prod.Remove(item);
+				}
+			}
 
 			prod.Dump();
 
-			if (prod.Contains(p))
-			{
-				prod.Dump();
-			}
-
-			//prod.Dump();
-			//prod.Remove(p);
-			//prod.Dump();
 			//String json = JsonConvert.SerializeObject(prod);
 			//File.WriteAllText(Path, json);
 		}

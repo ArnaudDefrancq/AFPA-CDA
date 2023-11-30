@@ -22,7 +22,7 @@
 
 		<Grid x:Name="gridMainTop" Grid.Column="1"  Grid.Row="1" >
 
-			<DataGrid x:Name="gridData" AutoGenerateColumns="False" IsReadOnly="True">
+			<DataGrid x:Name="gridData" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="gridData_SelectionChanged">
 				<DataGrid.Columns>
 					<DataGridTextColumn x:Name="dataQuantite" Header="Quantité" Binding="{Binding Quantite}" />
 					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé du produit" Binding="{Binding LibelleProduit}" />
@@ -95,7 +95,7 @@
 
 				<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" IsEnabled="False" Click="btnAjouter_Click"/>
 				<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False" />
-				<Button x:Name="btnSuppr" Content="Supprimer" Grid.Row="4" BorderBrush="White" IsEnabled="False" Background="White" Grid.ColumnSpan="2" Height="28" Margin="30,9,0,0" Grid.RowSpan="3" VerticalAlignment="Top"  />
+				<Button x:Name="btnSuppr" Content="Supprimer" Grid.Row="4" BorderBrush="White" IsEnabled="False" Background="White" Grid.ColumnSpan="2" Height="28" Margin="30,9,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Click="btnSuppr_Click"  />
 
 			</Grid>
 		</Grid>
