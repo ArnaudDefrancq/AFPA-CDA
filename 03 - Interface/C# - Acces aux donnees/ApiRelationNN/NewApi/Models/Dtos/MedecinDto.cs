@@ -13,7 +13,10 @@ namespace NewApi.Models.Dtos
 		public virtual ICollection<PrescriptionDtoOutSoignant> Prescriptions { get; set; } = new List<PrescriptionDtoOutSoignant>();
 	}
 	public class MedecinDtoPost
+
 	{
+		public int IdMedecin { get; set; }
+
 		public string Nom { get; set; } = null!;
 
 		public string Prenom { get; set; } = null!;
@@ -29,7 +32,9 @@ namespace NewApi.Models.Dtos
 
 		public int? Age { get; set; }
 
-		public int DatePrescription { get; set; }
+		public List<int> DatePrescription {  get; set; }
+
+		public List<string> NomMedicament {  get; set; }
 
 	}
 

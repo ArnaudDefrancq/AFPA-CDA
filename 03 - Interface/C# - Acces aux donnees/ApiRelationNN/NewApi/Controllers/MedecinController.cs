@@ -25,7 +25,7 @@ namespace NewApi.Controllers
 		[HttpGet]
 		public ActionResult<IEnumerable<MedecinDtoAplatie>> GetAllMedecins()
 		{
-			var liste = _service.GetAllMedecins();
+			IEnumerable<Medecin> liste = _service.GetAllMedecins();
 			return Ok(_mapper.Map<IEnumerable<MedecinDtoAplatie>>(liste));
 		}
 
@@ -45,10 +45,11 @@ namespace NewApi.Controllers
 
 		// POST api/Medecin
 		[HttpPost]
-		public ActionResult<MedecinDtoPost> CreateEmploye(Medecin m)
+		public ActionResult<MedecinDtoAplatie> CreateEmploye(MedecinDtoPost m)
 		{
+			Medecin newMed = _mapper.Map<Medecin>(m);
 			//on ajoute l’objet à la base de données
-			_service.AddMedecin(m);
+			_service.AddMedecin(newMed);
 			//on retourne le chemin de findById avec l'objet créé
 			return CreatedAtRoute(nameof(GetMedecinById), new { Id = m.IdMedecin }, m);
 		}
