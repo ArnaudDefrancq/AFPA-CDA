@@ -40,5 +40,14 @@ namespace APP.Controller
 			ProduitService service = new ProduitService();
 			service.DeleteProduit(p);
 		}
+
+		public void UpdateProduit(ProduitDto produitModif, ProduitDto produitSansModif)
+		{
+			ProduitProfile profile = new ProduitProfile();
+			Produits p = profile.produitDtoUpdate(produitModif, produitSansModif);
+
+			ProduitService service = new ProduitService();
+			service.UpdateProduit(p);
+		}
 	}
 }

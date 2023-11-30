@@ -94,7 +94,7 @@
 				</Grid.ColumnDefinitions>
 
 				<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" IsEnabled="False" Click="btnAjouter_Click"/>
-				<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False" />
+				<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False" Click="btnModifier_Click" />
 				<Button x:Name="btnSuppr" Content="Supprimer" Grid.Row="4" BorderBrush="White" IsEnabled="False" Background="White" Grid.ColumnSpan="2" Height="28" Margin="30,9,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Click="btnSuppr_Click"  />
 
 			</Grid>

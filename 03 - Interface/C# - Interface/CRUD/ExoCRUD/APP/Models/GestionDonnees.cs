@@ -106,7 +106,20 @@ namespace APP.Models
 
 		public void UpdateDonneeJson(Produits p)
 		{
+			List<Produits> prod = DownloaderDonnees();
+			//List<Produits> cloneProd = new List<Produits>(prod);
 
+			foreach (Produits item in prod)
+			{
+				if (item.IdProduit == p.IdProduit)
+				{
+					item.LibelleProduit = p.LibelleProduit;
+					item.Quantite = p.Quantite;
+					item.PrixUnitaire = p.PrixUnitaire;
+				}
+			}
+			String json = JsonConvert.SerializeObject(prod);
+			File.WriteAllText(Path, json);
 		}
 	}
 

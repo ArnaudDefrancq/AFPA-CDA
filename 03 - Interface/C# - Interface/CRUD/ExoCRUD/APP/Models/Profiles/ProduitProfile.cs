@@ -60,5 +60,23 @@ namespace APP.Models.Profiles
 
 			return prod;
 		}
+		public Produits produitDtoUpdate(ProduitDto produitModif, ProduitDto produitSansModif)
+		{
+			// Récup service
+			ProduitService produitService = new ProduitService();
+			List<Produits> p = produitService.GetAllProduits();
+			Produits prod = new Produits();
+
+			foreach (Produits produit in p)
+			{
+				if (produit.LibelleProduit == produitSansModif.LibelleProduit && produit.PrixUnitaire == produitSansModif.PrixUnitaire && produit.Quantite == produitSansModif.Quantite)
+				{
+					prod = new Produits(produit.IdProduit, produitModif.LibelleProduit, produitModif.Quantite, produitModif.PrixUnitaire, produitModif.Date);
+					return prod;
+				}
+			}
+
+			return prod;
+		}
 	}
 }

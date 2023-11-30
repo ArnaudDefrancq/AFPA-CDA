@@ -215,7 +215,44 @@ namespace APP
 				txtQuantiteFixe.Text = "";
 			}
 		}
+
 		//************************************************//
+		// Permet de modifier un produit de la base JSON
+		private void btnModifier_Click(object sender, RoutedEventArgs e)
+		{
+			if (validModif)
+			{
+				ProduitController controller = new ProduitController();
+
+				//Créer un nouvelle objet avec modif
+				String libelleProd = txtLibelle.Text;
+				int valueQuantite = Convert.ToInt32(txtQuantite.Text);
+				int valueDate = Convert.ToInt32(txtDate.Text);
+				int valuePrixUnitaire = Convert.ToInt32(txtPrixUnitaire.Text);
+				ProduitDto produitModif = new ProduitDto(libelleProd, valueQuantite, valuePrixUnitaire, valueDate);
+
+				// Récup de l'obj sans modif
+				ProduitDto produitSansModif = gridData.SelectedItem as ProduitDto;
+
+				controller.UpdateProduit(produitModif, produitSansModif);
+
+				// Actualisation de l'affichage
+				DisplayDataGrid();
+
+				// on désactive les btn et remise a 0 des formulaires
+				validSuppr = false;
+				selectItem = false;
+				BtnDesactiveSuppr();
+				txtLibelleFixe.Text = "";
+				txtPrixUnitaireFixe.Text = "";
+				txtDateFixe.Text = "";
+				txtQuantiteFixe.Text = "";
+				txtLibelle.Text = "";
+				txtPrixUnitaire.Text = "";
+				txtDate.Text = "";
+				txtQuantite.Text = "";
+			}
+		}
 
 	}
 
