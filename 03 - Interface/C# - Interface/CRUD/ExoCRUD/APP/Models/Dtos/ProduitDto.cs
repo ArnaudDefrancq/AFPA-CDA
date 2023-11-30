@@ -4,28 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APP.CLASS
+namespace APP.Models.Dtos
 {
-	public class Produits
+	public class ProduitDto
 	{
-		public int IdProduit { get; set; }
-		public String LibelleProduit { get; set; }
+		public string LibelleProduit { get; set; }
 		public int Quantite { get; set; }
 		public int PrixUnitaire { get; set; }
 		public int Date { get; set; }
-		public static int Compteur { get; set; } = 0;
 
-		public Produits(string libelleProduit, int quantite, int prixUnitaire, int date)
+		public ProduitDto(string libelleProduit, int quantite, int prixUnitaire, int date)
 		{
-			IdProduit = ++Compteur;
 			LibelleProduit = libelleProduit;
 			Quantite = quantite;
 			PrixUnitaire = prixUnitaire;
 			Date = date;
-		}
-
-		public Produits()
-		{
 		}
 	}
 }

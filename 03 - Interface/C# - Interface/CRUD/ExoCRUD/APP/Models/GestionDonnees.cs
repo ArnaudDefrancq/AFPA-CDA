@@ -6,14 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Shapes;
+using APP.Models.Data;
+using APP.Helpers;
 
-namespace APP.CLASS
+namespace APP.Models
 {
 	public class GestionDonnees
 	{
 		// Propriété
 		public List<Produits> ListProd { get; set; }
-		public static String Path { get; set; } = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
+		public static string Path { get; set; } = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
 		//public static String Path { get; set; } = "C:\\Users\\Toyger\\OneDrive\\Bureau\\Git AFPA\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
 
 		//Constructeur
@@ -29,7 +31,6 @@ namespace APP.CLASS
 
 
 		// Méthodes
-
 		/// <summary>
 		/// Créer les données dans le fichier JSON
 		/// </summary>
@@ -37,7 +38,7 @@ namespace APP.CLASS
 		{
 			try
 			{
-				String json = System.Text.Json.JsonSerializer.Serialize(ListProd);
+				string json = System.Text.Json.JsonSerializer.Serialize(ListProd);
 				if (!File.Exists(Path))
 				{
 					File.WriteAllText(Path, json);
@@ -60,7 +61,7 @@ namespace APP.CLASS
 			{
 				if (File.Exists(Path))
 				{
-					String json = File.ReadAllText(Path);
+					string json = File.ReadAllText(Path);
 					return prod = System.Text.Json.JsonSerializer.Deserialize<List<Produits>>(json)!;
 				}
 
@@ -73,7 +74,6 @@ namespace APP.CLASS
 			return prod;
 		}
 
-
 		/// <summary>
 		/// Ajout de données dans le fichier JSON
 		/// </summary>
@@ -82,11 +82,15 @@ namespace APP.CLASS
 			List<Produits> prod = DownloaderDonnees();
 			prod.Add(p);
 
-			String json = JsonConvert.SerializeObject(prod);
+			string json = JsonConvert.SerializeObject(prod);
 
 			File.WriteAllText(Path, json);
 		}
 
+		/// <summary>
+		/// Supprime dans la base de donnée dans le JSON
+		/// </summary>
+		/// <param name="p"></param>
 		public void SupprimerDonneeJson(Produits p)
 		{
 			List<Produits> prod = DownloaderDonnees();
@@ -103,7 +107,10 @@ namespace APP.CLASS
 			//prod.Dump();
 			//String json = JsonConvert.SerializeObject(prod);
 			//File.WriteAllText(Path, json);
+		}
 
+		public void UpdateDonneeJson(Produits p)
+		{
 
 		}
 	}
