@@ -67,13 +67,13 @@
 					<Label x:Name="lblDate" Content="Date :" Grid.Column="6" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 
 					<TextBox x:Name="txtQuantite" Grid.Column="2"  TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
-					<TextBox x:Name="txtQuantiteFixe" Grid.Column="4"  TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" />
+					<TextBox x:Name="txtQuantiteFixe" Grid.Column="4"  TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" TextChanged="TextChanged" />
 					<TextBox x:Name="txtLibelle" Grid.Column="2" Grid.Row="2"  TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
-					<TextBox x:Name="txtLibelleFixe" Grid.Column="4" Grid.Row="2" TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" />
+					<TextBox x:Name="txtLibelleFixe" Grid.Column="4" Grid.Row="2" TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" TextChanged="TextChanged" />
 					<TextBox x:Name="txtPrixUnitaire" Grid.Column="8" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
-					<TextBox x:Name="txtPrixUnitaireFixe" Grid.Column="10"  TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" />
+					<TextBox x:Name="txtPrixUnitaireFixe" Grid.Column="10"  TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" TextChanged="TextChanged" />
 					<TextBox x:Name="txtDate" Grid.Column="8" Grid.Row="2" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
-					<TextBox x:Name="txtDateFixe" Grid.Column="10" Grid.Row="2" TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" />
+					<TextBox x:Name="txtDateFixe" Grid.Column="10" Grid.Row="2" TextWrapping="Wrap" Text="" Background="#FFECECEC" IsEnabled="False" TextChanged="TextChanged" />
 				</Grid>
 			</GroupBox>
 
