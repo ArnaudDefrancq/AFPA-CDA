@@ -25,7 +25,7 @@ namespace APP.View
 	{
 		public bool validAjout = false;
 		public bool validModif = false;
-		public bool selectItem = false;
+		public bool itemSelect = false;
 
 		public MainWindow Mw { get; set; }
 
@@ -48,7 +48,7 @@ namespace APP.View
 			String valueDate = txtAnnee.Text;
 			String valuePrixUnitaire = txtPrixUnitaire.Text;
 
-			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0 && !selectItem)
+			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0 && !itemSelect)
 			{
 				validAjout = true;
 				BtnActiveAjout();
@@ -59,7 +59,7 @@ namespace APP.View
 				BtnDesactiveAjout();
 			}
 
-			if (selectItem)
+			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0 && itemSelect)
 			{
 				validModif = true;
 				BtnActiveModif();
@@ -115,6 +115,7 @@ namespace APP.View
 
 				validModif = true;
 				validAjout = false;
+				itemSelect = true;
 				BtnDesactiveAjout();
 				BtnActiveModif();
 			}
@@ -134,6 +135,8 @@ namespace APP.View
 
 				Produits p = new Produits(libelleProd, valueQuantite, valuePrixUnitaire, valueDate);
 				controller.CreateProduit(p);
+
+				Mw.DisplayDataGrid();
 
 				txtLibelle.Text = "";
 				txtPrixUnitaire.Text = "";
@@ -158,27 +161,11 @@ namespace APP.View
 
 				Produits produitSansModif = Mw.gridData.SelectedItem as Produits;
 
-				//produitSansModif.Dump();
-
 				Produits produitModif = new Produits(produitSansModif.IdProduit, libelleProd, valueQuantite, valuePrixUnitaire, valueDate);
 
 				controller.UpdateProduit(produitModif);
 
-				// Actualisation de l'affichage
-				//DisplayDataGrid();
-
-				//// on désactive les btn et remise a 0 des formulaires
-				//validSuppr = false;
-				//selectItem = false;
-				//BtnDesactiveSuppr();
-				//txtLibelleFixe.Text = "";
-				//txtPrixUnitaireFixe.Text = "";
-				//txtDateFixe.Text = "";
-				//txtQuantiteFixe.Text = "";
-				//txtLibelle.Text = "";
-				//txtPrixUnitaire.Text = "";
-				//txtDate.Text = "";
-				//txtQuantite.Text = "";
+				Mw.DisplayDataGrid();
 			}
 		}
 	}
