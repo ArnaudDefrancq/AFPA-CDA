@@ -16,7 +16,7 @@ namespace APP
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		public bool validAjout = false;
+		//public bool validAjout = false;
 		public bool validModif = false;
 		public bool validSuppr = false;
 		public bool selectItem = false;
@@ -65,53 +65,6 @@ namespace APP
 		}
 
 		//************************************************//
-		// Permet d'activer les btn ajouter
-		private void TextChanged(object sender, TextChangedEventArgs e)
-		{
-			int quantite, date, prixUnitaire;
-			String libelleProd = "";
-			String valueQuantite = txtQuantite.Text;
-			String valueDate = txtDate.Text;
-			String valuePrixUnitaire = txtPrixUnitaire.Text;
-
-			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0 && !selectItem)
-			{
-				validAjout = true;
-				BtnActiveAjout();
-			}
-			else
-			{
-				validAjout = false;
-				BtnDesactiveAjout();
-			}
-
-			if (selectItem)
-			{
-				validModif = true;
-				BtnActiveModif();
-			}
-			else
-			{
-				validModif = false;
-				BtnDesactiveModif();
-			}
-
-		}
-		private void BtnActiveAjout()
-		{
-			if (validAjout)
-			{
-				btnAjouter.IsEnabled = true;
-			}
-		}
-		private void BtnDesactiveAjout()
-		{
-			if (!validAjout)
-			{
-				btnAjouter.IsEnabled = false;
-			}
-		}
-
 		private void BtnActiveModif()
 		{
 			if (validModif)
@@ -131,22 +84,12 @@ namespace APP
 		// Permet d'ajouter un produit en base de donnée JSON
 		private void btnAjouter_Click(object sender, RoutedEventArgs e)
 		{
-			if (validAjout)
-			{
-				ProduitController controller = new ProduitController();
+			ProduitFormulaire formulaire = new ProduitFormulaire(selectItem);
+			this.Opacity = 0.7;
+			formulaire.ShowDialog();
+			DisplayDataGrid();
+			this.Opacity = 1;
 
-				String libelleProd = txtLibelle.Text;
-				int valueQuantite = Convert.ToInt32(txtQuantite.Text);
-				int valueDate = Convert.ToInt32(txtDate.Text);
-				int valuePrixUnitaire = Convert.ToInt32(txtPrixUnitaire.Text);
-				Produits p = new Produits(libelleProd, valueQuantite, valuePrixUnitaire, valueDate);
-				controller.CreateProduit(p);
-				DisplayDataGrid();
-				txtLibelle.Text = "";
-				txtPrixUnitaire.Text = "";
-				txtDate.Text = "";
-				txtQuantite.Text = "";
-			}
 		}
 
 		//************************************************//
@@ -160,12 +103,13 @@ namespace APP
 
 				// Modification du formulaire et des btn
 				validSuppr = true;
-				selectItem = true;
+				validModif = true;
+				BtnActiveModif();
 				BtnActiveSuppr();
-				txtLibelleFixe.Text = produit.LibelleProduit;
-				txtQuantiteFixe.Text = produit.Quantite.ToString();
-				txtPrixUnitaireFixe.Text = produit.PrixUnitaire.ToString();
-				txtDateFixe.Text = produit.Date.ToString();
+				//txtLibelleFixe.Text = produit.LibelleProduit;
+				//txtQuantiteFixe.Text = produit.Quantite.ToString();
+				//txtPrixUnitaireFixe.Text = produit.PrixUnitaire.ToString();
+				//txtDateFixe.Text = produit.Date.ToString();
 			}
 		}
 		private void BtnActiveSuppr()
@@ -196,13 +140,14 @@ namespace APP
 
 				// Remise a 0 des btn et des inputs
 				validSuppr = false;
-				selectItem = false;
+				validModif = false;
+				BtnDesactiveModif();
 				BtnDesactiveSuppr();
 				DisplayDataGrid();
-				txtLibelleFixe.Text = "";
-				txtPrixUnitaireFixe.Text = "";
-				txtDateFixe.Text = "";
-				txtQuantiteFixe.Text = "";
+				//txtLibelleFixe.Text = "";
+				//txtPrixUnitaireFixe.Text = "";
+				//txtDateFixe.Text = "";
+				//txtQuantiteFixe.Text = "";
 			}
 		}
 
@@ -212,9 +157,10 @@ namespace APP
 		{
 			if (validModif)
 			{
-				ProduitFormulaire formulaire = new ProduitFormulaire();
+				ProduitFormulaire formulaire = new ProduitFormulaire(selectItem);
 				this.Opacity = 0.7;
 				formulaire.ShowDialog();
+				this.Opacity = 1;
 				//ProduitController controller = new ProduitController();
 
 				////Créer un nouvelle objet avec modif

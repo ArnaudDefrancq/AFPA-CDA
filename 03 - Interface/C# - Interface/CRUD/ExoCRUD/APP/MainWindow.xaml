@@ -49,7 +49,7 @@
 				<RowDefinition Height="5*"/>
 			</Grid.RowDefinitions>
 
-			<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" IsEnabled="False" Click="btnAjouter_Click"/>
+			<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" Click="btnAjouter_Click"/>
 			<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False" Click="btnModifier_Click" />
 			<Button x:Name="btnSuppr" Content="Supprimer" Grid.Row="5" Grid.Column="1" BorderBrush="White" IsEnabled="False" Background="White" Click="btnSuppr_Click"  />
 
