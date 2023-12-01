@@ -19,7 +19,6 @@ namespace APP
 		public bool validAjout = true;
 		public bool validModif = false;
 		public bool validSuppr = false;
-		public bool selectItem = false;
 
 		public MainWindow()
 		{
@@ -86,11 +85,16 @@ namespace APP
 		{
 			if (validAjout)
 			{
-				ProduitFormulaire formulaire = new ProduitFormulaire(selectItem);
+				ProduitFormulaire formulaire = new ProduitFormulaire(this);
 				this.Opacity = 0.7;
 				formulaire.ShowDialog();
 				DisplayDataGrid();
 				this.Opacity = 1;
+				validModif = false;
+				validSuppr = false;
+				BtnDesactiveModif();
+				BtnDesactiveSuppr();
+
 			}
 
 		}
@@ -161,39 +165,15 @@ namespace APP
 		{
 			if (validModif)
 			{
-				ProduitFormulaire formulaire = new ProduitFormulaire(selectItem);
+				ProduitFormulaire formulaire = new ProduitFormulaire(this);
 				this.Opacity = 0.7;
 				formulaire.ShowDialog();
 				this.Opacity = 1;
-				//ProduitController controller = new ProduitController();
-
-				////Créer un nouvelle objet avec modif
-				//String libelleProd = txtLibelle.Text;
-				//int valueQuantite = Convert.ToInt32(txtQuantite.Text);
-				//int valueDate = Convert.ToInt32(txtDate.Text);
-				//int valuePrixUnitaire = Convert.ToInt32(txtPrixUnitaire.Text);
-
-				//Produits produitSansModif = gridData.SelectedItem as Produits;
-
-				//Produits produitModif = new Produits(produitSansModif.IdProduit, libelleProd, valueQuantite, valuePrixUnitaire, valueDate);
-
-				//controller.UpdateProduit(produitModif);
-
-				//// Actualisation de l'affichage
-				//DisplayDataGrid();
-
-				//// on désactive les btn et remise a 0 des formulaires
-				//validSuppr = false;
-				//selectItem = false;
-				//BtnDesactiveSuppr();
-				//txtLibelleFixe.Text = "";
-				//txtPrixUnitaireFixe.Text = "";
-				//txtDateFixe.Text = "";
-				//txtQuantiteFixe.Text = "";
-				//txtLibelle.Text = "";
-				//txtPrixUnitaire.Text = "";
-				//txtDate.Text = "";
-				//txtQuantite.Text = "";
+				DisplayDataGrid();
+				validModif = false;
+				validSuppr = false;
+				BtnDesactiveModif();
+				BtnDesactiveSuppr();
 			}
 		}
 

@@ -1,4 +1,5 @@
 ﻿using APP.Controller;
+using APP.Helpers;
 using APP.Models.Data;
 using System;
 using System.Collections.Generic;
@@ -26,15 +27,18 @@ namespace APP.View
 		public bool validModif = false;
 		public bool selectItem = false;
 
+		public MainWindow Mw { get; set; }
 
-		public ProduitFormulaire(bool itemSelect)
+		public ProduitFormulaire(MainWindow w)
 		{
 			InitializeComponent();
 
-			selectItem = itemSelect;
+			Mw = w;
+
+			DisplayValueInput();
 		}
 
-
+		//************************************************//
 		//Permet d'activer les btn ajouter
 		private void TextChanged(object sender, TextChangedEventArgs e)
 		{
@@ -97,6 +101,26 @@ namespace APP.View
 			}
 		}
 
+		//************************************************//
+		// Si pour modif, on affiche les valeurs du produit dans les inputs
+		private void DisplayValueInput()
+		{
+			if (Mw.gridData.SelectedItem != null)
+			{
+				Produits p = Mw.gridData.SelectedItem as Produits;
+				txtAnnee.Text = p.Date.ToString();
+				txtLibelle.Text = p.LibelleProduit;
+				txtPrixUnitaire.Text = p.PrixUnitaire.ToString();
+				txtQuantite.Text = p.Quantite.ToString();
+
+				validModif = true;
+				validAjout = false;
+				BtnDesactiveAjout();
+				BtnActiveModif();
+			}
+		}
+		//************************************************//
+		// Evenement du click ajouter
 		private void btnAjouter_Click(object sender, RoutedEventArgs e)
 		{
 			if (validAjout)
@@ -115,6 +139,46 @@ namespace APP.View
 				txtPrixUnitaire.Text = "";
 				txtAnnee.Text = "";
 				txtQuantite.Text = "";
+			}
+		}
+
+		//************************************************//
+		// Evenement du click modifier
+		private void btnModifier_Click(object sender, RoutedEventArgs e)
+		{
+			if (validModif)
+			{
+				ProduitController controller = new ProduitController();
+
+				//Créer un nouvelle objet avec modif
+				String libelleProd = txtLibelle.Text;
+				int valueQuantite = Convert.ToInt32(txtQuantite.Text);
+				int valueDate = Convert.ToInt32(txtAnnee.Text);
+				int valuePrixUnitaire = Convert.ToInt32(txtPrixUnitaire.Text);
+
+				Produits produitSansModif = Mw.gridData.SelectedItem as Produits;
+
+				//produitSansModif.Dump();
+
+				Produits produitModif = new Produits(produitSansModif.IdProduit, libelleProd, valueQuantite, valuePrixUnitaire, valueDate);
+
+				controller.UpdateProduit(produitModif);
+
+				// Actualisation de l'affichage
+				//DisplayDataGrid();
+
+				//// on désactive les btn et remise a 0 des formulaires
+				//validSuppr = false;
+				//selectItem = false;
+				//BtnDesactiveSuppr();
+				//txtLibelleFixe.Text = "";
+				//txtPrixUnitaireFixe.Text = "";
+				//txtDateFixe.Text = "";
+				//txtQuantiteFixe.Text = "";
+				//txtLibelle.Text = "";
+				//txtPrixUnitaire.Text = "";
+				//txtDate.Text = "";
+				//txtQuantite.Text = "";
 			}
 		}
 	}
