@@ -1,7 +1,9 @@
 ﻿using APP.Controller;
+using APP.Helpers;
 using APP.Models;
 using APP.Models.Data;
 using APP.Models.Dtos;
+using APP.View;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -57,7 +59,7 @@ namespace APP
 		public void DisplayDataGrid()
 		{
 			ProduitController controller = new ProduitController();
-			List<ProduitDto> produitDtos = controller.GetAllProduits();
+			List<Produits> produitDtos = controller.GetAllProduits();
 
 			gridData.ItemsSource = produitDtos;
 		}
@@ -154,16 +156,16 @@ namespace APP
 			if (gridData.SelectedItem != null)
 			{
 				// Instancie un nouvelle obj Dto
-				ProduitDto produitDto = gridData.SelectedItem as ProduitDto;
+				Produits produit = gridData.SelectedItem as Produits;
 
 				// Modification du formulaire et des btn
 				validSuppr = true;
 				selectItem = true;
 				BtnActiveSuppr();
-				txtLibelleFixe.Text = produitDto.LibelleProduit;
-				txtQuantiteFixe.Text = produitDto.Quantite.ToString();
-				txtPrixUnitaireFixe.Text = produitDto.PrixUnitaire.ToString();
-				txtDateFixe.Text = produitDto.Date.ToString();
+				txtLibelleFixe.Text = produit.LibelleProduit;
+				txtQuantiteFixe.Text = produit.Quantite.ToString();
+				txtPrixUnitaireFixe.Text = produit.PrixUnitaire.ToString();
+				txtDateFixe.Text = produit.Date.ToString();
 			}
 		}
 		private void BtnActiveSuppr()
@@ -189,7 +191,7 @@ namespace APP
 			{
 				// Initiation d'un nouvelle objet controller
 				ProduitController controller = new ProduitController();
-				ProduitDto p = gridData.SelectedItem as ProduitDto;
+				Produits p = gridData.SelectedItem as Produits;
 				controller.DeleteProduit(p);
 
 				// Remise a 0 des btn et des inputs
@@ -210,6 +212,9 @@ namespace APP
 		{
 			if (validModif)
 			{
+				//ProduitFormulaire formulaire = new ProduitFormulaire();
+				//this.Opacity = 0.7;
+				//formulaire.ShowDialog();
 				ProduitController controller = new ProduitController();
 
 				//Créer un nouvelle objet avec modif
@@ -217,12 +222,12 @@ namespace APP
 				int valueQuantite = Convert.ToInt32(txtQuantite.Text);
 				int valueDate = Convert.ToInt32(txtDate.Text);
 				int valuePrixUnitaire = Convert.ToInt32(txtPrixUnitaire.Text);
-				ProduitDto produitModif = new ProduitDto(libelleProd, valueQuantite, valuePrixUnitaire, valueDate);
 
-				// Récup de l'obj sans modif
-				ProduitDto produitSansModif = gridData.SelectedItem as ProduitDto;
+				Produits produitSansModif = gridData.SelectedItem as Produits;
 
-				controller.UpdateProduit(produitModif, produitSansModif);
+				Produits produitModif = new Produits(produitSansModif.IdProduit, libelleProd, valueQuantite, valuePrixUnitaire, valueDate);
+
+				controller.UpdateProduit(produitModif);
 
 				// Actualisation de l'affichage
 				DisplayDataGrid();

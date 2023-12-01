@@ -19,11 +19,11 @@ namespace APP.Controller
 		{
 		}
 
-		public List<ProduitDto> GetAllProduits()
+		public List<Produits> GetAllProduits()
 		{
-			ProduitProfile profile = new ProduitProfile();
-			List<ProduitDto> produitDtos = profile.produitDtoOut();
-			return produitDtos;
+			ProduitService service = new ProduitService();
+			List<Produits> produits = service.GetAllProduits();
+			return produits;
 		}
 
 		public void CreateProduit(Produits p)
@@ -32,22 +32,16 @@ namespace APP.Controller
 			service.AddProduit(p);
 		}
 
-		public void DeleteProduit(ProduitDto pDto)
+		public void DeleteProduit(Produits p)
 		{
-			ProduitProfile profile = new ProduitProfile();
-			Produits p = profile.produitDtoIn(pDto);
-
 			ProduitService service = new ProduitService();
 			service.DeleteProduit(p);
 		}
 
-		public void UpdateProduit(ProduitDto produitModif, ProduitDto produitSansModif)
+		public void UpdateProduit(Produits pModif)
 		{
-			ProduitProfile profile = new ProduitProfile();
-			Produits p = profile.produitDtoUpdate(produitModif, produitSansModif);
-
 			ProduitService service = new ProduitService();
-			service.UpdateProduit(p);
+			service.UpdateProduit(pModif);
 		}
 	}
 }

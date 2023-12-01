@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using APP.Models.Data;
+using System.Windows.Controls.Primitives;
 
 namespace APP.Models
 {
@@ -102,7 +103,6 @@ namespace APP.Models
 		public void UpdateDonneeJson(Produits p)
 		{
 			List<Produits> prod = DownloaderDonnees();
-			//List<Produits> cloneProd = new List<Produits>(prod);
 
 			foreach (Produits item in prod)
 			{
@@ -111,6 +111,7 @@ namespace APP.Models
 					item.LibelleProduit = p.LibelleProduit;
 					item.Quantite = p.Quantite;
 					item.PrixUnitaire = p.PrixUnitaire;
+					item.Date = p.Date;
 				}
 			}
 			String json = JsonConvert.SerializeObject(prod);
