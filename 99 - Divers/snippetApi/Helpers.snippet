@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0">
+	<Header>
+		<Title>Helpers</Title>
+		<Shortcut>helpersObject</Shortcut>
+		<Description>Dto template for ASP.NET Core</Description>
+		<Author>Arnaud DEFRANCQ</Author>
+		<SnippetTypes>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal Editable="true">
+				<ID>projetName</ID>
+				<Default>NAme du projet</Default>
+				<ToolTip>projetName</ToolTip>
+			</Literal>
+		</Declarations>
+		<Code Language="csharp">
+			<![CDATA[
+	 // projetName = $projetName$
+	 
+using Newtonsoft.Json;
+using System.Diagnostics;
+
+namespace $projetName$.Helpers
+{
+static class ObjectsHelpers
+{
+public static void Dump(this object data)
+{
+string json = JsonConvert.SerializeObject(data, Newtonsoft.Json.Formatting.Indented);
+Trace.WriteLine("");
+Trace.WriteLine(json);
+
+// installation, ajouter les packages :
+//     < PackageReference Include = "Microsoft.AspNetCore.JsonPatch" Version = "5.0.10" />
+            //     < PackageReference Include = "Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version = "5.0.10" />
+            // ajouter la configuration dans startup
+            //      services.AddControllers().AddNewtonsoftJson(s => {
+            //      s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();});
+
+            //Utilisation   objet.Dump();
+        }
+    }
+}
+	
+				]]>
+		</Code>
+	</Snippet>
+</CodeSnippet>
+
+

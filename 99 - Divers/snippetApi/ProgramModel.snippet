@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>ProgramMod</Title>
+			<Shortcut>programMod</Shortcut>
+			<Description>program template for ASP.NET Core</Description>
+			<Author>Arnaud DEFRANCQ</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal Editable="true">
+					<ID>context</ID>
+					<ToolTip>Context name</ToolTip>
+					<Default>contextName</Default>
+				</Literal>
+				<Literal Editable="true">
+					<ID>className</ID>
+					<Default>className Service</Default>
+					<ToolTip>classNameService</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+				<![CDATA[
+				
+			// DbContext = 	$context$
+			// ClassNameService = $className$
+				
+			builder.Services.AddControllers().AddNewtonsoftJson();
+
+			builder.Services.AddDbContext<$context$DBContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
+			builder.Services.AddTransient<$className$Service>();
+			builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+			
+				]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

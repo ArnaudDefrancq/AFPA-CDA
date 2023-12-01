@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>CtrlMod</Title>
+			<Shortcut>ctrlMod</Shortcut>
+			<Description>Service template for ASP.NET Core</Description>
+			<Author>Arnaud DEFRANCQ</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal Editable="true">
+					<ID>classname</ID>
+					<ToolTip>Class name</ToolTip>
+					<Default>ClassNamePlaceholder</Default>
+				</Literal>
+				<Literal Editable="true">
+					<ID>service</ID>
+					<Default>DTOPlaceholder</Default>
+					<ToolTip>DTO name</ToolTip>
+				</Literal>
+				<Literal Editable="true">
+					<ID>dtoNoLoop</ID>
+					<Default>DTOPlaceholder</Default>
+					<ToolTip>DTO name</ToolTip>
+				</Literal>
+				<Literal Editable="true">
+					<ID>dtoOut</ID>
+					<Default>DTOPlaceholder</Default>
+					<ToolTip>DTO name</ToolTip>
+				</Literal>
+				<Literal Editable="true">
+					<ID>dtoIn</ID>
+					<Default>DTOPlaceholder</Default>
+					<ToolTip>DTO name</ToolTip>
+				</Literal>
+				<Literal Editable="true">
+					<ID>projetName</ID>
+					<Default>NameProjet</Default>
+					<ToolTip>projetName</ToolTip>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp">
+				<![CDATA[
+// projetName = $projetName$				
+// classNameController =  $classname$
+// classNameService = $service$
+// classDtoOutLoop = $dtoNoLoop$
+// classDtoOut = $dtoOut$
+// classDtoIn = $dtoIn$
+
+using $projetName$.Helpers;
+using $projetName$.Models.Data;
+using $projetName$.Models.Dtos;
+using $projetName$.Models.Services;
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+
+namespace $projetName$.Controllers
+{
+[Route("api/[controller]")]
+[ApiController]
+public class $classname$Controller : ControllerBase
+{
+private readonly $service$Service _service;
+private readonly IMapper _mapper;
+public $classname$Controller($service$Service service, IMapper mapper)
+{
+_service = service;
+_mapper = mapper;
+}
+
+//GET api/$classname$
+[HttpGet]
+public ActionResult<IEnumerable<$dtoNoLoop$>> getAll$classname$s()
+{
+	IEnumerable<$classname$> liste$classname$s = _service.GetAll$classname$s();
+	return Ok(_mapper.Map<IEnumerable<$dtoNoLoop$>>(liste$classname$s));
+}
+
+//GET api/$classname$/{id}
+[HttpGet("{id}", Name = "Get$classname$ById")]
+public ActionResult<$dtoNoLoop$> Get$classname$ById(int id)
+{
+	$classname$ commandItem = _service.Get$classname$ById(id);
+	if (commandItem != null)
+	{
+		return Ok(_mapper.Map<$dtoNoLoop$>(commandItem));
+	}
+	return NotFound();
+}
+
+//POST api/$classname$
+[HttpPost]
+public ActionResult<$dtoOut$> Create$classname$($dtoIn$ obj)
+{   
+	$pocoName$ $classname$ new$classname$ = _mapper.Map<$classname$>(obj);
+	_service.Add$classname$(new$classname$);
+	return CreatedAtRoute(nameof(Get$classname$ById), new { Id = new$classname$.Id$classname$ }, new$classname$);
+}
+
+//PUT api/$classname$/{id}
+[HttpPut("{id}")]
+public ActionResult Update$classname$(int id, $dtoIn$ obj)
+{
+	$classname$ objFromRepo = _service.Get$classname$ById(id);
+	if (objFromRepo == null)
+	{
+		return NotFound();
+	}
+	objFromRepo.Dump();
+	_mapper.Map(obj, objFromRepo);
+	objFromRepo.Dump();
+	// inutile puisque la fonction ne fait rien, mais garde la cohérence
+	_service.Update$classname$(objFromRepo);
+	return NoContent();
+}
+
+// [HttpPatch("{id}")]
+// public ActionResult Partial$classname$Update(int id, JsonPatchDocument<$classname$> patchDoc)
+// {
+//		$classname$ objFromRepo = _service.Get$classname$ById(id);
+//		if (objFromRepo == null)
+//		{
+//			return NotFound();
+//		}
+//		$classname$ objToPatch = _mapper.Map<$classname$>(objFromRepo);
+//		patchDoc.ApplyTo(objToPatch, ModelState);
+//		if (!TryValidateModel(objToPatch))
+//		{
+//			return ValidationProblem(ModelState);
+//		}
+//		_mapper.Map(objToPatch, objFromRepo);
+//		_service.Update$classname$(objFromRepo);
+//		return NoContent();
+//  }
+
+// DELETE api/$classname$/{id}
+[HttpDelete("{id}")]
+public ActionResult Delete$classname$(int id)
+{
+  $classname$ obj = _service.Get$classname$ById(id);
+  if (obj == null)
+  {
+    return NotFound();
+  }
+  _service.Delete$classname$(obj);
+  return NoContent();
+}
+}
+}				]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+
+</CodeSnippets>
+
+
+
+
+
+
+
+

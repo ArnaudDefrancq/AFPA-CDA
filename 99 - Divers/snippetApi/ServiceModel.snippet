@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0">
+	<Header>
+		<Title>ServiceMode</Title>
+		<Shortcut>servmod</Shortcut>
+		<Description>Service template for ASP.NET Core</Description>
+		<Author>Arnaud DEFRANCQ</Author>
+		<SnippetTypes>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal Editable="true">
+				<ID>classname</ID>
+				<ToolTip>Class name</ToolTip>
+				<Default>ClassNamePlaceholder</Default>
+			</Literal>
+			<Literal Editable="true">
+				<ID>dbcontextname</ID>
+				<ToolTip>DB Context name</ToolTip>
+				<Default>DBCPlaceholder</Default>
+			</Literal>
+			<Literal Editable="true">
+				<ID>nameVar</ID>
+				<ToolTip>Variable name</ToolTip>
+				<Default>x</Default>
+			</Literal>
+			<Literal Editable="true">
+				<ID>projetName</ID>
+				<ToolTip>projet name</ToolTip>
+				<Default>projetName</Default>
+			</Literal>
+		</Declarations>
+		<Code Language="csharp">
+			<![CDATA[		
+// dbcontextname = $dbcontextname$
+// classname =  $classname$
+// nameVar = $nameVar$
+// projetName  = $projetName$
+
+using $projetName$.Models.Data;
+
+namespace $projetName$.Models.Services
+{
+public class $classname$Service
+{
+private readonly $dbcontextname$DBContext _context;
+public $classname$Service($dbcontextname$DBContext context)
+{
+_context = context;
+}
+
+public void Add$classname$($classname$ $nameVar$)
+{
+if ($nameVar$ == null)
+{
+throw new ArgumentNullException(nameof($nameVar$));
+}
+_context.$classname$s.Add($nameVar$);
+_context.SaveChanges();
+}
+
+public void Delete$classname$($classname$ $nameVar$)
+{
+//si l'objet personne est null, on renvoi une exception
+if ($nameVar$ == null)
+{
+throw new ArgumentNullException(nameof($nameVar$));
+}
+// on met à jour le context
+_context.$classname$s.Remove($nameVar$);
+_context.SaveChanges();
+}
+
+public IEnumerable<$classname$> GetAll$classname$s()
+        {
+            return _context.$classname$s.ToList();
+        }
+		
+        public $classname$ Get$classname$ById(int id)
+        {
+            return _context.$classname$s.FirstOrDefault(p => p.Id$classname$ == id);
+        }
+		
+        public void Update$classname$($classname$ $nameVar$)
+        {
+            _context.SaveChanges();
+        }
+	}
+}
+				]]>
+		</Code>
+	</Snippet>
+</CodeSnippet>
+
+
+
+
+
+
+
+

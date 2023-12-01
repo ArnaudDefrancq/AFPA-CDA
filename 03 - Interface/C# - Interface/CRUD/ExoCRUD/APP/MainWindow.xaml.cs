@@ -16,7 +16,7 @@ namespace APP
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		//public bool validAjout = false;
+		public bool validAjout = true;
 		public bool validModif = false;
 		public bool validSuppr = false;
 		public bool selectItem = false;
@@ -84,11 +84,14 @@ namespace APP
 		// Permet d'ajouter un produit en base de donnée JSON
 		private void btnAjouter_Click(object sender, RoutedEventArgs e)
 		{
-			ProduitFormulaire formulaire = new ProduitFormulaire(selectItem);
-			this.Opacity = 0.7;
-			formulaire.ShowDialog();
-			DisplayDataGrid();
-			this.Opacity = 1;
+			if (validAjout)
+			{
+				ProduitFormulaire formulaire = new ProduitFormulaire(selectItem);
+				this.Opacity = 0.7;
+				formulaire.ShowDialog();
+				DisplayDataGrid();
+				this.Opacity = 1;
+			}
 
 		}
 
@@ -104,6 +107,7 @@ namespace APP
 				// Modification du formulaire et des btn
 				validSuppr = true;
 				validModif = true;
+				validAjout = false;
 				BtnActiveModif();
 				BtnActiveSuppr();
 				//txtLibelleFixe.Text = produit.LibelleProduit;

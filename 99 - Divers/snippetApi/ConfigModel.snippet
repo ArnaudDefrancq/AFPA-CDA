@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0">
+	<Header>
+		<Title>ConfigModel</Title>
+		<Shortcut>configNuGet</Shortcut>
+		<Description>Dto template for ASP.NET Core</Description>
+		<Author>Arnaud DEFRANCQ</Author>
+		<SnippetTypes>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal Editable="true">
+				<ID>DbName</ID>
+				<Default>DbName</Default>
+				<ToolTip>nameDb</ToolTip>
+			</Literal>
+		</Declarations>
+		<Code Language="csharp">
+			<![CDATA[
+	 // A mettre dans le appsetting.json
+	 // DbName = $DbName$
+	 
+	"ConnectionStrings": {
+		"Default": "Server=localhost;User=root;Database=$DbName$;Port=3306;SslMode=None;"
+	}
+	
+	//NuGet
+		<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="8.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="7.0.14" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.13" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.14" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.14">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="MySql.Data" Version="8.2.0" />
+		<PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.10" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+	</ItemGroup>
+	
+	// Le scaffold
+	// scaffold-DbContext -Connection Name=Default -ProviderMySql.EntityFrameworkCore -OutpuDir Models/Data -Context $DbName$DBContext -ContextDir Models
+	
+	
+				]]>
+		</Code>
+	</Snippet>
+</CodeSnippet>
