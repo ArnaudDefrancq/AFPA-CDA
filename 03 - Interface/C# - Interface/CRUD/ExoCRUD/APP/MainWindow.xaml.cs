@@ -23,7 +23,6 @@ namespace APP
 		{
 			InitializeComponent();
 			InitJSON();
-
 			DisplayDataGrid();
 		}
 

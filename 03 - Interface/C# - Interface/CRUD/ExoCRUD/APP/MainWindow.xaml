@@ -28,7 +28,6 @@
 					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé du produit" Binding="{Binding LibelleProduit}" />
 					<DataGridTextColumn x:Name="dataPrixUnitaire" Header="Prix Unitaire" Binding="{Binding PrixUnitaire}" />
 					<DataGridTextColumn x:Name="dataDate" Header="Année" Binding="{Binding Date}" />
-					<DataGridTextColumn x:Name="dataId" Header="Année" Binding="{Binding IdProduit}" />
 				</DataGrid.Columns>
 			</DataGrid>
 		</Grid>
