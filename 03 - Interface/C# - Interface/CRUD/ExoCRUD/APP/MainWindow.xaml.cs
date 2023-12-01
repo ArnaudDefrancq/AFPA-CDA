@@ -1,28 +1,11 @@
 ﻿using APP.Controller;
-using APP.Helpers;
 using APP.Models;
 using APP.Models.Data;
 using APP.Models.Dtos;
-using APP.Models.Profiles;
-using APP.Models.Service;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Printing;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace APP
 {
@@ -171,7 +154,10 @@ namespace APP
 		{
 			if (gridData.SelectedItem != null)
 			{
+				// Instancie un nouvelle obj Dto
 				ProduitDto produitDto = gridData.SelectedItem as ProduitDto;
+
+				// Modification du formulaire et des btn
 				validSuppr = true;
 				selectItem = true;
 				BtnActiveSuppr();
@@ -202,9 +188,12 @@ namespace APP
 		{
 			if (validSuppr)
 			{
+				// Initiation d'un nouvelle objet controller
 				ProduitController controller = new ProduitController();
 				ProduitDto p = gridData.SelectedItem as ProduitDto;
 				controller.DeleteProduit(p);
+
+				// Remise a 0 des btn et des inputs
 				validSuppr = false;
 				selectItem = false;
 				BtnDesactiveSuppr();
