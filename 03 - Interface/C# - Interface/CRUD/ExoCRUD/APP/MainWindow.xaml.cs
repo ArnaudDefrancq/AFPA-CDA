@@ -1,10 +1,7 @@
 ﻿using APP.Controller;
-using APP.Helpers;
 using APP.Models;
 using APP.Models.Data;
-using APP.Models.Dtos;
 using APP.View;
-using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -64,14 +61,14 @@ namespace APP
 		}
 
 		//************************************************//
-		private void BtnActiveModif()
+		public void BtnActiveModif()
 		{
 			if (validModif)
 			{
 				btnModifier.IsEnabled = true;
 			}
 		}
-		private void BtnDesactiveModif()
+		public void BtnDesactiveModif()
 		{
 			if (!validModif)
 			{
@@ -79,6 +76,20 @@ namespace APP
 			}
 		}
 
+		public void BtnActiveAjout()
+		{
+			if (validAjout)
+			{
+				btnAjouter.IsEnabled = true;
+			}
+		}
+		public void BtnDesactiveAjout()
+		{
+			if (!validAjout)
+			{
+				btnAjouter.IsEnabled = false;
+			}
+		}
 		//************************************************//
 		// Permet d'ajouter un produit en base de donnée JSON
 		private void btnAjouter_Click(object sender, RoutedEventArgs e)
@@ -114,6 +125,7 @@ namespace APP
 				validAjout = false;
 				BtnActiveModif();
 				BtnActiveSuppr();
+				BtnDesactiveAjout();
 				//txtLibelleFixe.Text = produit.LibelleProduit;
 				//txtQuantiteFixe.Text = produit.Quantite.ToString();
 				//txtPrixUnitaireFixe.Text = produit.PrixUnitaire.ToString();
@@ -149,13 +161,11 @@ namespace APP
 				// Remise a 0 des btn et des inputs
 				validSuppr = false;
 				validModif = false;
+				validAjout = true;
+				BtnActiveAjout();
 				BtnDesactiveModif();
 				BtnDesactiveSuppr();
 				DisplayDataGrid();
-				//txtLibelleFixe.Text = "";
-				//txtPrixUnitaireFixe.Text = "";
-				//txtDateFixe.Text = "";
-				//txtQuantiteFixe.Text = "";
 			}
 		}
 
@@ -172,6 +182,8 @@ namespace APP
 				DisplayDataGrid();
 				validModif = false;
 				validSuppr = false;
+				validAjout = true;
+				BtnActiveAjout();
 				BtnDesactiveModif();
 				BtnDesactiveSuppr();
 			}

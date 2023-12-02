@@ -1,23 +1,11 @@
 ﻿using APP.Controller;
-using APP.Helpers;
 using APP.Models.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace APP.View
 {
-
 	/// <summary>
 	/// Logique d'interaction pour ProduitFormulaire.xaml
 	/// </summary>
@@ -71,29 +59,15 @@ namespace APP.View
 			}
 
 		}
-		private void BtnActiveAjout()
-		{
-			if (validAjout)
-			{
-				btnAjouter.IsEnabled = true;
-			}
-		}
-		private void BtnDesactiveAjout()
-		{
-			if (!validAjout)
-			{
-				btnAjouter.IsEnabled = false;
-			}
-		}
 
-		private void BtnActiveModif()
+		public void BtnActiveModif()
 		{
 			if (validModif)
 			{
 				btnModifier.IsEnabled = true;
 			}
 		}
-		private void BtnDesactiveModif()
+		public void BtnDesactiveModif()
 		{
 			if (!validModif)
 			{
@@ -101,12 +75,28 @@ namespace APP.View
 			}
 		}
 
+		public void BtnActiveAjout()
+		{
+			if (validAjout)
+			{
+				btnAjouter.IsEnabled = true;
+			}
+		}
+		public void BtnDesactiveAjout()
+		{
+			if (!validAjout)
+			{
+				btnAjouter.IsEnabled = false;
+			}
+		} 
 		//************************************************//
 		// Si pour modif, on affiche les valeurs du produit dans les inputs
 		private void DisplayValueInput()
 		{
 			if (Mw.gridData.SelectedItem != null)
 			{
+				itemSelect = true;
+
 				Produits p = Mw.gridData.SelectedItem as Produits;
 				txtAnnee.Text = p.Date.ToString();
 				txtLibelle.Text = p.LibelleProduit;
@@ -115,9 +105,8 @@ namespace APP.View
 
 				validModif = true;
 				validAjout = false;
-				itemSelect = true;
-				BtnDesactiveAjout();
-				BtnActiveModif();
+				Mw.BtnDesactiveAjout();
+				Mw.BtnActiveModif();
 			}
 		}
 		//************************************************//

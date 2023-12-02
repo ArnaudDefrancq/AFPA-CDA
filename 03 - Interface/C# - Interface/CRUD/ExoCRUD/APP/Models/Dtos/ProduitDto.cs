@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace APP.Models.Dtos
+﻿namespace APP.Models.Dtos
 {
 	public class ProduitDto
 	{

@@ -1,12 +1,8 @@
-﻿using APP.Controller;
-using APP.Models.Data;
+﻿using APP.Models.Data;
 using APP.Models.Dtos;
 using APP.Models.Service;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace APP.Models.Profiles
 {
