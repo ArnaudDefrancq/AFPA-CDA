@@ -1,4 +1,5 @@
-﻿using CRUD.Models.Data;
+﻿using CRUD.Helpers;
+using CRUD.Models.Data;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,12 @@ namespace CRUD.Models
 	{
 		public List<Article> ListArticles { get; set; }
 		public List<Categorie> ListCategories { get; set; }
-		public static string PathArticle { get; } = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\CRUD2Tables\\CRUD\\JSON\\ArticleJSON.json";
-		public static string PathCategorie { get; } = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\CRUD2Tables\\CRUD\\JSON\\CategorieJSON.json";
+		//public static string PathArticle { get; } = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\CRUD2Tables\\CRUD\\JSON\\ArticleJSON.json";
+		//public static string PathCategorie { get; } = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\CRUD2Tables\\CRUD\\JSON\\CategorieJSON.json";
+
+		public static string PathArticle { get; } = "C:\\Users\\Toyger\\OneDrive\\Bureau\\Git AFPA\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\CRUD2Tables\\CRUD\\JSON\\ArticleJSON.json"; // Maison
+		public static string PathCategorie { get; } = "C:\\Users\\Toyger\\OneDrive\\Bureau\\Git AFPA\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\CRUD2Tables\\CRUD\\JSON\\CategorieJSON.json"; // Maison
+
 
 		public GestionDonnesContext(List<Article> listArticles, List<Categorie> listCategories)
 		{
@@ -85,6 +90,8 @@ namespace CRUD.Models
 			{
 				Console.WriteLine($"Une erreur s'est produite lors de la création du fichier JSON : {ex.Message}");
 			}
+
+			prod.Dump();
 
 			return prod;
 		}

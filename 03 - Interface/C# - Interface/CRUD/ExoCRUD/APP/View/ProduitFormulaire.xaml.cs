@@ -40,7 +40,7 @@ namespace APP.View
 			String valuePrixUnitaire = txtPrixUnitaire.Text;
 
 			// Vérification des données pour Ajout
-			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0 && !itemSelect)
+			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0)
 			{
 				validAjout = true;
 				BtnActiveAjout();
