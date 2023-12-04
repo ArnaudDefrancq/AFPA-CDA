@@ -188,6 +188,11 @@ namespace APP.View
 			if (Mw.modifOrSuppr)
 			{
 				btnSuppr.IsEnabled = true;
+
+				txtAnnee.IsEnabled = false;
+				txtLibelle.IsEnabled = false;
+				txtPrixUnitaire.IsEnabled = false;
+				txtQuantite.IsEnabled = false;
 			}
 		}
 		//************************************************//
