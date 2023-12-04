@@ -16,14 +16,14 @@
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="1*"/>
-			<ColumnDefinition Width="50*"/>
+			<ColumnDefinition Width="40*"/>
 			<ColumnDefinition Width="1*"/>
 			<ColumnDefinition Width="10*"/>
 			<ColumnDefinition Width="1*"/>
 		</Grid.ColumnDefinitions>
 
-		<Grid x:Name="gridMainTop" Grid.Column="1" Grid.RowSpan="1"  Grid.Row="1" >
-			<DataGrid x:Name="gridDataArticle" Grid.RowSpan="0" AutoGenerateColumns="False" IsReadOnly="True" >
+		<Grid x:Name="gridMainTop" Grid.Column="1" Grid.RowSpan="3"  Grid.Row="1" >
+			<DataGrid x:Name="gridDataArticle" AutoGenerateColumns="False" IsReadOnly="True"  >
 				<DataGrid.Columns>
 					<DataGridTextColumn x:Name="dataQuantite" Header="Quantité" Binding="{Binding Quantite}" />
 					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé du produit" Binding="{Binding LibelleProduit}" />
@@ -50,9 +50,9 @@
 				<RowDefinition Height="5*"/>
 			</Grid.RowDefinitions>
 
-			<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" />
-			<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False"  />
-			<Button x:Name="btnSuppr" Content="Supprimer" Grid.Row="5" Grid.Column="1" BorderBrush="White" IsEnabled="False" Background="White"   />
+			<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter Article" Grid.Row="1" />
+			<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier Article" Grid.Row="3" IsEnabled="False"  />
+			<Button x:Name="btnSuppr" Content="Supprimer Article" Grid.Row="5" Grid.Column="1" BorderBrush="White" IsEnabled="False" Background="White"   />
 
 		</Grid>
 

@@ -8,18 +8,18 @@ namespace CRUD.Models.Data
 {
 	public class Article
 	{
-		public int IdProduit { get; set; }
-		public string LibelleProduit { get; set; }
+		public int IdArticle { get; set; }
+		public string LibelleArticle { get; set; }
 		public int Quantite { get; set; }
 		public int PrixUnitaire { get; set; }
 		public int MontantTotal { get; set; }
 		public string Categorie { get; set; }
 		public static int Compteur { get; set; } = 0;
 
-		public Article(string libelleProduit, int quantite, int prixUnitaire, string categorie)
+		public Article(string libelleArticle, int quantite, int prixUnitaire, string categorie)
 		{
-			IdProduit = ++Compteur;
-			LibelleProduit = libelleProduit;
+			IdArticle = ++Compteur;
+			LibelleArticle = libelleArticle;
 			Quantite = quantite;
 			PrixUnitaire = prixUnitaire;
 			MontantTotal = PrixUnitaire * Quantite;
