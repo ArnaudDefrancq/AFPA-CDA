@@ -1,4 +1,5 @@
 ﻿using CRUD.Models.Data;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -89,6 +90,102 @@ namespace CRUD.Models
 		}
 
 		//************************************************//
+		// Permet d'ajouter un article dans un JSON
+		public void AjouterDonneeArticleJSON(Article a)
+		{
+			List<Article> prod = DownloaderDonneesArticleJSON();
+			prod.Add(a);
+
+			string json = JsonConvert.SerializeObject(prod);
+
+			File.WriteAllText(PathArticle, json);
+		}
+
+		//************************************************//
+		// Permet de supprimer un article dans un JSON
+		public void SupprimerDonneeArticleJson(Article a)
+		{
+			List<Article> prod = DownloaderDonneesArticleJSON();
+			List<Article> cloneProd = new List<Article>(prod);
+
+			foreach (Article item in cloneProd)
+			{
+				if (item.IdArticle == a.IdArticle)
+				{
+					prod.Remove(item);
+				}
+			}
+			String json = JsonConvert.SerializeObject(prod);
+			File.WriteAllText(PathArticle, json);
+		}
+
+		//************************************************//
+		// Permet de modifier un article dans un JSON
+		public void UpdateDonneeArticleJson(Article a)
+		{
+			List<Article> prod = DownloaderDonneesArticleJSON();
+
+			foreach (Article item in prod)
+			{
+				if (item.IdArticle == a.IdArticle)
+				{
+					item.LibelleArticle = a.LibelleArticle;
+					item.Quantite = a.Quantite;
+					item.PrixUnitaire = a.PrixUnitaire;
+					item.MontantTotal = a.MontantTotal;
+					item.Categorie = a.Categorie;
+				}
+			}
+			String json = JsonConvert.SerializeObject(prod);
+			File.WriteAllText(PathArticle, json);
+		}
+
+		//************************************************//
+		// Permet d'ajouter une categorie dans un JSON
+		public void AjouterDonneeCategorieJSON(Categorie c)
+		{
+			List<Categorie> prod = DownloaderDonneesCategorieJSON();
+			prod.Add(c);
+
+			string json = JsonConvert.SerializeObject(prod);
+
+			File.WriteAllText(PathCategorie, json);
+		}
+
+		//************************************************//
+		// Permet de supprimer une categorie dans un JSON
+		public void SupprimerDonneeCategorieJson(Categorie c)
+		{
+			List<Categorie> prod = DownloaderDonneesCategorieJSON();
+			List<Categorie> cloneProd = new List<Categorie>(prod);
+
+			foreach (Categorie item in cloneProd)
+			{
+				if (item.IdCategorie == c.IdCategorie)
+				{
+					prod.Remove(item);
+				}
+			}
+			String json = JsonConvert.SerializeObject(prod);
+			File.WriteAllText(PathCategorie, json);
+		}
+
+		//************************************************//
+		// Permet de modifier un article dans un JSON
+		public void UpdateDonneeCategorieJson(Categorie c)
+		{
+			List<Categorie> prod = DownloaderDonneesCategorieJSON();
+
+			foreach (Categorie item in prod)
+			{
+				if (item.IdCategorie == c.IdCategorie)
+				{
+					item.LibelleCategorie = c.LibelleCategorie;
+				}
+			}
+			String json = JsonConvert.SerializeObject(prod);
+			File.WriteAllText(PathCategorie, json);
+		}
 
 	}
 }
