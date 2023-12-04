@@ -24,18 +24,22 @@ namespace APP.View
 			Mw = w;
 
 			DisplayValueInput();
+
+			ActiveBtnSuppr();
 		}
 
 		//************************************************//
 		//Permet d'activer les btn ajouter
 		private void TextChanged(object sender, TextChangedEventArgs e)
 		{
+			// Recup des données dans les inputs
 			int quantite, date, prixUnitaire;
 			String libelleProd = "";
 			String valueQuantite = txtQuantite.Text;
 			String valueDate = txtAnnee.Text;
 			String valuePrixUnitaire = txtPrixUnitaire.Text;
 
+			// Vérification des données pour Ajout
 			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0 && !itemSelect)
 			{
 				validAjout = true;
@@ -47,7 +51,8 @@ namespace APP.View
 				BtnDesactiveAjout();
 			}
 
-			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0 && itemSelect)
+			// Vérification des données pour Modif
+			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0 && itemSelect && !Mw.modifOrSuppr)
 			{
 				validModif = true;
 				BtnActiveModif();
@@ -88,45 +93,47 @@ namespace APP.View
 			{
 				btnAjouter.IsEnabled = false;
 			}
-		} 
+		}
+
 		//************************************************//
 		// Si pour modif, on affiche les valeurs du produit dans les inputs
 		private void DisplayValueInput()
 		{
 			if (Mw.gridData.SelectedItem != null)
 			{
+				// Permet de savoir si un item a été sélectionner
 				itemSelect = true;
 
+				// Récup des données du  produit et ajout des les inputs
 				Produits p = Mw.gridData.SelectedItem as Produits;
 				txtAnnee.Text = p.Date.ToString();
 				txtLibelle.Text = p.LibelleProduit;
 				txtPrixUnitaire.Text = p.PrixUnitaire.ToString();
 				txtQuantite.Text = p.Quantite.ToString();
-
-				validModif = true;
-				validAjout = false;
-				Mw.BtnDesactiveAjout();
-				Mw.BtnActiveModif();
 			}
 		}
+
 		//************************************************//
 		// Evenement du click ajouter
 		private void btnAjouter_Click(object sender, RoutedEventArgs e)
 		{
 			if (validAjout)
 			{
+				// Création d'un nouvelle objet
 				ProduitController controller = new ProduitController();
-
 				String libelleProd = txtLibelle.Text;
 				int valueQuantite = Convert.ToInt32(txtQuantite.Text);
 				int valueDate = Convert.ToInt32(txtAnnee.Text);
 				int valuePrixUnitaire = Convert.ToInt32(txtPrixUnitaire.Text);
-
 				Produits p = new Produits(libelleProd, valueQuantite, valuePrixUnitaire, valueDate);
+
+				// Appel du controller
 				controller.CreateProduit(p);
 
+				// Modif de l'affichage dans la fenetre principale
 				Mw.DisplayDataGrid();
 
+				// Remise des inputs a 0
 				txtLibelle.Text = "";
 				txtPrixUnitaire.Text = "";
 				txtAnnee.Text = "";
@@ -140,24 +147,49 @@ namespace APP.View
 		{
 			if (validModif)
 			{
-				ProduitController controller = new ProduitController();
-
 				//Créer un nouvelle objet avec modif
+				ProduitController controller = new ProduitController();
 				String libelleProd = txtLibelle.Text;
 				int valueQuantite = Convert.ToInt32(txtQuantite.Text);
 				int valueDate = Convert.ToInt32(txtAnnee.Text);
 				int valuePrixUnitaire = Convert.ToInt32(txtPrixUnitaire.Text);
-
-				Produits produitSansModif = Mw.gridData.SelectedItem as Produits;
-
+				Produits produitSansModif = Mw.gridData.SelectedItem as Produits; // Permet de récup l'Id de l'objet a modifier
 				Produits produitModif = new Produits(produitSansModif.IdProduit, libelleProd, valueQuantite, valuePrixUnitaire, valueDate);
 
+				// Appel du controller
 				controller.UpdateProduit(produitModif);
 
+				// Modif de l'affichage dans la fenetre principale
 				Mw.DisplayDataGrid();
+				this.Close();
+
 			}
 		}
+
+		//************************************************//
+		// Evenement du click suppr
+		private void btnSuppr_Click(object sender, RoutedEventArgs e)
+		{
+			if (Mw.modifOrSuppr)
+			{
+				// Initiation d'un nouvelle objet controller
+				ProduitController controller = new ProduitController();
+				Produits p = Mw.gridData.SelectedItem as Produits;
+
+				controller.DeleteProduit(p);
+				Mw.DisplayDataGrid();
+				this.Close();
+
+			}
+		}
+
+		private void ActiveBtnSuppr()
+		{
+			if (Mw.modifOrSuppr)
+			{
+				btnSuppr.IsEnabled = true;
+			}
+		}
+		//************************************************//
 	}
-
-
 }

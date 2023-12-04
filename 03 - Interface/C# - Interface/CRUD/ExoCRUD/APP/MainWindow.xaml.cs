@@ -16,6 +16,7 @@ namespace APP
 		public bool validAjout = true;
 		public bool validModif = false;
 		public bool validSuppr = false;
+		public bool modifOrSuppr = false;   // Si false = Modif et si true = Suppr
 
 		public MainWindow()
 		{
@@ -96,10 +97,12 @@ namespace APP
 		{
 			if (validAjout)
 			{
+				// Redirection sur le formulaire
 				ProduitFormulaire formulaire = new ProduitFormulaire(this);
 				this.Opacity = 0.7;
 				formulaire.ShowDialog();
-				DisplayDataGrid();
+
+				// Retour à la normal des Btn quand on revient sur la fenetre principal
 				this.Opacity = 1;
 				validModif = false;
 				validSuppr = false;
@@ -126,10 +129,6 @@ namespace APP
 				BtnActiveModif();
 				BtnActiveSuppr();
 				BtnDesactiveAjout();
-				//txtLibelleFixe.Text = produit.LibelleProduit;
-				//txtQuantiteFixe.Text = produit.Quantite.ToString();
-				//txtPrixUnitaireFixe.Text = produit.PrixUnitaire.ToString();
-				//txtDateFixe.Text = produit.Date.ToString();
 			}
 		}
 		private void BtnActiveSuppr()
@@ -153,19 +152,23 @@ namespace APP
 		{
 			if (validSuppr)
 			{
-				// Initiation d'un nouvelle objet controller
-				ProduitController controller = new ProduitController();
-				Produits p = gridData.SelectedItem as Produits;
-				controller.DeleteProduit(p);
+				modifOrSuppr = true;
 
-				// Remise a 0 des btn et des inputs
-				validSuppr = false;
-				validModif = false;
+				// Redirection sur le formulaire
+				ProduitFormulaire formulaire = new ProduitFormulaire(this);
+				this.Opacity = 0.7;
+				formulaire.ShowDialog();
+				this.Opacity = 1;
+
+				// Retour à la normal des Btn quand on revient sur la fenetre principal
 				validAjout = true;
+				validModif = false;
+				validSuppr = false;
+				modifOrSuppr = false;
 				BtnActiveAjout();
 				BtnDesactiveModif();
 				BtnDesactiveSuppr();
-				DisplayDataGrid();
+
 			}
 		}
 
@@ -175,20 +178,22 @@ namespace APP
 		{
 			if (validModif)
 			{
+				// Redirection sur le formulaire
 				ProduitFormulaire formulaire = new ProduitFormulaire(this);
 				this.Opacity = 0.7;
 				formulaire.ShowDialog();
 				this.Opacity = 1;
-				DisplayDataGrid();
+
+				// Retour à la normal des Btn quand on revient sur la fenetre principal
+				validAjout = true;
 				validModif = false;
 				validSuppr = false;
-				validAjout = true;
+				modifOrSuppr = false;
 				BtnActiveAjout();
 				BtnDesactiveModif();
 				BtnDesactiveSuppr();
 			}
 		}
-
 	}
 
 

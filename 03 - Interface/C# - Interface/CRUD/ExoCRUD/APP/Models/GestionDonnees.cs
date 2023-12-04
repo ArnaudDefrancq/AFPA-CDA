@@ -11,8 +11,8 @@ namespace APP.Models
 		// Propriété
 		public List<Produits> ListProd { get; set; }
 
-		public static string Path { get; set; } = "C:\\Users\\Moi\\Desktop\\GitAfpa\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
-		//public static string Path { get; set; } = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
+		//public static string Path { get; set; } = "C:\\Users\\Moi\\Desktop\\GitAfpa\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
+		public static string Path { get; set; } = "U:\\59011-82-04\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
 		//public static String Path { get; set; } = "C:\\Users\\Toyger\\OneDrive\\Bureau\\Git AFPA\\AFPA-CDA\\03 - Interface\\C# - Interface\\CRUD\\ExoCRUD\\APP\\JSON\\DB.json";
 
 		//Constructeur

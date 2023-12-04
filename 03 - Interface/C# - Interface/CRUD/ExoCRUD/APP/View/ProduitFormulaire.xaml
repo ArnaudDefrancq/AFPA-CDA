@@ -13,6 +13,8 @@
 			<RowDefinition Height="3*"/>
 			<RowDefinition Height="1*"/>
 			<RowDefinition Height="3*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="3*"/>
 
 			<RowDefinition Height="1*"/>
 		</Grid.RowDefinitions>
@@ -25,7 +27,7 @@
 			<ColumnDefinition Width="1*"/>
 		</Grid.ColumnDefinitions>
 
-		<GroupBox x:Name="groupModifProduit" Grid.Column="1" Grid.ColumnSpan="1" Header="Détails du produit" Grid.RowSpan="4" Grid.Row="1" >
+		<GroupBox x:Name="groupModifProduit" Grid.Column="1" Grid.ColumnSpan="1" Header="Détails du produit" Grid.RowSpan="6" Grid.Row="1" >
 			<Grid Name="gridGroupBoxModifProduit">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="0.5*"/>
@@ -61,6 +63,6 @@
 
 		<Button x:Name="btnAjouter" Grid.Column="4" Content="Ajouter" Grid.Row="2" IsEnabled="False" Click="btnAjouter_Click"/>
 		<Button x:Name="btnModifier" Grid.Column="4" Content="Modifier" Grid.Row="4" IsEnabled="False" Click="btnModifier_Click"/>
-
+		<Button x:Name="btnSuppr" Content="Supprimer" Grid.Row="6" Grid.Column="4" BorderBrush="White" IsEnabled="False" Background="White" Click="btnSuppr_Click"  />
 	</Grid>
 </Window>
