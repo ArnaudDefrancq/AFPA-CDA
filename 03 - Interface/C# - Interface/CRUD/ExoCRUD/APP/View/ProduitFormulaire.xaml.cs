@@ -1,4 +1,5 @@
 ﻿using APP.Controller;
+using APP.Helpers;
 using APP.Models.Data;
 using System;
 using System.Windows;
@@ -52,7 +53,7 @@ namespace APP.View
 			}
 
 			// Vérification des données pour Modif
-			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0 && itemSelect && !Mw.modifOrSuppr)
+			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0 && itemSelect && !Mw.validSuppr)
 			{
 				validModif = true;
 				BtnActiveModif();
@@ -170,7 +171,7 @@ namespace APP.View
 		// Evenement du click suppr
 		private void btnSuppr_Click(object sender, RoutedEventArgs e)
 		{
-			if (Mw.modifOrSuppr)
+			if (Mw.validSuppr)
 			{
 				// Initiation d'un nouvelle objet controller
 				ProduitController controller = new ProduitController();
@@ -185,7 +186,7 @@ namespace APP.View
 
 		private void ActiveBtnSuppr()
 		{
-			if (Mw.modifOrSuppr)
+			if (Mw.validSuppr)
 			{
 				btnSuppr.IsEnabled = true;
 

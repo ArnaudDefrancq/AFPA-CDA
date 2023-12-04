@@ -16,7 +16,6 @@ namespace APP
 		public bool validAjout = true;
 		public bool validModif = false;
 		public bool validSuppr = false;
-		public bool modifOrSuppr = false;   // Si false = Modif et si true = Suppr
 
 		public MainWindow()
 		{
@@ -152,7 +151,7 @@ namespace APP
 		{
 			if (validSuppr)
 			{
-				modifOrSuppr = true;
+				validSuppr = true;
 
 				// Redirection sur le formulaire
 				ProduitFormulaire formulaire = new ProduitFormulaire(this);
@@ -164,7 +163,7 @@ namespace APP
 				validAjout = true;
 				validModif = false;
 				validSuppr = false;
-				modifOrSuppr = false;
+				//modifOrSuppr = false;
 				BtnActiveAjout();
 				BtnDesactiveModif();
 				BtnDesactiveSuppr();
@@ -178,6 +177,7 @@ namespace APP
 		{
 			if (validModif)
 			{
+				validSuppr = false;
 				// Redirection sur le formulaire
 				ProduitFormulaire formulaire = new ProduitFormulaire(this);
 				this.Opacity = 0.7;
@@ -188,7 +188,7 @@ namespace APP
 				validAjout = true;
 				validModif = false;
 				validSuppr = false;
-				modifOrSuppr = false;
+				//modifOrSuppr = false;
 				BtnActiveAjout();
 				BtnDesactiveModif();
 				BtnDesactiveSuppr();
