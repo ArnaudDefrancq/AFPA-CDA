@@ -75,6 +75,25 @@ namespace CRUD
 			GestionDonnesContext BDD = new GestionDonnesContext(CreerListeArticles(), CreerListeCategories());
 			BDD.UploaderDonnees();
 		}
+
+		//************************************************//
+		// Affichage dans le dataGridArticle
+
+		//public void DisplayDataGridArticle()
+		//{
+		//	ProduitController controller = new ProduitController();
+		//	List<Article> produitDtos = controller.GetAllArticles();
+
+		//	gridData.ItemsSource = produitDtos;
+		//}
+
+		//public void DisplayDataGridCategorie()
+		//{
+		//	ProduitController controller = new ProduitController();
+		//	List<Categorie> produitDtos = controller.GetAllCategories();
+
+		//	gridData.ItemsSource = produitDtos;
+		//}
 	}
 
 }
