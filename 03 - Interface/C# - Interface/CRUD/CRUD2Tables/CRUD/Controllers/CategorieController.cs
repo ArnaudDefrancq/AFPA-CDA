@@ -31,7 +31,7 @@ namespace CRUD.Controllers
 
 		public void UpdateCategorie(Categorie cModif)
 		{
-			CategorieService service = new v();
+			CategorieService service = new CategorieService();
 			service.UpdateCategorie(cModif);
 		}
 	}

@@ -26,7 +26,7 @@
 			<DataGrid x:Name="gridDataArticle" AutoGenerateColumns="False" IsReadOnly="True"  >
 				<DataGrid.Columns>
 					<DataGridTextColumn x:Name="dataQuantite" Header="Quantité" Binding="{Binding Quantite}" />
-					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé du produit" Binding="{Binding LibelleProduit}" />
+					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé article" Binding="{Binding LibelleArticle}" />
 					<DataGridTextColumn x:Name="dataPrixUnitaire" Header="Prix Unitaire" Binding="{Binding PrixUnitaire}" />
 					<DataGridTextColumn x:Name="dataCategorie" Header="Catégorie" Binding="{Binding Categorie}" />
 					<DataGridTextColumn x:Name="dataMontantTotal" Header="Montant Total" Binding="{Binding MontantTotal}" />
@@ -50,7 +50,7 @@
 				<RowDefinition Height="5*"/>
 			</Grid.RowDefinitions>
 
-			<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter Article" Grid.Row="1" />
+			<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter Article" Grid.Row="1" Click="btnAjouter_Click" />
 			<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier Article" Grid.Row="3" IsEnabled="False"  />
 			<Button x:Name="btnSuppr" Content="Supprimer Article" Grid.Row="5" Grid.Column="1" BorderBrush="White" IsEnabled="False" Background="White"   />
 

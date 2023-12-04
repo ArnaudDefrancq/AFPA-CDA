@@ -10,26 +10,26 @@ namespace CRUD.Controllers
 		{
 		}
 
-		public List<Article> GetAllProduits()
+		public List<Article> GetAllArticles()
 		{
 			ArticleService service = new ArticleService();
 			List<Article> produits = service.GetAllArticles();
 			return produits;
 		}
 
-		public void CreateProduit(Article a)
+		public void CreateArticle(Article a)
 		{
 			ArticleService service = new ArticleService();
 			service.AddArticle(a);
 		}
 
-		public void DeleteProduit(Article a)
+		public void DeleteArticle(Article a)
 		{
 			ArticleService service = new ArticleService();
 			service.DeleteArticle(a);
 		}
 
-		public void UpdateProduit(Article aModif)
+		public void UpdateArticle(Article aModif)
 		{
 			ArticleService service = new ArticleService();
 			service.UpdateArticle(aModif);

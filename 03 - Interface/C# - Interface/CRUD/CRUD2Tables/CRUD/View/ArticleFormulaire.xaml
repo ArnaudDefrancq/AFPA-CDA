@@ -56,10 +56,10 @@
 					<Label x:Name="lblPrixUnitaire" Content="Prix Unitaire :" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 					<Label x:Name="lblMontantTotal" Content="Montant Total :" Grid.Row="7" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 
-					<TextBox x:Name="txtLibelleArticle" Grid.Column="2"  Grid.Row="1" TextWrapping="Wrap" Text="" />
-					<TextBox x:Name="txtQuantite" Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Text="" />
-					<TextBox x:Name="txtPrixUnitaire" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" />
-					<TextBox x:Name="txtMontantTotal" Grid.Column="2" Grid.Row="7" TextWrapping="Wrap" Text="" IsEnabled="False" Background="#FFE6E6E6" />
+					<TextBox x:Name="txtLibelleArticle" Grid.Column="2"  Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
+					<TextBox x:Name="txtQuantite" Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
+					<TextBox x:Name="txtPrixUnitaire" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
+					<TextBox x:Name="txtMontantTotal" Grid.Column="2" Grid.Row="7" TextWrapping="Wrap" Text="" IsEnabled="False" Background="#FFE6E6E6"  TextChanged="TextChanged"/>
 				</Grid>
 			</GroupBox>
 
@@ -79,7 +79,11 @@
 					<Label x:Name="lblCategorie" Content="Catégories :" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 
 					<ListBox x:Name="listCategorie" Grid.ColumnSpan="2" Grid.Row="2">
-
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding LibelleCategorie} "/>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
 					</ListBox>
 				</Grid>
 

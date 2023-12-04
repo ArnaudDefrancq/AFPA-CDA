@@ -1,34 +1,32 @@
-﻿using CRUD.Helpers;
+﻿using CRUD.Controllers;
+using CRUD.Helpers;
 using CRUD.Models;
 using CRUD.Models.Data;
+using CRUD.View;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace CRUD
 {
+
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		public bool validAjoutArticle = true;
+		public bool validModiftArticle = false;
+		public bool validSupprtArticle = false;
+
 		public MainWindow()
 		{
 			InitializeComponent();
 
-
 			InitJSON();
+
+			DisplayDataGridArticle();
 		}
 
 
@@ -78,22 +76,36 @@ namespace CRUD
 
 		//************************************************//
 		// Affichage dans le dataGridArticle
+		public void DisplayDataGridArticle()
+		{
+			ArticleController controller = new ArticleController();
+			List<Article> produitDtos = controller.GetAllArticles();
 
-		//public void DisplayDataGridArticle()
-		//{
-		//	ProduitController controller = new ProduitController();
-		//	List<Article> produitDtos = controller.GetAllArticles();
+			gridDataArticle.ItemsSource = produitDtos;
+		}
 
-		//	gridData.ItemsSource = produitDtos;
-		//}
+		//************************************************//
+		// Evenement au click du btn AjouterArticle
+		private void btnAjouter_Click(object sender, RoutedEventArgs e)
+		{
+			if (validAjoutArticle)
+			{
+				// Redirection sur le formulaire
+				ArticleFormulaire formulaire = new ArticleFormulaire(this);
+				this.Opacity = 0.7;
+				formulaire.ShowDialog();
 
-		//public void DisplayDataGridCategorie()
-		//{
-		//	ProduitController controller = new ProduitController();
-		//	List<Categorie> produitDtos = controller.GetAllCategories();
+				// Retour à la normal des Btn quand on revient sur la fenetre principal
+				this.Opacity = 1;
+				//validModiftArticle = false;
+				//validSupprtArticle = false;
+				//BtnDesactiveModif();
+				//BtnDesactiveSuppr();
 
-		//	gridData.ItemsSource = produitDtos;
-		//}
+			}
+
+		}
+
 	}
 
 }
