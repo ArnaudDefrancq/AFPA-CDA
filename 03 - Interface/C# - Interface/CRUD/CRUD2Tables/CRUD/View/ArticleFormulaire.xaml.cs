@@ -42,11 +42,9 @@ namespace CRUD.View
 			{
 				Article a = Mw.gridDataArticle.SelectedItem as Article;
 
-
-
 				for (int i = 0; i < categorie.Count; i++)
 				{
-					if (categorie[i].LibelleCategorie == a.LabelleCategorie)
+					if (categorie[i].IdCategorie == a.IdCategorie)
 					{
 						groupCategorie.SelectedIndex = i;
 
@@ -206,7 +204,7 @@ namespace CRUD.View
 				int valuePrixUnitaire = Convert.ToInt32(txtPrixUnitaire.Text);
 				int valueMontantTotal = Convert.ToInt32(txtMontantTotal.Text);
 
-				Article a = new Article(libelleProd, valueQuantite, valuePrixUnitaire, categorie.LibelleCategorie);
+				Article a = new Article(libelleProd, valueQuantite, valuePrixUnitaire, categorie.IdCategorie);
 
 				// Appel du controller
 				controller.CreateArticle(a);
@@ -243,7 +241,7 @@ namespace CRUD.View
 				Article articleSansModif = Mw.gridDataArticle.SelectedItem as Article; // Permet de récup l'Id de l'objet a modifier
 
 				// Création du nouvelle objet pour modifier
-				Article articleModif = new Article(articleSansModif.IdArticle, libelleArticle, valueQuantite, valuePrixUnitaire, valueMontantTotal, categorie.LibelleCategorie);
+				Article articleModif = new Article(articleSansModif.IdArticle, libelleArticle, valueQuantite, valuePrixUnitaire, valueMontantTotal, categorie.IdCategorie);
 
 				// Appel du controller
 				controller.UpdateArticle(articleModif);

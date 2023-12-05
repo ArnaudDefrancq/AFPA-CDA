@@ -38,7 +38,7 @@ namespace CRUD
 
 			for (int i = 1; i < 15; i++)
 			{
-				Article p = new Article("Article" + i, i * 2, i * 6, "Categorie " + RandomNumber());
+				Article p = new Article("Article" + i, i * 2, i * 6, RandomNumber());
 				liste.Add(p);
 			}
 
