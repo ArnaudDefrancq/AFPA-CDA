@@ -79,9 +79,9 @@ namespace CRUD
 		public void DisplayDataGridArticle()
 		{
 			ArticleController controller = new ArticleController();
-			List<Article> produitDtos = controller.GetAllArticles();
+			List<Article> articles = controller.GetAllArticles();
 
-			gridDataArticle.ItemsSource = produitDtos;
+			gridDataArticle.ItemsSource = articles;
 		}
 
 		//************************************************//
