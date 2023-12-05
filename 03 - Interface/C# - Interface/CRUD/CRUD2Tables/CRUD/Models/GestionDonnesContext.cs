@@ -61,7 +61,8 @@ namespace CRUD.Models
 				if (File.Exists(PathArticle))
 				{
 					string json = File.ReadAllText(PathArticle);
-					return prod = System.Text.Json.JsonSerializer.Deserialize<List<Article>>(json)!;
+					prod = System.Text.Json.JsonSerializer.Deserialize<List<Article>>(json);
+					return prod;
 				}
 
 			}
@@ -90,9 +91,6 @@ namespace CRUD.Models
 			{
 				Console.WriteLine($"Une erreur s'est produite lors de la création du fichier JSON : {ex.Message}");
 			}
-
-			prod.Dump();
-
 			return prod;
 		}
 

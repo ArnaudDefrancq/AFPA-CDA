@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CRUD.Models.Data
+﻿namespace CRUD.Models.Data
 {
 	public class Article
 	{
@@ -24,10 +18,6 @@ namespace CRUD.Models.Data
 			PrixUnitaire = prixUnitaire;
 			MontantTotal = PrixUnitaire * Quantite;
 			IdCategorie = idCategorie;
-		}
-
-		public Article()
-		{
 		}
 
 		public Article(int idArticle, string libelleArticle, int quantite, int prixUnitaire, int montantTotal, int idCategorie)

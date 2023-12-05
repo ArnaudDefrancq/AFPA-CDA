@@ -1,4 +1,6 @@
 ﻿using CRUD.Models.Data;
+using CRUD.Models.Dtos;
+using CRUD.Models.Profiles;
 using CRUD.Models.Services;
 using System.Collections.Generic;
 
@@ -12,9 +14,12 @@ namespace CRUD.Controllers
 
 		public List<Article> GetAllArticles()
 		{
+			//ArticleProfile profile = new ArticleProfile();
+			//List<ArticleDto> articleDtos = profile.ListArticlesDto();
+			//return articleDtos;
 			ArticleService service = new ArticleService();
-			List<Article> produits = service.GetAllArticles();
-			return produits;
+			return service.GetAllArticles();
+
 		}
 
 		public void CreateArticle(Article a)

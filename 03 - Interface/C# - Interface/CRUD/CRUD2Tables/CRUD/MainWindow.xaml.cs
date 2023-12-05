@@ -62,7 +62,6 @@ namespace CRUD
 				Categorie p = new Categorie("Categorie " + i);
 				liste.Add(p);
 			}
-
 			return liste;
 		}
 

@@ -1,4 +1,5 @@
-﻿using CRUD.Models.Data;
+﻿using CRUD.Helpers;
+using CRUD.Models.Data;
 using System.Collections.Generic;
 
 namespace CRUD.Models.Services
@@ -25,6 +26,7 @@ namespace CRUD.Models.Services
 		{
 			GestionDonnesContext context = new GestionDonnesContext();
 			List<Article> a = context.DownloaderDonneesArticleJSON();
+			a.Dump();
 			return a;
 		}
 
