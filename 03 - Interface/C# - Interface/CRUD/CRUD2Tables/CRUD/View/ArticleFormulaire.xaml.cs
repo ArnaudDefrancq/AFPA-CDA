@@ -90,7 +90,7 @@ namespace CRUD.View
 			String valuePrixUnitaire = txtPrixUnitaire.Text;
 
 			// Vérification des données pour Ajout
-			if (Mw.validAjoutArticle && int.TryParse(valueQuantite, out quantite) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleArticle = txtLibelleArticle.Text).Length > 0 && selectCategorie)
+			if (Mw.validAjoutArticle && int.TryParse(valueQuantite, out quantite) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleArticle = txtLibelleArticle.Text).Length > 0 && groupCategorie.Text != "")
 			{
 				validAjoutArticle = true;
 				BtnActiveAjout();
@@ -228,7 +228,6 @@ namespace CRUD.View
 			{
 				//Créer un nouvelle objet avec modif
 				ArticleController controller = new ArticleController();
-
 
 				// Ref. de la categorie
 				Categorie categorie = groupCategorie.SelectedItem as Categorie;
