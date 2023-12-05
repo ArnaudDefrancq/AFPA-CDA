@@ -23,7 +23,7 @@
 		</Grid.ColumnDefinitions>
 
 		<Grid x:Name="gridMainTop" Grid.Column="1" Grid.RowSpan="3"  Grid.Row="1" >
-			<DataGrid x:Name="gridDataArticle" AutoGenerateColumns="False" IsReadOnly="True"  >
+			<DataGrid x:Name="gridDataArticle" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="gridData_SelectionChanged"  >
 				<DataGrid.Columns>
 					<DataGridTextColumn x:Name="dataQuantite" Header="Quantité" Binding="{Binding Quantite}" />
 					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé article" Binding="{Binding LibelleArticle}" />
