@@ -52,7 +52,7 @@
 
 			<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter Article" Grid.Row="1" Click="btnAjouter_Click" />
 			<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier Article" Grid.Row="3" IsEnabled="False" Click="btnModifier_Click"  />
-			<Button x:Name="btnSuppr" Content="Supprimer Article" Grid.Row="5" Grid.Column="1" BorderBrush="White" IsEnabled="False" Background="White"   />
+			<Button x:Name="btnSuppr" Content="Supprimer Article" Grid.Row="5" Grid.Column="1" BorderBrush="White" IsEnabled="False" Background="White" Click="btnSuppr_Click"   />
 
 		</Grid>
 

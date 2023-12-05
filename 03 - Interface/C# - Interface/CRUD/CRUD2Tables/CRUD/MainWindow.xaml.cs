@@ -112,13 +112,7 @@ namespace CRUD
 				ArticleFormulaire formulaire = new ArticleFormulaire(this);
 				this.Opacity = 0.7;
 				formulaire.ShowDialog();
-
-				// Retour à la normal des Btn quand on revient sur la fenetre principal
 				this.Opacity = 1;
-				//validModiftArticle = false;
-				//validSupprtArticle = false;
-				//BtnDesactiveModif();
-				//BtnDesactiveSuppr();
 			}
 		}
 
@@ -128,10 +122,10 @@ namespace CRUD
 		{
 			if (validModiftArticle)
 			{
-
 				validAjoutArticle = false;
 				validModiftArticle = true;
 				validSupprArticle = false;
+
 				// Redirection sur le formulaire
 				ArticleFormulaire formulaire = new ArticleFormulaire(this);
 				this.Opacity = 0.7;
@@ -139,13 +133,39 @@ namespace CRUD
 				this.Opacity = 1;
 
 				// Retour à la normal des Btn quand on revient sur la fenetre principal
-				//validAjout = true;
-				//validModif = false;
-				//validSuppr = false;
-				//modifOrSuppr = false;
-				//BtnActiveAjout();
-				//BtnDesactiveModif();
-				//BtnDesactiveSuppr();
+				validAjoutArticle = true;
+				validModiftArticle = false;
+				validSupprArticle = false;
+				BtnActiveAjout();
+				BtnDesactiveModif();
+				BtnDesactiveSuppr();
+			}
+		}
+
+		//************************************************//
+		// Evenement au click du btn SupprimerArticle
+		private void btnSuppr_Click(object sender, RoutedEventArgs e)
+		{
+			if (validSupprArticle)
+			{
+				validAjoutArticle = false;
+				validModiftArticle = false;
+				validSupprArticle = true;
+
+				// Redirection sur le formulaire
+				ArticleFormulaire formulaire = new ArticleFormulaire(this);
+				this.Opacity = 0.7;
+				formulaire.ShowDialog();
+				this.Opacity = 1;
+
+				// Retour à la normal des Btn quand on revient sur la fenetre principal
+				validAjoutArticle = true;
+				validModiftArticle = false;
+				validSupprArticle = false;
+				BtnActiveAjout();
+				BtnDesactiveModif();
+				BtnDesactiveSuppr();
+
 			}
 		}
 
@@ -195,6 +215,7 @@ namespace CRUD
 				btnAjouter.IsEnabled = false;
 			}
 		}
+
 	}
 }
 

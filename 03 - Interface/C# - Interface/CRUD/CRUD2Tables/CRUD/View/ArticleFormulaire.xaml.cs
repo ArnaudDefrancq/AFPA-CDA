@@ -169,6 +169,14 @@ namespace CRUD.View
 				txtPrixUnitaire.Text = a.PrixUnitaire.ToString();
 				txtQuantite.Text = a.Quantite.ToString();
 			}
+
+			if (Mw.validSupprArticle)
+			{
+				txtLibelleArticle.IsEnabled = false;
+				txtQuantite.IsEnabled = false;
+				txtPrixUnitaire.IsEnabled = false;
+				groupCategorie.IsEnabled = false;
+			}
 		}
 
 		//************************************************//
