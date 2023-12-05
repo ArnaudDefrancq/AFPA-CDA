@@ -14,7 +14,10 @@ namespace CRUD.View
 	{
 		public MainWindow Mw { get; set; }
 		public bool validAjoutArticle = false;
+		public bool validMofidierArticle = false;
 		public bool selectCategorie = false;
+		public bool itemSelect = false;
+
 
 		public ArticleFormulaire(MainWindow w)
 		{
@@ -22,6 +25,7 @@ namespace CRUD.View
 			Mw = w;
 
 			DisplayListCategorie();
+			DisplayValueInput();
 		}
 		//************************************************//
 		//Permet d'afficher les categories dans la listBox
@@ -39,7 +43,6 @@ namespace CRUD.View
 			if (groupCategorie.SelectedItem != null)
 			{
 				selectCategorie = true;
-				selectCategorie.Dump();
 			}
 		}
 
@@ -68,17 +71,20 @@ namespace CRUD.View
 			}
 
 			// Vérification des données pour Modif
-			//if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valueDate, out date) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleProd = txtLibelle.Text).Length > 0 && itemSelect && !Mw.validSuppr)
-			//{
-			//	validModif = true;
-			//	BtnActiveModif();
-			//}
-			//else
-			//{
-			//	validModif = false;
-			//	BtnDesactiveModif();
-			//}
+			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleArticle = txtLibelleArticle.Text).Length > 0 && selectCategorie && !Mw.validSupprArticle)
+			{
+				validMofidierArticle = true;
+				BtnActiveModif();
+			}
+			else
+			{
+				validMofidierArticle = false;
+				BtnDesactiveModif();
+			}
 		}
+
+		//************************************************//
+		//  Evenement activation / desactivation Btn
 		private void BtnActiveAjout()
 		{
 			if (validAjoutArticle)
@@ -91,6 +97,40 @@ namespace CRUD.View
 			if (!validAjoutArticle)
 			{
 				btnAjoutArticle.IsEnabled = false;
+			}
+		}
+
+		public void BtnActiveModif()
+		{
+			if (validMofidierArticle)
+			{
+				btnModifArticle.IsEnabled = true;
+			}
+		}
+		public void BtnDesactiveModif()
+		{
+			if (!validMofidierArticle)
+			{
+				btnModifArticle.IsEnabled = false;
+			}
+		}
+
+		//************************************************//
+		// Si pour modif, on affiche les valeurs du produit dans les inputs
+		private void DisplayValueInput()
+		{
+			if (Mw.gridDataArticle.SelectedItem != null)
+			{
+				// Permet de savoir si un item a été sélectionner
+				itemSelect = true;
+
+				// Récup des données du  produit et ajout des les inputs
+				Article p = Mw.gridDataArticle.SelectedItem as Article;
+				txtLibelleArticle.Text = p.LibelleArticle;
+				txtMontantTotal.Text = p.MontantTotal.ToString();
+				txtPrixUnitaire.Text = p.PrixUnitaire.ToString();
+				txtQuantite.Text = p.Quantite.ToString();
+				groupCategorie.Text = p.Categorie;
 			}
 		}
 

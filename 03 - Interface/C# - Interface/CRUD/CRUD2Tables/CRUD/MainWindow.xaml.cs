@@ -91,17 +91,14 @@ namespace CRUD
 			if (gridDataArticle.SelectedItem != null)
 			{
 				// Instancie un nouvelle obj Dto
+
+				// Modification des btn
 				validAjoutArticle = false;
 				validModiftArticle = true;
 				validSupprArticle = true;
-
-				// Modification du formulaire et des btn
-				//validSuppr = true;
-				//validModif = true;
-				//validAjout = false;
-				//BtnActiveModif();
-				//BtnActiveSuppr();
-				//BtnDesactiveAjout();
+				BtnActiveModif();
+				BtnActiveSuppr();
+				BtnDesactiveAjout();
 			}
 		}
 
@@ -151,7 +148,6 @@ namespace CRUD
 
 		//************************************************//
 		// Evenement activation / desactivation Btn
-
 		private void BtnActiveSuppr()
 		{
 			if (validSupprArticle)
@@ -166,16 +162,17 @@ namespace CRUD
 				btnSuppr.IsEnabled = false;
 			}
 		}
+
 		public void BtnActiveModif()
 		{
-			if (validModif)
+			if (validModiftArticle)
 			{
 				btnModifier.IsEnabled = true;
 			}
 		}
 		public void BtnDesactiveModif()
 		{
-			if (!validModif)
+			if (!validModiftArticle)
 			{
 				btnModifier.IsEnabled = false;
 			}
@@ -183,14 +180,14 @@ namespace CRUD
 
 		public void BtnActiveAjout()
 		{
-			if (validAjout)
+			if (validAjoutArticle)
 			{
 				btnAjouter.IsEnabled = true;
 			}
 		}
 		public void BtnDesactiveAjout()
 		{
-			if (!validAjout)
+			if (!validAjoutArticle)
 			{
 				btnAjouter.IsEnabled = false;
 			}
