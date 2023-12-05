@@ -6,27 +6,26 @@ namespace CRUD.Models.Services
 {
 	public class ArticleService
 	{
+		private GestionDonnesContext _context;
+
 		public ArticleService()
 		{
+			_context = new GestionDonnesContext();
 		}
 
 		public void AddArticle(Article a)
 		{
-			GestionDonnesContext context = new GestionDonnesContext();
-			context.AjouterDonneeArticleJSON(a);
+			_context.AjouterDonneeArticleJSON(a);
 		}
 
 		public void DeleteArticle(Article a)
 		{
-			GestionDonnesContext context = new GestionDonnesContext();
-			context.SupprimerDonneeArticleJson(a);
+			_context.SupprimerDonneeArticleJson(a);
 		}
 
 		public List<Article> GetAllArticles()
 		{
-			GestionDonnesContext context = new GestionDonnesContext();
-			List<Article> a = context.DownloaderDonneesArticleJSON();
-			a.Dump();
+			List<Article> a = _context.DownloaderDonneesArticleJSON();
 			return a;
 		}
 
@@ -37,8 +36,7 @@ namespace CRUD.Models.Services
 
 		public void UpdateArticle(Article a)
 		{
-			GestionDonnesContext context = new GestionDonnesContext();
-			context.UpdateDonneeArticleJson(a);
+			_context.UpdateDonneeArticleJson(a);
 		}
 
 	}

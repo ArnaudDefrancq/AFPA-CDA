@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Commandes" Height="450" Width="800" Background="{DynamicResource BackgroundUni}">
 	<Grid Name="gridMain">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="1*"/>
@@ -34,7 +34,7 @@
 			</DataGrid>
 
 		</Grid>
-		<Grid x:Name="gridBtn" Grid.Column="3" Grid.Row="1">
+		<Grid x:Name="gridBtn" Grid.Column="3" Grid.RowSpan="3" Grid.Row="1">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="5*"/>
@@ -43,18 +43,25 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="0.5*"/>
 				<RowDefinition Height="1*"/>
-				<RowDefinition Height="0.2*"/>
+				<RowDefinition Height="0.5*"/>
 				<RowDefinition Height="1*"/>
-				<RowDefinition Height="0.2*"/>
+				<RowDefinition Height="6*"/>
 				<RowDefinition Height="1*"/>
-				<RowDefinition Height="5*"/>
+				<RowDefinition Height="0.3*"/>
 			</Grid.RowDefinitions>
 
-			<Button x:Name="btnAjouter" Grid.Column="1" Content="Ajouter Article" Grid.Row="1" Click="btnAjouter_Click" />
-			<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier Article" Grid.Row="3" IsEnabled="False" Click="btnModifier_Click"  />
-			<Button x:Name="btnSuppr" Content="Supprimer Article" Grid.Row="5" Grid.Column="1" BorderBrush="White" IsEnabled="False" Background="White" Click="btnSuppr_Click"   />
+			<Button Background="{DynamicResource BtnBackgroud}" x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" Click="btnAjouter_Click" BorderBrush="{DynamicResource BtnBorder}" FontWeight="Bold" >
+			</Button>
+
+			<Button x:Name="btnModifier" Background="{DynamicResource BtnBackgroud}" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False" Click="btnModifier_Click" BorderBrush="{DynamicResource BtnBorder}" FontWeight="Bold" />
+			<Button x:Name="btnSuppr" Content="Supprimer" Grid.Row="5" Grid.Column="1" BorderBrush="{x:Null}" IsEnabled="False" Background="{DynamicResource BackgroundUni}" Click="btnSuppr_Click" >
+
+
+			</Button>
+
 
 		</Grid>
+
 
 
 

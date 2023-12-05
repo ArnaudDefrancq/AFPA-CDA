@@ -1,26 +1,31 @@
 ﻿using CRUD.Helpers;
 using CRUD.Models.Data;
 using CRUD.Models.Dtos;
+using CRUD.Models.Services;
 using System.Collections.Generic;
 
 namespace CRUD.Models.Profiles
 {
 	public class ArticleProfile
 	{
+
+		private ArticleService _serviceArticle;
+		private CategorieService _serviceCategorie;
+
 		public ArticleProfile()
 		{
+			_serviceArticle = new ArticleService();
+			_serviceCategorie = new CategorieService();
 		}
 
 		// Permet de tranformer une liste d'article en liste d'articleDto
 		public List<ArticleDto> ArticlesToArticleDto()
 		{
 			// Récup de la liste des categories
-			GestionDonnesContext contextCategorie = new GestionDonnesContext();
-			List<Categorie> categories = contextCategorie.DownloaderDonneesCategorieJSON();
+			List<Categorie> categories = _serviceCategorie.GetAllCategories();
 
 			// Récup de la liste des articles
-			GestionDonnesContext contextArticle = new GestionDonnesContext();
-			List<Article> articles = contextArticle.DownloaderDonneesArticleJSON();
+			List<Article> articles = _serviceArticle.GetAllArticles();
 
 			// Création de la liste des articleDto
 			List<ArticleDto> listarticleDtos = new List<ArticleDto>() { };
@@ -43,8 +48,7 @@ namespace CRUD.Models.Profiles
 		public Article ArticleDtoToArticle(ArticleDto aDto)
 		{
 			// Récup de la List des articles
-			GestionDonnesContext contextArticle = new GestionDonnesContext();
-			List<Article> articles = contextArticle.DownloaderDonneesArticleJSON();
+			List<Article> articles = _serviceArticle.GetAllArticles();
 
 			// Nouvelle objet
 			Article art = new Article();

@@ -8,37 +8,37 @@ namespace CRUD.Controllers
 {
 	public class ArticleController
 	{
+
+		private ArticleService _service;
+		private ArticleProfile _profile;
+
 		public ArticleController()
 		{
+			_service = new ArticleService();
+			_profile = new ArticleProfile();
 		}
 
 		public List<ArticleDto> GetAllArticles()
 		{
-			ArticleProfile profile = new ArticleProfile();
-			List<ArticleDto> articleDtos = profile.ArticlesToArticleDto();
+			List<ArticleDto> articleDtos = _profile.ArticlesToArticleDto();
 			return articleDtos;
 
 		}
 
 		public void CreateArticle(Article a)
 		{
-			ArticleService service = new ArticleService();
-			service.AddArticle(a);
+			_service.AddArticle(a);
 		}
 
 		public void DeleteArticle(ArticleDto aDto)
 		{
-			ArticleProfile profile = new ArticleProfile();
-			Article a = profile.ArticleDtoToArticle(aDto);
-
-			ArticleService service = new ArticleService();
-			service.DeleteArticle(a);
+			Article a = _profile.ArticleDtoToArticle(aDto);
+			_service.DeleteArticle(a);
 		}
 
 		public void UpdateArticle(Article aModif)
 		{
-			ArticleService service = new ArticleService();
-			service.UpdateArticle(aModif);
+			_service.UpdateArticle(aModif);
 		}
 	}
 }
