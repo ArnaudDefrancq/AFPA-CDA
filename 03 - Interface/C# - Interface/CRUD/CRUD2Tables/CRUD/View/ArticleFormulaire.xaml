@@ -57,6 +57,7 @@
 					<TextBox x:Name="txtQuantite" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
 					<TextBox x:Name="txtPrixUnitaire" Grid.Column="2" Grid.Row="7" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
 					<TextBox x:Name="txtMontantTotal" Grid.Column="2" Grid.Row="9" TextWrapping="Wrap" Text="" IsEnabled="False" Background="#FFE6E6E6" TextChanged="TextChanged"/>
+
 					<ComboBox x:Name="groupCategorie" Grid.Column="2"  Grid.Row="3" SelectionChanged="groupCategorie_SelectionChanged" >
 						<ComboBox.ItemTemplate>
 							<DataTemplate>

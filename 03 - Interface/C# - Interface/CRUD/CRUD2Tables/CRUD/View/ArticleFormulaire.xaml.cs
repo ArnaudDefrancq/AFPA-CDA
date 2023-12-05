@@ -57,9 +57,23 @@ namespace CRUD.View
 		// Evenement quand on selectionne une categorie
 		private void groupCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (groupCategorie.SelectedItem != null)
+			int quantite, prixUnitaire;
+			string valueQuantite = txtQuantite.Text;
+			string valuePrixUnitaire = txtPrixUnitaire.Text;
+
+			if (groupCategorie.SelectedItem != null && Mw.validAjoutArticle && int.TryParse(valueQuantite, out quantite) && int.TryParse(valuePrixUnitaire, out prixUnitaire))
 			{
 				selectCategorie = true;
+				validAjoutArticle = true;
+				BtnActiveAjout();
+				txtMontantTotal.Text = (quantite * prixUnitaire).ToString();
+			}
+
+			if (groupCategorie.SelectedItem != null && Mw.validModiftArticle && int.TryParse(valueQuantite, out quantite) && int.TryParse(valuePrixUnitaire, out prixUnitaire))
+			{
+				validMofidierArticle = true;
+				BtnActiveModif();
+				txtMontantTotal.Text = (quantite * prixUnitaire).ToString();
 			}
 		}
 
@@ -70,16 +84,14 @@ namespace CRUD.View
 			// Recup des données dans les inputs
 			int quantite, prixUnitaire, montantTotal;
 			String libelleArticle = txtLibelleArticle.Text;
-			String valueQuantite = txtPrixUnitaire.Text;
+			String valueQuantite = txtQuantite.Text;
 			String valuePrixUnitaire = txtPrixUnitaire.Text;
 
-
 			// Vérification des données pour Ajout
-			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleArticle = txtLibelleArticle.Text).Length > 0 && selectCategorie)
+			if (Mw.validAjoutArticle && int.TryParse(valueQuantite, out quantite) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleArticle = txtLibelleArticle.Text).Length > 0 && selectCategorie)
 			{
 				validAjoutArticle = true;
 				BtnActiveAjout();
-				txtMontantTotal.Text = (quantite * prixUnitaire).ToString();
 			}
 			else
 			{
@@ -88,7 +100,7 @@ namespace CRUD.View
 			}
 
 			// Vérification des données pour Modif
-			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleArticle = txtLibelleArticle.Text).Length > 0 && selectCategorie && !Mw.validSupprArticle)
+			if (Mw.validModiftArticle && int.TryParse(valueQuantite, out quantite) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleArticle = txtLibelleArticle.Text).Length > 0)
 			{
 				validMofidierArticle = true;
 				BtnActiveModif();
@@ -97,6 +109,16 @@ namespace CRUD.View
 			{
 				validMofidierArticle = false;
 				BtnDesactiveModif();
+			}
+
+			// Ajout du montant total
+			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valuePrixUnitaire, out prixUnitaire))
+			{
+				txtMontantTotal.Text = (quantite * prixUnitaire).ToString();
+			}
+			else
+			{
+				txtMontantTotal.Text = "0";
 			}
 		}
 
@@ -144,15 +166,9 @@ namespace CRUD.View
 				// Récup des données du  produit et ajout des les inputs
 				Article a = Mw.gridDataArticle.SelectedItem as Article;
 				txtLibelleArticle.Text = a.LibelleArticle;
-				txtMontantTotal.Text = a.MontantTotal.ToString();
 				txtPrixUnitaire.Text = a.PrixUnitaire.ToString();
 				txtQuantite.Text = a.Quantite.ToString();
 			}
-		}
-
-		private void SelectCategorie()
-		{
-
 		}
 
 		//************************************************//

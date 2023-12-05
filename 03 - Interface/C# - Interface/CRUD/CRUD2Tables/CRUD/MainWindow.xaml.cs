@@ -128,7 +128,10 @@ namespace CRUD
 		{
 			if (validModiftArticle)
 			{
-				//validSuppr = false;
+
+				validAjoutArticle = false;
+				validModiftArticle = true;
+				validSupprArticle = false;
 				// Redirection sur le formulaire
 				ArticleFormulaire formulaire = new ArticleFormulaire(this);
 				this.Opacity = 0.7;
