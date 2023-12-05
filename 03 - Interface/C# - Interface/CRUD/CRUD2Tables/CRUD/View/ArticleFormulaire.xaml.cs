@@ -212,6 +212,38 @@ namespace CRUD.View
 
 		//************************************************//
 		// Evenement du click Modifier
+		private void btnModifArticle_Click(object sender, RoutedEventArgs e)
+		{
+			if (validMofidierArticle)
+			{
+				//Créer un nouvelle objet avec modif
+				ArticleController controller = new ArticleController();
+
+
+				// Ref. de la categorie
+				Categorie categorie = groupCategorie.SelectedItem as Categorie;
+
+				// Ref. de l'article
+				String libelleArticle = txtLibelleArticle.Text;
+				int valueQuantite = Convert.ToInt32(txtQuantite.Text);
+				int valueMontantTotal = Convert.ToInt32(txtMontantTotal.Text);
+				int valuePrixUnitaire = Convert.ToInt32(txtPrixUnitaire.Text);
+
+				Article articleSansModif = Mw.gridDataArticle.SelectedItem as Article; // Permet de récup l'Id de l'objet a modifier
+
+				// Création du nouvelle objet pour modifier
+				Article articleModif = new Article(articleSansModif.IdArticle, libelleArticle, valueQuantite, valuePrixUnitaire, valueMontantTotal, categorie.LibelleCategorie);
+
+				// Appel du controller
+				controller.UpdateArticle(articleModif);
+
+				// Modif de l'affichage dans la fenetre principale
+				Mw.DisplayDataGridArticle();
+				this.Close();
+			}
+
+		}
+
 
 		//************************************************//
 		// Evenement du click Supprimer

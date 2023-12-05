@@ -29,5 +29,15 @@ namespace CRUD.Models.Data
 		public Article()
 		{
 		}
+
+		public Article(int idArticle, string libelleArticle, int quantite, int prixUnitaire, int montantTotal, string labelleCategorie)
+		{
+			IdArticle = idArticle;
+			LibelleArticle = libelleArticle;
+			Quantite = quantite;
+			PrixUnitaire = prixUnitaire;
+			MontantTotal = montantTotal;
+			LabelleCategorie = labelleCategorie;
+		}
 	}
 }

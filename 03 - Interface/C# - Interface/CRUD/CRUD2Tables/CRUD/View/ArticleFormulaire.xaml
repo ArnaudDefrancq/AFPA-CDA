@@ -84,7 +84,7 @@
 				</Grid.ColumnDefinitions>
 
 				<Button x:Name="btnAjoutArticle" Content="Ajouter Article" Grid.Row="1" Grid.Column="1" IsEnabled="False" Click="btnAjoutArticle_Click" />
-				<Button x:Name="btnModifArticle" Content="Modifier Article" Grid.Row="3" Grid.Column="1"  IsEnabled="False" />
+				<Button x:Name="btnModifArticle" Content="Modifier Article" Grid.Row="3" Grid.Column="1"  IsEnabled="False" Click="btnModifArticle_Click" />
 				<Button x:Name="btnSupprArticle" Content="Supprimer Article" Grid.Row="5"  Grid.Column="1" Background="#FFFFFDFD" BorderBrush="White" IsEnabled="False"/>
 
 			</Grid>
