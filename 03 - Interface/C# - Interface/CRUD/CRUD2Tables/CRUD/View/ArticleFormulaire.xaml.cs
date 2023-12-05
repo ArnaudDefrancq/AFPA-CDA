@@ -24,8 +24,8 @@ namespace CRUD.View
 			InitializeComponent();
 			Mw = w;
 
-			DisplayListCategorie();
 			DisplayValueInput();
+			DisplayListCategorie();
 		}
 		//************************************************//
 		//Permet d'afficher les categories dans la listBox
@@ -33,7 +33,24 @@ namespace CRUD.View
 		{
 			CategorieController controller = new CategorieController();
 			List<Categorie> categorie = controller.GetAllCategories();
+
 			groupCategorie.ItemsSource = categorie;
+			if (itemSelect)
+			{
+				Article a = Mw.gridDataArticle.SelectedItem as Article;
+
+
+
+				for (int i = 0; i < categorie.Count; i++)
+				{
+					if (categorie[i].LibelleCategorie == a.LabelleCategorie)
+					{
+						groupCategorie.SelectedIndex = i;
+
+					}
+				}
+
+			}
 		}
 
 		//************************************************//
@@ -125,13 +142,17 @@ namespace CRUD.View
 				itemSelect = true;
 
 				// Récup des données du  produit et ajout des les inputs
-				Article p = Mw.gridDataArticle.SelectedItem as Article;
-				txtLibelleArticle.Text = p.LibelleArticle;
-				txtMontantTotal.Text = p.MontantTotal.ToString();
-				txtPrixUnitaire.Text = p.PrixUnitaire.ToString();
-				txtQuantite.Text = p.Quantite.ToString();
-				groupCategorie.Text = p.Categorie;
+				Article a = Mw.gridDataArticle.SelectedItem as Article;
+				txtLibelleArticle.Text = a.LibelleArticle;
+				txtMontantTotal.Text = a.MontantTotal.ToString();
+				txtPrixUnitaire.Text = a.PrixUnitaire.ToString();
+				txtQuantite.Text = a.Quantite.ToString();
 			}
+		}
+
+		private void SelectCategorie()
+		{
+
 		}
 
 		//************************************************//

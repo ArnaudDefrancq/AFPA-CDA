@@ -140,7 +140,7 @@ namespace CRUD.Models
 					item.Quantite = a.Quantite;
 					item.PrixUnitaire = a.PrixUnitaire;
 					item.MontantTotal = a.MontantTotal;
-					item.Categorie = a.Categorie;
+					item.LabelleCategorie = a.LabelleCategorie;
 				}
 			}
 			String json = JsonConvert.SerializeObject(prod);
