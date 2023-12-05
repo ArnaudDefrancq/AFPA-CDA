@@ -10,7 +10,9 @@
 	<Grid  x:Name="mainGrid" Background="{DynamicResource BackgroundUni}">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="1*"/>
-			<RowDefinition Height="30*"/>
+			<RowDefinition Height="35*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="10*"/>
 			<RowDefinition Height="1*"/>
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
@@ -19,78 +21,74 @@
 			<ColumnDefinition Width="1*"/>
 		</Grid.ColumnDefinitions>
 
-		<Grid x:Name="gridFormulaire" Grid.Column="1" Grid.Row="1">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="1*"/>
-				<ColumnDefinition Width="0.1*"/>
-				<ColumnDefinition Width="0.5*"/>
-			</Grid.ColumnDefinitions>
 
-			<GroupBox x:Name="groupDetailsArticles" Header="Details Commande" Grid.RowSpan="3" BorderBrush="White">
-				<Grid x:Name="gridDetailArticles" Grid.RowSpan="3" >
-					<Grid.RowDefinitions>
-						<RowDefinition Height="0.5*"/>
-						<RowDefinition Height="1*"/>
-						<RowDefinition Height="1*"/>
-						<RowDefinition Height="1*"/>
-						<RowDefinition Height="1*"/>
-						<RowDefinition Height="1*"/>
-						<RowDefinition Height="1*"/>
-						<RowDefinition Height="1*"/>
-						<RowDefinition Height="1*"/>
-						<RowDefinition Height="1*"/>
-						<RowDefinition Height="0.5*"/>
-					</Grid.RowDefinitions>
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="1*"/>
-						<ColumnDefinition Width="0.1*"/>
-						<ColumnDefinition Width="1*"/>
-					</Grid.ColumnDefinitions>
-
-					<Label x:Name="lblLibelleArticle" Content="Libelle Article :" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
-					<Label x:Name="lblCategorie" Content="Catégorie Article :" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
-					<Label x:Name="lblQuantite" Content="Quantité Article :" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
-					<Label x:Name="lblPrixUnitaire" Content="Prix Unitaire :" Grid.Row="7" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
-					<Label x:Name="lblMontantTotal" Content="Montant Total :" Grid.Row="9" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
-
-					<TextBox x:Name="txtLibelleArticle" Grid.Column="2"  Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
-					<TextBox x:Name="txtQuantite" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
-					<TextBox x:Name="txtPrixUnitaire" Grid.Column="2" Grid.Row="7" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
-					<TextBox x:Name="txtMontantTotal" Grid.Column="2" Grid.Row="9" TextWrapping="Wrap" Text="" IsEnabled="False" Background="#FFE6E6E6" TextChanged="TextChanged"/>
-
-					<ComboBox x:Name="groupCategorie" Grid.Column="2"  Grid.Row="3" SelectionChanged="groupCategorie_SelectionChanged" >
-						<ComboBox.ItemTemplate>
-							<DataTemplate>
-								<TextBlock Text = "{Binding LibelleCategorie}" />
-							</DataTemplate >
-						</ComboBox.ItemTemplate >
-					</ComboBox>
-				</Grid>
-			</GroupBox>
-
-			<Grid x:Name="gridBtnAjoutArticle" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" >
+		<GroupBox x:Name="groupDetailsArticles" Header="Details Commande" Grid.Column="1" Grid.Row="1" BorderBrush="White">
+			<Grid x:Name="gridDetailArticles" Grid.RowSpan="3" >
 				<Grid.RowDefinitions>
-					<RowDefinition Height="8*"/>
-					<RowDefinition Height="1*"/>
 					<RowDefinition Height="0.5*"/>
 					<RowDefinition Height="1*"/>
-					<RowDefinition Height="0.5*"/>
 					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="0.5*"/>
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="1*"/>
-					<ColumnDefinition Width="5*"/>
+					<ColumnDefinition Width="0.1*"/>
 					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="0.1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="0.1*"/>
 				</Grid.ColumnDefinitions>
 
-				<Button x:Name="btnAjoutArticle" Content="Ajouter" Grid.Row="1" Grid.Column="1" IsEnabled="False" Click="btnAjoutArticle_Click" Background="{DynamicResource BtnBackgroud}" BorderBrush="{DynamicResource BtnBorder}" FontWeight="Bold" />
-				<Button x:Name="btnModifArticle" Content="Modifier" Grid.Row="3" Grid.Column="1"  IsEnabled="False" Click="btnModifArticle_Click" Background="{DynamicResource BtnBackgroud}" BorderBrush="{DynamicResource BtnBorder}" FontWeight="Bold" />
-				<Button x:Name="btnSupprArticle" Content="Supprimer" Grid.Row="5"  Grid.Column="1" Background="{DynamicResource BackgroundUni}" BorderBrush="{x:Null}" IsEnabled="False" Click="btnSupprArticle_Click"/>
+				<Label x:Name="lblLibelleArticle" Content="Libelle Article :" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+				<Label x:Name="lblCategorie" Content="Catégorie Article :" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+				<Label x:Name="lblQuantite" Content="Quantité Article :" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+				<Label x:Name="lblPrixUnitaire" Content="Prix Unitaire ( € ) :" Grid.Row="7" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+				<Label x:Name="lblMontantTotal" Content="Montant Total ( € ) :" Grid.Row="9" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 
+				<TextBox x:Name="txtLibelleArticle" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
+				<TextBox x:Name="txtQuantite" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
+				<TextBox x:Name="txtPrixUnitaire" Grid.Column="2" Grid.Row="7" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
+				<TextBox x:Name="txtMontantTotal" Grid.Column="2" Grid.Row="9" TextWrapping="Wrap" Text="" IsEnabled="False" Background="#FFE6E6E6" TextChanged="TextChanged"/>
+
+				<ComboBox x:Name="groupCategorie" Grid.Column="2"  Grid.Row="3" SelectionChanged="groupCategorie_SelectionChanged" >
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text = "{Binding LibelleCategorie}" />
+						</DataTemplate >
+					</ComboBox.ItemTemplate >
+				</ComboBox>
 			</Grid>
+		</GroupBox>
 
+		<Grid x:Name="gridBtnAjoutArticle" Grid.Column="1"  Grid.Row="3" >
+			<Grid.RowDefinitions>
+
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1.5*"/>
+				<RowDefinition Height="1*"/>
+
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="0.3*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="0.3*"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
+
+			<Button x:Name="btnAjoutArticle" Content="Ajouter" Grid.Column="0" Grid.Row="1" IsEnabled="False" Click="btnAjoutArticle_Click" Background="{DynamicResource BtnBackgroud}" BorderBrush="{DynamicResource BtnBorder}" FontWeight="Bold" />
+			<Button x:Name="btnModifArticle" Content="Modifier" Grid.Column="2" Grid.Row="1" IsEnabled="False" Click="btnModifArticle_Click" Background="{DynamicResource BtnBackgroud}" BorderBrush="{DynamicResource BtnBorder}" FontWeight="Bold" />
+			<Button x:Name="btnSupprArticle" Content="Supprimer" Grid.Row="1"  Grid.Column="4" Background="{DynamicResource BackgroundUni}" BorderBrush="{x:Null}" IsEnabled="False" Click="btnSupprArticle_Click" />
 
 		</Grid>
+
 
 	</Grid>
 </Window>

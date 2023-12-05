@@ -25,11 +25,11 @@
 		<Grid x:Name="gridMainTop" Grid.Column="1" Grid.RowSpan="3"  Grid.Row="1" >
 			<DataGrid x:Name="gridDataArticle" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="gridData_SelectionChanged"  >
 				<DataGrid.Columns>
-					<DataGridTextColumn x:Name="dataQuantite" Header="Quantité" Binding="{Binding Quantite}" />
-					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé article" Binding="{Binding LibelleArticle}" />
-					<DataGridTextColumn x:Name="dataPrixUnitaire" Header="Prix Unitaire" Binding="{Binding PrixUnitaire}" />
-					<DataGridTextColumn x:Name="dataCategorie" Header="Catégorie" Binding="{Binding LibelleCategorie}" />
-					<DataGridTextColumn x:Name="dataMontantTotal" Header="Montant Total" Binding="{Binding MontantTotal}" />
+					<DataGridTextColumn x:Name="dataQuantite" Header="Quantité" Binding="{Binding Quantite}" Width="0.6*" />
+					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé article" Binding="{Binding LibelleArticle}" Width="2*" />
+					<DataGridTextColumn x:Name="dataPrixUnitaire" Header="Prix Unitaire ( € )" Binding="{Binding PrixUnitaire}" Width="1*" />
+					<DataGridTextColumn x:Name="dataCategorie" Header="Catégorie" Binding="{Binding LibelleCategorie}" Width="1*" />
+					<DataGridTextColumn x:Name="dataMontantTotal" Header="Montant Total ( € )" Binding="{Binding MontantTotal}" Width="1*" />
 				</DataGrid.Columns>
 			</DataGrid>
 
