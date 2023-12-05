@@ -26,6 +26,9 @@ namespace CRUD.View
 
 			DisplayValueInput();
 			DisplayListCategorie();
+
+			BtnActiveSuppr();
+
 		}
 		//************************************************//
 		//Permet d'afficher les categories dans la listBox
@@ -154,6 +157,14 @@ namespace CRUD.View
 			}
 		}
 
+		private void BtnActiveSuppr()
+		{
+			if (Mw.validSupprArticle)
+			{
+				btnSupprArticle.IsEnabled = true;
+			}
+		}
+
 		//************************************************//
 		// Si pour modif, on affiche les valeurs du produit dans les inputs
 		private void DisplayValueInput()
@@ -244,9 +255,25 @@ namespace CRUD.View
 
 		}
 
-
 		//************************************************//
 		// Evenement du click Supprimer
+		private void btnSupprArticle_Click(object sender, RoutedEventArgs e)
+		{
+			if (Mw.validSupprArticle)
+			{
+				// Initiation d'un nouvelle objet controller
+				ArticleController controller = new ArticleController();
+				Article a = Mw.gridDataArticle.SelectedItem as Article;
+
+				// Appel du controller
+				controller.DeleteArticle(a);
+
+				// Modif de l'affichage dans la fenetre principale
+				Mw.DisplayDataGridArticle();
+				this.Close();
+			}
+
+		}
 
 	}
 }
