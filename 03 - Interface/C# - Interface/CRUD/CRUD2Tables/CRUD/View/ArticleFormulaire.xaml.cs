@@ -239,7 +239,7 @@ namespace CRUD.View
 				int valueMontantTotal = Convert.ToInt32(txtMontantTotal.Text);
 				int valuePrixUnitaire = Convert.ToInt32(txtPrixUnitaire.Text);
 
-				Article articleSansModif = Mw.gridDataArticle.SelectedItem as Article; // Permet de récup l'Id de l'objet a modifier
+				ArticleDto articleSansModif = Mw.gridDataArticle.SelectedItem as ArticleDto; // Permet de récup l'Id de l'objet a modifier
 
 				// Création du nouvelle objet pour modifier
 				Article articleModif = new Article(articleSansModif.IdArticle, libelleArticle, valueQuantite, valuePrixUnitaire, valueMontantTotal, categorie.IdCategorie);
