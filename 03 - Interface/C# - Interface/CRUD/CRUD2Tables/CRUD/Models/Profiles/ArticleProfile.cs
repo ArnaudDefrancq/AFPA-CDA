@@ -11,7 +11,8 @@ namespace CRUD.Models.Profiles
 		{
 		}
 
-		public List<ArticleDto> ListArticlesDto()
+		// Permet de tranformer une liste d'article en liste d'articleDto
+		public List<ArticleDto> ArticlesToArticleDto()
 		{
 			// Récup de la liste des categories
 			GestionDonnesContext contextCategorie = new GestionDonnesContext();
@@ -35,10 +36,27 @@ namespace CRUD.Models.Profiles
 					}
 				}
 			}
-
-			listarticleDtos.Dump();
-
 			return listarticleDtos;
+		}
+
+		// Permet de transformer un d'articleDto en article
+		public Article ArticleDtoToArticle(ArticleDto aDto)
+		{
+			// Récup de la List des articles
+			GestionDonnesContext contextArticle = new GestionDonnesContext();
+			List<Article> articles = contextArticle.DownloaderDonneesArticleJSON();
+
+			// Nouvelle objet
+			Article art = new Article();
+
+			foreach (Article article in articles)
+			{
+				if (article.IdArticle == aDto.IdArticle)
+				{
+					art = article;
+				}
+			}
+			return art;
 		}
 	}
 }

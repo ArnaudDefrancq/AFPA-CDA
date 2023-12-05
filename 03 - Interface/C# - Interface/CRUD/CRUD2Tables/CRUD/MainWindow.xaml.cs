@@ -2,6 +2,7 @@
 using CRUD.Helpers;
 using CRUD.Models;
 using CRUD.Models.Data;
+using CRUD.Models.Dtos;
 using CRUD.View;
 using System;
 using System.Collections.Generic;
@@ -78,9 +79,9 @@ namespace CRUD
 		public void DisplayDataGridArticle()
 		{
 			ArticleController controller = new ArticleController();
-			List<Article> articles = controller.GetAllArticles();
+			List<ArticleDto> produitsDtos = controller.GetAllArticles();
 
-			gridDataArticle.ItemsSource = articles;
+			gridDataArticle.ItemsSource = produitsDtos;
 		}
 
 		//************************************************//

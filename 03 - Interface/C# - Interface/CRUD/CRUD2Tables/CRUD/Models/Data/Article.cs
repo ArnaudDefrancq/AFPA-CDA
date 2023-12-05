@@ -29,5 +29,9 @@
 			MontantTotal = montantTotal;
 			IdCategorie = idCategorie;
 		}
+
+		public Article()
+		{
+		}
 	}
 }

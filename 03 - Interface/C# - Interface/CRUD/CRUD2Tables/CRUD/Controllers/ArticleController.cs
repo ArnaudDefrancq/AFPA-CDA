@@ -12,13 +12,11 @@ namespace CRUD.Controllers
 		{
 		}
 
-		public List<Article> GetAllArticles()
+		public List<ArticleDto> GetAllArticles()
 		{
-			//ArticleProfile profile = new ArticleProfile();
-			//List<ArticleDto> articleDtos = profile.ListArticlesDto();
-			//return articleDtos;
-			ArticleService service = new ArticleService();
-			return service.GetAllArticles();
+			ArticleProfile profile = new ArticleProfile();
+			List<ArticleDto> articleDtos = profile.ArticlesToArticleDto();
+			return articleDtos;
 
 		}
 
@@ -28,8 +26,11 @@ namespace CRUD.Controllers
 			service.AddArticle(a);
 		}
 
-		public void DeleteArticle(Article a)
+		public void DeleteArticle(ArticleDto aDto)
 		{
+			ArticleProfile profile = new ArticleProfile();
+			Article a = profile.ArticleDtoToArticle(aDto);
+
 			ArticleService service = new ArticleService();
 			service.DeleteArticle(a);
 		}

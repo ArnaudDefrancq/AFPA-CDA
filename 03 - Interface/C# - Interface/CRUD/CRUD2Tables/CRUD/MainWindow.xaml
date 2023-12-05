@@ -28,7 +28,7 @@
 					<DataGridTextColumn x:Name="dataQuantite" Header="Quantité" Binding="{Binding Quantite}" />
 					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé article" Binding="{Binding LibelleArticle}" />
 					<DataGridTextColumn x:Name="dataPrixUnitaire" Header="Prix Unitaire" Binding="{Binding PrixUnitaire}" />
-					<DataGridTextColumn x:Name="dataCategorie" Header="Catégorie" Binding="{Binding IdCategorie}" />
+					<DataGridTextColumn x:Name="dataCategorie" Header="Catégorie" Binding="{Binding LibelleCategorie}" />
 					<DataGridTextColumn x:Name="dataMontantTotal" Header="Montant Total" Binding="{Binding MontantTotal}" />
 				</DataGrid.Columns>
 			</DataGrid>

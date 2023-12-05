@@ -1,6 +1,7 @@
 ﻿using CRUD.Controllers;
 using CRUD.Helpers;
 using CRUD.Models.Data;
+using CRUD.Models.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -40,11 +41,11 @@ namespace CRUD.View
 			groupCategorie.ItemsSource = categorie;
 			if (itemSelect)
 			{
-				Article a = Mw.gridDataArticle.SelectedItem as Article;
+				ArticleDto a = Mw.gridDataArticle.SelectedItem as ArticleDto;
 
 				for (int i = 0; i < categorie.Count; i++)
 				{
-					if (categorie[i].IdCategorie == a.IdCategorie)
+					if (categorie[i].LibelleCategorie == a.LibelleCategorie)
 					{
 						groupCategorie.SelectedIndex = i;
 
@@ -173,7 +174,7 @@ namespace CRUD.View
 				itemSelect = true;
 
 				// Récup des données du  produit et ajout des les inputs
-				Article a = Mw.gridDataArticle.SelectedItem as Article;
+				ArticleDto a = Mw.gridDataArticle.SelectedItem as ArticleDto;
 				txtLibelleArticle.Text = a.LibelleArticle;
 				txtPrixUnitaire.Text = a.PrixUnitaire.ToString();
 				txtQuantite.Text = a.Quantite.ToString();
@@ -261,7 +262,7 @@ namespace CRUD.View
 			{
 				// Initiation d'un nouvelle objet controller
 				ArticleController controller = new ArticleController();
-				Article a = Mw.gridDataArticle.SelectedItem as Article;
+				ArticleDto a = Mw.gridDataArticle.SelectedItem as ArticleDto;
 
 				// Appel du controller
 				controller.DeleteArticle(a);
