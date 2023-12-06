@@ -1,0 +1,19 @@
+{
+	"NextId": 3,
+	"Liste": [
+		{
+			"IdArticle": 1,
+			"LibelleArticle": "prod1",
+			"NumeroArticle": 12,
+			"Quantite": 5,
+			"PrixUnitaire": 6
+		},
+		{
+			"IdArticle": 2,
+			"LibelleArticle": "prod2",
+			"NumeroArticle": 1,
+			"Quantite": 50,
+			"PrixUnitaire": 8
+		}
+	]
+}
