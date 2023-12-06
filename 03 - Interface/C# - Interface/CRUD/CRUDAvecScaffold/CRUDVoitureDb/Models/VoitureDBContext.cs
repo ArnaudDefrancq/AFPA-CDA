@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CRUDVoitureDb.Models;
 
-public partial class DbNameDBContext : DbContext
+public partial class VoitureDBContext : DbContext
 {
-	public DbNameDBContext()
+	public VoitureDBContext()
 	{
 	}
 
-	public DbNameDBContext(DbContextOptions<DbNameDBContext> options)
+	public VoitureDBContext(DbContextOptions<VoitureDBContext> options)
 		: base(options)
 	{
 	}
