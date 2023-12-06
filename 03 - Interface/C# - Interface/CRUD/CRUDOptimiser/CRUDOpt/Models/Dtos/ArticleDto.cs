@@ -1,26 +1,26 @@
-﻿namespace CRUDOpt.Models.Data
+﻿namespace CRUDOpt.Models.Dtos
 {
-	public class Article
+	public class ArticleDto
 	{
 		public int IdArticle { get; set; }
 		public string LibelleArticle { get; set; }
 		public int NumeroArticle { get; set; }
 		public int Quantite { get; set; }
 		public int PrixUnitaire { get; set; }
-		public int IdCategorie { get; set; }
+		public string LibelleCategorie { get; set; }
 
-		public Article()
+		public ArticleDto()
 		{
 		}
 
-		public Article(int idArticle, string libelleArticle, int numeroArtcile, int quantite, int prixUnitaire, int idCategorie)
+		public ArticleDto(int idArticle, string libelleArticle, int numeroArtcile, int quantite, int prixUnitaire, string libelleCategorie)
 		{
 			IdArticle = idArticle;
 			LibelleArticle = libelleArticle;
 			NumeroArticle = numeroArtcile;
 			Quantite = quantite;
 			PrixUnitaire = prixUnitaire;
-			IdCategorie = idCategorie;
+			LibelleCategorie = libelleCategorie;
 		}
 	}
 }

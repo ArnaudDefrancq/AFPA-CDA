@@ -1,0 +1,17 @@
+{
+	"NextId": 4,
+	"Liste": [
+		{
+			"IdCategorie": 1,
+			"LibelleCategorie": "categorie 1"
+		},
+		{
+			"IdCategorie": 2,
+			"LibelleCategorie": "categorie 2"
+		},
+		{
+			"IdCategorie": 3,
+			"LibelleCategorie": "categorie 3"
+		}
+	]
+}

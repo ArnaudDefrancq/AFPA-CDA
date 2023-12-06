@@ -61,6 +61,8 @@ namespace CRUDOpt.Models.Services
 			liste[position].NumeroArticle = a.NumeroArticle;
 			liste[position].LibelleArticle = a.LibelleArticle;
 			liste[position].Quantite = a.Quantite;
+			liste[position].PrixUnitaire = a.PrixUnitaire;
+			liste[position].IdCategorie = a.IdCategorie;
 			// on sauvegarde dans le fichier
 			SaveArticles(liste);
 		}

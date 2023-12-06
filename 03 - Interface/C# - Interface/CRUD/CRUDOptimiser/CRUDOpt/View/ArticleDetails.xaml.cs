@@ -1,6 +1,10 @@
-﻿using CRUDOpt.Models.Data;
+﻿using CRUDOpt.Models;
+using CRUDOpt.Models.Data;
+using CRUDOpt.Models.Dtos;
 using CRUDOpt.Models.Services;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace CRUDOpt.View
@@ -11,19 +15,22 @@ namespace CRUDOpt.View
 		public bool validModifArticle = true;
 
 		public string Mode { get; set; }
+		public MainWindow Mw { get; set; }
 
-		public ArticleDetails(Article a, MainWindow w, string mode)
+		public ArticleDetails(ArticleDto a, MainWindow w, string mode)
 		{
 			InitializeComponent();
+			Mw = w;
 			Mode = mode;
 			btnValide.Content = Mode;
+			DisplayCategorie();
 			RemplissageChamp(a);
 			BtnActivationDesactivation();
 		}
 
 		//************************************************//
 		// Permet de remplire les inputs quand on veut modifier ou supprimer
-		public void RemplissageChamp(Article a)
+		public void RemplissageChamp(ArticleDto a)
 		{
 			if (Mode != "Ajouter") // On ecrit dans les inputs les valeurs
 			{
@@ -53,7 +60,12 @@ namespace CRUDOpt.View
 		// Action du btn valider en fonction des btns Ajouts/Modifier/Supprimer
 		private void valider_Click(object sender, RoutedEventArgs e)
 		{
-			Article a = new Article(Int32.Parse((string)txtIdProduit.Text), txtLibelleArticle.Text, Int32.Parse(txtNumeroArticle.Text), Int32.Parse(txtQuantite.Text), Int32.Parse(txtPrixUnitaire.Text));
+			Categorie categSelect = groupCategorie.SelectedItem as Categorie;
+
+			Article a = new Article(Int32.Parse((string)txtIdProduit.Text), txtLibelleArticle.Text, Int32.Parse(txtNumeroArticle.Text), Int32.Parse(txtQuantite.Text), Int32.Parse(txtPrixUnitaire.Text), categSelect.IdCategorie);
+
+
+
 			switch (Mode)
 			{
 				case "Ajouter": ArticleService.AddArticle(a); break;
@@ -108,6 +120,29 @@ namespace CRUDOpt.View
 			else
 			{
 				btnValide.IsEnabled = false;
+			}
+		}
+
+		//************************************************//
+		// Afficher dans les categories disponibles
+		private void DisplayCategorie()
+		{
+			List<Categorie> categ = CategorieService.GetAllCategories();
+
+			groupCategorie.ItemsSource = categ;
+
+			if (Mode != "Ajouter")
+			{
+				ArticleDto a = Mw.gridDataArticle.SelectedItem as ArticleDto;
+
+				for (int i = 0; i < categ.Count; i++)
+				{
+					if (categ[i].LibelleCategorie == a.LibelleCategorie)
+					{
+						groupCategorie.SelectedIndex = i;
+
+					}
+				}
 			}
 		}
 	}
