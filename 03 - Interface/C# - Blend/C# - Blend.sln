@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Blend for Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testBtn", "testBtn\testBtn.csproj", "{A9E3660A-150E-4041-AAB6-E3DA28CAD784}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buttons", "Buttons\Buttons.csproj", "{AD333BE1-2E70-4C29-9268-9D31750726B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A9E3660A-150E-4041-AAB6-E3DA28CAD784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9E3660A-150E-4041-AAB6-E3DA28CAD784}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9E3660A-150E-4041-AAB6-E3DA28CAD784}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9E3660A-150E-4041-AAB6-E3DA28CAD784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD333BE1-2E70-4C29-9268-9D31750726B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD333BE1-2E70-4C29-9268-9D31750726B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD333BE1-2E70-4C29-9268-9D31750726B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD333BE1-2E70-4C29-9268-9D31750726B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FC126C0B-A4AA-44B7-A5F9-01AC01A32A88}
+		SolutionGuid = {A7344AE7-C157-43BF-8BC7-072D93D281BD}
 	EndGlobalSection
 EndGlobal

@@ -25,7 +25,7 @@ namespace CRUD
 		{
 			InitializeComponent();
 
-			InitJSON();
+			//InitJSON();
 
 			DisplayDataGridArticle();
 		}
@@ -33,46 +33,46 @@ namespace CRUD
 
 		//************************************************//
 		// Permet de créer la list des Articles
-		private List<Article> CreerListeArticles()
-		{
-			List<Article> liste = new List<Article>();
+		//private List<Article> CreerListeArticles()
+		//{
+		//	List<Article> liste = new List<Article>();
 
-			for (int i = 1; i < 15; i++)
-			{
-				Article p = new Article("Article" + i, i * 2, i * 6, RandomNumber());
-				liste.Add(p);
-			}
+		//	for (int i = 1; i < 15; i++)
+		//	{
+		//		Article p = new Article("Article" + i, i * 2, i * 6, RandomNumber());
+		//		liste.Add(p);
+		//	}
 
-			return liste;
-		}
+		//	return liste;
+		//}
 
-		private int RandomNumber()
-		{
-			Random rand = new Random();
-			int numb = rand.Next(1, 4);
-			return numb;
-		}
+		//private int RandomNumber()
+		//{
+		//	Random rand = new Random();
+		//	int numb = rand.Next(1, 4);
+		//	return numb;
+		//}
 
 		// Permet de créer la list des categories
-		private List<Categorie> CreerListeCategories()
-		{
-			List<Categorie> liste = new List<Categorie>();
+		//private List<Categorie> CreerListeCategories()
+		//{
+		//	List<Categorie> liste = new List<Categorie>();
 
-			for (int i = 1; i < 4; i++)
-			{
-				Categorie p = new Categorie("Categorie " + i);
-				liste.Add(p);
-			}
-			return liste;
-		}
+		//	for (int i = 1; i < 4; i++)
+		//	{
+		//		Categorie p = new Categorie("Categorie " + i);
+		//		liste.Add(p);
+		//	}
+		//	return liste;
+		//}
 
 		//************************************************//
 		// Init des JSON
-		private void InitJSON()
-		{
-			GestionDonnesContext BDD = new GestionDonnesContext(CreerListeArticles(), CreerListeCategories());
-			BDD.UploaderDonnees();
-		}
+		//private void InitJSON()
+		//{
+		//	GestionDonnesContext BDD = new GestionDonnesContext(CreerListeArticles(), CreerListeCategories());
+		//	BDD.UploaderDonnees();
+		//}
 
 		//************************************************//
 		// Affichage dans le dataGridArticle

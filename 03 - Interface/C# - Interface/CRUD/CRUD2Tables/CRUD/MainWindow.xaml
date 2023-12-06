@@ -50,8 +50,8 @@
 				<RowDefinition Height="0.3*"/>
 			</Grid.RowDefinitions>
 
-			<Button Background="{DynamicResource BtnBackgroud}" x:Name="btnAjouter" Grid.Column="1" Content="Ajouter" Grid.Row="1" Click="btnAjouter_Click" BorderBrush="{DynamicResource BtnBorder}" FontWeight="Bold" >
-			</Button>
+			<Button x:Name="btnAjouter" Grid.Column="1" Grid.Row="1" Click="btnAjouter_Click" Content="Ajouter" Style="{DynamicResource btnTemp}" />
+
 
 			<Button x:Name="btnModifier" Background="{DynamicResource BtnBackgroud}" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False" Click="btnModifier_Click" BorderBrush="{DynamicResource BtnBorder}" FontWeight="Bold" />
 			<Button x:Name="btnSuppr" Content="Supprimer" Grid.Row="5" Grid.Column="1" BorderBrush="{x:Null}" IsEnabled="False" Background="{DynamicResource BackgroundUni}" Click="btnSuppr_Click" >

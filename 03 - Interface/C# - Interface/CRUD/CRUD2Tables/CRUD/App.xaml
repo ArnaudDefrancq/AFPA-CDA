@@ -11,5 +11,25 @@
 			<GradientStop Color="#FF939597" Offset="0.994"/>
 		</RadialGradientBrush>
 		<SolidColorBrush x:Key="BackgroundUni" Color="#FFF0EEE9"/>
+
+		<Style x:Key="btnTemp" TargetType="Button">
+			<Setter Property="Background" Value="{StaticResource BtnBackgroud}" />
+			<Setter Property="BorderBrush" Value="Black" />
+			<Setter Property="BorderThickness" Value="1" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
+							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+
+
+
 	</Application.Resources>
 </Application>
