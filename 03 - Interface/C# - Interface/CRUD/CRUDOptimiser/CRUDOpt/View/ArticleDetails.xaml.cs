@@ -5,11 +5,11 @@ using System.Windows;
 
 namespace CRUDOpt.View
 {
-	/// <summary>
-	/// Logique d'interaction pour ArticleDetails.xaml
-	/// </summary>
 	public partial class ArticleDetails : Window
 	{
+		public bool validAjoutArticle = false;
+		public bool validModifArticle = true;
+
 		public string Mode { get; set; }
 
 		public ArticleDetails(Article a, MainWindow w, string mode)
@@ -18,19 +18,30 @@ namespace CRUDOpt.View
 			Mode = mode;
 			btnValide.Content = Mode;
 			RemplissageChamp(a);
+			BtnActivationDesactivation();
 		}
 
 		//************************************************//
 		// Permet de remplire les inputs quand on veut modifier ou supprimer
 		public void RemplissageChamp(Article a)
 		{
-			if (Mode != "Ajouter")
+			if (Mode != "Ajouter") // On ecrit dans les inputs les valeurs
 			{
 				txtLibelleArticle.Text = a.LibelleArticle;
 				txtIdProduit.Text = a.IdArticle.ToString();
 				txtNumeroArticle.Text = a.NumeroArticle.ToString();
 				txtQuantite.Text = a.Quantite.ToString();
 				txtPrixUnitaire.Text = a.PrixUnitaire.ToString();
+
+				// Si supprimer, les inputs ne peuvent pas être modifier
+				if (Mode == "Supprimer")
+				{
+					txtIdProduit.IsEnabled = false;
+					txtNumeroArticle.IsEnabled = false;
+					txtQuantite.IsEnabled = false;
+					txtLibelleArticle.IsEnabled = false;
+					txtPrixUnitaire.IsEnabled = false;
+				}
 			}
 			else
 			{
@@ -59,5 +70,45 @@ namespace CRUDOpt.View
 			this.Close();
 		}
 
+		//************************************************//
+		// Activation du button si les inputs sont correctes
+		private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+		{
+			// Recup des données dans les inputs
+			int quantite, prixUnitaire, numeroArticle;
+			String libelleArticle = txtLibelleArticle.Text;
+			String valueQuantite = txtQuantite.Text;
+			String valuePrixUnitaire = txtPrixUnitaire.Text;
+			String valueNumeroArticle = txtNumeroArticle.Text;
+
+
+			// Vérification des données pour Ajout
+			if (int.TryParse(valueQuantite, out quantite) && int.TryParse(valuePrixUnitaire, out prixUnitaire) && (libelleArticle = txtLibelleArticle.Text).Length > 0 && int.TryParse(valueNumeroArticle, out numeroArticle))
+			{
+				validAjoutArticle = true;
+				validModifArticle = true;
+				BtnActivationDesactivation();
+			}
+			else
+			{
+				validAjoutArticle = false;
+				validModifArticle = false;
+				BtnActivationDesactivation();
+			}
+		}
+
+		//************************************************//
+		// Activation du button en fonction
+		private void BtnActivationDesactivation()
+		{
+			if (validAjoutArticle || validModifArticle)
+			{
+				btnValide.IsEnabled = true;
+			}
+			else
+			{
+				btnValide.IsEnabled = false;
+			}
+		}
 	}
 }

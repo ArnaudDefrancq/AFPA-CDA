@@ -84,7 +84,9 @@ namespace CRUDOpt
 			}
 
 			ArticleDetails w = new ArticleDetails(item, this, (string)((Button)sender).Content);
+			this.Opacity = 0.7;
 			w.ShowDialog();
+			this.Opacity = 1;
 			DisplayDataGridArticle();
 			validSuppr = false;
 			validModif = false;
@@ -99,15 +101,15 @@ namespace CRUDOpt
 			Article item = gridDataArticle.SelectedItem as Article;
 
 			ArticleDetails w = new ArticleDetails(item, this, "Modifier");
+			this.Opacity = 0.7;
 			w.ShowDialog();
+			this.Opacity = 1;
 			DisplayDataGridArticle();
 			validSuppr = false;
 			validModif = false;
 			BtnActiveDesactiveModif();
 			BtnActiveDesactiveSuppr();
 		}
-
-
 	}
 
 }
