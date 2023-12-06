@@ -5,8 +5,69 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUDOpt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" Background="{DynamicResource BackgroundUni}" >
+	<Grid Name="gridMain" >
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="20*"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="40*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="10*"/>
+			<ColumnDefinition Width="1*"/>
+		</Grid.ColumnDefinitions>
 
-    </Grid>
+		<Grid x:Name="gridMainTop" Grid.Column="1" Grid.RowSpan="3"  Grid.Row="1" >
+			<DataGrid x:Name="gridDataArticle" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="gridDataArticle_SelectionChanged" >
+				<DataGrid.Columns>
+					<DataGridTextColumn x:Name="dataQuantite" Header="Quantité" Binding="{Binding Quantite}" Width="0.6*" />
+					<DataGridTextColumn x:Name="dataLibelle" Header="Libellé article" Binding="{Binding LibelleArticle}" Width="2*" />
+					<DataGridTextColumn x:Name="dataPrixUnitaire" Header="Prix Unitaire ( € )" Binding="{Binding PrixUnitaire}" Width="1*" />
+					<DataGridTextColumn x:Name="dataCategorie" Header="Numéro Article" Binding="{Binding NumeroArticle}" Width="1*" />
+				</DataGrid.Columns>
+				<DataGrid.Resources>
+					<Style TargetType="DataGridRow">
+						<EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+					</Style>
+				</DataGrid.Resources>
+			</DataGrid>
+
+		</Grid>
+		<Grid x:Name="gridBtn" Grid.Column="3" Grid.RowSpan="3" Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="5*"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="0.5*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="0.5*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="6*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="0.3*"/>
+			</Grid.RowDefinitions>
+
+			<Button x:Name="btnAjouter" Grid.Column="1" Grid.Row="1" Click="btnActionClick" Content="Ajouter" Style="{DynamicResource btnTemp}" />
+
+
+			<Button x:Name="btnModifier" Background="{DynamicResource BtnBackgroud}" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False" Click="btnActionClick" BorderBrush="{DynamicResource BtnBorder}" FontWeight="Bold" />
+			<Button x:Name="btnSuppr" Content="Supprimer" Grid.Row="5" Grid.Column="1" BorderBrush="{x:Null}" IsEnabled="False" Background="{DynamicResource BackgroundUni}" Click="btnActionClick" >
+
+
+			</Button>
+
+
+		</Grid>
+
+
+
+
+	</Grid>
 </Window>
