@@ -12,19 +12,35 @@
 		<SolidColorBrush x:Key="BackgroundUni" Color="#FFF0EEE9"/>
 
 		<Style x:Key="btnTemp" TargetType="Button">
-			<Setter Property="Background" Value="{StaticResource BtnBackgroud}" />
-			<Setter Property="BorderBrush" Value="Black" />
-			<Setter Property="BorderThickness" Value="1" />
-			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Background" Value="#939597"/>
+			<Setter Property="Foreground" Value="Black"/>
+			<Setter Property="BorderBrush" Value="#939597"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Padding" Value="10,5"/>
+			<Setter Property="Cursor" Value="Hand"/>
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="Button">
-						<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="15">
-							<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+						<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+							<Grid>
+								<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+							</Grid>
 						</Border>
 					</ControlTemplate>
 				</Setter.Value>
 			</Setter>
+			<Style.Triggers>
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter Property="Background">
+						<Setter.Value>
+							<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+								<GradientStop Color="#B4B5B8" Offset="0"/>
+								<GradientStop Color="#8B8E92" Offset="1"/>
+							</LinearGradientBrush>
+						</Setter.Value>
+					</Setter>
+				</Trigger>
+			</Style.Triggers>
 		</Style>
 	</Application.Resources>
 </Application>

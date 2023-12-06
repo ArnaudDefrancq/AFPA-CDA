@@ -64,10 +64,13 @@ namespace CRUDOpt
 			if (validModif)
 			{
 				btnModifier.IsEnabled = true;
+				Style dynamicStyle = (Style)Application.Current.Resources["btnTemp"];
+				btnModifier.Style = dynamicStyle;
 			}
 			else
 			{
 				btnModifier.IsEnabled = false;
+				btnModifier.Style = null;
 			}
 		}
 

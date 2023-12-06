@@ -12,7 +12,7 @@ namespace CRUDOpt.View
 	public partial class ArticleDetails : Window
 	{
 		public bool validAjoutArticle = false;
-		public bool validModifArticle = true;
+		public bool validModifArticle = false;
 
 		public string Mode { get; set; }
 		public MainWindow Mw { get; set; }
@@ -100,12 +100,14 @@ namespace CRUDOpt.View
 				validAjoutArticle = true;
 				validModifArticle = true;
 				BtnActivationDesactivation();
+
 			}
 			else
 			{
 				validAjoutArticle = false;
 				validModifArticle = false;
 				BtnActivationDesactivation();
+
 			}
 		}
 
@@ -116,10 +118,13 @@ namespace CRUDOpt.View
 			if (validAjoutArticle || validModifArticle)
 			{
 				btnValide.IsEnabled = true;
+				Style dynamicStyle = (Style)Application.Current.Resources["btnTemp"];
+				btnValide.Style = dynamicStyle;
 			}
 			else
 			{
 				btnValide.IsEnabled = false;
+				btnValide.Style = null;
 			}
 		}
 

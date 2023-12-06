@@ -55,10 +55,18 @@
 				<RowDefinition Height="0.3*"/>
 			</Grid.RowDefinitions>
 
-			<Button x:Name="btnAjouter" Grid.Column="1" Grid.Row="1" Click="btnActionClick" Content="Ajouter" Style="{DynamicResource btnTemp}" />
+			<Button x:Name="btnAjouter" Grid.Column="1" Grid.Row="1" Click="btnActionClick" Content="Ajouter" Style="{DynamicResource btnTemp}" FontWeight="Bold" IsEnabled="true" >
+				<Button.Effect>
+					<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+				</Button.Effect>
+			</Button>
 
 
-			<Button x:Name="btnModifier" Background="{DynamicResource BtnBackgroud}" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False" Click="btnActionClick" BorderBrush="{DynamicResource BtnBorder}" FontWeight="Bold" />
+			<Button x:Name="btnModifier" Grid.Column="1" Content="Modifier" Grid.Row="3" IsEnabled="False" Click="btnActionClick"  FontWeight="Bold" >
+				<Button.Effect>
+					<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+				</Button.Effect>
+			</Button>
 			<Button x:Name="btnSuppr" Content="Supprimer" Grid.Row="5" Grid.Column="1" BorderBrush="{x:Null}" IsEnabled="False" Background="{DynamicResource BackgroundUni}" Click="btnActionClick" >
 
 
