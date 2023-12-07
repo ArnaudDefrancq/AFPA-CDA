@@ -24,9 +24,9 @@ namespace CRUDVoitureDb
 			_context = new VoitureDBContext();
 			_controller = new VoitureController(_context);
 
-			var v = _controller.GetAllVoitures();
+			gridData.ItemsSource = _controller.GetAllVoitures();
 
-			v.Value.Dump();
+
 		}
 	}
 }

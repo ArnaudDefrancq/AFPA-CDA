@@ -26,10 +26,10 @@ namespace CRUDVoitureDb.Controllers
 		}
 
 
-		public ActionResult<IEnumerable<VoitureDto>> GetAllVoitures()
+		public IEnumerable<VoitureDto> GetAllVoitures()
 		{
-			IEnumerable<Voiture> listeVoitures = _service.GetAllVoitures();
-			return Ok(_mapper.Map<IEnumerable<VoitureDto>>(listeVoitures));
+			IEnumerable<Voiture> listePersonnes = _service.GetAllVoitures();
+			return _mapper.Map<IEnumerable<VoitureDto>>(listePersonnes);
 		}
 
 
