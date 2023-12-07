@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRUDVoitureDb.Models.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,18 @@ namespace CRUDVoitureDb.View
 	/// </summary>
 	public partial class DetailsVoiture : Window
 	{
-		public DetailsVoiture()
+		public bool validAjoutArticle = false;
+		public bool validModifArticle = false;
+
+		public string Mode { get; set; }
+		public MainWindow Mw { get; set; }
+
+		public DetailsVoiture(VoitureDto v, MainWindow w, string mode)
 		{
 			InitializeComponent();
+			Mw = w;
+			Mode = mode;
+			btnValide.Content = Mode;
 		}
 	}
 }

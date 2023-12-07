@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CRUDVoitureDb.Models.Dtos
+﻿namespace CRUDVoitureDb.Models.Dtos
 {
 	public class VoitureDto
 	{
@@ -21,5 +15,8 @@ namespace CRUDVoitureDb.Models.Dtos
 			Km = km;
 		}
 
+		public VoitureDto()
+		{
+		}
 	}
 }
