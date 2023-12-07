@@ -85,8 +85,8 @@ namespace CRUDVoitureDb.View
 			switch (Mode)
 			{
 				case "Ajouter": _controller.CreateVoiture(v); break;
-					//case "Modifier": _controller.UpdateVoiture(v); break;
-					//case "Supprimer": _controller.DeleteVoiture(v); break;
+				//case "Modifier": _controller.UpdateVoiture(v); break;
+				case "Supprimer": _controller.DeleteVoiture(Int32.Parse((string)txtIdVoiture.Text)); break;
 			}
 			this.Close();
 		}
