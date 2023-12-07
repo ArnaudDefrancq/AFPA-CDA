@@ -1,4 +1,5 @@
 ﻿using CRUDVoitureDb.Controllers;
+using CRUDVoitureDb.Helpers;
 using CRUDVoitureDb.Models;
 using CRUDVoitureDb.Models.Data;
 using CRUDVoitureDb.Models.Dtos;
@@ -43,6 +44,8 @@ namespace CRUDVoitureDb.View
 			Mw = w;
 			Mode = mode;
 			btnValide.Content = Mode;
+			DisplayInput(v);
+			BtnActivationDesactivation();
 		}
 
 		//*******************************************************//
@@ -77,11 +80,13 @@ namespace CRUDVoitureDb.View
 		{
 			VoitureDto v = new VoitureDto(Int32.Parse((string)txtIdVoiture.Text), txtMarque.Text, txtModel.Text, Int32.Parse(txtNbKm.Text));
 
+
+
 			switch (Mode)
 			{
-				case "Ajouter": VoitureController.CreateVoiture(v); break;
-				case "Modifier": VoitureController.UpdateVoiture(v); break;
-				case "Supprimer": VoitureController.DeleteVoiture(v); break;
+				case "Ajouter": _controller.CreateVoiture(v); break;
+					//case "Modifier": _controller.UpdateVoiture(v); break;
+					//case "Supprimer": _controller.DeleteVoiture(v); break;
 			}
 			this.Close();
 		}
@@ -105,7 +110,7 @@ namespace CRUDVoitureDb.View
 
 
 			// Vérification des données pour Ajout
-			if (int.TryParse(txtNbKm, out km) && (marque = txtMarque.Text).Length > 0 && (model = txtModel.Text).Length > 0)
+			if (int.TryParse(valueKm, out km) && marque.Length > 0 && model.Length > 0)
 			{
 				validAjoutArticle = true;
 				validModifArticle = true;

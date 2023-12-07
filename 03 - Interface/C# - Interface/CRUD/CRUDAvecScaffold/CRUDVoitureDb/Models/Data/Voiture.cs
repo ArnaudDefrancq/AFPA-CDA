@@ -13,11 +13,4 @@ public partial class Voiture
 
 	public int? Km { get; set; }
 
-	public Voiture(int idVoiture, string? marque, string? model, int? km)
-	{
-		IdVoiture = idVoiture;
-		Marque = marque;
-		Model = model;
-		Km = km;
-	}
 }

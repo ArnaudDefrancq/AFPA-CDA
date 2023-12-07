@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUDVoitureDb"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="{DynamicResource BackgroundUni}">
 	<Grid Name="gridMain" >
 		<Grid.RowDefinitions>
 			<RowDefinition Height="1*"/>

@@ -3,6 +3,7 @@
 	public class VoitureDto
 	{
 		public int IdVoiture { get; set; }
+
 		public string? Marque { get; set; }
 
 		public string? Model { get; set; }

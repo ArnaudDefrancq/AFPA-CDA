@@ -44,14 +44,14 @@ namespace CRUDVoitureDb.Controllers
 		}
 
 
-		public ActionResult<Voiture> CreateVoiture(Voiture obj)
+		public ActionResult<Voiture> CreateVoiture(VoitureDto obj)
 		{
 			Voiture newVoiture = _mapper.Map<Voiture>(obj);
 			_service.AddVoiture(newVoiture);
 			return CreatedAtRoute(nameof(GetVoitureById), new { Id = newVoiture.IdVoiture }, newVoiture);
 		}
 
-		public ActionResult UpdateVoiture(int id, Voiture obj)
+		public ActionResult UpdateVoiture(int id, VoitureDto obj)
 		{
 			Voiture objFromRepo = _service.GetVoitureById(id);
 			if (objFromRepo == null)
