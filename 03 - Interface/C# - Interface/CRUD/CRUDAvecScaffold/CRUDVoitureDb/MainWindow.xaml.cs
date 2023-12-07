@@ -14,7 +14,7 @@ namespace CRUDVoitureDb
 	public partial class MainWindow : Window
 	{
 		private VoitureController _controller;
-		private VoitureDBContext _context;
+		public VoitureDBContext _context;
 
 		public bool validModif = false;
 		public bool validSuppr = false;
@@ -30,7 +30,7 @@ namespace CRUDVoitureDb
 
 		//*******************************************************//
 		//Affiche dans le dataGRid
-		private void DisplayDataGrid()
+		public void DisplayDataGrid()
 		{
 			gridDataArticle.ItemsSource = _controller.GetAllVoitures();
 		}
@@ -94,7 +94,7 @@ namespace CRUDVoitureDb
 			w.ShowDialog();
 			this.Opacity = 1;
 
-			DisplayDataGrid();
+			//DisplayDataGrid();
 			validSuppr = false;
 			validModif = false;
 			BtnActiveDesactiveModif();
@@ -111,7 +111,7 @@ namespace CRUDVoitureDb
 			this.Opacity = 0.7;
 			w.ShowDialog();
 			this.Opacity = 1;
-			DisplayDataGrid();
+			//DisplayDataGrid();
 			validSuppr = false;
 			validModif = false;
 			BtnActiveDesactiveModif();

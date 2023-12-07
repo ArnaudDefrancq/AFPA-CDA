@@ -1,21 +1,8 @@
 ﻿using CRUDVoitureDb.Controllers;
-using CRUDVoitureDb.Helpers;
 using CRUDVoitureDb.Models;
-using CRUDVoitureDb.Models.Data;
 using CRUDVoitureDb.Models.Dtos;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace CRUDVoitureDb.View
 {
@@ -38,10 +25,10 @@ namespace CRUDVoitureDb.View
 		{
 			InitializeComponent();
 
-			_context = new VoitureDBContext();
+			Mw = w;
+			_context = Mw._context;
 			_controller = new VoitureController(_context);
 
-			Mw = w;
 			Mode = mode;
 			btnValide.Content = Mode;
 			DisplayInput(v);
@@ -88,6 +75,9 @@ namespace CRUDVoitureDb.View
 				case "Modifier": _controller.UpdateVoiture(Int32.Parse((string)txtIdVoiture.Text), v); break;
 				case "Supprimer": _controller.DeleteVoiture(Int32.Parse((string)txtIdVoiture.Text)); break;
 			}
+
+			Mw.DisplayDataGrid();
+
 			this.Close();
 		}
 

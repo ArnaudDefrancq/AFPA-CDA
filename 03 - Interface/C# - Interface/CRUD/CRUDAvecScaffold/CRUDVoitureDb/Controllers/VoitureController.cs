@@ -58,9 +58,7 @@ namespace CRUDVoitureDb.Controllers
 			{
 				return NotFound();
 			}
-			objFromRepo.Dump();
 			_mapper.Map(obj, objFromRepo);
-			objFromRepo.Dump();
 			// inutile puisque la fonction ne fait rien, mais garde la cohérence
 			_service.UpdateVoiture(objFromRepo);
 			return NoContent();
