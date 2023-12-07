@@ -94,7 +94,7 @@ namespace CRUDVoitureDb
 			w.ShowDialog();
 			this.Opacity = 1;
 
-			//DisplayDataGrid();
+			DisplayDataGrid();
 			validSuppr = false;
 			validModif = false;
 			BtnActiveDesactiveModif();
@@ -111,7 +111,7 @@ namespace CRUDVoitureDb
 			this.Opacity = 0.7;
 			w.ShowDialog();
 			this.Opacity = 1;
-			//DisplayDataGrid();
+			DisplayDataGrid();
 			validSuppr = false;
 			validModif = false;
 			BtnActiveDesactiveModif();

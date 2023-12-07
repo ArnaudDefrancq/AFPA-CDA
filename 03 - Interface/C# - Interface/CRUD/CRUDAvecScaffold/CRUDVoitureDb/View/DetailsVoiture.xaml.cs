@@ -76,8 +76,6 @@ namespace CRUDVoitureDb.View
 				case "Supprimer": _controller.DeleteVoiture(Int32.Parse((string)txtIdVoiture.Text)); break;
 			}
 
-			Mw.DisplayDataGrid();
-
 			this.Close();
 		}
 
