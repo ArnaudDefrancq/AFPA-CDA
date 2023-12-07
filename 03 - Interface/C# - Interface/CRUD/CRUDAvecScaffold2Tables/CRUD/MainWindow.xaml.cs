@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CRUD.Controllers;
+using CRUD.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,17 @@ namespace CRUD
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+
+		private MarqueController _controller;
+		public voitureDBContext _context;
+
 		public MainWindow()
 		{
 			InitializeComponent();
+			_context = new voitureDBContext();
+			_controller = new MarqueController(_context);
+
+			var a = _controller.GetAllMarques();
 		}
 	}
 }
