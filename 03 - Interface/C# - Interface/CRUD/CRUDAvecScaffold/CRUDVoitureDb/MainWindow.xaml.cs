@@ -93,6 +93,7 @@ namespace CRUDVoitureDb
 			this.Opacity = 0.7;
 			w.ShowDialog();
 			this.Opacity = 1;
+
 			DisplayDataGrid();
 			validSuppr = false;
 			validModif = false;
