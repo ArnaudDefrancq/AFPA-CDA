@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CRUD.Models.Data;
 using Microsoft.EntityFrameworkCore;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace CRUD.Models;
 
@@ -20,7 +21,10 @@ public partial class voitureDBContext : DbContext
 
 	public virtual DbSet<Modele> Modeles { get; set; }
 
-	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseMySQL("Server=localhost;User=root;Database=voiture;Port=3306;SslMode=None;");
+	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+	{
+		optionsBuilder.UseMySQL(ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
+	}
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
