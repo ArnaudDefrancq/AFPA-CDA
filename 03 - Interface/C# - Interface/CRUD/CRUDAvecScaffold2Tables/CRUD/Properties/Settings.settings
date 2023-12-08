@@ -2,8 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CRUD.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Paramètre" Type="System.String" Scope="User">
-      <Value Profile="(Default)">"Default": "Server=localhost;User=root;Database=voiture;Port=3306;SslMode=None;"</Value>
+    <Setting Name="Paramètre" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">"Default":"server=localhost;user=root;database=immobilierdb;port=3306;ssl mode=none"</Value>
     </Setting>
   </Settings>
 </SettingsFile>
