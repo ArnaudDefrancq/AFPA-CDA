@@ -2,6 +2,7 @@
 using CRUDVoitureDb.Helpers;
 using CRUDVoitureDb.Models;
 using CRUDVoitureDb.Models.Dtos;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -34,8 +35,6 @@ namespace CRUDVoitureDb.View
 			btnValide.Content = Mode;
 			DisplayInput(v);
 			BtnActivationDesactivation();
-
-
 		}
 
 		//*******************************************************//
@@ -91,7 +90,7 @@ namespace CRUDVoitureDb.View
 		// Activation du button si les inputs sont correctes
 		private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
 		{
-			Regex regexInt = new Regex(@"^[\d]+$");
+			Regex regex = new Regex(@"^[\d]+$");
 
 			// Recup des données dans les inputs
 			int km;
@@ -100,7 +99,7 @@ namespace CRUDVoitureDb.View
 			String valueKm = txtNbKm.Text;
 
 			// Permet de selectionner que des int dans l'input Km
-			if (!int.TryParse(valueKm, out km) && txtNbKm.Text.Length != 0)
+			if (!int.TryParse(valueKm, out km) && txtNbKm.Text.Length > 0)
 			{
 				txtNbKm.Text = txtNbKm.Text.Remove(txtNbKm.Text.Length - 1, 1);
 			}
