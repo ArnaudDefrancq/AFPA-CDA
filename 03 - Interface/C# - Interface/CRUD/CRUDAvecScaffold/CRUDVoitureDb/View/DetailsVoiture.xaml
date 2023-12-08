@@ -46,7 +46,7 @@
 				<Label x:Name="lblNbKm" Content="Nombre de kilomètre :" Grid.Row="1" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 
 				<TextBox x:Name="txtMarque" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
-				<TextBox x:Name="txtNbKm" Grid.Row="1" Grid.Column="6" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
+				<TextBox x:Name="txtNbKm" Grid.Row="1" Grid.Column="6" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="txtNbKm_PreviewTextInput" />
 				<TextBox x:Name="txtModel" Grid.Column="2" Grid.Row="3" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
 
 				<TextBox x:Name="txtIdVoiture" Grid.Column="6" Text="" Grid.Row="3"  Visibility="Hidden" />

@@ -4,6 +4,7 @@ using CRUDVoitureDb.Models;
 using CRUDVoitureDb.Models.Dtos;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -17,6 +18,7 @@ namespace CRUDVoitureDb.View
 	{
 		public bool validAjoutArticle = false;
 		public bool validModifArticle = false;
+		private static readonly Regex intRegex = new Regex(@"^[\d]+$");
 
 		private VoitureController _controller;
 		private VoitureDBContext _context;
@@ -90,23 +92,13 @@ namespace CRUDVoitureDb.View
 		// Activation du button si les inputs sont correctes
 		private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
 		{
-			Regex regex = new Regex(@"^[\d]+$");
+
 
 			// Recup des données dans les inputs
 			int km;
 			String marque = txtMarque.Text;
 			String model = txtModel.Text;
 			String valueKm = txtNbKm.Text;
-
-			// Permet de selectionner que des int dans l'input Km
-			if (!int.TryParse(valueKm, out km) && txtNbKm.Text.Length > 0)
-			{
-				txtNbKm.Text = txtNbKm.Text.Remove(txtNbKm.Text.Length - 1, 1);
-			}
-			else
-			{
-				txtNbKm.Text = valueKm;
-			}
 
 			// Vérification des données pour Ajout
 			if (int.TryParse(valueKm, out km) && marque.Length > 0 && model.Length > 0)
@@ -138,6 +130,11 @@ namespace CRUDVoitureDb.View
 				btnValide.IsEnabled = false;
 				btnValide.Style = null;
 			}
+		}
+
+		private void txtNbKm_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+		{
+			e.Handled = !intRegex.IsMatch(e.Text);
 		}
 	}
 }
