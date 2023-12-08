@@ -43,14 +43,14 @@
 
 				<Label x:Name="lblMarque" Content="Marque :" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 				<Label x:Name="lblModel" Content="Model :" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
-				<Label x:Name="lblNbKm" Content="Nombre de kilomètre :" Grid.Row="1" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+				<Label x:Name="lblNbKm" Content="Nombres de kilomètres :" Grid.Row="1" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 
 				<TextBox x:Name="txtMarque" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
-				<TextBox x:Name="txtNbKm" Grid.Row="1" Grid.Column="6" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
-				<ComboBox x:Name="groupModel" Grid.Column="2"  Grid.Row="3" SelectionChanged="groupCategorie_SelectionChanged" >
+				<TextBox x:Name="txtNbKm" Grid.Row="1" Grid.Column="6" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="txtNbKm_PreviewTextInput" />
+				<ComboBox x:Name="groupCategorie" Grid.Column="2"  Grid.Row="3"  >
 					<ComboBox.ItemTemplate>
 						<DataTemplate>
-							<TextBlock Text = "{Binding Libelle}" />
+							<TextBlock Text = "{Binding LibelleCategorie}" />
 						</DataTemplate >
 					</ComboBox.ItemTemplate >
 				</ComboBox>
