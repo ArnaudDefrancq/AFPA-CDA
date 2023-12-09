@@ -10,7 +10,7 @@ namespace CRUD.Models.Profiles
 			CreateMap<Appartement, AppartementDtoIn>();
 			CreateMap<AppartementDtoIn, Appartement>();
 
-			CreateMap<Appartement, AppartementDtoApplatieAvecCategorie>().ForMember(ap => ap.CategorieAppartement, o => o.MapFrom(a => a.CategorieAppartement));
+			CreateMap<Appartement, AppartementDtoApplatieAvecCategorie>().ForMember(ap => ap.TypeAppartement, o => o.MapFrom(a => a.CategorieAppartement.TypeAppartement));
 			CreateMap<AppartementDtoApplatieAvecCategorie, Appartement>();
 		}
 	}

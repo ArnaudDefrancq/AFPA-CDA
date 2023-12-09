@@ -1,4 +1,5 @@
 ﻿using CRUD.Models.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CRUD.Models.Services
 {
@@ -35,12 +36,12 @@ namespace CRUD.Models.Services
 
 		public IEnumerable<Appartement> GetAllAppartements()
 		{
-			return _context.Appartements.ToList();
+			return _context.Appartements.Include("CategorieAppartement").ToList();
 		}
 
 		public Appartement GetAppartementById(int id)
 		{
-			return _context.Appartements.FirstOrDefault(p => p.IdAppartement == id);
+			return _context.Appartements.Include("CategorieAppartement").FirstOrDefault(p => p.IdAppartement == id);
 		}
 
 		public void UpdateAppartement(Appartement a)

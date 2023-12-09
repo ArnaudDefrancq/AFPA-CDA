@@ -15,7 +15,7 @@ namespace CRUD.Controllers
 
 		public AppartementController(ImmobilierDBContext context)
 		{
-			_service = new ImmobilierDBContext(context);
+			_service = new AppartementService(context);
 			var config = new MapperConfiguration(cfg =>
 			{
 				cfg.AddProfile<AppartementProfile>();

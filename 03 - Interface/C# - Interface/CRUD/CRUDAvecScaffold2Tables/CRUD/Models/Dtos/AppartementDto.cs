@@ -41,7 +41,7 @@
 
 		public int Type { get; set; }
 
-		public string CategorieAppartement { get; set; } = null!;
+		public string TypeAppartement { get; set; }
 	}
 }
 
