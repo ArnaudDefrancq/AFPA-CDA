@@ -6,7 +6,7 @@
 
 		public string? TypeAppartement { get; set; }
 
-		public virtual ICollection<AppartementDtoIn> Appartements { get; set; } = new List<AppartementDtoIn>();
+		public virtual ICollection<AppartementDtoSansBoucle> Appartements { get; set; } = new List<AppartementDtoSansBoucle>();
 	}
 	public class CategorieDtoIn // Pour mettre en base de donnée une categorie
 	{

@@ -1,4 +1,5 @@
 ﻿using CRUD.Models.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,12 +40,12 @@ namespace CRUD.Models.Services
 
 		public IEnumerable<Categorie> GetAllCategories()
 		{
-			return _context.Categories.ToList();
+			return _context.Categories.Include("Appartements").ToList();
 		}
 
 		public Categorie GetCategorieById(int id)
 		{
-			return _context.Categories.FirstOrDefault(p => p.IdCategorie == id);
+			return _context.Categories.Include("Appartements").FirstOrDefault(p => p.IdCategorie == id);
 		}
 
 		public void UpdateCategorie(Categorie c)

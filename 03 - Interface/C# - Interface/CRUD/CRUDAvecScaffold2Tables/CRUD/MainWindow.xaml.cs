@@ -1,6 +1,7 @@
 ﻿using CRUD.Controllers;
 using CRUD.Models;
 using CRUD.Models.Dtos;
+using CRUD.View;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -95,16 +96,16 @@ namespace CRUD
 				item = (AppartementDtoApplatieAvecCategorie)gridDataArticle.SelectedItem;
 			}
 
-			//DetailsVoiture w = new DetailsVoiture(item, this, (string)((Button)sender).Content);
-			//this.Opacity = 0.7;
-			//w.ShowDialog();
-			//this.Opacity = 1;
+			AppartementFormulaire w = new AppartementFormulaire(item, this, (string)((Button)sender).Content);
+			this.Opacity = 0.7;
+			w.ShowDialog();
+			this.Opacity = 1;
 
-			//DisplayDataGrid();
-			//validSuppr = false;
-			//validModif = false;
-			//BtnActiveDesactiveModif();
-			//BtnActiveDesactiveSuppr();
+			DisplayDataGrid();
+			validSuppr = false;
+			validModif = false;
+			BtnActiveDesactiveModif();
+			BtnActiveDesactiveSuppr();
 		}
 
 		//*******************************************************//
@@ -113,15 +114,15 @@ namespace CRUD
 		{
 			AppartementDtoApplatieAvecCategorie item = gridDataArticle.SelectedItem as AppartementDtoApplatieAvecCategorie;
 
-			//DetailsVoiture w = new DetailsVoiture(item, this, "Modifier");
-			//this.Opacity = 0.7;
-			//w.ShowDialog();
-			//this.Opacity = 1;
-			//DisplayDataGrid();
-			//validSuppr = false;
-			//validModif = false;
-			//BtnActiveDesactiveModif();
-			//BtnActiveDesactiveSuppr();
+			AppartementFormulaire w = new AppartementFormulaire(item, this, "Modifier");
+			this.Opacity = 0.7;
+			w.ShowDialog();
+			this.Opacity = 1;
+			DisplayDataGrid();
+			validSuppr = false;
+			validModif = false;
+			BtnActiveDesactiveModif();
+			BtnActiveDesactiveSuppr();
 		}
 	}
 }

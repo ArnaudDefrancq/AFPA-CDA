@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using CRUD.Models;
 using CRUD.Models.Data;
 using CRUD.Models.Dtos;
-using CRUD.Models.Profiles;
 using CRUD.Models.Services;
+using CRUD.Models;
 using Microsoft.AspNetCore.Mvc;
+using CRUD.Models.Profiles;
 
 namespace CRUD.Controllers
 {
