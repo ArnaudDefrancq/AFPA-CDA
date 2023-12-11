@@ -27,7 +27,9 @@ namespace CRUD.View
 	{
 		public bool validAjoutArticle = false;
 		public bool validModifArticle = false;
+		public bool selectItem = false;
 		private static readonly Regex intRegex = new Regex(@"^[\d]+$");
+		private static readonly Regex textRegex = new Regex(@"^[a-zA-Z]+$");
 
 		private AppartementController _controllerAppartement;
 		private CategorieController _categoryController;
@@ -130,7 +132,7 @@ namespace CRUD.View
 
 		//*******************************************************//
 		// Activation du button si les inputs sont correctes
-		private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+		private void TextChanged(object sender, TextChangedEventArgs e)
 		{
 			// Recup des données dans les inputs
 			int prix, nbAppartement;
@@ -140,7 +142,7 @@ namespace CRUD.View
 			String valueNbApaprtement = txtNbAppartement.Text;
 
 			// Vérification des données pour Ajout
-			if (int.TryParse(valuePrix, out prix) && adresse.Length > 0 && ville.Length > 0 && int.TryParse(valueNbApaprtement, out nbAppartement))
+			if (int.TryParse(valuePrix, out prix) && adresse.Length > 0 && ville.Length > 0 && int.TryParse(valueNbApaprtement, out nbAppartement) && selectItem)
 			{
 				validAjoutArticle = true;
 				validModifArticle = true;
@@ -171,9 +173,46 @@ namespace CRUD.View
 			}
 		}
 
-		private void PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+		//*******************************************************//
+		// Permet d'écrire uniquement des chiffres dans les inputs
+		private void PreviewTextInput(object sender, TextCompositionEventArgs e)
 		{
 			e.Handled = !intRegex.IsMatch(e.Text);
+		}
+
+		//*******************************************************//
+		// Verife de la categorie est selectionner
+		private void groupCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			// Recup des données dans les inputs
+			int prix, nbAppartement;
+			String adresse = txtAdresse.Text;
+			String ville = txtVille.Text;
+			String valuePrix = txtPrix.Text;
+			String valueNbApaprtement = txtNbAppartement.Text;
+
+			if (groupCategorie.SelectedItem != null && int.TryParse(valuePrix, out prix) && adresse.Length > 0 && ville.Length > 0 && int.TryParse(valueNbApaprtement, out nbAppartement))
+			{
+				validAjoutArticle = true;
+				validModifArticle = true;
+				selectItem = true;
+				BtnActivationDesactivation();
+			}
+			else
+			{
+				validAjoutArticle = false;
+				validModifArticle = false;
+				selectItem = false;
+				BtnActivationDesactivation();
+			}
+		}
+
+
+		//*******************************************************//
+		// Permet de saisir uniquement des letre dans les inputs
+		private void txtVille_PreviewTextInput(object sender, TextCompositionEventArgs e)
+		{
+			e.Handled = !textRegex.IsMatch(e.Text);
 		}
 	}
 }
