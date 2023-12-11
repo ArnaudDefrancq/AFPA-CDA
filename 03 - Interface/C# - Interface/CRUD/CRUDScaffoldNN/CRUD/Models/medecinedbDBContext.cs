@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using CRUD.Models.Data;
 using Microsoft.EntityFrameworkCore;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace CRUD.Models;
 

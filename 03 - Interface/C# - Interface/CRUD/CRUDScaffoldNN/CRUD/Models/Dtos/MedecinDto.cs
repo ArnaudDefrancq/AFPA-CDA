@@ -11,5 +11,4 @@ namespace CRUD.Models.Dtos
 
 		public int? Age { get; set; }
 	}
-
 }
