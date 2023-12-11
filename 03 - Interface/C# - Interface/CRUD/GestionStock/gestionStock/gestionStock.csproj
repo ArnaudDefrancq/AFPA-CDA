@@ -9,6 +9,9 @@
 
 	<ItemGroup>
 		<Folder Include="Controllers\" />
+		<Folder Include="Models\Services\" />
+		<Folder Include="Models\Profiles\" />
+		<Folder Include="Controllers\" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
