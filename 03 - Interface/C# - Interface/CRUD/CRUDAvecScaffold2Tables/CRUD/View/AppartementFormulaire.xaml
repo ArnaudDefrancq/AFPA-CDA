@@ -51,7 +51,7 @@
 
 				<TextBox x:Name="txtAdresse" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
 				<TextBox x:Name="txtIdAppartement" Grid.Column="6" Text="" Grid.Row="1"  Visibility="Hidden" />
-				<TextBox x:Name="txtPrix" Grid.Row="5" Grid.Column="6" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="txtNbKm_PreviewTextInput" />
+				<TextBox x:Name="txtPrix" Grid.Row="5" Grid.Column="6" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="PreviewTextInput" />
 				<ComboBox x:Name="groupCategorie" Grid.Column="6"  Grid.Row="3" >
 					<ComboBox.ItemTemplate>
 						<DataTemplate>
@@ -59,8 +59,8 @@
 						</DataTemplate >
 					</ComboBox.ItemTemplate >
 				</ComboBox>
-				<TextBox x:Name="txtNbAppartement" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
-				<TextBox x:Name="txtVille" Grid.Row="3" Grid.Column="2" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="txtNbKm_PreviewTextInput"/>
+				<TextBox x:Name="txtNbAppartement" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="PreviewTextInput" />
+				<TextBox x:Name="txtVille" Grid.Row="3" Grid.Column="2" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
 
 			</Grid>
 		</GroupBox>

@@ -24,10 +24,10 @@ namespace CRUD.Controllers
 		}
 
 
-		public IEnumerable<CategorieDtoOut> GetAllCategories()
+		public IEnumerable<CategorieDtoOutSansAppartement> GetAllCategories()
 		{
 			IEnumerable<Categorie> liste = _service.GetAllCategories();
-			return _mapper.Map<IEnumerable<CategorieDtoOut>>(liste);
+			return _mapper.Map<IEnumerable<CategorieDtoOutSansAppartement>>(liste);
 		}
 
 

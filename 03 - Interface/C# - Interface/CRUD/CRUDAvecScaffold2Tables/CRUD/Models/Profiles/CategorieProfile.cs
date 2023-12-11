@@ -4,14 +4,18 @@ using CRUD.Models.Dtos;
 
 namespace CRUD.Models.Profiles
 {
-	public class CategorieProfile: Profile
+	public class CategorieProfile : Profile
 	{
-		public CategorieProfile() {
-			CreateMap<Categorie, CategorieDtoOut>();
-			CreateMap<CategorieDtoOut, Categorie>(); 
-			
+		public CategorieProfile()
+		{
+			CreateMap<Categorie, CategorieDtoOutAvecAppartement>();
+			CreateMap<CategorieDtoOutAvecAppartement, Categorie>();
+
 			CreateMap<Categorie, CategorieDtoIn>();
 			CreateMap<CategorieDtoIn, Categorie>();
+
+			CreateMap<Categorie, CategorieDtoOutSansAppartement>();
+			CreateMap<CategorieDtoOutSansAppartement, Categorie>();
 		}
 	}
 }

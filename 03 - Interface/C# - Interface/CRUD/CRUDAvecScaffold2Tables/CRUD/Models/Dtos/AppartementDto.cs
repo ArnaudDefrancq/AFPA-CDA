@@ -25,7 +25,7 @@
 		}
 	}
 
-	public class AppartementDtoSansBoucle 
+	public class AppartementDtoSansBoucle // Permet de casser la boucle
 	{
 		public int? Prix { get; set; }
 
