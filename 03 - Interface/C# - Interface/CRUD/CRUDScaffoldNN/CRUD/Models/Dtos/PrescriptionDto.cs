@@ -1,4 +1,6 @@
-﻿namespace CRUD.Models.Dtos
+﻿using System;
+
+namespace CRUD.Models.Dtos
 {
 	public class PrescriptionDtoOut
 	{
@@ -8,7 +10,7 @@
 
 		public int? Medoc { get; set; }
 
-		public int DatePrescription { get; set; }
+		public DateTime DatePrescription { get; set; }
 
 		public virtual MedicamentDtoSansPrescription? LeMedicament { get; set; }
 
@@ -23,7 +25,7 @@
 
 		public int? Medoc { get; set; }
 
-		public int DatePrescription { get; set; }
+		public DateTime DatePrescription { get; set; }
 
 		public string NomMedecin { get; set; }
 
@@ -42,6 +44,6 @@
 
 		public int? Medoc { get; set; }
 
-		public int DatePrescription { get; set; }
+		public DateTime DatePrescription { get; set; }
 	}
 }

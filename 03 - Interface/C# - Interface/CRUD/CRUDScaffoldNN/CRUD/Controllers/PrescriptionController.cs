@@ -23,7 +23,7 @@ namespace CRUD.Controllers
 			_service = new PrescriptionService(context);
 			var config = new MapperConfiguration(cfg =>
 			{
-				cfg.AddProfile<MedicamentProfile>();
+				cfg.AddProfile<PrescriptionProfile>();
 			});
 			_mapper = config.CreateMapper();
 		}
