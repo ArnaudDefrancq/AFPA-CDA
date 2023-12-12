@@ -6,10 +6,10 @@ using System.Linq;
 
 namespace gestionStock.Models.Services
 {
-	public class TypeProduitService
+	public class TypesProduitService
 	{
 		private readonly GestionStocksDBContext _context;
-		public TypeProduitService(GestionStocksDBContext context)
+		public TypesProduitService(GestionStocksDBContext context)
 		{
 			_context = context;
 		}
