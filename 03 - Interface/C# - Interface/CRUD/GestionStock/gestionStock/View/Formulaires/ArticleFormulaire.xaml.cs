@@ -214,8 +214,6 @@ namespace gestionStock.View.Formulaires
 					txtTypeProduit.Text = list[i].LibelleTypeProduit;
 				}
 			}
-
-
 		}
 
 		//*******************************************************//

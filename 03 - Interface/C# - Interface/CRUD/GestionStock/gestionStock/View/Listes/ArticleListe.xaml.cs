@@ -17,11 +17,13 @@ namespace gestionStock.View
 		public GestionStocksDBContext _context;
 		public bool validModif = false;
 		public bool validSuppr = false;
+		private MainWindow Mw { get; set; }
 
-		public ArticleListe()
+		public ArticleListe(MainWindow w)
 		{
 			InitializeComponent();
-			_context = new GestionStocksDBContext();
+			Mw = w;
+			_context = Mw._context;
 			_controller = new ArticleController(_context);
 			DisplayDataGrid();
 
@@ -99,9 +101,9 @@ namespace gestionStock.View
 			BtnActiveDesactiveModif();
 			BtnActiveDesactiveSuppr();
 		}
+
 		//*******************************************************//
 		// Action sur les btns Ajouts/Modifier/Supprimer
-
 		private void btnActionAnnulClick(object sender, EventArgs e)
 		{
 			this.Close();

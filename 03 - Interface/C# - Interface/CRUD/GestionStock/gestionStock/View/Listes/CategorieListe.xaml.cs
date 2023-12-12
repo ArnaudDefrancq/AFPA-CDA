@@ -1,4 +1,9 @@
-﻿using System;
+﻿using gestionStock.Controllers;
+using gestionStock.Helpers;
+using gestionStock.Models;
+using gestionStock.Models.Dtos;
+using gestionStock.View.Formulaires;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace gestionStock.View
 {
@@ -19,9 +25,102 @@ namespace gestionStock.View
 	/// </summary>
 	public partial class CategorieListe : Window
 	{
-		public CategorieListe()
+		private CategorieController _controller;
+		public GestionStocksDBContext _context;
+		public bool validModif = false;
+		public bool validSuppr = false;
+		public MainWindow Mw { get; set; }
+
+		public CategorieListe(MainWindow w)
 		{
 			InitializeComponent();
+			Mw = w;
+			_context = Mw._context;
+			_controller = new CategorieController(_context);
+			DisplayListCategorie();
+		}
+
+		//*******************************************************//
+		// Permet de remplire les inputs quand on veut modifier ou supprimer
+		private void DisplayListCategorie()
+		{
+			var list = _controller.GetAllCategories();
+			groupCategorie.ItemsSource = list;
+			list.Dump();
+		}
+
+		//*******************************************************//
+		// Verife de la categorie est selectionner
+		private void groupCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			CategorieDtoAplatie categ = groupCategorie.SelectedItem as CategorieDtoAplatie;
+
+			//txtTypeProduit.Text = categ.LibelleTypeProduit;
+
+			//gridDataArticle.ItemsSource = categ.AllArticle;
+
+		}
+
+		//*******************************************************//
+		// Permet d'activer les btn suppr et modifier
+		private void BtnActiveDesactiveSuppr()
+		{
+			if (validSuppr)
+			{
+				btnSuppr.IsEnabled = true;
+			}
+			else
+			{
+				btnSuppr.IsEnabled = false;
+			}
+		}
+
+		public void BtnActiveDesactiveModif()
+		{
+			if (validModif)
+			{
+				btnModifier.IsEnabled = true;
+				Style dynamicStyle = (Style)Application.Current.Resources["btnStyle"];
+				btnModifier.Style = dynamicStyle;
+			}
+			else
+			{
+				btnModifier.IsEnabled = false;
+				btnModifier.Style = null;
+			}
+		}
+
+		//*******************************************************//
+		// Action sur les btns Ajouts/Modifier/Supprimer
+		private void btnActionAnnulClick(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		//*******************************************************//
+		// Action sur les btns Ajouts/Modifier/Supprimer
+		private void btnActionClick(object sender, EventArgs e)
+		{
+			//ArticleDtoOutAplatie item;
+			//if (((Button)sender).Name == "btnAjouter")
+			//{
+			//	item = new ArticleDtoOutAplatie();
+			//}
+			//else
+			//{
+			//	item = (ArticleDtoOutAplatie)gridDataArticle.SelectedItem;
+			//}
+
+			//ArticleFormulaire af = new ArticleFormulaire(item, this, (string)((Button)sender).Content);
+			//this.Opacity = 0.7;
+			//af.ShowDialog();
+			//this.Opacity = 1;
+
+			//DisplayDataGrid();
+			//validSuppr = false;
+			//validModif = false;
+			//BtnActiveDesactiveModif();
+			//BtnActiveDesactiveSuppr();
 		}
 	}
 }

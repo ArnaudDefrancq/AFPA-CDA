@@ -1,4 +1,6 @@
-﻿namespace gestionStock.Models.Dtos
+﻿using gestionStock.Models.Data;
+
+namespace gestionStock.Models.Dtos
 {
 	public class ArticleDtoIn
 	{
@@ -24,7 +26,6 @@
 
 		public int? QuantiteStrockee { get; set; }
 
-		public int IdCategorie { get; set; }
 	}
 	public class ArticleDtoOutAplatie
 	{

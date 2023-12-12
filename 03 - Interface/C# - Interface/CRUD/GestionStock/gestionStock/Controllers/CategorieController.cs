@@ -20,6 +20,7 @@ namespace gestionStock.Controllers
 			var config = new MapperConfiguration(cfg =>
 			{
 				cfg.AddProfile<CategorieProfile>();
+				cfg.AddProfile<ArticleProfile>();
 			});
 			_mapper = config.CreateMapper();
 		}

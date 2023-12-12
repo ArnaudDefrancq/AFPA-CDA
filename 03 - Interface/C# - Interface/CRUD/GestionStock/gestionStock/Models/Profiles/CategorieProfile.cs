@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using gestionStock.Models.Data;
 using gestionStock.Models.Dtos;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace gestionStock.Models.Profiles
@@ -15,9 +17,11 @@ namespace gestionStock.Models.Profiles
 			CreateMap<Categorie, CategorieDtoSansArticleSansType>();
 			CreateMap<CategorieDtoSansArticleSansType, Categorie>();
 
+
 			CreateMap<Categorie, CategorieDtoAplatie>()
-				.ForMember(cp => cp.LibelleArticle, o => o.MapFrom(c => c.LesArticles.Select(a => a.LibelleArticle)))
+				.ForMember(cd => cd.ListArticles, o => o.MapFrom(c => c.LesArticles))
 				.ForMember(cp => cp.LibelleTypeProduit, o => o.MapFrom(c => c.LeTypeProduit.LibelleTypeProduit));
+
 			CreateMap<CategorieDtoAplatie, Categorie>();
 		}
 	}

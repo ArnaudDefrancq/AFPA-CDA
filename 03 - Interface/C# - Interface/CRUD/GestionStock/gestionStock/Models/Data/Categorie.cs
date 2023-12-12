@@ -12,5 +12,5 @@ public partial class Categorie
 
 	public virtual ICollection<Article> LesArticles { get; set; } = new List<Article>();
 
-	public virtual TypesProduit LeTypeProduit { get; set; } = null!;
+	public virtual TypesProduit LeTypeProduit { get; set; }
 }

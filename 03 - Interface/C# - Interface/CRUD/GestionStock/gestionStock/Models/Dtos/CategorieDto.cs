@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using gestionStock.Models.Data;
+using System.Collections.Generic;
 
 
 namespace gestionStock.Models.Dtos
@@ -27,7 +28,7 @@ namespace gestionStock.Models.Dtos
 
 		public int IdTypeProduit { get; set; }
 
-		public List<string> LibelleArticle { get; set; }
+		public virtual List<ArticleDtoSansCategorie> ListArticles { get; set; } = new List<ArticleDtoSansCategorie>();
 
 		public string LibelleTypeProduit { get; set; }
 	}
