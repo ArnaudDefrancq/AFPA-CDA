@@ -10,12 +10,12 @@ using System.Collections.Generic;
 
 namespace gestionStock.Controllers
 {
-	public class ArtcileController : ControllerBase
+	public class ArticleController : ControllerBase
 	{
 		private readonly ArticleService _service;
 		private readonly IMapper _mapper;
 
-		public ArtcileController(GestionStocksDBContext context)
+		public ArticleController(GestionStocksDBContext context)
 		{
 			_service = new ArticleService(context);
 			var config = new MapperConfiguration(cfg =>
