@@ -21,7 +21,7 @@ public partial class GestionStocksDBContext : DbContext
 
 	public virtual DbSet<Categorie> Categories { get; set; }
 
-	public virtual DbSet<Typesproduit> Typesproduits { get; set; }
+	public virtual DbSet<TypesProduit> Typesproduits { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
@@ -62,7 +62,7 @@ public partial class GestionStocksDBContext : DbContext
 				.HasConstraintName("categories_ibfk_1");
 		});
 
-		modelBuilder.Entity<Typesproduit>(entity =>
+		modelBuilder.Entity<TypesProduit>(entity =>
 		{
 			entity.HasKey(e => e.IdTypeProduit).HasName("PRIMARY");
 

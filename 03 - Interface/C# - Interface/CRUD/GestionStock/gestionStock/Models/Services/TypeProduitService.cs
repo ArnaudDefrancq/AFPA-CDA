@@ -14,7 +14,7 @@ namespace gestionStock.Models.Services
 			_context = context;
 		}
 
-		public void AddTypesproduit(Typesproduit tp)
+		public void AddTypesproduit(TypesProduit tp)
 		{
 			if (tp == null)
 			{
@@ -24,7 +24,7 @@ namespace gestionStock.Models.Services
 			_context.SaveChanges();
 		}
 
-		public void DeleteTypesproduit(Typesproduit tp)
+		public void DeleteTypesproduit(TypesProduit tp)
 		{
 			//si l'objet personne est null, on renvoi une exception
 			if (tp == null)
@@ -36,17 +36,17 @@ namespace gestionStock.Models.Services
 			_context.SaveChanges();
 		}
 
-		public IEnumerable<Typesproduit> GetAllTypesproduits()
+		public IEnumerable<TypesProduit> GetAllTypesproduits()
 		{
 			return _context.Typesproduits.Include("LesCategories").ToList();
 		}
 
-		public Typesproduit GetTypesproduitById(int id)
+		public TypesProduit GetTypesproduitById(int id)
 		{
 			return _context.Typesproduits.Include("LesArticles").FirstOrDefault(p => p.IdTypeProduit == id);
 		}
 
-		public void UpdateTypesproduit(Typesproduit tp)
+		public void UpdateTypesproduit(TypesProduit tp)
 		{
 			_context.SaveChanges();
 		}

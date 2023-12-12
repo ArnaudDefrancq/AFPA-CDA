@@ -2,18 +2,18 @@
 
 namespace gestionStock.Models.Dtos
 {
-	public class TypeProduitDtoIn
+	public class TypesProduitDtoIn
 	{
 		public string? LibelleTypeProduit { get; set; }
 	}
 
-	public class TypeProduitDtoSansCategorie
+	public class TypesProduitDtoSansCategorie
 	{
 		public int IdTypeProduit { get; set; }
 
 		public string? LibelleTypeProduit { get; set; }
 	}
-	public class TypeProduitDtoAplatie
+	public class TypesProduitDtoAplatie
 	{
 
 		public int IdTypeProduit { get; set; }

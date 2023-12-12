@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace gestionStock.Models.Data;
 
-public partial class Typesproduit
+public partial class TypesProduit
 {
 	public int IdTypeProduit { get; set; }
 
