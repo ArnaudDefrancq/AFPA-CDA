@@ -9,7 +9,6 @@
 
 	<ItemGroup>
 		<Folder Include="Controllers\" />
-		<Folder Include="Models\Services\" />
 		<Folder Include="Models\Profiles\" />
 		<Folder Include="Controllers\" />
 	</ItemGroup>

@@ -19,7 +19,7 @@ public partial class GestionStocksDBContext : DbContext
 
 	public virtual DbSet<Article> Articles { get; set; }
 
-	public virtual DbSet<Category> Categories { get; set; }
+	public virtual DbSet<Categorie> Categories { get; set; }
 
 	public virtual DbSet<Typesproduit> Typesproduits { get; set; }
 
@@ -40,13 +40,13 @@ public partial class GestionStocksDBContext : DbContext
 
 			entity.Property(e => e.LibelleArticle).HasMaxLength(100);
 
-			entity.HasOne(d => d.IdCategorieNavigation).WithMany(p => p.Articles)
+			entity.HasOne(d => d.LaCategorie).WithMany(p => p.LesArticles)
 				.HasForeignKey(d => d.IdCategorie)
 				.OnDelete(DeleteBehavior.ClientSetNull)
 				.HasConstraintName("articles_ibfk_1");
 		});
 
-		modelBuilder.Entity<Category>(entity =>
+		modelBuilder.Entity<Categorie>(entity =>
 		{
 			entity.HasKey(e => e.IdCategorie).HasName("PRIMARY");
 
@@ -56,7 +56,7 @@ public partial class GestionStocksDBContext : DbContext
 
 			entity.Property(e => e.LibelleCategorie).HasMaxLength(100);
 
-			entity.HasOne(d => d.IdTypeProduitNavigation).WithMany(p => p.Categories)
+			entity.HasOne(d => d.LeTypeProduit).WithMany(p => p.LesCategories)
 				.HasForeignKey(d => d.IdTypeProduit)
 				.OnDelete(DeleteBehavior.ClientSetNull)
 				.HasConstraintName("categories_ibfk_1");
