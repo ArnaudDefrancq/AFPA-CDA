@@ -58,6 +58,11 @@ namespace gestionStock.View
 
 			gridDataArticle.ItemsSource = categ.ListArticles;
 
+			validSuppr = true;
+			validModif = true;
+			BtnActiveDesactiveModif();
+			BtnActiveDesactiveSuppr();
+
 		}
 
 		//*******************************************************//
@@ -100,26 +105,25 @@ namespace gestionStock.View
 		// Action sur les btns Ajouts/Modifier/Supprimer
 		private void btnActionClick(object sender, EventArgs e)
 		{
-			//ArticleDtoOutAplatie item;
-			//if (((Button)sender).Name == "btnAjouter")
-			//{
-			//	item = new ArticleDtoOutAplatie();
-			//}
-			//else
-			//{
-			//	item = (ArticleDtoOutAplatie)gridDataArticle.SelectedItem;
-			//}
+			CategorieDtoAplatie item;
+			if (((Button)sender).Name == "btnAjouter")
+			{
+				item = new CategorieDtoAplatie();
+			}
+			else
+			{
+				item = (CategorieDtoAplatie)groupCategorie.SelectedItem;
+			}
 
-			//ArticleFormulaire af = new ArticleFormulaire(item, this, (string)((Button)sender).Content);
-			//this.Opacity = 0.7;
-			//af.ShowDialog();
-			//this.Opacity = 1;
-
-			//DisplayDataGrid();
-			//validSuppr = false;
-			//validModif = false;
-			//BtnActiveDesactiveModif();
-			//BtnActiveDesactiveSuppr();
+			CategorieFormulaire af = new CategorieFormulaire(item, this, (string)((Button)sender).Content);
+			this.Opacity = 0.7;
+			af.ShowDialog();
+			this.Opacity = 1;
+			DisplayListCategorie();
+			validSuppr = false;
+			validModif = false;
+			BtnActiveDesactiveModif();
+			BtnActiveDesactiveSuppr();
 		}
 	}
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:gestionStock.View.Formulaires"
         mc:Ignorable="d"
-        Title="Details categorie" Height="200" Width="400" Background="{DynamicResource BackgroundUni}">
+        Title="Details categorie" Height="250" Width="400" Background="{DynamicResource BackgroundUni}">
 	<Grid x:Name="mainGrid">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="1*"/>
@@ -45,7 +45,7 @@
 					<Label x:Name="lblCategorie" Grid.Column="0" Content="Categorie :" Grid.Row="1" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
 					<Label x:Name="lblTypeProduit" Grid.Column="0" Content="Type de produit :" Grid.Row="3" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
 
-					<TextBox x:Name="txtCategorie" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="" />
+					<TextBox x:Name="txtCategorie" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
 					<ComboBox x:Name="groupTypeProduit" Grid.Column="2" Grid.Row="3" SelectionChanged="groupCategorie_SelectionChanged" >
 						<ComboBox.ItemTemplate>
 							<DataTemplate>
@@ -53,6 +53,8 @@
 							</DataTemplate >
 						</ComboBox.ItemTemplate >
 					</ComboBox>
+
+					<TextBox x:Name="txtIdCategorie" Grid.Column="3"  Grid.Row="1" IsEnabled="False" Visibility="Hidden" />
 				</Grid>
 
 			</GroupBox>
@@ -60,12 +62,12 @@
 				<Grid.RowDefinitions>
 
 					<RowDefinition Height="1*"/>
-					<RowDefinition Height="3*"/>
+					<RowDefinition Height="5*"/>
 					<RowDefinition Height="1*"/>
 
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="2*"/>
 					<ColumnDefinition Width="1*"/>
 					<ColumnDefinition Width="0.3*"/>
 					<ColumnDefinition Width="1*"/>

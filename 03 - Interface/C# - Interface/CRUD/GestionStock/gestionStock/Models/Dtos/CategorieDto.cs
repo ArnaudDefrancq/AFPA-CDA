@@ -6,9 +6,16 @@ namespace gestionStock.Models.Dtos
 {
 	public class CategorieDtoIn
 	{
+
 		public string? LibelleCategorie { get; set; }
 
 		public int IdTypeProduit { get; set; }
+
+		public CategorieDtoIn(string? libelleCategorie, int idTypeProduit)
+		{
+			LibelleCategorie = libelleCategorie;
+			IdTypeProduit = idTypeProduit;
+		}
 	}
 
 	public class CategorieDtoSansArticleSansType
