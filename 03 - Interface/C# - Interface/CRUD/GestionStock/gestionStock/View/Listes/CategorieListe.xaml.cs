@@ -46,7 +46,6 @@ namespace gestionStock.View
 		{
 			var list = _controller.GetAllCategories();
 			groupCategorie.ItemsSource = list;
-			list.Dump();
 		}
 
 		//*******************************************************//
@@ -55,9 +54,9 @@ namespace gestionStock.View
 		{
 			CategorieDtoAplatie categ = groupCategorie.SelectedItem as CategorieDtoAplatie;
 
-			//txtTypeProduit.Text = categ.LibelleTypeProduit;
+			txtTypeProduit.Text = categ.LibelleTypeProduit;
 
-			//gridDataArticle.ItemsSource = categ.AllArticle;
+			gridDataArticle.ItemsSource = categ.ListArticles;
 
 		}
 
