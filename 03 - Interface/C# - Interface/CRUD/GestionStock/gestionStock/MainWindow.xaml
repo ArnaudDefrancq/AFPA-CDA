@@ -22,19 +22,19 @@
 			<ColumnDefinition Width="1*"/>
 		</Grid.ColumnDefinitions>
 
-		<Button x:Name="btnArticle" Grid.Column="1" Content="Nos Articles" Grid.Row="1" Style="{DynamicResource btnStyle}" FontWeight="Bold" FontFamily="Cascadia Mono SemiBold" FontSize="16">
+		<Button x:Name="btnArticle" Grid.Column="1" Content="Nos Articles" Grid.Row="1" Style="{DynamicResource btnStyle}" FontFamily="Cascadia Mono SemiBold" FontSize="16" Click="BtnActionClick">
 			<Button.Effect>
 				<DropShadowEffect Color="#4D000000" Direction="320" ShadowDepth="3" Opacity="0.5"/>
 			</Button.Effect>
 		</Button>
 
-		<Button x:Name="btnCategories" Grid.Column="1" Content="Nos Categories" Grid.Row="3" Style="{DynamicResource btnStyle}" FontWeight="Bold" FontFamily="Cascadia Mono SemiBold" FontSize="16">
+		<Button x:Name="btnCategories" Grid.Column="1" Content="Nos Categories" Grid.Row="3" Style="{DynamicResource btnStyle}" FontFamily="Cascadia Mono SemiBold" FontSize="16" Click="BtnActionClick" >
 			<Button.Effect>
 				<DropShadowEffect Color="#4D000000" Direction="320" ShadowDepth="3" Opacity="0.5"/>
 			</Button.Effect>
 		</Button>
 
-		<Button x:Name="btnTypeProduit" Grid.Column="1" Content="Nos types de produits" Grid.Row="5" Style="{DynamicResource btnStyle}" FontWeight="Bold" FontFamily="Cascadia Mono SemiBold" FontSize="16">
+		<Button x:Name="btnTypeProduit" Grid.Column="1" Content="Nos types de produits" Grid.Row="5" Style="{DynamicResource btnStyle}" FontFamily="Cascadia Mono SemiBold" FontSize="16" Click="BtnActionClick">
 			<Button.Effect>
 				<DropShadowEffect Color="#4D000000" Direction="320" ShadowDepth="3" Opacity="0.5"/>
 			</Button.Effect>
