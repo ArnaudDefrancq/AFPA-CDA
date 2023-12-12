@@ -51,9 +51,67 @@
 					<Label x:Name="lblQuantiteStrockee" Content="Quantite :" Grid.Row="1" Grid.Column="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" />
 
 					<TextBox x:Name="txtLibelleArticle" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="1" TextWrapping="Wrap" Text="" />
+					<TextBox x:Name="txtQuantiteStrockee" Grid.Column="8" Grid.Row="1" TextWrapping="Wrap" Text="" PreviewTextInput="CheckOnlyNumber"/>
+
+					<Grid Name="gridCategorieType" Grid.ColumnSpan="9" Grid.Row="3" >
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width=".5*"/>
+							<ColumnDefinition Width="0.1*"/>
+							<ColumnDefinition Width="1*"/>
+							<ColumnDefinition Width="0.1*"/>
+							<ColumnDefinition Width="0.5*"/>
+							<ColumnDefinition Width="0.1*"/>
+							<ColumnDefinition Width="1*"/>
+						</Grid.ColumnDefinitions>
+
+						<Label x:Name="lblCategorie" Content="Categorie :" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" />
+						<Label x:Name="lblType" Content="Type :" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="16" />
+
+						<ComboBox x:Name="groupCategorie" Grid.Column="2"  SelectionChanged="groupCategorie_SelectionChanged" >
+							<ComboBox.ItemTemplate>
+								<DataTemplate>
+									<TextBlock Text = "{Binding LibelleCategorie}" />
+								</DataTemplate >
+							</ComboBox.ItemTemplate >
+						</ComboBox>
+
+						<TextBox x:Name="txtTypeProduit" Grid.Column="6" TextWrapping="Wrap" Text="" IsEnabled="False" />
+					</Grid>
+
+					<TextBox x:Name="txtIdArticle" Text="" IsEnabled="False" Visibility="Hidden"/>
+
 				</Grid>
 			</GroupBox>
+
+			<Grid x:Name="gridBtnAjoutArticle" Grid.Row="2" >
+				<Grid.RowDefinitions>
+
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="3*"/>
+					<RowDefinition Height="1*"/>
+
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="0.3*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+
+				<Button x:Name="btnValide" Grid.Column="1" Content="" Grid.Row="1" Click="valider_Click" IsEnabled="False"  Style="{DynamicResource btnStyle}">
+					<Button.Effect>
+						<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+					</Button.Effect>
+				</Button>
+
+				<Button x:Name="btnQuitter" Grid.Column="3" Content="Quitter" Style="{DynamicResource btnStyle}" Grid.Row="1" Click="annuler_Click" >
+					<Button.Effect>
+						<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+					</Button.Effect>
+				</Button>
+			</Grid>
 		</Grid>
 
 	</Grid>
+
 </Window>

@@ -7,6 +7,13 @@
 		public int? QuantiteStrockee { get; set; }
 
 		public int IdCategorie { get; set; }
+
+		public ArticleDtoIn(string? libelleArticle, int? quantiteStrockee, int idCategorie)
+		{
+			LibelleArticle = libelleArticle;
+			QuantiteStrockee = quantiteStrockee;
+			IdCategorie = idCategorie;
+		}
 	}
 
 	public class ArticleDtoSansCategorie
