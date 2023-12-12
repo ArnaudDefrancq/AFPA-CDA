@@ -38,12 +38,12 @@ namespace gestionStock.Models.Services
 
 		public IEnumerable<Article> GetAllArticles()
 		{
-			return _context.Articles.Include("LaCategorie").ToList();
+			return _context.Articles.Include("LaCategorie.LeTypeProduit").ToList();
 		}
 
 		public Article GetArticleById(int id)
 		{
-			return _context.Articles.Include("LaCategorie").FirstOrDefault(p => p.IdArticle == id);
+			return _context.Articles.Include("LaCategorie.LeTypeProduit").FirstOrDefault(p => p.IdArticle == id);
 		}
 
 		public void UpdateArticle(Article a)
