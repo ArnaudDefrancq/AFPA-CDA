@@ -105,6 +105,8 @@ namespace gestionStock.View.Formulaires
 				case "Modifier": _categoryController.UpdateCategorie(Int32.Parse((string)txtIdCategorie.Text), c); break;
 				case "Supprimer": _categoryController.DeleteCategorie(Int32.Parse((string)txtIdCategorie.Text)); break;
 			}
+			Cl.DisplayListCategorie();
+			Cl.txtTypeProduit.Text = "";
 			this.Close();
 		}
 

@@ -42,7 +42,7 @@ namespace gestionStock.View
 
 		//*******************************************************//
 		// Permet de remplire les inputs quand on veut modifier ou supprimer
-		private void DisplayListCategorie()
+		public void DisplayListCategorie()
 		{
 			var list = _controller.GetAllCategories();
 			groupCategorie.ItemsSource = list;
@@ -54,14 +54,17 @@ namespace gestionStock.View
 		{
 			CategorieDtoAplatie categ = groupCategorie.SelectedItem as CategorieDtoAplatie;
 
-			txtTypeProduit.Text = categ.LibelleTypeProduit;
+			if (categ != null)
+			{
+				txtTypeProduit.Text = categ.LibelleTypeProduit;
 
-			gridDataArticle.ItemsSource = categ.ListArticles;
+				gridDataArticle.ItemsSource = categ.ListArticles;
 
-			validSuppr = true;
-			validModif = true;
-			BtnActiveDesactiveModif();
-			BtnActiveDesactiveSuppr();
+				validSuppr = true;
+				validModif = true;
+				BtnActiveDesactiveModif();
+				BtnActiveDesactiveSuppr();
+			}
 
 		}
 
@@ -119,7 +122,7 @@ namespace gestionStock.View
 			this.Opacity = 0.7;
 			af.ShowDialog();
 			this.Opacity = 1;
-			DisplayListCategorie();
+
 			validSuppr = false;
 			validModif = false;
 			BtnActiveDesactiveModif();
