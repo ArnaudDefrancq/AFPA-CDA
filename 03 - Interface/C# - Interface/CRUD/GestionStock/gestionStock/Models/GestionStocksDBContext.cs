@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using gestionStock.Models.Data;
 using System.Configuration;
+using Microsoft.EntityFrameworkCore;
+using WpfApp1.Models.Data;
 
-namespace gestionStock.Models;
+namespace WpfApp1.Models;
 
 public partial class GestionStocksDBContext : DbContext
 {
@@ -19,9 +19,9 @@ public partial class GestionStocksDBContext : DbContext
 
 	public virtual DbSet<Article> Articles { get; set; }
 
-	public virtual DbSet<Categorie> Categories { get; set; }
+	public virtual DbSet<Category> Categories { get; set; }
 
-	public virtual DbSet<TypesProduit> Typesproduits { get; set; }
+	public virtual DbSet<Typesproduit> Typesproduits { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
@@ -36,38 +36,42 @@ public partial class GestionStocksDBContext : DbContext
 
 			entity.ToTable("articles");
 
-			entity.HasIndex(e => e.IdCategorie, "IdCategorie");
+			entity.HasIndex(e => e.IdCategorie, "articles_ibfk_1");
 
+			entity.Property(e => e.IdArticle).HasColumnType("int(11)");
+			entity.Property(e => e.IdCategorie).HasColumnType("int(11)");
 			entity.Property(e => e.LibelleArticle).HasMaxLength(100);
+			entity.Property(e => e.QuantiteStrockee).HasColumnType("int(11)");
 
 			entity.HasOne(d => d.LaCategorie).WithMany(p => p.LesArticles)
 				.HasForeignKey(d => d.IdCategorie)
-				.OnDelete(DeleteBehavior.ClientSetNull)
 				.HasConstraintName("articles_ibfk_1");
 		});
 
-		modelBuilder.Entity<Categorie>(entity =>
+		modelBuilder.Entity<Category>(entity =>
 		{
 			entity.HasKey(e => e.IdCategorie).HasName("PRIMARY");
 
 			entity.ToTable("categories");
 
-			entity.HasIndex(e => e.IdTypeProduit, "IdTypeProduit");
+			entity.HasIndex(e => e.IdTypeProduit, "categories_ibfk_1");
 
+			entity.Property(e => e.IdCategorie).HasColumnType("int(11)");
+			entity.Property(e => e.IdTypeProduit).HasColumnType("int(11)");
 			entity.Property(e => e.LibelleCategorie).HasMaxLength(100);
 
 			entity.HasOne(d => d.LeTypeProduit).WithMany(p => p.LesCategories)
 				.HasForeignKey(d => d.IdTypeProduit)
-				.OnDelete(DeleteBehavior.ClientSetNull)
 				.HasConstraintName("categories_ibfk_1");
 		});
 
-		modelBuilder.Entity<TypesProduit>(entity =>
+		modelBuilder.Entity<Typesproduit>(entity =>
 		{
 			entity.HasKey(e => e.IdTypeProduit).HasName("PRIMARY");
 
 			entity.ToTable("typesproduits");
 
+			entity.Property(e => e.IdTypeProduit).HasColumnType("int(11)");
 			entity.Property(e => e.LibelleTypeProduit).HasMaxLength(50);
 		});
 

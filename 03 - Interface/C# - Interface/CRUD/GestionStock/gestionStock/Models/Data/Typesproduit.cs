@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace gestionStock.Models.Data;
+namespace WpfApp1.Models.Data;
 
-public partial class TypesProduit
+public partial class Typesproduit
 {
 	public int IdTypeProduit { get; set; }
 
 	public string? LibelleTypeProduit { get; set; }
 
-	public virtual ICollection<Categorie> LesCategories { get; set; } = new List<Categorie>();
+	public virtual ICollection<Category> LesCategories { get; set; } = new List<Category>();
 }

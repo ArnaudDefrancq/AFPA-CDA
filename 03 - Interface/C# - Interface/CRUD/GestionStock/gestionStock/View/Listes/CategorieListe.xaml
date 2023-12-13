@@ -52,7 +52,7 @@
 
 			<TextBox x:Name="txtTypeProduit" Grid.Column="7" Grid.Row="1" TextWrapping="Wrap" Text="" IsEnabled="False" />
 
-			<DataGrid x:Name="gridDataArticle" IsReadOnly="True" AutoGenerateColumns="False" Grid.ColumnSpan="8" Grid.Row="3" >
+			<DataGrid x:Name="gridDataArticle" IsReadOnly="True" IsEnabled="False" AutoGenerateColumns="False" Grid.ColumnSpan="8" Grid.Row="3" >
 				<DataGrid.Columns>
 					<DataGridTextColumn x:Name="dataQuantiteStrockee" Header="Quanité Stockee" Binding="{Binding QuantiteStrockee}" Width="1*" />
 					<DataGridTextColumn x:Name="dataLibelleArticle" Header="Libelle Article" Binding="{Binding LibelleArticle}" Width="3*" />
