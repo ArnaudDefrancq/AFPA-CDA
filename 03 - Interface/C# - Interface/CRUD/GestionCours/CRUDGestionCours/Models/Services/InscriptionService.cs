@@ -46,7 +46,7 @@ namespace CRUDGestionCours.Models.Services
 			return _context.Inscriptions.Include("LeCours").Include("LeEtudiant").FirstOrDefault(p => p.IdInscriptions == id);
 		}
 
-		public void UpdateEtudiant(Inscription i)
+		public void UpdateInscription(Inscription i)
 		{
 			_context.SaveChanges();
 		}
