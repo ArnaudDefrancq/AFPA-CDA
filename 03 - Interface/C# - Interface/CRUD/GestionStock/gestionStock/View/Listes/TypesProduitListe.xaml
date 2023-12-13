@@ -34,22 +34,17 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="0.5*"/>
 				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1*"/>
 				<RowDefinition Height="0.5*"/>
-				<RowDefinition Height="8*"/>
+				<RowDefinition Height="0.5*"/>
+				<RowDefinition Height="7*"/>
 			</Grid.RowDefinitions>
 
-			<Label x:Name="lblChoixTypesProduit" Grid.Column="1" Content="Type de produit :" Grid.Row="1" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+			<Label x:Name="lblChoixTypesProduit" Grid.Column="1" Content="Type de produit :" Grid.Row="1"  FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 
-			<Label x:Name="lblChoixCategorie" Grid.Column="5" Content="Categorie :" Grid.Row="1" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+			<Label x:Name="lblChoixCategorie" Grid.Column="5" Content="Categorie :" Grid.Row="1"  FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
 
-			<ComboBox x:Name="groupTypeProduit" Grid.Column="3" Grid.Row="1"  SelectionChanged="groupCategorie_SelectionChanged"  >
-				<ComboBox.ItemTemplate>
-					<DataTemplate>
-						<TextBlock Text = "{Binding LibelleTypeProduit}" />
-					</DataTemplate >
-				</ComboBox.ItemTemplate >
-			</ComboBox>
-			<ComboBox x:Name="groupCategorie" Grid.Column="7" Grid.Row="1"  SelectionChanged="groupCategorie_SelectionChanged" IsEnabled="False" >
+			<ComboBox x:Name="groupTypeProduit" Grid.Column="3" Grid.Row="1"  SelectionChanged="SelectTypeProduit"  >
 				<ComboBox.ItemTemplate>
 					<DataTemplate>
 						<TextBlock Text = "{Binding LibelleTypeProduit}" />
@@ -57,14 +52,21 @@
 				</ComboBox.ItemTemplate >
 			</ComboBox>
 
-			<DataGrid x:Name="gridDataArticle" IsReadOnly="True" AutoGenerateColumns="False" Grid.ColumnSpan="8" Grid.Row="3" >
+			<ListBox x:Name="listCategorie" Grid.Column="7" Grid.RowSpan="3" Grid.Row="1" IsEnabled="False" SelectionChanged="listCategorie_SelectionChanged">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<ListBoxItem Content="{Binding LibelleCategorie}"/>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+
+			<DataGrid x:Name="gridDataArticle" IsReadOnly="True" AutoGenerateColumns="False" Grid.ColumnSpan="8" Grid.Row="5" >
 				<DataGrid.Columns>
 					<DataGridTextColumn x:Name="dataQuantiteStrockee" Header="Quanité Stockee" Binding="{Binding QuantiteStrockee}" Width="1*" />
 					<DataGridTextColumn x:Name="dataLibelleArticle" Header="Libelle Article" Binding="{Binding LibelleArticle}" Width="3*" />
 				</DataGrid.Columns>
 
 			</DataGrid>
-
 		</Grid>
 
 

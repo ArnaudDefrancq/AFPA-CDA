@@ -23,8 +23,6 @@ namespace gestionStock.Models.Dtos
 		public int IdCategorie { get; set; }
 
 		public string? LibelleCategorie { get; set; }
-
-		public int IdTypeProduit { get; set; }
 	}
 
 	public class CategorieDtoAplatie

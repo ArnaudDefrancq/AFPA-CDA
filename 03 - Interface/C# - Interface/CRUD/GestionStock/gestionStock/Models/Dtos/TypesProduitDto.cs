@@ -15,13 +15,12 @@ namespace gestionStock.Models.Dtos
 	}
 	public class TypesProduitDtoAplatie
 	{
-
 		public int IdTypeProduit { get; set; }
 
 		public string? LibelleTypeProduit { get; set; }
 
-		public List<CategorieDtoSansArticleSansType> ListCategorie { get; set; }
+		//public List<CategorieDtoSansArticleSansType> AllCategories { get; set; } = new List<CategorieDtoSansArticleSansType>();
 
-		public List<ArticleDtoSansCategorie> ListArticle { get; set; }
+		public List<ArticleDtoSansCategorie> AllArticles { get; set; } = new List<ArticleDtoSansCategorie>();
 	}
 }

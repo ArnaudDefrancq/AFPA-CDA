@@ -57,7 +57,6 @@
 					<DataGridTextColumn x:Name="dataQuantiteStrockee" Header="Quanité Stockee" Binding="{Binding QuantiteStrockee}" Width="1*" />
 					<DataGridTextColumn x:Name="dataLibelleArticle" Header="Libelle Article" Binding="{Binding LibelleArticle}" Width="3*" />
 				</DataGrid.Columns>
-
 			</DataGrid>
 		</Grid>
 

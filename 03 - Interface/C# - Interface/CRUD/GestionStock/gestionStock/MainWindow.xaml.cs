@@ -40,7 +40,7 @@ namespace gestionStock
 					this.Opacity = 1;
 					break;
 				case "btnTypeProduit":
-					TypesProduitListe typesProduitListe = new TypesProduitListe();
+					TypesProduitListe typesProduitListe = new TypesProduitListe(this);
 					this.Opacity = 0.7;
 					typesProduitListe.ShowDialog();
 					this.Opacity = 1;
