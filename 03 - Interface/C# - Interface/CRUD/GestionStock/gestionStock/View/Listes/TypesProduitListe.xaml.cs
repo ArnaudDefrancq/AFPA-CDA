@@ -45,7 +45,6 @@ namespace gestionStock.View.Listes
 		{
 			List<TypesProduitDtoAplatie> list = _controller.GetAllTypesProduits().ToList();
 			groupTypeProduit.ItemsSource = list;
-			list.Dump();
 		}
 
 		//*******************************************************//
@@ -54,29 +53,28 @@ namespace gestionStock.View.Listes
 		{
 			TypesProduitDtoAplatie tpa = groupTypeProduit.SelectedItem as TypesProduitDtoAplatie;
 
-			//if (tpa.AllCategories != null)
-			//{
-			//	listCategorie.ItemsSource = tpa.AllCategories;
+			if (tpa.AllCategories != null)
+			{
+				listCategorie.ItemsSource = tpa.AllCategories;
+				listCategorie.IsEnabled = true;
+				validSuppr = true;
+				validModif = true;
+				BtnActiveDesactiveModif();
+				BtnActiveDesactiveSuppr();
 
-			//	validSuppr = true;
-			//	validModif = true;
-			//	BtnActiveDesactiveModif();
-			//	BtnActiveDesactiveSuppr();
-			//}
+			}
 		}
 
 		//*******************************************************//
 		// Permet de selectionner une categorie
 		private void listCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			CategorieDtoSansType categ = listCategorie.SelectedItem as CategorieDtoSansType;
 
-		}
-
-		//*******************************************************//
-		// Permet d'afficher dans le dataGrid les articles
-		private void DisplayDataGridArticles()
-		{
-
+			if (categ != null)
+			{
+				gridDataArticle.ItemsSource = categ.LesArticles;
+			}
 		}
 
 		//*******************************************************//

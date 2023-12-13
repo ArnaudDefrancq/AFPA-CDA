@@ -55,7 +55,7 @@
 			<ListBox x:Name="listCategorie" Grid.Column="7" Grid.RowSpan="3" Grid.Row="1" IsEnabled="False" SelectionChanged="listCategorie_SelectionChanged">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
-						<ListBoxItem Content="{Binding LibelleCategorie}"/>
+						<TextBlock Text="{Binding LibelleCategorie}"/>
 					</DataTemplate>
 				</ListBox.ItemTemplate>
 			</ListBox>
