@@ -20,8 +20,8 @@ namespace gestionStock.Models.Dtos
 
 		public string? LibelleTypeProduit { get; set; }
 
-		public List<string> LibelleCategorie { get; set; }
+		public List<CategorieDtoSansArticleSansType> ListCategorie { get; set; }
 
-		public List<string> LibelleArticle { get; set; }
+		public List<ArticleDtoSansCategorie> ListArticle { get; set; }
 	}
 }

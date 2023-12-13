@@ -16,8 +16,8 @@ namespace gestionStock.Models.Profiles
 			CreateMap<TypesProduitDtoSansCategorie, TypesProduit>();
 
 			CreateMap<TypesProduit, TypesProduitDtoAplatie>()
-				.ForMember(tpa => tpa.LibelleCategorie, o => o.MapFrom(tp => tp.LesCategories.Select(c => c.LibelleCategorie)))
-				.ForMember(tpa => tpa.LibelleArticle, o => o.MapFrom(tp => tp.LesCategories.Select(c => c.LesArticles.Select(a => a.LibelleArticle))));
+				.ForMember(tpa => tpa.ListArticle, o => o.MapFrom(tp => tp.LesCategories.Select(c => c.LesArticles)))
+				.ForMember(tpa => tpa.ListCategorie, o => o.MapFrom(tp => tp.LesCategories));
 			CreateMap<TypesProduitDtoAplatie, TypesProduit>();
 		}
 	}
