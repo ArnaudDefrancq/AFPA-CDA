@@ -51,11 +51,7 @@ namespace CRUDGestionCours.Models.Dtos
 
 		public DateTime? DateInscription { get; set; }
 
-		public int IdCours { get; set; }
-
 		public string? NomCours { get; set; }
-
-		public int IdEtudiants { get; set; }
 
 		public string? NomEtudiant { get; set; }
 
