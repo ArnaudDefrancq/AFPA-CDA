@@ -14,8 +14,8 @@ namespace gestionStock.Models.Profiles
 			CreateMap<Categorie, CategorieDtoIn>();
 			CreateMap<CategorieDtoIn, Categorie>();
 
-			CreateMap<Categorie, CategorieDtoSansArticleSansType>();
-			CreateMap<CategorieDtoSansArticleSansType, Categorie>();
+			CreateMap<Categorie, CategorieDtoSansType>();
+			CreateMap<CategorieDtoSansType, Categorie>();
 
 
 			CreateMap<Categorie, CategorieDtoAplatie>()

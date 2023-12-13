@@ -6,6 +6,7 @@ using gestionStock.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using gestionStock.Models.Profiles;
+using gestionStock.Helpers;
 
 namespace gestionStock.Controllers
 {

@@ -19,8 +19,6 @@ namespace gestionStock.Models.Dtos
 
 		public string? LibelleTypeProduit { get; set; }
 
-		//public List<CategorieDtoSansArticleSansType> AllCategories { get; set; } = new List<CategorieDtoSansArticleSansType>();
-
-		public List<ArticleDtoSansCategorie> AllArticles { get; set; } = new List<ArticleDtoSansCategorie>();
+		public List<CategorieDtoSansType> AllCategories { get; set; } = new List<CategorieDtoSansType>();
 	}
 }
