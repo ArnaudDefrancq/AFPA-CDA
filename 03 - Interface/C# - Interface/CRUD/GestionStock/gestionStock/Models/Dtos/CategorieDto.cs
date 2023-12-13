@@ -1,5 +1,4 @@
-﻿using gestionStock.Models.Data;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 
 namespace gestionStock.Models.Dtos

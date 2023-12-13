@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WpfApp1.Models.Data;
+namespace gestionStock.Models.Data;
 
-public partial class Category
+public partial class Categorie
 {
 	public int IdCategorie { get; set; }
 
@@ -13,5 +13,5 @@ public partial class Category
 
 	public virtual ICollection<Article> LesArticles { get; set; } = new List<Article>();
 
-	public virtual Typesproduit LeTypeProduit { get; set; } = null!;
+	public virtual TypesProduit LeTypeProduit { get; set; } = null!;
 }

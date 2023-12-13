@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WpfApp1.Models.Data;
+namespace gestionStock.Models.Data;
 
 public partial class Article
 {
@@ -13,5 +13,5 @@ public partial class Article
 
 	public int IdCategorie { get; set; }
 
-	public virtual Category LaCategorie { get; set; } = null!;
+	public virtual Categorie LaCategorie { get; set; } = null!;
 }

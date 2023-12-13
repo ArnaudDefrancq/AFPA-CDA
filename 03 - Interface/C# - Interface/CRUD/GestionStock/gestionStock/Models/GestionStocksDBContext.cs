@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Configuration;
 using Microsoft.EntityFrameworkCore;
-using WpfApp1.Models.Data;
+using gestionStock.Models.Data;
 
-namespace WpfApp1.Models;
+namespace gestionStock.Models;
 
 public partial class GestionStocksDBContext : DbContext
 {
@@ -19,9 +19,9 @@ public partial class GestionStocksDBContext : DbContext
 
 	public virtual DbSet<Article> Articles { get; set; }
 
-	public virtual DbSet<Category> Categories { get; set; }
+	public virtual DbSet<Categorie> Categories { get; set; }
 
-	public virtual DbSet<Typesproduit> Typesproduits { get; set; }
+	public virtual DbSet<TypesProduit> Typesproduits { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
@@ -48,7 +48,7 @@ public partial class GestionStocksDBContext : DbContext
 				.HasConstraintName("articles_ibfk_1");
 		});
 
-		modelBuilder.Entity<Category>(entity =>
+		modelBuilder.Entity<Categorie>(entity =>
 		{
 			entity.HasKey(e => e.IdCategorie).HasName("PRIMARY");
 
@@ -65,7 +65,7 @@ public partial class GestionStocksDBContext : DbContext
 				.HasConstraintName("categories_ibfk_1");
 		});
 
-		modelBuilder.Entity<Typesproduit>(entity =>
+		modelBuilder.Entity<TypesProduit>(entity =>
 		{
 			entity.HasKey(e => e.IdTypeProduit).HasName("PRIMARY");
 
