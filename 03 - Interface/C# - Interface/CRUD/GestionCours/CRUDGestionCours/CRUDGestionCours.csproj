@@ -34,10 +34,6 @@
 	  </None>
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="Controllers\" />
-	  <Folder Include="Models\Dtos\" />
-	  <Folder Include="Models\Services\" />
-	  <Folder Include="Models\Profiles\" />
 	  <Folder Include="View\" />
 	</ItemGroup>
 

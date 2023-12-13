@@ -20,6 +20,8 @@ namespace CRUDGestionCours.Controllers
 			var config = new MapperConfiguration(cfg =>
 			{
 				cfg.AddProfile<InscriptionProfile>();
+				cfg.AddProfile<CoursProfile>();
+				cfg.AddProfile<EtudiantProfile>();
 			});
 			_mapper = config.CreateMapper();
 		}
