@@ -5,6 +5,11 @@ namespace gestionStock.Models.Dtos
 	public class TypesProduitDtoIn
 	{
 		public string? LibelleTypeProduit { get; set; }
+
+		public TypesProduitDtoIn(string? libelleTypeProduit)
+		{
+			LibelleTypeProduit = libelleTypeProduit;
+		}
 	}
 
 	public class TypesProduitDtoSansCategorie

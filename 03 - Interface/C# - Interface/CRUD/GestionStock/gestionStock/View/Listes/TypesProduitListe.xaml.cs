@@ -53,7 +53,7 @@ namespace gestionStock.View.Listes
 		{
 			TypesProduitDtoAplatie tpa = groupTypeProduit.SelectedItem as TypesProduitDtoAplatie;
 
-			if (tpa.AllCategories != null)
+			if (tpa != null)
 			{
 				listCategorie.ItemsSource = tpa.AllCategories;
 				listCategorie.IsEnabled = true;
@@ -61,8 +61,8 @@ namespace gestionStock.View.Listes
 				validModif = true;
 				BtnActiveDesactiveModif();
 				BtnActiveDesactiveSuppr();
-
 			}
+
 		}
 
 		//*******************************************************//
@@ -131,7 +131,7 @@ namespace gestionStock.View.Listes
 			this.Opacity = 0.7;
 			af.ShowDialog();
 			this.Opacity = 1;
-
+			DisplayListTypeProduit();
 			validSuppr = false;
 			validModif = false;
 			BtnActiveDesactiveModif();
