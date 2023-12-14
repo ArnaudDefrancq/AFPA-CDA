@@ -24,9 +24,6 @@ namespace CRUDGestionCours.View.Formulaire
 	/// </summary>
 	public partial class EtudiantFormulaire : Window
 	{
-
-		private InscriptionController _inscriptionController;
-		private CoursController _coursController;
 		private EtudiantController _etudiantController;
 		private GestionCoursDBContext _context;
 
@@ -43,8 +40,6 @@ namespace CRUDGestionCours.View.Formulaire
 			InitializeComponent();
 			El = w;
 			_context = El._context;
-			_inscriptionController = new InscriptionController(_context);
-			_coursController = new CoursController(_context);
 			_etudiantController = new EtudiantController(_context);
 			Mode = mode;
 			btnValide.Content = Mode;

@@ -12,6 +12,12 @@ namespace CRUDGestionCours.Models.Dtos
 		public string? Nom { get; set; }
 
 		public string? Description { get; set; }
+
+		public CoursDtoIn(string? nom, string? description)
+		{
+			Nom = nom;
+			Description = description;
+		}
 	}
 
 	public class CoursDtoOutAplatie
