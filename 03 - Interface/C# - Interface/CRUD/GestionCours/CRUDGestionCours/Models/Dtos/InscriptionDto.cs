@@ -53,6 +53,8 @@ namespace CRUDGestionCours.Models.Dtos
 
 		public string? NomCours { get; set; }
 
+		public string DescriptionCours { get; set; }
+
 		public string? NomEtudiant { get; set; }
 
 		public string? PrenomEtudiant { get; set; }
