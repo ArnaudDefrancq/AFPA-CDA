@@ -14,6 +14,13 @@ namespace CRUDGestionCours.Models.Dtos
 		public string? Prenom { get; set; }
 
 		public int? Age { get; set; }
+
+		public EtudiantDtoIn(string? nom, string? prenom, int? age)
+		{
+			Nom = nom;
+			Prenom = prenom;
+			Age = age;
+		}
 	}
 
 	public class EtudiantDtoOutSansInscription

@@ -2,6 +2,7 @@
 using CRUDGestionCours.Helpers;
 using CRUDGestionCours.Models;
 using CRUDGestionCours.Models.Dtos;
+using CRUDGestionCours.View.Formulaire;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,7 +54,12 @@ namespace CRUDGestionCours.View.Liste
 		{
 			EtudiantDtoOutAplatie etudiant = (EtudiantDtoOutAplatie)gridDataEtudiant.SelectedItem;
 
+			if (etudiant != null)
+			{
+
 			gridDataCoursEtudiant.ItemsSource = etudiant.Inscriptions;
+			}
+
 
 		}
 
@@ -102,26 +108,26 @@ namespace CRUDGestionCours.View.Liste
 		// Action sur les btns Ajouts/Modifier/Supprimer
 		private void btnActionClick(object sender, EventArgs e)
 		{
-			//ArticleDtoOutAplatie item;
-			//if (((Button)sender).Name == "btnAjouter")
-			//{
-			//	item = new ArticleDtoOutAplatie();
-			//}
-			//else
-			//{
-			//	item = (ArticleDtoOutAplatie)gridDataArticle.SelectedItem;
-			//}
+			EtudiantDtoOutAplatie item;
+			if (((Button)sender).Name == "btnAjouter")
+			{
+				item = new EtudiantDtoOutAplatie();
+			}
+			else
+			{
+				item = (EtudiantDtoOutAplatie)gridDataEtudiant.SelectedItem;
+			}
 
-			//ArticleFormulaire af = new ArticleFormulaire(item, this, (string)((Button)sender).Content);
-			//this.Opacity = 0.7;
-			//af.ShowDialog();
-			//this.Opacity = 1;
+			EtudiantFormulaire af = new EtudiantFormulaire(item, this, (string)((Button)sender).Content);
+			this.Opacity = 0.7;
+			af.ShowDialog();
+			this.Opacity = 1;
 
-			//DisplayDataGrid();
-			//validSuppr = false;
-			//validModif = false;
-			//BtnActiveDesactiveModif();
-			//BtnActiveDesactiveSuppr();
+			DisplayDataGrid();
+			validSuppr = false;
+			validModif = false;
+			BtnActiveDesactiveModif();
+			BtnActiveDesactiveSuppr();
 		}
 
 		//*******************************************************//
@@ -135,17 +141,17 @@ namespace CRUDGestionCours.View.Liste
 		// Action sur les btns Ajouts/Modifier/Supprimer
 		private void Row_DoubleClick(object sender, EventArgs e)
 		{
-			//ArticleDtoOutAplatie item = gridDataArticle.SelectedItem as ArticleDtoOutAplatie;
+			EtudiantDtoOutAplatie item = gridDataEtudiant.SelectedItem as EtudiantDtoOutAplatie;
 
-			//ArticleFormulaire w = new ArticleFormulaire(item, this, "Modifier");
-			//this.Opacity = 0.7;
-			//w.ShowDialog();
-			//this.Opacity = 1;
-			//DisplayDataGrid();
-			//validSuppr = false;
-			//validModif = false;
-			//BtnActiveDesactiveModif();
-			//BtnActiveDesactiveSuppr();
+			EtudiantFormulaire w = new EtudiantFormulaire(item, this, "Modifier");
+			this.Opacity = 0.7;
+			w.ShowDialog();
+			this.Opacity = 1;
+			DisplayDataGrid();
+			validSuppr = false;
+			validModif = false;
+			BtnActiveDesactiveModif();
+			BtnActiveDesactiveSuppr();
 		}
 
 	}
