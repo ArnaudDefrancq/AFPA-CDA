@@ -6,7 +6,84 @@
         xmlns:local="clr-namespace:CRUDGestionCours.View.Formulaire"
         mc:Ignorable="d"
         Title="Details du cours" Height="450" Width="800" Background="{DynamicResource BackgroundUni}">
-	<Grid>
+	<Grid x:Name="mainGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="20*"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="20*"/>
+			<ColumnDefinition Width="1*"/>
+		</Grid.ColumnDefinitions>
+
+		<Grid Name="gridDetail" Grid.Column="1" Grid.Row="1" >
+			<Grid.RowDefinitions>
+				<RowDefinition Height="3*"/>
+				<RowDefinition Height="0.1*"/>
+				<RowDefinition Height="1*"/>
+			</Grid.RowDefinitions>
+
+			<GroupBox Name="groupDetail" Header="Detail du cours" BorderBrush="White" >
+
+				<Grid x:Name="gridGroupBox" >
+					<Grid.RowDefinitions>
+						<RowDefinition Height="0.5*"/>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="0.5*"/>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="0.5*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width=".1*"/>
+						<ColumnDefinition Width="2*"/>
+						<ColumnDefinition Width="2*"/>
+						<ColumnDefinition Width="0.1*"/>
+
+					</Grid.ColumnDefinitions>
+
+					<Label x:Name="lblNomCours" Content="Nom du cours :" Grid.Column="0" Grid.Row="1" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+					<Label x:Name="lblDescriptionCours" Content="Description :" Grid.Column="0" Grid.Row="3" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+
+					<TextBox x:Name="txtNomCours" Grid.Column="2"  Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="CheckOnlyLettre"/>
+					<TextBox x:Name="txtDescriptionCours" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
+
+					<TextBox x:Name="txtIdEtudiant" IsEnabled="False" Visibility="Hidden" />
+				</Grid>
+			</GroupBox>
+
+			<Grid x:Name="gridBtn" Grid.Row="2" >
+				<Grid.RowDefinitions>
+
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="3*"/>
+					<RowDefinition Height="1*"/>
+
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.5*"/>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="0.5*"/>
+					<ColumnDefinition Width="2*"/>
+					<ColumnDefinition Width="0.5*"/>
+				</Grid.ColumnDefinitions>
+
+				<Button x:Name="btnValide" Grid.Column="1" Content="" Grid.Row="1" Click="valider_Click" IsEnabled="False">
+					<Button.Effect>
+						<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+					</Button.Effect>
+				</Button>
+
+				<Button x:Name="btnQuitter" Grid.Column="3" Content="Quitter" Style="{DynamicResource btnStyle}" Grid.Row="1" Click="annuler_Click" >
+					<Button.Effect>
+						<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+					</Button.Effect>
+				</Button>
+			</Grid>
+		</Grid>
 
 	</Grid>
+
 </Window>
