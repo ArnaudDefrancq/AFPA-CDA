@@ -27,7 +27,7 @@ namespace CRUDGestionCours.Controllers
 		}
 
 
-		public IEnumerable<EtudiantDtoOutAplatie> GetAllCours()
+		public IEnumerable<EtudiantDtoOutAplatie> GetAllEtudiants()
 		{
 			IEnumerable<Etudiant> liste = _service.GetAllEtudiants();
 			return _mapper.Map<IEnumerable<EtudiantDtoOutAplatie>>(liste);

@@ -18,8 +18,10 @@ namespace CRUDGestionCours.Models.Profiles
 			CreateMap<InscriptionDtoSansEtudiant, Inscription>();
 
 			CreateMap<Inscription, InscriptionDtoOutAplatie>()
+				.ForMember(ia => ia.IdCours, o => o.MapFrom(i => i.LeCours.IdCours))
 				.ForMember(ia => ia.NomCours, o => o.MapFrom(i => i.LeCours.Nom))
 				.ForMember(ia => ia.DescriptionCours, o => o.MapFrom(i => i.LeCours.Description))
+				.ForMember(ia => ia.IdEtudiant, o => o.MapFrom(i => i.LeEtudiant.IdEtudiants))
 				.ForMember(ia => ia.NomEtudiant, o => o.MapFrom(i => i.LeEtudiant.Nom))
 				.ForMember(ia => ia.PrenomEtudiant, o => o.MapFrom(i => i.LeEtudiant.Prenom));
 			CreateMap<InscriptionDtoOutAplatie, Inscription>();

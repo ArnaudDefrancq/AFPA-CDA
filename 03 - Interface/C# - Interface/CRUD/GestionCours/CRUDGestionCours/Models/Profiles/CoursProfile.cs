@@ -16,7 +16,7 @@ namespace CRUDGestionCours.Models.Profiles
 			CreateMap<CoursDtoOutSansInscription, Cour>();
 
 			CreateMap<Cour, CoursDtoOutAplatie>()
-				.ForMember(ca => ca.ListEtudiantInscrit, o => o.MapFrom(c => c.Inscriptions.Select(i => i.LeEtudiant)));
+			.ForMember(ca => ca.ListEtudiantInscrit, o => o.MapFrom(c => c.Inscriptions));
 			CreateMap<CoursDtoOutAplatie, Cour>();
 		}
 	}

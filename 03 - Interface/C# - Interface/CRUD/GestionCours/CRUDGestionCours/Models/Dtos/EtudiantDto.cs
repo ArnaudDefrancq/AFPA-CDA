@@ -37,6 +37,6 @@ namespace CRUDGestionCours.Models.Dtos
 
 		public int? Age { get; set; }
 
-		public virtual ICollection<InscriptionDtoSansEtudiant> Inscriptions { get; set; } = new List<InscriptionDtoSansEtudiant>();
+		public virtual List<InscriptionDtoSansEtudiant> Inscriptions { get; set; } = new List<InscriptionDtoSansEtudiant>();
 	}
 }
