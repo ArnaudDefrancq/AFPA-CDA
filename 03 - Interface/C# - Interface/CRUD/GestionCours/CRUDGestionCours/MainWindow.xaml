@@ -84,7 +84,7 @@
 				<RowDefinition Height="1*"/>
 			</Grid.RowDefinitions>
 
-			<Button x:Name="btnListEtudiant" Grid.Column="1" Content="Liste des étudiants" Grid.Row="1" Style="{DynamicResource btnStyle}">
+			<Button x:Name="btnListEtudiant" Grid.Column="1" Content="Liste des étudiants" Grid.Row="1" Style="{DynamicResource btnStyle}" Click="ListEtudiantClick">
 				<Button.Effect>
 					<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
 				</Button.Effect>

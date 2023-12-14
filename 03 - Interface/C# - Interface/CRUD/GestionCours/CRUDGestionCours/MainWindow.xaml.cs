@@ -3,6 +3,7 @@ using CRUDGestionCours.Models;
 using CRUDGestionCours.Models.Data;
 using CRUDGestionCours.Models.Dtos;
 using CRUDGestionCours.View.Formulaire;
+using CRUDGestionCours.View.Liste;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -128,6 +129,13 @@ namespace CRUDGestionCours
 			BtnActiveDesactiveSuppr();
 		}
 
+		private void ListEtudiantClick(object sender, RoutedEventArgs e)
+		{
+			EtudiantListe el = new EtudiantListe(this);
+			this.Opacity = 0.7;
+			el.ShowDialog();
+			this.Opacity = 1;
+		}
 	}
 }
 

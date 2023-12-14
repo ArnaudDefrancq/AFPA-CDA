@@ -22,7 +22,7 @@
 			<ColumnDefinition Width="1*"/>
 		</Grid.ColumnDefinitions>
 
-		<DataGrid x:Name="gridDataInscription" AutoGenerateColumns="False" Grid.Column="1" Grid.Row="1" IsReadOnly="True" SelectionChanged="gridDataArticle_SelectionChanged" >
+		<DataGrid x:Name="gridDataEtudiant" AutoGenerateColumns="False" Grid.Column="1" Grid.Row="1" IsReadOnly="True" SelectionChanged="SelectEtudiant" >
 			<DataGrid.Columns>
 				<DataGridTextColumn x:Name="dataNomEtudiant" Header="Nom Etudiant" Binding="{Binding Nom}" Width="1*" />
 				<DataGridTextColumn x:Name="dataPrenomEtudiant" Header="Prénom Etudiant" Binding="{Binding Prenom}" Width="1*" />
@@ -73,11 +73,11 @@
 		</Grid>
 
 		<GroupBox Name="infoEtudiant" Grid.Column="1" Grid.Row="3" Header="Cours inscrit" BorderBrush="White" >
-			<DataGrid x:Name="gridDataCoursEtudiant" >
+			<DataGrid x:Name="gridDataCoursEtudiant"  AutoGenerateColumns="False" IsReadOnly="True">
 				<DataGrid.Columns>
-					<DataGridTextColumn x:Name="dataCours" Header="Cours" Binding="{Binding Nom}" Width="1*" />
-					<DataGridTextColumn x:Name="dataDescriptionCours" Header="Description" Binding="{Binding Prenom}" Width="4*" />
-					<DataGridTextColumn x:Name="DataDateInscription" Header="Date inscription" Binding="{Binding DateInscription, StringFormat={}{0:MM/dd/yyyy}}" Width="1*" />
+					<DataGridTextColumn x:Name="dataCours" Binding="{Binding Path=LeCours.Description}" Header="Cours"  Width="1*" />
+					<DataGridTextColumn x:Name="dataDescriptionCours" Header="Description" Binding="{Binding Path=LeCours.Description}" Width="4*" />
+					<DataGridTextColumn x:Name="DataDateInscription" Header="Date inscription" Binding="{Binding Path=DateInscription,StringFormat={}{0:dd/MM/yyyy}}" Width="1*" />
 				</DataGrid.Columns>
 			</DataGrid>
 		</GroupBox>
