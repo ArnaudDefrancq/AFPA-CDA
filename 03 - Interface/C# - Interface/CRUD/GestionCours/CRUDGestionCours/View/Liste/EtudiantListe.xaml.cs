@@ -56,8 +56,7 @@ namespace CRUDGestionCours.View.Liste
 
 			if (etudiant != null)
 			{
-
-			gridDataCoursEtudiant.ItemsSource = etudiant.Inscriptions;
+				gridDataCoursEtudiant.ItemsSource = etudiant.Inscriptions;
 			}
 
 

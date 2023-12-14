@@ -136,6 +136,14 @@ namespace CRUDGestionCours
 			el.ShowDialog();
 			this.Opacity = 1;
 		}
+
+		private void ListCoursClick(object sender, RoutedEventArgs e)
+		{
+			CoursListe el = new CoursListe(this);
+			this.Opacity = 0.7;
+			el.ShowDialog();
+			this.Opacity = 1;
+		}
 	}
 }
 

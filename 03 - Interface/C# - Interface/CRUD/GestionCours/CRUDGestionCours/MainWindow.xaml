@@ -89,7 +89,7 @@
 					<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
 				</Button.Effect>
 			</Button>
-			<Button x:Name="btnListCours" Grid.Column="3" Content="Liste des cours" Grid.Row="1" Style="{DynamicResource btnStyle}">
+			<Button x:Name="btnListCours" Grid.Column="3" Content="Liste des cours" Grid.Row="1" Style="{DynamicResource btnStyle}" Click="ListCoursClick">
 				<Button.Effect>
 					<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
 				</Button.Effect>
