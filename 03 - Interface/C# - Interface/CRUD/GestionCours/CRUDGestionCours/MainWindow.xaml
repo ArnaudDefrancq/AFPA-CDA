@@ -70,13 +70,11 @@
 
 		</Grid>
 
-		<Grid Name="gridBtnList"  Grid.Column="1" Grid.Row="3" >
+		<Grid Name="gridBtnList" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="3" >
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="0.3*"/>
 				<ColumnDefinition Width="1*"/>
-				<ColumnDefinition Width="0.3*"/>
-				<ColumnDefinition Width="1*"/>
-				<ColumnDefinition Width="0.3*"/>
+				<ColumnDefinition Width=".5*"/>
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="0.3*"/>
 			</Grid.ColumnDefinitions>
@@ -85,6 +83,17 @@
 				<RowDefinition Height="2*"/>
 				<RowDefinition Height="1*"/>
 			</Grid.RowDefinitions>
+
+			<Button x:Name="btnListEtudiant" Grid.Column="1" Content="Liste des étudiants" Grid.Row="1" Style="{DynamicResource btnStyle}">
+				<Button.Effect>
+					<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+				</Button.Effect>
+			</Button>
+			<Button x:Name="btnListCours" Grid.Column="3" Content="Liste des cours" Grid.Row="1" Style="{DynamicResource btnStyle}">
+				<Button.Effect>
+					<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+				</Button.Effect>
+			</Button>
 		</Grid>
 
 	</Grid>
