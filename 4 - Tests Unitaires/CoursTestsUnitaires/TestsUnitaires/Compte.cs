@@ -10,6 +10,10 @@ namespace TestsUnitaires
 	{
 		public string Client { get; set; }
 		public double Solde { get; set; }
+
+		public const string DebitMontantSuperieurSoldeMessage = "Le montant à débiter est supérieur au solde";
+		public const string DebitMontantNegatifMessage = "Le montant à débiter est négatif";
+
 		public Compte(string nom, double solde)
 		{
 			Client = nom;
@@ -23,11 +27,11 @@ namespace TestsUnitaires
 		{
 			if (montant > Solde)
 			{
-				throw new ArgumentOutOfRangeException("montant");
+				throw new ArgumentOutOfRangeException("montant", montant, DebitMontantSuperieurSoldeMessage);
 			}
 			if (montant < 0)
 			{
-				throw new ArgumentOutOfRangeException("montant");
+				throw new ArgumentOutOfRangeException("montant", montant, DebitMontantNegatifMessage);
 			}
 			Solde += montant; // code incorrect volontairement
 		}
