@@ -48,22 +48,22 @@
 					<Label x:Name="lblChoixCours" Content="Cours :" Grid.Column="0" Grid.Row="1" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
 					<Label x:Name="lblDescription" Content="Description :" Grid.Column="0" Grid.Row="3" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
 
-					<ComboBox x:Name="groupCours" Grid.Column="2" Grid.Row="1" SelectionChanged="SelectCoursInscription"  >
+					<ComboBox x:Name="groupCours" Grid.Column="2" Grid.Row="1" SelectionChanged="SelectCoursInscription" FontSize="16" VerticalContentAlignment="Center" >
 						<ComboBox.ItemTemplate>
 							<DataTemplate>
 								<TextBlock Text = "{Binding Nom}" />
 							</DataTemplate >
 						</ComboBox.ItemTemplate >
 					</ComboBox>
-					<TextBox x:Name="txtDescription" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="3" TextWrapping="Wrap" Text="" IsEnabled="False"/>
+					<TextBox x:Name="txtDescription" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="3" TextWrapping="Wrap" FontSize="16" Text="Description du cours" IsEnabled="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" />
 
 					<Label x:Name="lblChoixEtudiant" Content="Etudiant :" FontSize="16" Grid.Column="4" Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
 					<ListBox x:Name="listEtudiant" Grid.Row="1" Grid.Column="6" Grid.RowSpan="3" SelectionChanged="SelectEtudiantInscription" >
 						<ListBox.ItemTemplate>
 							<DataTemplate>
 								<StackPanel Orientation="Horizontal">
-									<TextBlock Text="{Binding Nom}" Margin="0,0,5,0"/>
-									<TextBlock Text="{Binding Prenom}"/>
+									<TextBlock Text="{Binding Nom}" FontSize="16" Margin="0,0,5,0"/>
+									<TextBlock Text="{Binding Prenom}" FontSize="16"/>
 								</StackPanel>
 							</DataTemplate>
 						</ListBox.ItemTemplate>

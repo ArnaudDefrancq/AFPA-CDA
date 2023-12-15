@@ -47,8 +47,8 @@
 					<Label x:Name="lblNomCours" Content="Nom du cours :" Grid.Column="0" Grid.Row="1" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
 					<Label x:Name="lblDescriptionCours" Content="Description :" Grid.Column="0" Grid.Row="3" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
 
-					<TextBox x:Name="txtNomCours" Grid.Column="2"  Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="CheckOnlyLettre"/>
-					<TextBox x:Name="txtDescriptionCours" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" TextWrapping="Wrap" Text="" TextChanged="TextChanged" />
+					<TextBox x:Name="txtNomCours" Grid.Column="2"  Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="CheckOnlyLettre" Style="{DynamicResource placeHolder}" Tag="Nom du cours" FontSize="16" />
+					<TextBox x:Name="txtDescriptionCours" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" TextWrapping="Wrap" Text="" TextChanged="TextChanged" Style="{DynamicResource placeHolder}" Tag="Description du cours" FontSize="16" />
 
 					<TextBox x:Name="txtIdCours" IsEnabled="False" Visibility="Hidden" />
 				</Grid>

@@ -49,9 +49,9 @@
 					<Label x:Name="lblPrenomEtudiant" Content="Prenom :" Grid.Column="0" Grid.Row="3" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
 					<Label x:Name="lblAgeEtudiant" Content="Age :" FontSize="16" Grid.Column="0" Grid.Row="5" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
 
-					<TextBox x:Name="txtNomEtudiant" Grid.Column="2"  Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="CheckOnlyLettre"/>
-					<TextBox x:Name="txtPrenomEtudiant" Grid.Column="2"  Grid.Row="3" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="CheckOnlyLettre" />
-					<TextBox x:Name="txtAgeEtudiant" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="CheckOnlyNumber"/>
+					<TextBox x:Name="txtNomEtudiant" Grid.Column="2"  Grid.Row="1" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="CheckOnlyLettre" Style="{DynamicResource placeHolder}" Tag="Nom Etudiant" FontSize="16" />
+					<TextBox x:Name="txtPrenomEtudiant" Grid.Column="2"  Grid.Row="3" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="CheckOnlyLettre" Style="{DynamicResource placeHolder}" Tag="Prenom Etudiant" FontSize="16"/>
+					<TextBox x:Name="txtAgeEtudiant" Grid.Column="2" Grid.Row="5" TextWrapping="Wrap" Text="" TextChanged="TextChanged" PreviewTextInput="CheckOnlyNumber"  Style="{DynamicResource placeHolder}" Tag="Age Etudiant" FontSize="16"/>
 
 
 

@@ -146,5 +146,25 @@ namespace CRUDGestionCours.View.Formulaire
 			this.Close();
 		}
 
+		//*******************************************************//
+		// Pour ajouter des placeholder
+		private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+		{
+			TextBox textBox = (TextBox)sender;
+			if (textBox.Text == "Description du cours")
+			{
+				textBox.Text = "";
+			}
+		}
+
+		private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+		{
+			TextBox textBox = (TextBox)sender;
+			if (string.IsNullOrWhiteSpace(textBox.Text))
+			{
+				textBox.Text = "Description du cours";
+			}
+		}
+
 	}
 }
