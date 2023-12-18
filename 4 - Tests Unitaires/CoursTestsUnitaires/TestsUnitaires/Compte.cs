@@ -33,7 +33,7 @@ namespace TestsUnitaires
 			{
 				throw new ArgumentOutOfRangeException("montant", montant, DebitMontantNegatifMessage);
 			}
-			Solde += montant; // code incorrect volontairement
+			Solde -= montant; // code incorrect volontairement
 		}
 		public void Credit(double montant)
 		{
