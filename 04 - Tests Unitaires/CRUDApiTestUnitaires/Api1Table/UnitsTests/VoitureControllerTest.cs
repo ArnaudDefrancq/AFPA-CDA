@@ -1,6 +1,7 @@
 using Api.Controllers;
 using Api.Interfaces;
 using Api.Models.Data;
+using Api.Models.DTOs;
 using AutoMapper;
 using Google.Protobuf.WellKnownTypes;
 using Microsoft.AspNetCore.Mvc;
@@ -62,5 +63,57 @@ namespace UnitsTests
 			// Assertions et vérifications
 			Assert.IsNull(getVoiture.Value);
 		}
+		[Test]
+		public void GetAllVoitures_Test_Exist()
+		{
+			// Initialisation d'un nouvelle objet
+			var voiture = new Voiture { IdVoiture = 1, Marque = "testMarque", Model = "testModel", Km = 999 };
+			var voiture1 = new Voiture { IdVoiture = 2, Marque = "testMarque", Model = "testModel", Km = 999 };
+			var voiture2 = new Voiture { IdVoiture = 3, Marque = "testMarque", Model = "testModel", Km = 999 };
+
+			IEnumerable<Voiture> voitureList = new List<Voiture>() { voiture, voiture1, voiture2 };
+
+			// Initialisation du mock pour le service
+			var voitureRepo = new Mock<IVoituresService>();
+			voitureRepo.Setup(x => x.GetAllVoitures()).Returns(voitureList);
+
+			// Initialisation du mock pour le profile
+			var mapper = new Mock<IMapper>();
+
+			// Initialisation du contrôleur
+			var controller = new VoituresController(voitureRepo.Object, mapper.Object);
+
+			// Appel de la méthode du contrôleur que vous testez
+			var getVoiture = controller.GetAllVoitures();
+
+			// Assertions et vérifications
+			Assert.IsNotNull(getVoiture);
+		}
+		//[Test]
+		//public void GetAllVoitures_Test_NotExist()
+		//{
+		//	// Initialisation d'un nouvelle objet
+		//	var voiture = new Voiture { IdVoiture = 1, Marque = "testMarque", Model = "testModel", Km = 999 };
+		//	var voiture1 = new Voiture { IdVoiture = 2, Marque = "testMarque", Model = "testModel", Km = 999 };
+		//	var voiture2 = new Voiture { IdVoiture = 3, Marque = "testMarque", Model = "testModel", Km = 999 };
+
+		//	IEnumerable<Voiture> voitureList = new List<Voiture>() { voiture, voiture1, voiture2 };
+
+		//	// Initialisation du mock pour le service
+		//	var voitureRepo = new Mock<IVoituresService>();
+		//	voitureRepo.Setup(x => x.GetAllVoitures()).Returns(voitureList);
+
+		//	// Initialisation du mock pour le profile
+		//	var mapper = new Mock<IMapper>();
+
+		//	// Initialisation du contrôleur
+		//	var controller = new VoituresController(voitureRepo.Object, mapper.Object);
+
+		//	// Appel de la méthode du contrôleur que vous testez
+		//	var getVoiture = controller.GetAllVoitures();
+
+		//	// Assertions et vérifications
+		//	Assert.IsNotNull(getVoiture);
+		//}
 	}
 }
