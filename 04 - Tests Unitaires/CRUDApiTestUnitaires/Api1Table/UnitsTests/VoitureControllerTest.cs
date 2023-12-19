@@ -215,6 +215,60 @@ namespace UnitsTests
 			Assert.IsNotNull(getVoiture);
 			Assert.IsInstanceOf<NotFoundResult>(getVoiture);
 		}
+		[Test]
+		public void DeleteVoiture_Test_GoodId()
+		{
+			int goodId = 1;
+
+			var voiture = new Voiture { IdVoiture = goodId, Marque = "testMarque", Model = "testModel", Km = 999 };
+
+			// Initialisation du mock pour le service
+			var voitureRepo = new Mock<IVoituresService>();
+			voitureRepo.Setup(x => x.GetVoitureById(goodId))
+					   .Returns(voiture);
+			voitureRepo.Setup(x => x.DeleteVoiture(voiture));
+
+
+			// Initialisation du mock pour le profile
+			var mapper = new Mock<IMapper>();
+
+			// Initialisation du contrôleur
+			var controller = new VoituresController(voitureRepo.Object, mapper.Object);
+
+			// Appel de la méthode du contrôleur que vous testez
+			var getVoiture = controller.DeleteVoiture(goodId);
+
+			// Assertions et vérifications
+			Assert.IsNotNull(getVoiture);
+			Assert.IsInstanceOf<NoContentResult>(getVoiture);
+		}
+		[Test]
+		public void DeleteVoiture_Test_BadId()
+		{
+			int badId = 999;
+
+			var voiture = new Voiture { IdVoiture = 1, Marque = "testMarque", Model = "testModel", Km = 999 };
+
+			// Initialisation du mock pour le service
+			var voitureRepo = new Mock<IVoituresService>();
+			voitureRepo.Setup(x => x.GetVoitureById(badId))
+					   .Returns((Voiture)null); // Simuler le cas où la voiture n'existe pas
+			voitureRepo.Setup(x => x.DeleteVoiture(It.IsAny<Voiture>()));
+
+
+			// Initialisation du mock pour le profile
+			var mapper = new Mock<IMapper>();
+
+			// Initialisation du contrôleur
+			var controller = new VoituresController(voitureRepo.Object, mapper.Object);
+
+			// Appel de la méthode du contrôleur que vous testez
+			var getVoiture = controller.DeleteVoiture(badId);
+
+			// Assertions et vérifications
+			Assert.IsNotNull(getVoiture);
+			Assert.IsInstanceOf<NotFoundResult>(getVoiture);
+		}
 
 	}
 }
