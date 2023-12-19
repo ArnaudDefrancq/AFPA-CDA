@@ -29,7 +29,11 @@ namespace Api.Controllers
 		public ActionResult<IEnumerable<VoituresDto>> GetAllVoitures()
 		{
 			var listeVoitures = _service.GetAllVoitures();
-			return Ok(_mapper.Map<IEnumerable<VoituresDto>>(listeVoitures));
+			if (listeVoitures != null)
+			{
+				return Ok(_mapper.Map<IEnumerable<VoituresDto>>(listeVoitures));
+			}
+			return NotFound();
 		}
 
 		// GET  api/personnes/{id}
