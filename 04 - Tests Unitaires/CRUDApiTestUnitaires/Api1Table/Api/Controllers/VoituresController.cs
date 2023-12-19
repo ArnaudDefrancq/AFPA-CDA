@@ -52,10 +52,20 @@ namespace Api.Controllers
 		[HttpPost]
 		public ActionResult<VoituresDto> CreateVoiture(Voiture v)
 		{
-			//on ajoute l’objet à la base de données
-			_service.AddVoitures(v);
-			//on retourne le chemin de findById avec l'objet créé
-			return CreatedAtRoute(nameof(GetVoitureById), new { Id = v.IdVoiture }, v);
+			if (v == null)
+			{
+				return BadRequest("L'objet voiture ne peut pas être nul.");
+			}
+
+			try
+			{
+				_service.AddVoitures(v);
+				return CreatedAtRoute(nameof(GetVoitureById), new { Id = v.IdVoiture }, v);
+			}
+			catch (ArgumentNullException ex)
+			{
+				return BadRequest("Erreur lors de la création de la voiture : " + ex.Message);
+			}
 		}
 
 		// PUT api/personnes/{id}
