@@ -1,0 +1,107 @@
+﻿<Window Name="FenetreInscriptionFormulaire" x:Class="CRUDGestionCours.View.Formulaire.InscriptionFormulaire"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CRUDGestionCours.View.Formulaire"
+        mc:Ignorable="d"
+        Title="Formulaire d'inscription" Height="300" Width="800" Background="{DynamicResource BackgroundUni}">
+	<Grid x:Name="mainGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="20*"/>
+			<RowDefinition Height="1*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="20*"/>
+			<ColumnDefinition Width="1*"/>
+		</Grid.ColumnDefinitions>
+
+		<Grid Name="gridDetail" Grid.Column="1" Grid.Row="1" >
+			<Grid.RowDefinitions>
+				<RowDefinition Height="3*"/>
+				<RowDefinition Height="0.1*"/>
+				<RowDefinition Height="1*"/>
+			</Grid.RowDefinitions>
+
+			<GroupBox Name="groupDetail" Header="Detail de l'inscription" BorderBrush="White" >
+
+				<Grid x:Name="gridGroupBox" >
+					<Grid.RowDefinitions>
+						<RowDefinition Height="0.5*"/>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="0.5*"/>
+						<RowDefinition Height="1*"/>
+						<RowDefinition Height="0.5*"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width=".1*"/>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="0.3*"/>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width="0.1*"/>
+						<ColumnDefinition Width="1*"/>
+					</Grid.ColumnDefinitions>
+
+					<Label x:Name="lblChoixCours" Content="Cours :" Grid.Column="0" Grid.Row="1" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+					<Label x:Name="lblDescription" Content="Description :" Grid.Column="0" Grid.Row="3" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+
+					<ComboBox x:Name="groupCours" Grid.Column="2" Grid.Row="1" SelectionChanged="SelectCoursInscription" FontSize="16" VerticalContentAlignment="Center" >
+						<ComboBox.ItemTemplate>
+							<DataTemplate>
+								<TextBlock Text = "{Binding Nom}" />
+							</DataTemplate >
+						</ComboBox.ItemTemplate >
+					</ComboBox>
+					<TextBox x:Name="txtDescription" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="3" TextWrapping="Wrap" FontSize="16" Text="Description du cours" IsEnabled="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" />
+
+					<Label x:Name="lblChoixEtudiant" Content="Etudiant :" FontSize="16" Grid.Column="4" Grid.Row="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+					<ListBox x:Name="listEtudiant" Grid.Row="1" Grid.Column="6" Grid.RowSpan="3" SelectionChanged="SelectEtudiantInscription" >
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="{Binding Nom}" FontSize="16" Margin="0,0,5,0"/>
+									<TextBlock Text="{Binding Prenom}" FontSize="16"/>
+								</StackPanel>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+
+					<TextBox x:Name="txtIdInscription" IsEnabled="False" Visibility="Hidden" />
+				</Grid>
+			</GroupBox>
+
+			<Grid x:Name="gridBtnAjoutArticle" Grid.Row="2" >
+				<Grid.RowDefinitions>
+
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="3*"/>
+					<RowDefinition Height="1*"/>
+
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="4*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="0.3*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+
+				<Button x:Name="btnValide" Grid.Column="1" Content="" Grid.Row="1" Click="valider_Click" IsEnabled="False">
+					<Button.Effect>
+						<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+					</Button.Effect>
+				</Button>
+
+				<Button x:Name="btnQuitter" Grid.Column="3" Content="Quitter" Style="{DynamicResource btnStyle}" Grid.Row="1" Click="annuler_Click" >
+					<Button.Effect>
+						<DropShadowEffect Color="#555555" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+					</Button.Effect>
+				</Button>
+			</Grid>
+		</Grid>
+
+	</Grid>
+
+</Window>
