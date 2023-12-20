@@ -47,8 +47,13 @@ namespace Tables_1_vers_plusieurs.Controllers
 		[HttpPost]/* RELATION DTO Sans relation*/
 		public ActionResult<MarqueDtoSansModeles> CreateMarque(MarqueDtoSansModeles v)
 		{
-			_service.AddMarque(_mapper.Map<Marque>(v));
-			return CreatedAtRoute(nameof(GetMarqueById), new { Id = v.IdMarque }, v);
+			if (v != null)
+			{
+				_service.AddMarque(_mapper.Map<Marque>(v));
+				return CreatedAtRoute(nameof(GetMarqueById), new { Id = v.IdMarque }, v);
+			}
+
+			return BadRequest();
 		}
 
 		[HttpPut("{id}")]/* RELATION DTO Sans relation*/

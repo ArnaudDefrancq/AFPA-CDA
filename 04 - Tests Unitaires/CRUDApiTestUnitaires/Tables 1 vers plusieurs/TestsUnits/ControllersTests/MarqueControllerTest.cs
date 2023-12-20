@@ -104,5 +104,25 @@ namespace TestsUnits.ControllersTests
 			Assert.IsInstanceOf<ActionResult<MarqueDtoSansModeles>>(getMarque); // On check que l'objet de sortie est bien MarqueDtoAvecModel
 		}
 
+		[Test]
+		public void CreateMarque_Test_WithBadObject()
+		{
+			// Init du service
+			service.Setup(s => s.AddMarque((Marque)null)).Throws<ArgumentNullException>();
+
+			// Creation du Dto pour le create
+			MarqueDtoSansModeles marqueDtoSansModeles = null;
+
+			// init du controller
+			var getMarque = controller.CreateMarque(marqueDtoSansModeles);
+
+			// On check la sortie
+			Assert.IsNotNull(getMarque);
+			Assert.IsInstanceOf<BadRequestResult>(getMarque.Result);  // On check que la fonction return BadRequest
+		}
+
+		[Test]
+		public void UpdateMarque_Test_WithGoodObject() { }
+
 	}
 }
