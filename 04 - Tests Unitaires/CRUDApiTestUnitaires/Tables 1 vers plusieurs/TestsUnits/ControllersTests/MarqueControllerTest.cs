@@ -122,7 +122,30 @@ namespace TestsUnits.ControllersTests
 		}
 
 		[Test]
-		public void UpdateMarque_Test_WithGoodObject() { }
+		public void UpdateMarque_Test_GoodId()
+		{
+
+		}
+		[Test]
+		public void UpdateMarque_Test_BadId()
+		{
+
+		}
+		[Test]
+		public void UpdateMarque_Test_WithBadObject()
+		{
+
+		}
+		[Test]
+		public void DeleteMarque_Test_GoodId()
+		{
+
+		}
+		[Test]
+		public void DeleteMarque_Test_BadId()
+		{
+
+		}
 
 	}
 }
