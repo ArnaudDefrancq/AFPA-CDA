@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.JsonPatch.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -124,26 +125,66 @@ namespace TestsUnits.ControllersTests
 		[Test]
 		public void UpdateMarque_Test_GoodId()
 		{
+			// Init du service
+			service.Setup(s => s.GetMarqueById(goodId)).Returns(marque);
+			service.Setup(s => s.UpdateMarque(marque));
 
+			// Creation du Dto pour le create
+			MarqueDtoSansModeles marqueDtoSansModeles = new MarqueDtoSansModeles() { IdMarque = 1, Libelle = "marque" };
+
+			// init du controller
+			var getMarque = controller.UpdateMarque(goodId, marqueDtoSansModeles);
+
+			// On check la sortie
+			Assert.IsNotNull(getMarque); // Check que getMarque pas null
+			Assert.IsInstanceOf<NoContentResult>(getMarque);
 		}
 		[Test]
 		public void UpdateMarque_Test_BadId()
 		{
+			// Init du service
+			service.Setup(s => s.GetMarqueById(badId)).Returns((Marque)null);
+			var test = service.Setup(s => s.UpdateMarque((Marque)null)).Throws<ArgumentNullException>();
 
-		}
-		[Test]
-		public void UpdateMarque_Test_WithBadObject()
-		{
+			// Creation du Dto pour le create
+			MarqueDtoSansModeles marqueDtoSansModeles = new MarqueDtoSansModeles() { IdMarque = 1, Libelle = "marque" };
 
+			// init du controller
+			var getMarque = controller.UpdateMarque(badId, marqueDtoSansModeles);
+
+			// On check la sortie
+			Assert.IsNotNull(getMarque); // Check que getMarque pas null
+			Assert.IsInstanceOf<NotFoundResult>(getMarque);
 		}
 		[Test]
 		public void DeleteMarque_Test_GoodId()
 		{
+			// Init du service
+			service.Setup(s => s.GetMarqueById(goodId)).Returns(marque);
+			service.Setup(s => s.DeleteMarque(marque));
+
+			// init du controller
+			var getController = controller.DeleteMarque(goodId);
+
+			// On check la sortie
+			Assert.IsNotNull(getController);
+			Assert.IsInstanceOf<NoContentResult>(getController);
+
 
 		}
 		[Test]
 		public void DeleteMarque_Test_BadId()
 		{
+			// Init du service
+			service.Setup(s => s.GetMarqueById(badId)).Returns((Marque)null);
+			service.Setup(s => s.DeleteMarque((Marque)null)).Throws<ArgumentNullException>();
+
+			// init controller
+			var getController = controller.DeleteMarque(badId);
+
+			// Check sortie
+			Assert.IsNotNull(getController);
+			Assert.IsInstanceOf<NotFoundResult>(getController);
 
 		}
 
