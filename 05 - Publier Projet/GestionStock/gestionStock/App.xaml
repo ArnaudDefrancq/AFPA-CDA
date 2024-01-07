@@ -1,0 +1,55 @@
+﻿<Application x:Class="gestionStock.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:gestionStock"
+             StartupUri="MainWindow.xaml">
+	<Application.Resources>
+		<SolidColorBrush x:Key="BackgroundUni" Color="#E2E9C0"/>
+
+		<Style x:Key="btnStyle" TargetType="Button">
+			<Setter Property="Background">
+				<Setter.Value>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+						<GradientStop Color="#955149" Offset="0"/>
+						<GradientStop Color="#75393a" Offset="1"/>
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontFamily" Value="Cascadia Mono SemiBold"/>
+			<Setter Property="FontSize" Value="16"/>
+			<Setter Property="BorderBrush" Value="#955149"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Padding" Value="10,5"/>
+			<Setter Property="Cursor" Value="Hand"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+							<Grid>
+								<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+							</Grid>
+						</Border>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			<Style.Triggers>
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter Property="Background">
+						<Setter.Value>
+							<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+								<GradientStop Color="#a86a5e" Offset="0"/>
+								<GradientStop Color="#955149" Offset="1"/>
+							</LinearGradientBrush>
+						</Setter.Value>
+					</Setter>
+				</Trigger>
+				<!-- Ajout d'un déclencheur pour ajuster la couleur du texte au survol -->
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter Property="Foreground" Value="White"/>
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+
+	</Application.Resources>
+</Application>

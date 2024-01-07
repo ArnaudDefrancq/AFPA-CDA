@@ -1,0 +1,44 @@
+﻿<Window x:Class="gestionStock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:gestionStock"
+        mc:Ignorable="d"
+        Title="GestionStock" Height="500" Width="500" Background="{DynamicResource BackgroundUni}">
+	<Grid Name="mainGrid">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="0.5*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="1*"/>
+		</Grid.ColumnDefinitions>
+
+		<Button x:Name="btnArticle" Grid.Column="1" Content="Nos Articles" Grid.Row="1" Style="{DynamicResource btnStyle}" Click="BtnActionClick">
+			<Button.Effect>
+				<DropShadowEffect Color="#4D000000" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+			</Button.Effect>
+		</Button>
+
+		<Button x:Name="btnCategories" Grid.Column="1" Content="Nos Categories" Grid.Row="3" Style="{DynamicResource btnStyle}" Click="BtnActionClick" >
+			<Button.Effect>
+				<DropShadowEffect Color="#4D000000" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+			</Button.Effect>
+		</Button>
+
+		<Button x:Name="btnTypeProduit" Grid.Column="1" Content="Nos types de produits" Grid.Row="5" Style="{DynamicResource btnStyle}"  Click="BtnActionClick">
+			<Button.Effect>
+				<DropShadowEffect Color="#4D000000" Direction="320" ShadowDepth="3" Opacity="0.5"/>
+			</Button.Effect>
+		</Button>
+
+	</Grid>
+</Window>
