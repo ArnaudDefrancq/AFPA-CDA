@@ -1,9 +1,0 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="gestionStock.Properties" GeneratedClassName="Settings">
-  <Profiles />
-  <Settings>
-    <Setting Name="Paramètre" Type="System.String" Scope="User">
-      <Value Profile="(Default)">"Default": "Server=localhost;User=root;Database=gestionstocksdb;Port=3306;SslMode=None;"</Value>
-    </Setting>
-  </Settings>
-</SettingsFile>
