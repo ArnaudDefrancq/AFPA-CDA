@@ -13,6 +13,13 @@ DbConnect::init();
 // $perso = new Personne(["idPersonne" => 7]);
 // $perso->setIdPersonne(1);
 // PersonneManager::delete("Personne", $perso);
-// $perso1 = PersonneManager::getListe('personne');
+$test = [
+    "nom",
+    "prenom"
+];
+
+$perso1 = PersonneManager::getList($test, null, null, null, true);
+
+var_dump($perso1);
 // PersonneManager::delete($perso);
 // Parametre::getConfig();

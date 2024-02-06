@@ -2,7 +2,7 @@
     "database": {
         "host": "localhost",
         "port": "3306",
-        "dbname": "exercice6",
+        "dbname": "personne",
         "username": "root",
         "password": "",
         "bdd": "mysql"
