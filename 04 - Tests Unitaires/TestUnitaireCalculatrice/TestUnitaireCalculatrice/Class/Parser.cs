@@ -17,26 +17,28 @@ namespace TestUnitaireCalculatrice.Class
 		protected Stack<ASTree> forest;
 
 
-		Parser()
+		public Parser()
 		{
 			this.memory = new Stack<int>();
 			this.stateStack = new Stack<int>();
 			this.forest = new Stack<ASTree>();
 		}
 
-		public static ASTree? Parse(string input)
-		{
-			Parser p = new Parser();
 
-			if (p.ParseInput(input))
-			{
-				// return AST
-			}
-			else
-			{
-				return null;
-			}
-		}
+		//public static ASTree? Parse(string input)
+		//{
+		//	Parser p = new Parser();
+
+		//	if (p.ParseInput(input))
+		//	{
+		//		// return AST
+		//		return ASTree p = new ASTree();
+		//	}
+		//	else
+		//	{
+		//		return null;
+		//	}
+		//}
 
 		// 30 + 2 * 5
 		// ou
@@ -72,6 +74,7 @@ namespace TestUnitaireCalculatrice.Class
 							.Where(c => c != String.Empty).ToArray();
 			this.pos = 0;
 
+			return this.Arith_Expr();
 		}
 
 
@@ -154,14 +157,15 @@ namespace TestUnitaireCalculatrice.Class
 			if (token == "(")
 			{
 				this.NextToken();
-				this.Arith_Expr();
-				if (this.Token() == ")")
+				bool retour = this.Arith_Expr();
+				if (retour && this.Token() == ")")
 				{
 					this.NextToken();
-					return this.Arith_Expr();
+					return true;
 				}
+				return false;
 			}
-			return false;
+			return this.Numeric();
 		}
 		protected bool Numeric()
 		{
