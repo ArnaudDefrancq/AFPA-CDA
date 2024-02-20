@@ -1,17 +1,17 @@
-create
-or replace function format_date(date date, separator varchar) returns text language plpgsql as $ $ begin return to_char(
+create or replace function format_date(date date, separator varchar) returns text language plpgsql as $$ 
+begin 
+return to_char(
     "date",
     'DD' || separator || 'MM' || separator || 'YYYY'
 );
-
 end;
+$$
 
-$ $
-select
-    format_date('2023-02-01', '/');
+select format_date('2023-02-01', '/');
 
-create
-or replace function display_order() returns text language plpgsql as $ $ declare string_result text;
+create or replace function display_order() returns text language plpgsql as $$ 
+declare 
+    string_result text;
 
 i int;
 
