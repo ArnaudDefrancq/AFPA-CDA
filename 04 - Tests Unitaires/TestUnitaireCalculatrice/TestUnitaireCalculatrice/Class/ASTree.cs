@@ -15,7 +15,7 @@ namespace TestUnitaireCalculatrice.Class
 		public ASType Type { get; set; }
 		public List<ASTree>? Children { get; set; }
 
-		public ASTree(ASType type, string root = "", List<ASTree>? children = null)
+		public ASTree(ASType type, string root = "", List<ASTree>? children = null) // Ajout compare to pour check les ASTree
 		{
 			this.Type = type;
 			this.Root = root;
